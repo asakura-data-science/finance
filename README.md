@@ -17,7 +17,8 @@
 - [4. pandasリファレンス](#4.pandasリファレンス)
 - [5. 関連リンク集](#4.関連リンク集)
 	- [5.1. 言語/ライブラリ](#4.1.言語/ライブラリ)
-	- [5.2. データベンダ](#4.2.データベンダ)
+	- [5.2. ファイナンス関連](#5.2.ファイナンス関連)
+	- [5.3. データベンダ](#4.2.データベンダ)
 
 ---
 
@@ -109,9 +110,9 @@ jupyter-lab
 - mplfinance: https://github.com/matplotlib/mplfinance
 - statsmodels: https://www.statsmodels.org/stable/index.html
 
-### 5.1. ファイナンス関連
+### 5.2. ファイナンス関連
 - Kenneth R. Frenchによるデータライブラリ: http://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html
-Fama-French 3 ファクター・モデルの元論文: https://doi.org/10.1016/0304-405X(93)90023-5
+- Fama-French 3 ファクター・モデルの元論文: https://doi.org/10.1016/0304-405X(93)90023-5
 - AIで探る株価の予測可能性: https://www.jstage.jst.go.jp/article/jbef/11/0/11_121/_article/-char/ja/
 
 ### 5.3. データベンダ
