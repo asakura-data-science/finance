@@ -14538,20 +14538,21 @@ s
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <hr>
-<h2 id="3-2.-Series&#12398;&#22522;&#26412;&#20966;&#29702;">3-2. Series&#12398;&#22522;&#26412;&#20966;&#29702;<a class="anchor-link" href="#3-2.-Series&#12398;&#22522;&#26412;&#20966;&#29702;">&#182;</a></h2><h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><p><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
+<h2 id="3-2.-Series&#12398;&#22522;&#26412;&#20966;&#29702;">3-2. Series&#12398;&#22522;&#26412;&#20966;&#29702;<a class="anchor-link" href="#3-2.-Series&#12398;&#22522;&#26412;&#20966;&#29702;">&#182;</a></h2><h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 s = pd.Series([9, 5, 7, 6])
-</pre>&lt;/td&gt;
-  <table border="1" style="table-layout:fixed;width:100%;">
+</pre><table border="1" style="table-layout:fixed;width:100%;">
     <colgroup>
       <col style="width:5%;">
       <col style="width:30%;">
       <col style="width:22%;">  
       <col style="width:23%;">
       <col style="width:20%;">    
-    </colgroup></p>
+    </colgroup>
 <tbody>
 
-<tr><th align="left">no.</th><th align="left">実行コード</th><th>入力</th><th>出力</th><th>備考</th></tr><tr style="background:#fff; border:1px solid #cc0000;">
+<tr><th align="left">no.</th><th align="left">実行コード</th><th>入力</th><th>出力</th><th>備考</th></tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-2-1</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 type(s)
@@ -14559,14 +14560,18 @@ type(s)
 <td rowspan="7" align="center"><img width="30%" src="./figures/base/base3-2data.png"></td>
 <td><font size="3">pandas.core.series.Series</font></td>
 <td>型名</td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-2-2</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 type(s)==pd.Series
 </pre></td>
 <td><font size="3">True</font></td>
 <td>型がSeriesであるかどうかをTrue/Falseで判定。</td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-2-3</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(s.values)
@@ -14574,35 +14579,45 @@ print(s.to_numpy())
 </pre></td>
 <td><font size="3">array([9, 5, 7, 6])</font></td>
 <td>値のみをndarrayで取り出す </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-2-4</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 s.dtype
 </pre></td>
 <td><font size="3">dtype('int64')</font></td>
 <td>値の型</td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr> 
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-2-5</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 s.index
 </pre></td>
 <td><font size="3">RangeIndex(start=0, stop=4, step=1)</font></td>
 <td>ラベルの内容</td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>    
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-2-6</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 s.index.to_list()
 </pre></td>
 <td><font size="3">[0, 1, 2, 3]</font></td>
 <td>ラベルの内容をリストに変換</td> 
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>     
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-2-7</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 len(s), len(s.index)
 </pre></td>
 <td><font size="3">(4, 4)</font></td>
 <td>値の個数</td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>     
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-2-8</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(s.name)
@@ -14614,7 +14629,10 @@ print(t.name)
 <td align="center"><img width="25%" src="./figures/base/base3-2-8data.png"></td>
 <td><font size="3">データsの場合：None<br>データtの場合：x</font></td>
 <td>Seriesの名前(文字列)</td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr> 
+
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-2-9</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 s.head(2)
@@ -14622,7 +14640,9 @@ s.head(2)
 <td align="center"><img width="25%" src="./figures/base/base3-2-9data.png"></td>
 <td align="center"><img width="25%" src="./figures/base/base3-2-9st.png"></td>  
 <td>先頭のみ選択(件数省略時は6件) </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-2-10</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 s.tail(2)
@@ -14630,7 +14650,9 @@ s.tail(2)
 <td align="center"><img width="25%" src="./figures/base/base3-2-10data.png"></td>
 <td align="center"><img width="25%" src="./figures/base/base3-2-10st.png"></td>
 <td>末尾のみ選択(件数省略時は6件)</td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-2-11</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 s.astype(float)
@@ -14638,7 +14660,9 @@ s.astype(float)
 <td align="center"><img width="28%" src="./figures/base/base3-2-11data.png"></td>
 <td align="center"><img width="30%" src="./figures/base/base3-2-11st.png"></td>
 <td>値の型の変換。型がfloat型に変換(キャスト)される</td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>  
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-2-12</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 ss = s.copy()
@@ -14652,7 +14676,9 @@ print(tt)
 <td align="center"><img width="30%" src="./figures/base/base3-2-12data.png"></td>
 <td align="center"><img width="30%" src="./figures/base/base3-2-12st.png"></td>
 <td> 名前を変更<br> データsの場合：'None'が'y'<br>データtの場合：'x'が'y'に書き換えられる。</td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>    
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-2-13</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 ss = s.copy()
@@ -14662,7 +14688,9 @@ print(ss)
 <td align="center"><img width="30%" src="./figures/base/base3-2-13data.png"></td>
 <td align="center"><img width="28%" src="./figures/base/base3-2-13st.png"></td>
 <td>ラベルを変更。</td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr> 
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-2-14</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 ss = s.copy()
@@ -14675,7 +14703,9 @@ print(ss)
 <td align="center"><img width="30%" src="./figures/base/base3-2-14data.png"></td>
 <td align="center"><img width="30%" src="./figures/base/base3-2-14st.png"></td>
 <td>indexの軸名(axis name)の変更方法。</td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr> 
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-2-15</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(dir(s))
@@ -14683,9 +14713,11 @@ print(dir(s))
 <td align="center"><img width="30%" src="./figures/base/base3-2-15data.png"></td>
 <td><font size="3">['T', '_AXIS_LEN', '_AXIS_NAMES', ... ,'values', 'var', 'view', 'where', 'xs']</font> </td>
 <td>オブジェクトsの属性/メソッド一覧</td>
-</tr><p>&lt;/tbody&gt;
-&lt;/table&gt;</p>
+</tr> 
 
+
+</tbody>
+</table>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
