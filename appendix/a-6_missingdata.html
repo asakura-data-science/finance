@@ -14281,43 +14281,29 @@ PythonではNoneという値が使われ、Pandasのfloat型においてはnp.na
 <hr>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <hr>
-<h2 id="1.-&#22522;&#26412;">1. &#22522;&#26412;<a class="anchor-link" href="#1.-&#22522;&#26412;">&#182;</a></h2><h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><p><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
+<h2 id="1.-&#22522;&#26412;">1. &#22522;&#26412;<a class="anchor-link" href="#1.-&#22522;&#26412;">&#182;</a></h2><h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 d = pd.DataFrame(
     {'x':[1.0, None, 3.0, None],
      'y':[1.5, None, None, 1.0],
      'z':[4.0, None, 2.0, 1.0 ]}
 )
-</pre>&lt;/td&gt;
-  <table border="1" style="table-layout:fixed;width:100%;">
+</pre><table border="1" style="table-layout:fixed;width:100%;">
     <colgroup>
       <col style="width:3%;">
       <col style="width:30%;">
       <col style="width:25%;">  
       <col style="width:25%;">
       <col style="width:17%;">
-    </colgroup></p>
+    </colgroup>
 <tbody>
 
-<tr><th align="left">no.</th><th align="left">実行コード</th><th align="left">入力</th><th align="left">出力</th><th>備考</th></tr><tr style="background:#fff; border:1px solid #cc0000;">
+<tr><th align="left">no.</th><th align="left">実行コード</th><th align="left">入力</th><th align="left">出力</th><th>備考</th></tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>1-1</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(d.isna())
@@ -14327,7 +14313,9 @@ print(d.isna())
 <td>
 isna()メソッドで、値がNAかどうかをTrue/Falseで出力できる。    
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>1-2</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(d['x'].isna())
@@ -14337,7 +14325,9 @@ print(d['x'].isna())
 <td>
 Seriesに対して利用することも可能。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>1-3</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(d.notna())
@@ -14347,7 +14337,9 @@ print(d.notna())
 <td>
 notna()メソッドはisna()の逆の動きをする。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>1-4</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(d[d['x'].isna()])
@@ -14357,7 +14349,9 @@ print(d[d['x'].isna()])
 <td>
 []演算子と組み合わせればNAの行を選択することができる。<br>x列がNAの行を選択する例。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>1-5</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(d * 2)
@@ -14367,7 +14361,9 @@ print(d * 2)
 <td>
 NAに対する演算はNA。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>1-6</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(d > 0)
@@ -14377,7 +14373,9 @@ print(d > 0)
 <td>
 NAに対する比較演算はFalse
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>1-7</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(d.sum(axis=1))
@@ -14387,7 +14385,9 @@ print(d.sum(axis=1))
 <td>
 sum()などの集約メソッドについてはNAは無視される。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>1-8</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(d.sum(axis=1, skipna=False))
@@ -14397,7 +14397,9 @@ print(d.sum(axis=1, skipna=False))
 <td>
 ただし、skipna=Falseと明示的に指定すれば、NAがあれば演算結果もNAとなる。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>1-9</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 df = pd.DataFrame({'a':[1, -2, 3]})
@@ -14412,254 +14414,36 @@ print(df/0)
 <td>
 0割り算の結果をinfからNaNに変更することも可能。
 </td>
-</tr><p>&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/div&gt;</p>
+</tr>
 
+
+</tbody>
+</table>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># 入力データ</span>
-<span class="s1"># float型でNoneを指定すればNA(np.nan)になる。</span>
-<span class="s1">&gt;&gt;&gt; d = pd.DataFrame(</span>
-<span class="s1">        {&#39;x&#39;:[1.0, None, 3.0, None],</span>
-<span class="s1">         &#39;y&#39;:[1.5, None, None, 1.0],</span>
-<span class="s1">         &#39;z&#39;:[4.0, None, 2.0, 1.0 ]}</span>
-<span class="s1">    )</span>
-<span class="s1">&gt;&gt;&gt; print(d)</span>
-<span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">d</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-    <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:[</span><span class="mf">1.0</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span>
-     <span class="s1">&#39;y&#39;</span><span class="p">:[</span><span class="mf">1.5</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
-     <span class="s1">&#39;z&#39;</span><span class="p">:[</span><span class="mf">4.0</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span> <span class="p">]}</span>
-<span class="p">)</span>
-<span class="c1">#d = pd.DataFrame({&#39;x&#39;:[1.0, None, 3.0, None], &#39;y&#39;:[1.5, None, None, 1.0], &#39;z&#39;:[pd.Period(&#39;2021-12-01&#39;, freq=&#39;D&#39;), None ,pd.Period(&#39;2021-12-12&#39;, freq=&#39;D&#39;) ,pd.Period(&#39;2021-12-12&#39;, freq=&#39;D&#39;)]})</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.1-1</span>
-<span class="s1"># isna()メソッドで、値がNAかどうかをTrue/Falseで出力できる。</span>
-<span class="s1">&gt;&gt;&gt; print(d.isna())&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">isna</span><span class="p">())</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.1-2</span>
-<span class="s1"># Seriesに対して利用することも可能</span>
-<span class="s1">&gt;&gt;&gt; print(d[&#39;x&#39;].isna())&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">())</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.1-3</span>
-<span class="s1"># notna()メソッドはisna()の逆の動きをする。</span>
-<span class="s1">&gt;&gt;&gt; print(d.notna())&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">notna</span><span class="p">())</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.1-4</span>
-<span class="s1"># []演算子と組み合わせればNAの行を選択することができる。</span>
-<span class="s1"># x列がNAの行を選択する例。</span>
-<span class="s1">&gt;&gt;&gt; print(d[d[&#39;x&#39;].isna()])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.1-5</span>
-<span class="s1"># NAに対する演算はNA。</span>
-<span class="s1">&gt;&gt;&gt; print(d * 2)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.1-6</span>
-<span class="s1"># NAに対する比較演算はFalse</span>
-<span class="s1">&gt;&gt;&gt; print(d &gt; 0)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.1-7</span>
-<span class="s1"># sum()などの集約メソッドについてはNAは無視される。</span>
-<span class="s1">&gt;&gt;&gt; print(d.sum(axis=1))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.1-8</span>
-<span class="s1"># ただし、skipna=Falseと明示的に指定すれば、NAがあれば演算結果もNAとなる。</span>
-<span class="s1">&gt;&gt;&gt; print(d.sum(axis=1, skipna=False))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.1-9</span>
-<span class="s1"># 0割り算の結果をinfからNaNに変更することも可能。</span>
-<span class="s1">&gt;&gt;&gt; df = pd.DataFrame({&#39;a&#39;:[1, -2, 3]})</span>
-<span class="s1">&gt;&gt;&gt; pd.options.mode.use_inf_as_na = False</span>
-<span class="s1">&gt;&gt;&gt; print(df/0)</span>
-<span class="s1">&gt;&gt;&gt; pd.options.mode.use_inf_as_na = True</span>
-<span class="s1">&gt;&gt;&gt; print(df/0)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]})</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">mode</span><span class="o">.</span><span class="n">use_inf_as_na</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">/</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">mode</span><span class="o">.</span><span class="n">use_inf_as_na</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">/</span><span class="mi">0</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>
-# 入力データ
-# float型でNoneを指定すればNA(np.nan)になる。
-&gt;&gt;&gt; d = pd.DataFrame(
-        {&#39;x&#39;:[1.0, None, 3.0, None],
-         &#39;y&#39;:[1.5, None, None, 1.0],
-         &#39;z&#39;:[4.0, None, 2.0, 1.0 ]}
-    )
-&gt;&gt;&gt; print(d)
-
-     x    y    z
-0  1.0  1.5  4.0
-1  NaN  NaN  NaN
-2  3.0  NaN  2.0
-3  NaN  1.0  1.0
-
-# no.1-1
-# isna()メソッドで、値がNAかどうかをTrue/Falseで出力できる。
-&gt;&gt;&gt; print(d.isna())
-       x      y      z
-0  False  False  False
-1   True   True   True
-2  False   True  False
-3   True  False  False
-
-# no.1-2
-# Seriesに対して利用することも可能
-&gt;&gt;&gt; print(d[&#39;x&#39;].isna())
-0    False
-1     True
-2    False
-3     True
-Name: x, dtype: bool
-
-# no.1-3
-# notna()メソッドはisna()の逆の動きをする。
-&gt;&gt;&gt; print(d.notna())
-       x      y      z
-0   True   True   True
-1  False  False  False
-2   True  False   True
-3  False   True   True
-
-# no.1-4
-# []演算子と組み合わせればNAの行を選択することができる。
-# x列がNAの行を選択する例。
-&gt;&gt;&gt; print(d[d[&#39;x&#39;].isna()])
-    x    y    z
-1 NaN  NaN  NaN
-3 NaN  1.0  1.0
-
-# no.1-5
-# NAに対する演算はNA。
-&gt;&gt;&gt; print(d * 2)
-     x    y    z
-0  2.0  3.0  8.0
-1  NaN  NaN  NaN
-2  6.0  NaN  4.0
-3  NaN  2.0  2.0
-
-# no.1-6
-# NAに対する比較演算はFalse
-&gt;&gt;&gt; print(d &gt; 0)
-       x      y      z
-0   True   True   True
-1  False  False  False
-2   True  False   True
-3  False   True   True
-
-# no.1-7
-# sum()などの集約メソッドについてはNAは無視される。
-&gt;&gt;&gt; print(d.sum(axis=1))
-0    6.5
-1    0.0
-2    5.0
-3    2.0
-dtype: float64
-
-# no.1-8
-# ただし、skipna=Falseと明示的に指定すれば、NAがあれば演算結果もNAとなる。
-&gt;&gt;&gt; print(d.sum(axis=1, skipna=False))
-0    6.5
-1    NaN
-2    NaN
-3    NaN
-dtype: float64
-
-# no.1-9
-# 0割り算の結果をinfからNaNに変更することも可能。
-&gt;&gt;&gt; df = pd.DataFrame({&#39;a&#39;:[1, -2, 3]})
-&gt;&gt;&gt; pd.options.mode.use_inf_as_na = False
-&gt;&gt;&gt; print(df/0)
-&gt;&gt;&gt; pd.options.mode.use_inf_as_na = True
-&gt;&gt;&gt; print(df/0)
-   a
-0  1
-1 -2
-2  3
-     a
-0  inf
-1 -inf
-2  inf
-    a
-0 NaN
-1 NaN
-2 NaN
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <hr>
 <h1 id="2.-null&#20516;&#12434;&#21547;&#12416;&#34892;&#12398;&#21066;&#38500;">2. null&#20516;&#12434;&#21547;&#12416;&#34892;&#12398;&#21066;&#38500;<a class="anchor-link" href="#2.-null&#20516;&#12434;&#21547;&#12416;&#34892;&#12398;&#21066;&#38500;">&#182;</a></h1><p>以下の例は、dropna(axis=1)のように、axisパラメータを付け加えることで列の削除にも適用できる。</p>
-<h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><p><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
+<h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 d = pd.DataFrame(
     {'x':[1.0, None, 3.0, None],
      'y':[1.5, None, None, 1.0],
      'z':[4.0, None, 2.0, 1.0 ]}
 )
-</pre>&lt;/td&gt;
-  <table border="1" style="table-layout:fixed;width:100%;">
+</pre><table border="1" style="table-layout:fixed;width:100%;">
     <colgroup>
       <col style="width:3%;">
       <col style="width:30%;">
       <col style="width:25%;">  
       <col style="width:25%;">
       <col style="width:17%;">
-    </colgroup></p>
+    </colgroup>
 <tbody>
 
-<tr><th align="left">no.</th><th align="left">実行コード</th><th>入力</th><th>出力</th><th>備考</th></tr><tr style="background:#fff; border:1px solid #cc0000;">
+<tr><th align="left">no.</th><th align="left">実行コード</th><th>入力</th><th>出力</th><th>備考</th></tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>2-1</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(d.dropna())
@@ -14669,7 +14453,9 @@ print(d.dropna())
 <td>
 dropna()でNAを含む行を削除できる。DataFrameに適用すると、いずれかの列がNAであれば削除される。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>2-2</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(d.dropna(how='all'))
@@ -14679,7 +14465,9 @@ print(d.dropna(how='all'))
 <td>
 how='all'とすれば、全ての列がNAである行のみが削除される。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>2-3</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(d.dropna(subset=['x', 'y'], how='all'))
@@ -14689,137 +14477,34 @@ print(d.dropna(subset=['x', 'y'], how='all'))
 <td>
 列の一部のNAを評価したければsubset=を用いる。２つの列x,yがいずれもNAの行を削除する。
 </td>
-</tr><p>&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/div&gt;</p>
+</tr>
 
+</tbody>
+</table>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># 入力データ</span>
-<span class="s1">&gt;&gt;&gt; d = pd.DataFrame(</span>
-<span class="s1">        {&#39;x&#39;:[1.0, None, 3.0, None],</span>
-<span class="s1">         &#39;y&#39;:[1.5, None, None, 1.0],</span>
-<span class="s1">         &#39;z&#39;:[4.0, None, 2.0, 1.0 ]}</span>
-<span class="s1">    )</span>
-<span class="s1">&gt;&gt;&gt; print(d)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">d</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-    <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:[</span><span class="mf">1.0</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span>
-     <span class="s1">&#39;y&#39;</span><span class="p">:[</span><span class="mf">1.5</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
-     <span class="s1">&#39;z&#39;</span><span class="p">:[</span><span class="mf">4.0</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span> <span class="p">]}</span>
-<span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-1</span>
-<span class="s1"># dropna()でNAを含む行を削除できる。</span>
-<span class="s1"># DataFrameに適用すると、いずれかの列がNAであれば削除される。</span>
-<span class="s1">&gt;&gt;&gt; print(d.dropna())&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">dropna</span><span class="p">())</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-2</span>
-<span class="s1"># how=&#39;all&#39;とすれば、全ての列がNAである行のみが削除される。</span>
-<span class="s1">&gt;&gt;&gt; print(d.dropna(how=&#39;all&#39;))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-3</span>
-<span class="s1"># 列の一部のNAを評価したければsubset=を用いる。</span>
-<span class="s1"># ２つの列x,yがいずれもNAの行を削除する。</span>
-<span class="s1">&gt;&gt;&gt; print(d.dropna(subset=[&#39;x&#39;, &#39;y&#39;], how=&#39;all&#39;))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">],</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">))</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>
-# 入力データ
-&gt;&gt;&gt; d = pd.DataFrame(
-        {&#39;x&#39;:[1.0, None, 3.0, None],
-         &#39;y&#39;:[1.5, None, None, 1.0],
-         &#39;z&#39;:[4.0, None, 2.0, 1.0 ]}
-    )
-&gt;&gt;&gt; print(d)
-     x    y    z
-0  1.0  1.5  4.0
-1  NaN  NaN  NaN
-2  3.0  NaN  2.0
-3  NaN  1.0  1.0
-
-# no.2-1
-# dropna()でNAを含む行を削除できる。
-# DataFrameに適用すると、いずれかの列がNAであれば削除される。
-&gt;&gt;&gt; print(d.dropna())
-     x    y    z
-0  1.0  1.5  4.0
-
-# no.2-2
-# how=&#39;all&#39;とすれば、全ての列がNAである行のみが削除される。
-&gt;&gt;&gt; print(d.dropna(how=&#39;all&#39;))
-     x    y    z
-0  1.0  1.5  4.0
-2  3.0  NaN  2.0
-3  NaN  1.0  1.0
-
-# no.2-3
-# 列の一部のNAを評価したければsubset=を用いる。
-# ２つの列x,yがいずれもNAの行を削除する。
-&gt;&gt;&gt; print(d.dropna(subset=[&#39;x&#39;, &#39;y&#39;], how=&#39;all&#39;))
-     x    y    z
-0  1.0  1.5  4.0
-2  3.0  NaN  2.0
-3  NaN  1.0  1.0
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <hr>
-<h1 id="3.-null&#20516;&#12398;&#32622;&#25563;(fillna,-combine_first)">3. null&#20516;&#12398;&#32622;&#25563;(fillna, combine_first)<a class="anchor-link" href="#3.-null&#20516;&#12398;&#32622;&#25563;(fillna,-combine_first)">&#182;</a></h1><h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><p><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
+<h1 id="3.-null&#20516;&#12398;&#32622;&#25563;(fillna,-combine_first)">3. null&#20516;&#12398;&#32622;&#25563;(fillna, combine_first)<a class="anchor-link" href="#3.-null&#20516;&#12398;&#32622;&#25563;(fillna,-combine_first)">&#182;</a></h1><h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 d = pd.DataFrame(
     {'x':[1.0, None, 3.0, None],
      'y':[1.5, None, None, 1.0],
      'z':[4.0, None, 2.0, 1.0]}
 )
-</pre>&lt;/td&gt;
-  <table border="1" style="table-layout:fixed;width:100%;">
+</pre><table border="1" style="table-layout:fixed;width:100%;">
     <colgroup>
       <col style="width:3%;">
       <col style="width:30%;">
       <col style="width:25%;">  
       <col style="width:25%;">
       <col style="width:17%;">
-    </colgroup></p>
+    </colgroup>
 <tbody>
 
-<tr><th align="left">no.</th><th align="left">実行コード</th><th>入力</th><th>出力</th><th>備考</th></tr><tr style="background:#fff; border:1px solid #cc0000;">
+<tr><th align="left">no.</th><th align="left">実行コード</th><th>入力</th><th>出力</th><th>備考</th></tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-1</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(d.fillna(0))
@@ -14829,7 +14514,9 @@ print(d.fillna(0))
 <td>
 NAを0に置換する。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-2</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(d.fillna({'x':-1, 'y':0, 'z':999}))
@@ -14839,7 +14526,9 @@ print(d.fillna({'x':-1, 'y':0, 'z':999}))
 <td>
 辞書で列別に置換する値を指定することも可能。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-3</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(d.fillna(method='ffill'))
@@ -14849,7 +14538,9 @@ print(d.fillna(method='ffill'))
 <td>
 method='ffill'とすることで、同じ列のNAでない直近の値で埋める。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-4</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(d.fillna(method='bfill'))
@@ -14859,7 +14550,9 @@ print(d.fillna(method='bfill'))
 <td>
 method='bfill'は、ffillと逆で後ろから見ての直近の値で埋める。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-5</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 dd = d.copy()
@@ -14872,7 +14565,9 @@ print(dd)
 combine_firstを用いることで、同じサイズの他のSeriesで埋めることができる。<br>
 x列に、同サイズのSeries[1,2,3,4]を重ねて、x列NAの部分を該当する位置の値で置換する。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-6</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 dd = d.copy()
@@ -14884,193 +14579,30 @@ print(dd)
 <td>
 x列のNAをz列で置換する。
 </td>
-</tr><p>&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/div&gt;</p>
+</tr>
 
+</tbody>
+</table>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># 入力データ</span>
-<span class="s1">&gt;&gt;&gt; d = pd.DataFrame(</span>
-<span class="s1">        {&#39;x&#39;:[1.0, None, 3.0, None],</span>
-<span class="s1">         &#39;y&#39;:[1.5, None, None, 1.0],</span>
-<span class="s1">         &#39;z&#39;:[4.0, None, 2.0, 1.0]}</span>
-<span class="s1">    )</span>
-<span class="s1">&gt;&gt;&gt; print(d)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">d</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-    <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:[</span><span class="mf">1.0</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span>
-     <span class="s1">&#39;y&#39;</span><span class="p">:[</span><span class="mf">1.5</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
-     <span class="s1">&#39;z&#39;</span><span class="p">:[</span><span class="mf">4.0</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]}</span>
-<span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.3-1</span>
-<span class="s1"># NAを0に置換する。</span>
-<span class="s1">&gt;&gt;&gt; print(d.fillna(0))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.3-2</span>
-<span class="s1"># 辞書で列別に値を指定することも可能。</span>
-<span class="s1">&gt;&gt;&gt; print(d.fillna({&#39;x&#39;:-1, &#39;y&#39;:0, &#39;z&#39;:999}))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">fillna</span><span class="p">({</span><span class="s1">&#39;x&#39;</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">:</span><span class="mi">999</span><span class="p">}))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.3-3</span>
-<span class="s1"># method=&#39;ffill&#39;とすることで、同じ列のNAでない直近の値で埋める。</span>
-<span class="s1">&gt;&gt;&gt; print(d.fillna(method=&#39;ffill&#39;))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;ffill&#39;</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.3-4</span>
-<span class="s1"># method=&#39;bfill&#39;は、ffillと逆で後ろから見ての直近の値で埋める。</span>
-<span class="s1">&gt;&gt;&gt; print(d.fillna(method=&#39;bfill&#39;))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;bfill&#39;</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.3-5</span>
-<span class="s1"># combine_firstを用いることで、同じサイズの他のSeriesで埋めることができる。</span>
-<span class="s1"># x列に、同サイズのSeries[1,2,3,4]を重ねて、x列NAの部分を該当する位置の値で置換する。</span>
-<span class="s1">&gt;&gt;&gt; dd = d.copy()</span>
-<span class="s1">&gt;&gt;&gt; dd[&#39;x&#39;] = dd[&#39;x&#39;].combine_first(pd.Series([1, 2, 3, 4]))</span>
-<span class="s1">&gt;&gt;&gt; print(dd)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dd</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">dd</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dd</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">combine_first</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.3-6</span>
-<span class="s1"># x列のNAをz列で置換する。</span>
-<span class="s1">&gt;&gt;&gt; dd = d.copy()</span>
-<span class="s1">&gt;&gt;&gt; dd[&#39;x&#39;] = dd[&#39;x&#39;].combine_first(dd[&#39;z&#39;])</span>
-<span class="s1">&gt;&gt;&gt; print(dd)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dd</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">dd</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dd</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">combine_first</span><span class="p">(</span><span class="n">dd</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>
-# 入力データ
-&gt;&gt;&gt; d = pd.DataFrame(
-        {&#39;x&#39;:[1.0, None, 3.0, None],
-         &#39;y&#39;:[1.5, None, None, 1.0],
-         &#39;z&#39;:[4.0, None, 2.0, 1.0]}
-    )
-&gt;&gt;&gt; print(d)
-     x    y    z
-0  1.0  1.5  4.0
-1  NaN  NaN  NaN
-2  3.0  NaN  2.0
-3  NaN  1.0  1.0
-
-# no.3-1
-# NAを0に置換する。
-&gt;&gt;&gt; print(d.fillna(0))
-     x    y    z
-0  1.0  1.5  4.0
-1  0.0  0.0  0.0
-2  3.0  0.0  2.0
-3  0.0  1.0  1.0
-
-# no.3-2
-# 辞書で列別に値を指定することも可能。
-&gt;&gt;&gt; print(d.fillna({&#39;x&#39;:-1, &#39;y&#39;:0, &#39;z&#39;:999}))
-     x    y      z
-0  1.0  1.5    4.0
-1 -1.0  0.0  999.0
-2  3.0  0.0    2.0
-3 -1.0  1.0    1.0
-
-# no.3-3
-# method=&#39;ffill&#39;とすることで、同じ列のNAでない直近の値で埋める。
-&gt;&gt;&gt; print(d.fillna(method=&#39;ffill&#39;))
-     x    y    z
-0  1.0  1.5  4.0
-1  1.0  1.5  4.0
-2  3.0  1.5  2.0
-3  3.0  1.0  1.0
-
-# no.3-4
-# method=&#39;bfill&#39;は、ffillと逆で後ろから見ての直近の値で埋める。
-&gt;&gt;&gt; print(d.fillna(method=&#39;bfill&#39;))
-     x    y    z
-0  1.0  1.5  4.0
-1  3.0  1.0  2.0
-2  3.0  1.0  2.0
-3  NaN  1.0  1.0
-
-# no.3-5
-# combine_firstを用いることで、同じサイズの他のSeriesで埋めることができる。
-# x列に、同サイズのSeries[1,2,3,4]を重ねて、x列NAの部分を該当する位置の値で置換する。
-&gt;&gt;&gt; dd = d.copy()
-&gt;&gt;&gt; dd[&#39;x&#39;] = dd[&#39;x&#39;].combine_first(pd.Series([1, 2, 3, 4]))
-&gt;&gt;&gt; print(dd)
-     x    y    z
-0  1.0  1.5  4.0
-1  2.0  NaN  NaN
-2  3.0  NaN  2.0
-3  4.0  1.0  1.0
-
-# no.3-6
-# x列のNAをz列で置換する。
-&gt;&gt;&gt; dd = d.copy()
-&gt;&gt;&gt; dd[&#39;x&#39;] = dd[&#39;x&#39;].combine_first(dd[&#39;z&#39;])
-&gt;&gt;&gt; print(dd)
-     x    y    z
-0  1.0  1.5  4.0
-1  NaN  NaN  NaN
-2  3.0  NaN  2.0
-3  1.0  1.0  1.0
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <hr>
-<h2 id="4.-NA&#12398;&#25968;&#20516;&#35036;&#23436;(interpolate)">4. NA&#12398;&#25968;&#20516;&#35036;&#23436;(interpolate)<a class="anchor-link" href="#4.-NA&#12398;&#25968;&#20516;&#35036;&#23436;(interpolate)">&#182;</a></h2><h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><p><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
+<h2 id="4.-NA&#12398;&#25968;&#20516;&#35036;&#23436;(interpolate)">4. NA&#12398;&#25968;&#20516;&#35036;&#23436;(interpolate)<a class="anchor-link" href="#4.-NA&#12398;&#25968;&#20516;&#35036;&#23436;(interpolate)">&#182;</a></h2><h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 a = pd.Series([4, 8, 2, None, None, 3])
-</pre>&lt;/td&gt;
-  <table border="1" style="table-layout:fixed;width:100%;">
+</pre><table border="1" style="table-layout:fixed;width:100%;">
     <colgroup>
       <col style="width:3%;">
       <col style="width:30%;">
       <col style="width:25%;">  
       <col style="width:25%;">
       <col style="width:17%;">
-    </colgroup></p>
+    </colgroup>
 <tbody>
 
-<tr><th align="left">no.</th><th align="left">実行コード</th><th align="left">入力</th><th align="left">出力</th><th>備考</th></tr><tr style="background:#fff; border:1px solid #cc0000;">
+<tr><th align="left">no.</th><th align="left">実行コード</th><th align="left">入力</th><th align="left">出力</th><th>備考</th></tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>4-1</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(a.interpolate())
@@ -15080,7 +14612,9 @@ print(a.interpolate())
 <td>
 NAを挟んで前後の数値からNAを線形補間する(method='linear')
 </td>
-</tr><p><tr style="background:#fff; border:1px solid #cc0000;"></p>
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>4-2</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(pd.Series([4, 8, 2, None, 3]).interpolate(method='spline', order=2))
@@ -15092,118 +14626,30 @@ indexをx軸、Seriesの値をy軸とした時の2次のスプライン補間を
 methodに指定できるパラメータ: 'nearest', 'zero', 'slinear', 'quadratic', 'cubic', 'spline', 'barycentric', 'polynomial'
 これらのパラメータはscipyのinterpolate.interp1dメソッドに渡される。詳細は次のサイトのindパラメータを参照のこと。
 <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.interp1d.html">scipy.interpolate.interp1d</a>
-</td><p>&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/div&gt;</p>
+</td>
 
+</tbody>
+</table>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[35]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># 入力データ</span>
-<span class="s1">&gt;&gt;&gt; a = pd.Series([4, 8, 2, None, None, 3])</span>
-<span class="s1">&gt;&gt;&gt; print(a)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.4-1</span>
-<span class="s1"># NAを挟んで前後の数値からNAを線形補間する(method=&#39;linear&#39;)。</span>
-<span class="s1">&gt;&gt;&gt; print(a.interpolate())&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">interpolate</span><span class="p">())</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.4-2</span>
-<span class="s1"># indexをx軸、Seriesの値をy軸とした時の2次のスプライン補間(indexをx軸とするのでmulti indexでは利用不可)</span>
-<span class="s1"># methodに指定できるパラメータ: &#39;nearest&#39;, &#39;zero&#39;, &#39;slinear&#39;, &#39;quadratic&#39;, &#39;cubic&#39;, &#39;spline&#39;, &#39;barycentric&#39;, &#39;polynomial&#39;</span>
-<span class="s1"># これらのパラメータはscipyのinterpolate.interp1dメソッドに渡される。詳細は以下のサイトを参照のこと。</span>
-<span class="s1"># https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.interp1d.html</span>
-<span class="s1">&gt;&gt;&gt; print(pd.Series([4, 8, 2, None, 3]).interpolate(method=&#39;spline&#39;, order=2))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;spline&#39;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>
-# 入力データ
-&gt;&gt;&gt; a = pd.Series([4, 8, 2, None, None, 3])
-&gt;&gt;&gt; print(a)
-0    4.0
-1    8.0
-2    2.0
-3    NaN
-4    NaN
-5    3.0
-dtype: float64
-
-# no.4-1
-# NAを挟んで前後の数値からNAを線形補間する(method=&#39;linear&#39;)。
-&gt;&gt;&gt; print(a.interpolate())
-0    4.000000
-1    8.000000
-2    2.000000
-3    2.333333
-4    2.666667
-5    3.000000
-dtype: float64
-
-# no.4-2
-# indexをx軸、Seriesの値をy軸とした時の2次のスプライン補間(indexをx軸とするのでmulti indexでは利用不可)
-# methodに指定できるパラメータ: &#39;nearest&#39;, &#39;zero&#39;, &#39;slinear&#39;, &#39;quadratic&#39;, &#39;cubic&#39;, &#39;spline&#39;, &#39;barycentric&#39;, &#39;polynomial&#39;
-# これらのパラメータはscipyのinterpolate.interp1dメソッドに渡される。詳細は以下のサイトを参照のこと。
-# https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.interp1d.html
-&gt;&gt;&gt; print(pd.Series([4, 8, 2, None, 3]).interpolate(method=&#39;spline&#39;, order=2))
-0    4.000000
-1    8.000000
-2    2.000000
-3    1.536056
-4    3.000000
-dtype: float64
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <hr>
-<h2 id="5.-&#26465;&#20214;&#25351;&#23450;&#12395;&#12424;&#12427;NA&#12408;&#12398;&#32622;&#25563;">5. &#26465;&#20214;&#25351;&#23450;&#12395;&#12424;&#12427;NA&#12408;&#12398;&#32622;&#25563;<a class="anchor-link" href="#5.-&#26465;&#20214;&#25351;&#23450;&#12395;&#12424;&#12427;NA&#12408;&#12398;&#32622;&#25563;">&#182;</a></h2><h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><p><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
+<h2 id="5.-&#26465;&#20214;&#25351;&#23450;&#12395;&#12424;&#12427;NA&#12408;&#12398;&#32622;&#25563;">5. &#26465;&#20214;&#25351;&#23450;&#12395;&#12424;&#12427;NA&#12408;&#12398;&#32622;&#25563;<a class="anchor-link" href="#5.-&#26465;&#20214;&#25351;&#23450;&#12395;&#12424;&#12427;NA&#12408;&#12398;&#32622;&#25563;">&#182;</a></h2><h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 d = pd.DataFrame({'x':[1., 2., 6., 4.],'y':[10., 3., 8., 4]})
-</pre>&lt;/td&gt;
-  <table border="1" style="table-layout:fixed;width:100%;">
+</pre><table border="1" style="table-layout:fixed;width:100%;">
     <colgroup>
       <col style="width:3%;">
       <col style="width:30%;">
       <col style="width:25%;">  
       <col style="width:25%;">
       <col style="width:17%;">
-    </colgroup></p>
+    </colgroup>
 <tbody>
 
-<tr><th align="left">no.</th><th align="left">実行コード</th><th align="left">入力</th><th align="left">出力</th><th>備考</th></tr><tr style="background:#fff; border:1px solid #cc0000;">
+<tr><th align="left">no.</th><th align="left">実行コード</th><th align="left">入力</th><th align="left">出力</th><th>備考</th></tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>5-1</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 dd = d.copy()
@@ -15215,7 +14661,9 @@ print(dd)
 <td>
 NAをセットするにはNoneもしくはnp.nanを代入すればよい。x列が6以上のx列の値をNAを代入する例。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>5-2</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 dd = d.where(d>=6)
@@ -15226,7 +14674,9 @@ print(dd)
 <td>
 DataFrame全体に対して条件によるNA置換を行うのであればweher()メソッドが便利。DataFrame.where()は、与えた条件に一致しない値をNAに置換する。6以上はそのままに、6より小さい値をNAに置換する。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>5-3</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 dd = d.mask(d>=6)
@@ -15237,138 +14687,11 @@ print(dd)
 <td>
 逆にmask()は、与えた条件に一致する値をNAに置換する。6以上の値をNAに置換する。
 </td>
-</tr><p>&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/div&gt;</p>
+</tr>
 
+</tbody>
+</table>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># 入力データ</span>
-<span class="s1">&gt;&gt;&gt; d = pd.DataFrame({&#39;x&#39;:[1., 2., 6., 4.],&#39;y&#39;:[10., 3., 8., 4]})</span>
-<span class="s1">&gt;&gt;&gt; print(d)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">d</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;x&#39;</span><span class="p">:[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">6.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">],</span><span class="s1">&#39;y&#39;</span><span class="p">:[</span><span class="mf">10.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">8.</span><span class="p">,</span> <span class="mi">4</span><span class="p">]})</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.5-1</span>
-<span class="s1"># NAをセットするにはNoneもしくはnp.nanを代入すればよい。</span>
-<span class="s1"># x列が6以上のx列の値をNAを代入する例。</span>
-<span class="s1">&gt;&gt;&gt; dd = d.copy()</span>
-<span class="s1">&gt;&gt;&gt; dd.loc[dd[&#39;x&#39;] &gt;= 6, &#39;x&#39;] = None</span>
-<span class="s1">&gt;&gt;&gt; print(dd)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dd</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">dd</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">dd</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.5-2</span>
-<span class="s1"># DataFrame全体に対して条件によるNA置換を行うのであればweher()メソッドが便利。</span>
-<span class="s1"># DataFrame.where()は、与えた条件に一致しない値をNAに置換する。</span>
-<span class="s1"># 6以上はそのままに、６より小さい値をNAに置換する。</span>
-<span class="s1">&gt;&gt;&gt; dd = d.where(d&gt;=6)</span>
-<span class="s1">&gt;&gt;&gt; print(dd)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dd</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">d</span><span class="o">&gt;=</span><span class="mi">6</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.5-3</span>
-<span class="s1"># 逆にmask()は、与えた条件に一致する値をNAに置換する。</span>
-<span class="s1"># 6以上の値をNAに置換する。</span>
-<span class="s1">&gt;&gt;&gt; dd = d.mask(d&gt;=6)</span>
-<span class="s1">&gt;&gt;&gt; print(dd)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dd</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">mask</span><span class="p">(</span><span class="n">d</span><span class="o">&gt;=</span><span class="mi">6</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>
-# 入力データ
-&gt;&gt;&gt; d = pd.DataFrame({&#39;x&#39;:[1., 2., 6., 4.],&#39;y&#39;:[10., 3., 8., 4]})
-&gt;&gt;&gt; print(d)
-     x     y
-0  1.0  10.0
-1  2.0   3.0
-2  6.0   8.0
-3  4.0   4.0
-
-# no.5-1
-# NAをセットするにはNoneもしくはnp.nanを代入すればよい。
-# x列が6以上のx列の値をNAを代入する例。
-&gt;&gt;&gt; dd = d.copy()
-&gt;&gt;&gt; dd.loc[dd[&#39;x&#39;] &gt;= 6, &#39;x&#39;] = None
-&gt;&gt;&gt; print(dd)
-     x     y
-0  1.0  10.0
-1  2.0   3.0
-2  NaN   8.0
-3  4.0   4.0
-
-# no.5-2
-# DataFrame全体に対して条件によるNA置換を行うのであればweher()メソッドが便利。
-# DataFrame.where()は、与えた条件に一致しない値をNAに置換する。
-# 6以上はそのままに、６より小さい値をNAに置換する。
-&gt;&gt;&gt; dd = d.where(d&gt;=6)
-&gt;&gt;&gt; print(dd)
-     x     y
-0  NaN  10.0
-1  NaN   NaN
-2  6.0   8.0
-3  NaN   NaN
-
-# no.5-3
-# 逆にmask()は、与えた条件に一致する値をNAに置換する。
-# 6以上の値をNAに置換する。
-&gt;&gt;&gt; dd = d.mask(d&gt;=6)
-&gt;&gt;&gt; print(dd)
-     x    y
-0  1.0  NaN
-1  2.0  3.0
-2  NaN  NaN
-3  4.0  4.0
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div>
 </body>
 

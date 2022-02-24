@@ -14264,21 +14264,6 @@ a.anchor-link {
 <h2 id="1.-&#22522;&#26412;">1. &#22522;&#26412;<a class="anchor-link" href="#1.-&#22522;&#26412;">&#182;</a></h2><h2 id="2.-&#36984;&#25246;">2. &#36984;&#25246;<a class="anchor-link" href="#2.-&#36984;&#25246;">&#182;</a></h2><h2 id="3.-&#12452;&#12531;&#12487;&#12483;&#12463;&#12473;&#12398;&#25805;&#20316;">3. &#12452;&#12531;&#12487;&#12483;&#12463;&#12473;&#12398;&#25805;&#20316;<a class="anchor-link" href="#3.-&#12452;&#12531;&#12487;&#12483;&#12463;&#12473;&#12398;&#25805;&#20316;">&#182;</a></h2><hr>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
@@ -14287,7 +14272,7 @@ a.anchor-link {
 agg()メソッドで数値列(v1,v2)と統計量(sum, mean, min)が列のmulti-indexを構成する。
 multi-indexは階層になっており、行indexでは、key1が外側、key2が内側に表示され、外側が階層の上位となっている。
 また、printで表示すると外側の階層は、冗長な値の繰り返しが省略表示されるのがわかる。</p>
-<p><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
+<pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 d = pd.DataFrame(
     {'key1':['A', 'A', 'A', 'B', 'B', 'B', 'C', 'C'],
      'key2':['X', 'Y', 'Z', 'X', 'Y', 'Y', 'Y', 'Z'],
@@ -14295,18 +14280,19 @@ d = pd.DataFrame(
      'v2':[2, 1, 0, 1, 2, 3, 2, 0]}
 )
 d = d.groupby(['key1','key2']).agg(['sum', 'mean', 'min'])
-</pre>&lt;/td&gt;
-  <table border="1" style="table-layout:fixed;width:100%;">
+</pre><table border="1" style="table-layout:fixed;width:100%;">
     <colgroup>
       <col style="width:3%;">
       <col style="width:30%;">
       <col style="width:25%;">  
       <col style="width:25%;">
       <col style="width:17%;">
-    </colgroup></p>
+    </colgroup>
 <tbody>
 
-<tr><th align="left">no.</th><th align="left">実行コード</th><th>入力</th><th>出力</th><th>備考</th></tr><tr style="background:#fff; border:1px solid #cc0000;">
+<tr><th align="left">no.</th><th align="left">実行コード</th><th>入力</th><th>出力</th><th>備考</th></tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>1-1</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(d.index)
@@ -14316,7 +14302,9 @@ print(d.index)
 <td>
 indexの内容を見ると、multi-indexは('A', 'X')のようにtuppleであることがわかる。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>1-2</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(d.columns)
@@ -14326,7 +14314,9 @@ print(d.columns)
 <td>
 列のindexについては、'index'を'columns'に変えるだけでよい。ここではcolumnsに特有の解説が必要なとき以外は行indexでのみ解説する。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>1-3</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(d.reset_index())
@@ -14336,7 +14326,9 @@ print(d.reset_index())
 <td>
 reset_index()でindexを列としたデータに変換できる。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>1-4</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(d.index.get_level_values(1))
@@ -14347,7 +14339,9 @@ print(d.index.get_level_values(1))
 それぞれのレベルのindex列を取り出したければget_level_values(level)を使う。
 levelは外側(上位)から0,1,2,...となる。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>1-5</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(d.index.levels)
@@ -14357,7 +14351,9 @@ print(d.index.levels)
 <td>
 index.levelsでindexを構成する値集合が確認できる。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>1-6</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 dd = d.copy()
@@ -14370,7 +14366,9 @@ print(dd)
 <td>
 行,列インデックスの名前を変更する。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>1-7</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 dd = d.copy()
@@ -14385,239 +14383,16 @@ indexの値を変更する。
 違うlevelの階層に同じ名前があれば、全てが変更対象となることに注意する。
 特定のlevelのみ変更したい時はlevel=0のように、変更したいレベルの番号を指定すればよい。
 </td>
-</tr><p>&lt;/tbody&gt;
-&lt;/table&gt;</p>
-<p>&lt;/div&gt;</p>
+</tr>
 
+</tbody>
+</table>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># 入力データ</span>
-<span class="s1"># groupbyした結果はグループに指定した2つの列(key1,key2)が行のmulti-indexとなり、</span>
-<span class="s1"># agg()メソッドで数値列(v1,v2)と統計量(sum, mean, min)が列のmulti-indexを構成する。</span>
-<span class="s1"># multi-indexは階層になっており、行indexでは、key1が外側、key2が内側に表示され、外側が階層の上位となっている。</span>
-<span class="s1"># また、printで表示すると外側の階層は、冗長な値の繰り返しが省略表示されるのがわかる。</span>
-<span class="s1">&gt;&gt;&gt; d = pd.DataFrame(</span>
-<span class="s1">        {&#39;key1&#39;:[&#39;A&#39;, &#39;A&#39;, &#39;A&#39;, &#39;B&#39;, &#39;B&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;],</span>
-<span class="s1">         &#39;key2&#39;:[&#39;X&#39;, &#39;Y&#39;, &#39;Z&#39;, &#39;X&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Z&#39;],</span>
-<span class="s1">         &#39;v1&#39;:[1, 2, 3, 4, 5, 6, 7, 8],</span>
-<span class="s1">         &#39;v2&#39;:[2, 1, 0, 1, 2, 3, 2, 0]}</span>
-<span class="s1">    )</span>
-<span class="s1">&gt;&gt;&gt; d = d.groupby([&#39;key1&#39;, &#39;key2&#39;]).agg([&#39;sum&#39;, &#39;mean&#39;, &#39;min&#39;])</span>
-<span class="s1">&gt;&gt;&gt; print(d)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">d</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-    <span class="p">{</span><span class="s1">&#39;key1&#39;</span><span class="p">:[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">],</span>
-     <span class="s1">&#39;key2&#39;</span><span class="p">:[</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="s1">&#39;Z&#39;</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="s1">&#39;Z&#39;</span><span class="p">],</span>
-     <span class="s1">&#39;v1&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span>
-     <span class="s1">&#39;v2&#39;</span><span class="p">:[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]}</span>
-<span class="p">)</span>
-<span class="n">d</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;key1&#39;</span><span class="p">,</span><span class="s1">&#39;key2&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;min&#39;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.1-1</span>
-<span class="s1"># indexの内容を見ると、multi-indexは(&#39;A&#39;, &#39;X&#39;)のようにtuppleであることがわかる。</span>
-<span class="s1">&gt;&gt;&gt; print(d.index)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.1-2</span>
-<span class="s1"># 列のindexについては、&#39;index&#39;を&#39;columns&#39;に変えるだけでよい。</span>
-<span class="s1"># 以下、ではcolumnsに特有の解説が必要なとき以外は行indexでのみ解説する。</span>
-<span class="s1">&gt;&gt;&gt; print(d.columns)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.1-3</span>
-<span class="s1"># reset_index()でindexを列としたデータに変換できる。</span>
-<span class="s1">&gt;&gt;&gt; print(d.reset_index)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">reset_index</span><span class="p">())</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.1-4</span>
-<span class="s1"># それぞれのレベルのindex列を取り出したければget_level_values(level)を使う。</span>
-<span class="s1"># levelは外側(上位)から0,1,2,...となる。</span>
-<span class="s1">&gt;&gt;&gt; print(d.index.get_level_values(1))</span>
-<span class="se">\n</span><span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.1-5</span>
-<span class="s1"># index.levelsでindexを構成する値集合が確認できる。</span>
-<span class="s1">&gt;&gt;&gt; print(d.index.levels)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">levels</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.1-6</span>
-<span class="s1"># 行,列インデックスの名前を変更する。</span>
-<span class="s1">&gt;&gt;&gt; dd = d.copy()</span>
-<span class="s1">&gt;&gt;&gt; dd = dd.rename_axis([&#39;k1&#39;, &#39;k2&#39;])</span>
-<span class="s1">&gt;&gt;&gt; dd = dd.rename_axis([&#39;var&#39;, &#39;stats&#39;], axis=1)</span>
-<span class="s1">&gt;&gt;&gt; print(dd)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dd</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">dd</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">rename_axis</span><span class="p">([</span><span class="s1">&#39;k1&#39;</span><span class="p">,</span> <span class="s1">&#39;k2&#39;</span><span class="p">])</span>
-<span class="n">dd</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">rename_axis</span><span class="p">([</span><span class="s1">&#39;var&#39;</span><span class="p">,</span> <span class="s1">&#39;stats&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.1-7</span>
-<span class="s1"># indexの値を変更する。</span>
-<span class="s1"># 行indexのBをBB、CをCCに、列indexのmeanをavgに変更している。</span>
-<span class="s1"># 違うlevelの階層に同じ名前があれば、全てが変更対象となることに注意する。</span>
-<span class="s1"># 特定のlevelのみ変更したい時はlevel=0のように、変更したいレベルの番号を指定すればよい。</span>
-<span class="s1">&gt;&gt;&gt; dd = d.copy()</span>
-<span class="s1">&gt;&gt;&gt; dd = dd.rename(index={&#39;B&#39;: &#39;BB&#39;, &#39;C&#39;:&#39;CC&#39;}, columns={&#39;mean&#39;:&#39;avg&#39;})</span>
-<span class="s1">&gt;&gt;&gt; print(dd)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dd</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">dd</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="s1">&#39;BB&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">:</span><span class="s1">&#39;CC&#39;</span><span class="p">},</span> <span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;mean&#39;</span><span class="p">:</span><span class="s1">&#39;avg&#39;</span><span class="p">})</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>
-# 入力データ
-# groupbyした結果はグループに指定した2つの列(key1,key2)が行のmulti-indexとなり、
-# agg()メソッドで数値列(v1,v2)と統計量(sum, mean, min)が列のmulti-indexを構成する。
-# multi-indexは階層になっており、行indexでは、key1が外側、key2が内側に表示され、外側が階層の上位となっている。
-# また、printで表示すると外側の階層は、冗長な値の繰り返しが省略表示されるのがわかる。
-&gt;&gt;&gt; d = pd.DataFrame(
-        {&#39;key1&#39;:[&#39;A&#39;, &#39;A&#39;, &#39;A&#39;, &#39;B&#39;, &#39;B&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;],
-         &#39;key2&#39;:[&#39;X&#39;, &#39;Y&#39;, &#39;Z&#39;, &#39;X&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Z&#39;],
-         &#39;v1&#39;:[1, 2, 3, 4, 5, 6, 7, 8],
-         &#39;v2&#39;:[2, 1, 0, 1, 2, 3, 2, 0]}
-    )
-&gt;&gt;&gt; d = d.groupby([&#39;key1&#39;, &#39;key2&#39;]).agg([&#39;sum&#39;, &#39;mean&#39;, &#39;min&#39;])
-&gt;&gt;&gt; print(d)
-           v1           v2         
-          sum mean min sum mean min
-key1 key2                          
-A    X      1  1.0   1   2  2.0   2
-     Y      2  2.0   2   1  1.0   1
-     Z      3  3.0   3   0  0.0   0
-B    X      4  4.0   4   1  1.0   1
-     Y     11  5.5   5   5  2.5   2
-C    Y      7  7.0   7   2  2.0   2
-     Z      8  8.0   8   0  0.0   0
-
-# no.1-1
-# indexの内容を見ると、multi-indexは(&#39;A&#39;, &#39;X&#39;)のようにtuppleであることがわかる。
-&gt;&gt;&gt; print(d.index)
-MultiIndex([(&#39;A&#39;, &#39;X&#39;),
-            (&#39;A&#39;, &#39;Y&#39;),
-            (&#39;A&#39;, &#39;Z&#39;),
-            (&#39;B&#39;, &#39;X&#39;),
-            (&#39;B&#39;, &#39;Y&#39;),
-            (&#39;C&#39;, &#39;Y&#39;),
-            (&#39;C&#39;, &#39;Z&#39;)],
-           names=[&#39;key1&#39;, &#39;key2&#39;])
-
-# no.1-2
-# 列のindexについては、&#39;index&#39;を&#39;columns&#39;に変えるだけでよい。
-# 以下、ではcolumnsに特有の解説が必要なとき以外は行indexでのみ解説する。
-&gt;&gt;&gt; print(d.columns)
-MultiIndex([(&#39;v1&#39;,  &#39;sum&#39;),
-            (&#39;v1&#39;, &#39;mean&#39;),
-            (&#39;v1&#39;,  &#39;min&#39;),
-            (&#39;v2&#39;,  &#39;sum&#39;),
-            (&#39;v2&#39;, &#39;mean&#39;),
-            (&#39;v2&#39;,  &#39;min&#39;)],
-           )
-
-# no.1-3
-# reset_index()でindexを列としたデータに変換できる。
-&gt;&gt;&gt; print(d.reset_index)
-  key1 key2  v1           v2         
-            sum mean min sum mean min
-0    A    X   1  1.0   1   2  2.0   2
-1    A    Y   2  2.0   2   1  1.0   1
-2    A    Z   3  3.0   3   0  0.0   0
-3    B    X   4  4.0   4   1  1.0   1
-4    B    Y  11  5.5   5   5  2.5   2
-5    C    Y   7  7.0   7   2  2.0   2
-6    C    Z   8  8.0   8   0  0.0   0
-
-# no.1-4
-# それぞれのレベルのindex列を取り出したければget_level_values(level)を使う。
-# levelは外側(上位)から0,1,2,...となる。
-&gt;&gt;&gt; print(d.index.get_level_values(1))
-
-
-Index([&#39;X&#39;, &#39;Y&#39;, &#39;Z&#39;, &#39;X&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Z&#39;], dtype=&#39;object&#39;, name=&#39;key2&#39;)
-
-# no.1-5
-# index.levelsでindexを構成する値集合が確認できる。
-&gt;&gt;&gt; print(d.index.levels)
-[[&#39;A&#39;, &#39;B&#39;, &#39;C&#39;], [&#39;X&#39;, &#39;Y&#39;, &#39;Z&#39;]]
-
-# no.1-6
-# 行,列インデックスの名前を変更する。
-&gt;&gt;&gt; dd = d.copy()
-&gt;&gt;&gt; dd = dd.rename_axis([&#39;k1&#39;, &#39;k2&#39;])
-&gt;&gt;&gt; dd = dd.rename_axis([&#39;var&#39;, &#39;stats&#39;], axis=1)
-&gt;&gt;&gt; print(dd)
-var    v1           v2         
-stats sum mean min sum mean min
-k1 k2                          
-A  X    1  1.0   1   2  2.0   2
-   Y    2  2.0   2   1  1.0   1
-   Z    3  3.0   3   0  0.0   0
-B  X    4  4.0   4   1  1.0   1
-   Y   11  5.5   5   5  2.5   2
-C  Y    7  7.0   7   2  2.0   2
-   Z    8  8.0   8   0  0.0   0
-
-# no.1-7
-# indexの値を変更する。
-# 行indexのBをBB、CをCCに、列indexのmeanをavgに変更している。
-# 違うlevelの階層に同じ名前があれば、全てが変更対象となることに注意する。
-# 特定のlevelのみ変更したい時はlevel=0のように、変更したいレベルの番号を指定すればよい。
-&gt;&gt;&gt; dd = d.copy()
-&gt;&gt;&gt; dd = dd.rename(index={&#39;B&#39;: &#39;BB&#39;, &#39;C&#39;:&#39;CC&#39;}, columns={&#39;mean&#39;:&#39;avg&#39;})
-&gt;&gt;&gt; print(dd)
-           v1           v2         
-          sum  avg min sum  avg min
-key1 key2                          
-A    X      1  1.0   1   2  2.0   2
-     Y      2  2.0   2   1  1.0   1
-     Z      3  3.0   3   0  0.0   0
-BB   X      4  4.0   4   1  1.0   1
-     Y     11  5.5   5   5  2.5   2
-CC   Y      7  7.0   7   2  2.0   2
-     Z      8  8.0   8   0  0.0   0
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <hr>
-<h1 id="2.&#12288;&#36984;&#25246;">2.&#12288;&#36984;&#25246;<a class="anchor-link" href="#2.&#12288;&#36984;&#25246;">&#182;</a></h1><h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><p><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
+<h1 id="2.&#12288;&#36984;&#25246;">2.&#12288;&#36984;&#25246;<a class="anchor-link" href="#2.&#12288;&#36984;&#25246;">&#182;</a></h1><h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 d = pd.DataFrame(
     {'key1':['A', 'A', 'A', 'B', 'B', 'B', 'C', 'C'],
      'key2':['X', 'Y', 'Z', 'X', 'Y', 'Y', 'Y', 'Z'],
@@ -14625,18 +14400,19 @@ d = pd.DataFrame(
      'v2':[2, 1, 0, 1, 2, 3, 2, 0]}
 )
 d = d.groupby(['key1','key2']).agg(['sum', 'mean', 'min'])
-</pre>&lt;/td&gt;
-  <table border="1" style="table-layout:fixed;width:100%;">
+</pre><table border="1" style="table-layout:fixed;width:100%;">
     <colgroup>
       <col style="width:3%;">
       <col style="width:30%;">
       <col style="width:25%;">  
       <col style="width:25%;">
       <col style="width:17%;">
-    </colgroup></p>
+    </colgroup>
 <tbody>
 
-<tr><th align="left">no.</th><th align="left">実行コード</th><th>入力</th><th>出力</th><th>備考</th></tr><tr style="background:#fff; border:1px solid #cc0000;">
+<tr><th align="left">no.</th><th align="left">実行コード</th><th>入力</th><th>出力</th><th>備考</th></tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>2-1</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(d.loc[[('A', 'Y'), ('B', 'Y')]])
@@ -14646,7 +14422,9 @@ print(d.loc[[('A', 'Y'), ('B', 'Y')]])
 <td>
 ラベル名で行を選択する場合は、<b>loc[]にtuppleリスト</b>を指定すれば良い。d.loc[]でなくd[]は使えない。なぜなら[]演算子に文字列リストを与えると列名と解釈されるから。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>2-2</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(d[[('v1', 'sum'), ('v2', 'min')]])
@@ -14656,7 +14434,9 @@ print(d[[('v1', 'sum'), ('v2', 'min')]])
 <td>
 列の選択であればd[]は使える。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>2-3</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(d.loc[[('A', 'Y'),('B', 'Y')], [('v1', 'sum'), ('v2', 'min')]])
@@ -14666,7 +14446,9 @@ print(d.loc[[('A', 'Y'),('B', 'Y')], [('v1', 'sum'), ('v2', 'min')]])
 <td>
 loc[]で行と列を同時に選択するのも基本はsingle-indexと同じ。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>2-4</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(d.loc['A', 'v2'])
@@ -14688,7 +14470,9 @@ print(d[:2])
 <td>
 整数のスライシングはsingle-indexの場合と同様。0行目から2行目未満(すなわち1行目)まで選択。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>2-6</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(d.loc[('A', 'Z'):('B', 'Y')])
@@ -14699,7 +14483,9 @@ print(d.loc[('A', 'Z'):('B', 'Y')])
 ラベルによるスライシングはtupleで指定する。(A,Z)行から(B,Y)行までを選択する。
 ラベルによるスライシングは、整数スライシングと違い範囲の終端を含むことに注意する。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>2-7</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(d.loc[('A', 'Y'):'B'])
@@ -14709,7 +14495,9 @@ print(d.loc[('A', 'Y'):'B'])
 <td>
 レベルを省略すると最上位レベルのindexとして扱われる。(A,Z)からBまでを選択する。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>2-8</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(d.loc[(['A', 'C'], ['Y', 'Z']), :])
@@ -14721,7 +14509,9 @@ tuppleにlistを与えれば、tupple内の位置がレベルに対応し、そ�
 ただし、tuppleの後に",:"を入れることで、2つめのlist['Y','Z']がcolumns条件と解釈されるのを防いでいる。
 key1がA,Cでkey2がY,Zの行を選択する。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>2-9</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(d.loc[(slice(None), ['Y', 'Z']), :])
@@ -14733,7 +14523,9 @@ print(d.loc[(slice(None), ['Y', 'Z']), :])
 slice(None)は全ての値にマッチするスライサである。
 key2がY,Zの行を選択する。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>2-10</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(d.loc(axis=0)['A':'B', ['Y', 'Z']])
@@ -14745,281 +14537,16 @@ locにaxis=0を指定すると、スライサの適用を行のみに限定で�
 key1がAからBまでで、key2がY,Zの行を選択する。
 slice(None)でなく単に : を書けば全選択となる。
 </td>
-</tr><p>&lt;/tbody&gt;
-&lt;/table&gt;</p>
-<p>&lt;/div&gt;</p>
+</tr>
 
+</tbody>
+</table>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># 入力データ(再掲)</span>
-<span class="s1">&gt;&gt;&gt; d = pd.DataFrame(</span>
-<span class="s1">        {&#39;key1&#39;:[&#39;A&#39;, &#39;A&#39;, &#39;A&#39;, &#39;B&#39;, &#39;B&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;],</span>
-<span class="s1">         &#39;key2&#39;:[&#39;X&#39;, &#39;Y&#39;, &#39;Z&#39;, &#39;X&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Z&#39;],</span>
-<span class="s1">         &#39;v1&#39;:[1, 2, 3, 4, 5, 6, 7, 8],</span>
-<span class="s1">         &#39;v2&#39;:[2, 1, 0, 1, 2, 3, 2, 0]}</span>
-<span class="s1">    )</span>
-<span class="s1">&gt;&gt;&gt; d = d.groupby([&#39;key1&#39;,&#39;key2&#39;]).agg([&#39;sum&#39;, &#39;mean&#39;, &#39;min&#39;])</span>
-<span class="s1">&gt;&gt;&gt; print(d)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">d</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-    <span class="p">{</span><span class="s1">&#39;key1&#39;</span><span class="p">:[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">],</span>
-     <span class="s1">&#39;key2&#39;</span><span class="p">:[</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="s1">&#39;Z&#39;</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="s1">&#39;Z&#39;</span><span class="p">],</span>
-     <span class="s1">&#39;v1&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span>
-     <span class="s1">&#39;v2&#39;</span><span class="p">:[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]}</span>
-<span class="p">)</span>
-<span class="n">d</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;key1&#39;</span><span class="p">,</span><span class="s1">&#39;key2&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;min&#39;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-1</span>
-<span class="s1"># ラベル名で行を選択する場合は、loc[]にtuppleリストを指定すれば良い。</span>
-<span class="s1"># d.loc[]でなくd[]は使えない。</span>
-<span class="s1"># なぜなら[]演算子に文字列リストを与えると列名と解釈されるから。</span>
-<span class="s1">&gt;&gt;&gt; print(d.loc[[(&#39;A&#39;, &#39;Y&#39;), (&#39;B&#39;, &#39;Y&#39;)]])&#39;&#39;&#39;</span><span class="p">)</span>  <span class="c1"># tuppleのlist</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">loc</span><span class="p">[[(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">)]])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-2</span>
-<span class="s1"># 列の選択であればd[]は使える。</span>
-<span class="s1">&gt;&gt;&gt; print(d[[(&#39;v1&#39;, &#39;sum&#39;), (&#39;v2&#39;, &#39;min&#39;)]]) &#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">[[(</span><span class="s1">&#39;v1&#39;</span><span class="p">,</span> <span class="s1">&#39;sum&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;v2&#39;</span><span class="p">,</span> <span class="s1">&#39;min&#39;</span><span class="p">)]])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-3</span>
-<span class="s1"># loc[]で行と列を同時に選択するのも基本はsingle-indexと同じ。</span>
-<span class="s1">&gt;&gt;&gt; print(d.loc[[(&#39;A&#39;, &#39;Y&#39;),(&#39;B&#39;, &#39;Y&#39;)], [(&#39;v1&#39;, &#39;sum&#39;), (&#39;v2&#39;, &#39;min&#39;)]])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">loc</span><span class="p">[[(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">),(</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">)],</span> <span class="p">[(</span><span class="s1">&#39;v1&#39;</span><span class="p">,</span> <span class="s1">&#39;sum&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;v2&#39;</span><span class="p">,</span> <span class="s1">&#39;min&#39;</span><span class="p">)]])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-4</span>
-<span class="s1"># 単一の値を指定すると最上位のindexの条件と解釈され、そのindexは出力からは削除される。</span>
-<span class="s1"># key1がAの行のみを選択し、key1のindexはなくなりkey2のindexのみ残る。</span>
-<span class="s1"># 同様に、列の上位のindexがv2の列を選択し、上位のindexはなくなる。</span>
-<span class="s1">&gt;&gt;&gt; print(d.loc[&#39;A&#39;, &#39;v2&#39;])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;v2&#39;</span><span class="p">])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-5</span>
-<span class="s1"># 整数のスライシングはsingle-indexの場合と同様。</span>
-<span class="s1"># 0行目から2行目未満(すなわち1行目)まで選択。</span>
-<span class="s1">&gt;&gt;&gt; print(d[:2])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">[:</span><span class="mi">2</span><span class="p">])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-6</span>
-<span class="s1"># ラベルによるスライシングはtupleで指定する。</span>
-<span class="s1"># (A,Z)行から(B,Y)行までを選択する。</span>
-<span class="s1"># ラベルによるスライシングは、整数スライシングと違い範囲の終端を含むことに注意する。</span>
-<span class="s1">&gt;&gt;&gt; print(d.loc[(&#39;A&#39;, &#39;Z&#39;):(&#39;B&#39;, &#39;Y&#39;)])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;Z&#39;</span><span class="p">):(</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">)])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-7</span>
-<span class="s1"># レベルを省略すると最上位レベルのindexとして扱われる。</span>
-<span class="s1"># (A,Y)からBまでを選択する。</span>
-<span class="s1">&gt;&gt;&gt; print(d.loc[(&#39;A&#39;, &#39;Y&#39;):&#39;B&#39;])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">):</span><span class="s1">&#39;B&#39;</span><span class="p">])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-8</span>
-<span class="s1"># tuppleにlistを与えれば、tupple内の位置がレベルに対応し、それぞれのレベルのインデックスから選択する値を複数指定できる。</span>
-<span class="s1"># ただし、tuppleの後に&quot;,:&quot;を入れることで、2つめのlist[&#39;Y&#39;,&#39;Z&#39;]がcolumns条件と解釈されるのを防いでいる。</span>
-<span class="s1"># key1がA,Cでkey2がY,Zの行を選択する。</span>
-<span class="s1">&gt;&gt;&gt; print(d.loc[([&#39;A&#39;, &#39;C&#39;], [&#39;Y&#39;, &#39;Z&#39;]), :])  # listのtupple&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">loc</span><span class="p">[([</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="s1">&#39;Z&#39;</span><span class="p">]),</span> <span class="p">:])</span>  <span class="c1"># listのtupple</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-9</span>
-<span class="s1"># 下位レベルのみ指定したければ、上位にslice(None)を用いる。</span>
-<span class="s1"># slice(None)は全ての値にマッチするスライサである。</span>
-<span class="s1"># key2がY,Zの行を選択する。</span>
-<span class="s1">&gt;&gt;&gt; print(d.loc[(slice(None), [&#39;Y&#39;, &#39;Z&#39;]), ])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">),</span> <span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="s1">&#39;Z&#39;</span><span class="p">]),</span> <span class="p">:])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-10</span>
-<span class="s1"># locにaxis=0を指定すると、スライサの適用を行のみに限定できるので、</span>
-<span class="s1"># より自然なスライシングが可能となる。</span>
-<span class="s1"># key1がAからBまでで、key2がY,Zの行を選択する。</span>
-<span class="s1"># slice(None)でなく単に : を書けば全選択となる。</span>
-<span class="s1">&gt;&gt;&gt; print(d.loc(axis=0)[&#39;A&#39;:&#39;B&#39;, [&#39;Y&#39;, &#39;Z&#39;]])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">loc</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)[</span><span class="s1">&#39;A&#39;</span><span class="p">:</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="s1">&#39;Z&#39;</span><span class="p">]])</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>
-# 入力データ(再掲)
-&gt;&gt;&gt; d = pd.DataFrame(
-        {&#39;key1&#39;:[&#39;A&#39;, &#39;A&#39;, &#39;A&#39;, &#39;B&#39;, &#39;B&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;],
-         &#39;key2&#39;:[&#39;X&#39;, &#39;Y&#39;, &#39;Z&#39;, &#39;X&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Z&#39;],
-         &#39;v1&#39;:[1, 2, 3, 4, 5, 6, 7, 8],
-         &#39;v2&#39;:[2, 1, 0, 1, 2, 3, 2, 0]}
-    )
-&gt;&gt;&gt; d = d.groupby([&#39;key1&#39;,&#39;key2&#39;]).agg([&#39;sum&#39;, &#39;mean&#39;, &#39;min&#39;])
-&gt;&gt;&gt; print(d)
-           v1           v2         
-          sum mean min sum mean min
-key1 key2                          
-A    X      1  1.0   1   2  2.0   2
-     Y      2  2.0   2   1  1.0   1
-     Z      3  3.0   3   0  0.0   0
-B    X      4  4.0   4   1  1.0   1
-     Y     11  5.5   5   5  2.5   2
-C    Y      7  7.0   7   2  2.0   2
-     Z      8  8.0   8   0  0.0   0
-
-# no.2-1
-# ラベル名で行を選択する場合は、loc[]にtuppleリストを指定すれば良い。
-# d.loc[]でなくd[]は使えない。
-# なぜなら[]演算子に文字列リストを与えると列名と解釈されるから。
-&gt;&gt;&gt; print(d.loc[[(&#39;A&#39;, &#39;Y&#39;), (&#39;B&#39;, &#39;Y&#39;)]])
-           v1           v2         
-          sum mean min sum mean min
-key1 key2                          
-A    Y      2  2.0   2   1  1.0   1
-B    Y     11  5.5   5   5  2.5   2
-
-# no.2-2
-# 列の選択であればd[]は使える。
-&gt;&gt;&gt; print(d[[(&#39;v1&#39;, &#39;sum&#39;), (&#39;v2&#39;, &#39;min&#39;)]]) 
-           v1  v2
-          sum min
-key1 key2        
-A    X      1   2
-     Y      2   1
-     Z      3   0
-B    X      4   1
-     Y     11   2
-C    Y      7   2
-     Z      8   0
-
-# no.2-3
-# loc[]で行と列を同時に選択するのも基本はsingle-indexと同じ。
-&gt;&gt;&gt; print(d.loc[[(&#39;A&#39;, &#39;Y&#39;),(&#39;B&#39;, &#39;Y&#39;)], [(&#39;v1&#39;, &#39;sum&#39;), (&#39;v2&#39;, &#39;min&#39;)]])
-           v1  v2
-          sum min
-key1 key2        
-A    Y      2   1
-B    Y     11   2
-
-# no.2-4
-# 単一の値を指定すると最上位のindexの条件と解釈され、そのindexは出力からは削除される。
-# key1がAの行のみを選択し、key1のindexはなくなりkey2のindexのみ残る。
-# 同様に、列の上位のindexがv2の列を選択し、上位のindexはなくなる。
-&gt;&gt;&gt; print(d.loc[&#39;A&#39;, &#39;v2&#39;])
-      sum  mean  min
-key2                
-X       2   2.0    2
-Y       1   1.0    1
-Z       0   0.0    0
-
-# no.2-5
-# 整数のスライシングはsingle-indexの場合と同様。
-# 0行目から2行目未満(すなわち1行目)まで選択。
-&gt;&gt;&gt; print(d[:2])
-           v1           v2         
-          sum mean min sum mean min
-key1 key2                          
-A    X      1  1.0   1   2  2.0   2
-     Y      2  2.0   2   1  1.0   1
-
-# no.2-6
-# ラベルによるスライシングはtupleで指定する。
-# (A,Z)行から(B,Y)行までを選択する。
-# ラベルによるスライシングは、整数スライシングと違い範囲の終端を含むことに注意する。
-&gt;&gt;&gt; print(d.loc[(&#39;A&#39;, &#39;Z&#39;):(&#39;B&#39;, &#39;Y&#39;)])
-           v1           v2         
-          sum mean min sum mean min
-key1 key2                          
-A    Z      3  3.0   3   0  0.0   0
-B    X      4  4.0   4   1  1.0   1
-     Y     11  5.5   5   5  2.5   2
-
-# no.2-7
-# レベルを省略すると最上位レベルのindexとして扱われる。
-# (A,Y)からBまでを選択する。
-&gt;&gt;&gt; print(d.loc[(&#39;A&#39;, &#39;Y&#39;):&#39;B&#39;])
-           v1           v2         
-          sum mean min sum mean min
-key1 key2                          
-A    Y      2  2.0   2   1  1.0   1
-     Z      3  3.0   3   0  0.0   0
-B    X      4  4.0   4   1  1.0   1
-     Y     11  5.5   5   5  2.5   2
-
-# no.2-8
-# tuppleにlistを与えれば、tupple内の位置がレベルに対応し、それぞれのレベルのインデックスから選択する値を複数指定できる。
-# ただし、tuppleの後に&#34;,:&#34;を入れることで、2つめのlist[&#39;Y&#39;,&#39;Z&#39;]がcolumns条件と解釈されるのを防いでいる。
-# key1がA,Cでkey2がY,Zの行を選択する。
-&gt;&gt;&gt; print(d.loc[([&#39;A&#39;, &#39;C&#39;], [&#39;Y&#39;, &#39;Z&#39;]), :])  # listのtupple
-           v1           v2         
-          sum mean min sum mean min
-key1 key2                          
-A    Y      2  2.0   2   1  1.0   1
-     Z      3  3.0   3   0  0.0   0
-C    Y      7  7.0   7   2  2.0   2
-     Z      8  8.0   8   0  0.0   0
-
-# no.2-9
-# 下位レベルのみ指定したければ、上位にslice(None)を用いる。
-# slice(None)は全ての値にマッチするスライサである。
-# key2がY,Zの行を選択する。
-&gt;&gt;&gt; print(d.loc[(slice(None), [&#39;Y&#39;, &#39;Z&#39;]), ])
-           v1           v2         
-          sum mean min sum mean min
-key1 key2                          
-A    Y      2  2.0   2   1  1.0   1
-     Z      3  3.0   3   0  0.0   0
-B    Y     11  5.5   5   5  2.5   2
-C    Y      7  7.0   7   2  2.0   2
-     Z      8  8.0   8   0  0.0   0
-
-# no.2-10
-# locにaxis=0を指定すると、スライサの適用を行のみに限定できるので、
-# より自然なスライシングが可能となる。
-# key1がAからBまでで、key2がY,Zの行を選択する。
-# slice(None)でなく単に : を書けば全選択となる。
-&gt;&gt;&gt; print(d.loc(axis=0)[&#39;A&#39;:&#39;B&#39;, [&#39;Y&#39;, &#39;Z&#39;]])
-           v1           v2         
-          sum mean min sum mean min
-key1 key2                          
-A    Y      2  2.0   2   1  1.0   1
-     Z      3  3.0   3   0  0.0   0
-B    Y     11  5.5   5   5  2.5   2
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <hr>
-<h1 id="3.-&#12452;&#12531;&#12487;&#12483;&#12463;&#12473;&#12398;&#25805;&#20316;">3. &#12452;&#12531;&#12487;&#12483;&#12463;&#12473;&#12398;&#25805;&#20316;<a class="anchor-link" href="#3.-&#12452;&#12531;&#12487;&#12483;&#12463;&#12473;&#12398;&#25805;&#20316;">&#182;</a></h1><h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><p><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
+<h1 id="3.-&#12452;&#12531;&#12487;&#12483;&#12463;&#12473;&#12398;&#25805;&#20316;">3. &#12452;&#12531;&#12487;&#12483;&#12463;&#12473;&#12398;&#25805;&#20316;<a class="anchor-link" href="#3.-&#12452;&#12531;&#12487;&#12483;&#12463;&#12473;&#12398;&#25805;&#20316;">&#182;</a></h1><h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 d = pd.DataFrame(
     {'key1':['A', 'A', 'A', 'B', 'B', 'B', 'C', 'C'], 
      'key2':['X', 'Y', 'Z', 'X', 'Y', 'Y', 'Y', 'Z'],
@@ -15027,8 +14554,7 @@ d = pd.DataFrame(
      'v2':[2, 1, 0, 1, 2, 3, 2, 0]}
 )
 d = d.groupby(['key1','key2']).agg(['sum', 'mean', 'min'])
-</pre>&lt;/td&gt;</p>
-<table border="1" style="table-layout:fixed;width:100%;">
+</pre><table border="1" style="table-layout:fixed;width:100%;">
     <colgroup>
       <col style="width:3%;">
       <col style="width:30%;">
@@ -15167,314 +14693,8 @@ print(dd)
 </tr>
 
 </tbody>
-</table><p>&lt;/div&gt;</p>
-
+</table>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># 入力データ(再掲)</span>
-<span class="s1">&gt;&gt;&gt; d = pd.DataFrame(</span>
-<span class="s1">        {&#39;key1&#39;:[&#39;A&#39;, &#39;A&#39;, &#39;A&#39;, &#39;B&#39;, &#39;B&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;], </span>
-<span class="s1">         &#39;key2&#39;:[&#39;X&#39;, &#39;Y&#39;, &#39;Z&#39;, &#39;X&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Z&#39;],</span>
-<span class="s1">         &#39;v1&#39;:[1, 2, 3, 4, 5, 6, 7, 8], </span>
-<span class="s1">         &#39;v2&#39;:[2, 1, 0, 1, 2, 3, 2, 0]}</span>
-<span class="s1">    )</span>
-<span class="s1">&gt;&gt;&gt; d = d.groupby([&#39;key1&#39;,&#39;key2&#39;]).agg([&#39;sum&#39;, &#39;mean&#39;, &#39;min&#39;])</span>
-<span class="s1">&gt;&gt;&gt; print(d)&#39;&#39;&#39;</span><span class="p">)</span>
-
-<span class="n">d</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-    <span class="p">{</span><span class="s1">&#39;key1&#39;</span><span class="p">:[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">],</span> 
-     <span class="s1">&#39;key2&#39;</span><span class="p">:[</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="s1">&#39;Z&#39;</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="s1">&#39;Z&#39;</span><span class="p">],</span>
-     <span class="s1">&#39;v1&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span> 
-     <span class="s1">&#39;v2&#39;</span><span class="p">:[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]}</span>
-<span class="p">)</span>
-<span class="n">d</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;key1&#39;</span><span class="p">,</span> <span class="s1">&#39;key2&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;min&#39;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
-
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.3-1</span>
-<span class="s1"># レベル（階層）の順番を変更する。</span>
-<span class="s1"># 第一引数と第二引数に列名またはレベル値を指定すると、ふたつのレベル（階層）が交換される。</span>
-<span class="s1">&gt;&gt;&gt; dd = d.copy()</span>
-<span class="s1">&gt;&gt;&gt; dd.index = dd.index.swaplevel(0, 1)</span>
-<span class="s1">&gt;&gt;&gt; print(dd)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dd</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">dd</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">swaplevel</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.3-2</span>
-<span class="s1"># swaplevelメソッドを一般化して階層的インデックスのレベルを再設定する。</span>
-<span class="s1">&gt;&gt;&gt; dd = d.copy()</span>
-<span class="s1">&gt;&gt;&gt; dd.index = dd.index.reorder_levels([1, 0])</span>
-<span class="s1">&gt;&gt;&gt; print(dd)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dd</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">dd</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">reorder_levels</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.3-3</span>
-<span class="s1"># インデックスの一部を削除する。</span>
-<span class="s1"># ここでは行ラベルの0番目(key1)を削除している。</span>
-<span class="s1"># droplevel(&#39;key1&#39;)のようにindexの名前で指定することも可能</span>
-<span class="s1">&gt;&gt;&gt; dd = d.copy()</span>
-<span class="s1">&gt;&gt;&gt; dd.index = dd.index.droplevel(0)</span>
-<span class="s1">&gt;&gt;&gt; print(dd)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dd</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">dd</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">droplevel</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.3-4</span>
-<span class="s1"># インデックスを並べ替える。以下では降順に並べ替えている。</span>
-<span class="s1">&gt;&gt;&gt; dd = d.sort_index(ascending=False)</span>
-<span class="s1">&gt;&gt;&gt; print(dd)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dd</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.3-5</span>
-<span class="s1"># インデックスkey2だけで並べ替える。</span>
-<span class="s1">&gt;&gt;&gt; dd = d.sort_index(level=&#39;key2&#39;)</span>
-<span class="s1">&gt;&gt;&gt; print(dd)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dd</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="s1">&#39;key2&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.3-6</span>
-<span class="s1"># 列のインデックスのレベルを入れ替えて、降順に並べ替える。</span>
-<span class="s1">&gt;&gt;&gt; dd = d.copy()</span>
-<span class="s1">&gt;&gt;&gt; dd.columns = dd.columns.swaplevel(0, 1)</span>
-<span class="s1">&gt;&gt;&gt; dd = dd.sort_index(axis=1, ascending=False)</span>
-<span class="s1">&gt;&gt;&gt; print(dd)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dd</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">dd</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">swaplevel</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">dd</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.3-7</span>
-<span class="s1"># 転置すると、行と列のインデックスが総入れ替えになる。</span>
-<span class="s1">&gt;&gt;&gt; dd = d.T</span>
-<span class="s1">&gt;&gt;&gt; print(dd)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dd</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">T</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.3-8</span>
-<span class="s1"># インデックスをキーにしたgroupbyの例。</span>
-<span class="s1"># 行インデックスkey1(level=0)別に値を合計し、その結果に対してlevel=0の列インデックス別に平均を計算する。</span>
-<span class="s1">&gt;&gt;&gt; dd = d.groupby(level=0).sum().groupby(level=0, axis=1).mean()</span>
-<span class="s1">&gt;&gt;&gt; print(dd)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dd</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.3-9</span>
-<span class="s1"># 行インデックスkey2(level=1)別に値を合計し、その結果に対してlevel=1の列インデックス別に平均を計算する。</span>
-<span class="s1">&gt;&gt;&gt; dd = d.groupby(level=1).sum().groupby(level=1, axis=1).mean()</span>
-<span class="s1">&gt;&gt;&gt; print(dd)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dd</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>
-# 入力データ(再掲)
-&gt;&gt;&gt; d = pd.DataFrame(
-        {&#39;key1&#39;:[&#39;A&#39;, &#39;A&#39;, &#39;A&#39;, &#39;B&#39;, &#39;B&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;], 
-         &#39;key2&#39;:[&#39;X&#39;, &#39;Y&#39;, &#39;Z&#39;, &#39;X&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Y&#39;, &#39;Z&#39;],
-         &#39;v1&#39;:[1, 2, 3, 4, 5, 6, 7, 8], 
-         &#39;v2&#39;:[2, 1, 0, 1, 2, 3, 2, 0]}
-    )
-&gt;&gt;&gt; d = d.groupby([&#39;key1&#39;,&#39;key2&#39;]).agg([&#39;sum&#39;, &#39;mean&#39;, &#39;min&#39;])
-&gt;&gt;&gt; print(d)
-           v1           v2         
-          sum mean min sum mean min
-key1 key2                          
-A    X      1  1.0   1   2  2.0   2
-     Y      2  2.0   2   1  1.0   1
-     Z      3  3.0   3   0  0.0   0
-B    X      4  4.0   4   1  1.0   1
-     Y     11  5.5   5   5  2.5   2
-C    Y      7  7.0   7   2  2.0   2
-     Z      8  8.0   8   0  0.0   0
-
-# no.3-1
-# レベル（階層）の順番を変更する。
-# 第一引数と第二引数に列名またはレベル値を指定すると、ふたつのレベル（階層）が交換される。
-&gt;&gt;&gt; dd = d.copy()
-&gt;&gt;&gt; dd.index = dd.index.swaplevel(0, 1)
-&gt;&gt;&gt; print(dd)
-           v1           v2         
-          sum mean min sum mean min
-key2 key1                          
-X    A      1  1.0   1   2  2.0   2
-Y    A      2  2.0   2   1  1.0   1
-Z    A      3  3.0   3   0  0.0   0
-X    B      4  4.0   4   1  1.0   1
-Y    B     11  5.5   5   5  2.5   2
-     C      7  7.0   7   2  2.0   2
-Z    C      8  8.0   8   0  0.0   0
-
-# no.3-2
-# swaplevelメソッドを一般化して階層的インデックスのレベルを再設定する。
-&gt;&gt;&gt; dd = d.copy()
-&gt;&gt;&gt; dd.index = dd.index.reorder_levels([1, 0])
-&gt;&gt;&gt; print(dd)
-           v1           v2         
-          sum mean min sum mean min
-key2 key1                          
-X    A      1  1.0   1   2  2.0   2
-Y    A      2  2.0   2   1  1.0   1
-Z    A      3  3.0   3   0  0.0   0
-X    B      4  4.0   4   1  1.0   1
-Y    B     11  5.5   5   5  2.5   2
-     C      7  7.0   7   2  2.0   2
-Z    C      8  8.0   8   0  0.0   0
-
-# no.3-3
-# インデックスの一部を削除する。
-# ここでは行ラベルの0番目(key1)を削除している。
-# droplevel(&#39;key1&#39;)のようにindexの名前で指定することも可能
-&gt;&gt;&gt; dd = d.copy()
-&gt;&gt;&gt; dd.index = dd.index.droplevel(0)
-&gt;&gt;&gt; print(dd)
-      v1           v2         
-     sum mean min sum mean min
-key2                          
-X      1  1.0   1   2  2.0   2
-Y      2  2.0   2   1  1.0   1
-Z      3  3.0   3   0  0.0   0
-X      4  4.0   4   1  1.0   1
-Y     11  5.5   5   5  2.5   2
-Y      7  7.0   7   2  2.0   2
-Z      8  8.0   8   0  0.0   0
-
-# no.3-4
-# インデックスを並べ替える。以下では降順に並べ替えている。
-&gt;&gt;&gt; dd = d.sort_index(ascending=False)
-&gt;&gt;&gt; print(dd)
-           v1           v2         
-          sum mean min sum mean min
-key1 key2                          
-C    Z      8  8.0   8   0  0.0   0
-     Y      7  7.0   7   2  2.0   2
-B    Y     11  5.5   5   5  2.5   2
-     X      4  4.0   4   1  1.0   1
-A    Z      3  3.0   3   0  0.0   0
-     Y      2  2.0   2   1  1.0   1
-     X      1  1.0   1   2  2.0   2
-
-# no.3-5
-# インデックスkey2だけで並べ替える。
-&gt;&gt;&gt; dd = d.sort_index(level=&#39;key2&#39;)
-&gt;&gt;&gt; print(dd)
-           v1           v2         
-          sum mean min sum mean min
-key1 key2                          
-A    X      1  1.0   1   2  2.0   2
-B    X      4  4.0   4   1  1.0   1
-A    Y      2  2.0   2   1  1.0   1
-B    Y     11  5.5   5   5  2.5   2
-C    Y      7  7.0   7   2  2.0   2
-A    Z      3  3.0   3   0  0.0   0
-C    Z      8  8.0   8   0  0.0   0
-
-# no.3-6
-# 列のインデックスのレベルを入れ替えて、降順に並べ替える。
-&gt;&gt;&gt; dd = d.copy()
-&gt;&gt;&gt; dd.columns = dd.columns.swaplevel(0, 1)
-&gt;&gt;&gt; dd = dd.sort_index(axis=1, ascending=False)
-&gt;&gt;&gt; print(dd)
-          sum     min    mean     
-           v2  v1  v2 v1   v2   v1
-key1 key2                         
-A    X      2   1   2  1  2.0  1.0
-     Y      1   2   1  2  1.0  2.0
-     Z      0   3   0  3  0.0  3.0
-B    X      1   4   1  4  1.0  4.0
-     Y      5  11   2  5  2.5  5.5
-C    Y      2   7   2  7  2.0  7.0
-     Z      0   8   0  8  0.0  8.0
-
-# no.3-7
-# 転置すると、行と列のインデックスが総入れ替えになる。
-&gt;&gt;&gt; dd = d.T
-&gt;&gt;&gt; print(dd)
-key1       A              B          C     
-key2       X    Y    Z    X     Y    Y    Z
-v1 sum   1.0  2.0  3.0  4.0  11.0  7.0  8.0
-   mean  1.0  2.0  3.0  4.0   5.5  7.0  8.0
-   min   1.0  2.0  3.0  4.0   5.0  7.0  8.0
-v2 sum   2.0  1.0  0.0  1.0   5.0  2.0  0.0
-   mean  2.0  1.0  0.0  1.0   2.5  2.0  0.0
-   min   2.0  1.0  0.0  1.0   2.0  2.0  0.0
-
-# no.3-8
-# インデックスをキーにしたgroupbyの例。
-# 行インデックスkey1(level=0)別に値を合計し、その結果に対してlevel=0の列インデックス別に平均を計算する。
-&gt;&gt;&gt; dd = d.groupby(level=0).sum().groupby(level=0, axis=1).mean()
-&gt;&gt;&gt; print(dd)
-             v1        v2
-key1                     
-A      6.000000  3.000000
-B     11.166667  4.166667
-C     15.000000  2.000000
-
-# no.3-9
-# 行インデックスkey2(level=1)別に値を合計し、その結果に対してlevel=1の列インデックス別に平均を計算する。
-&gt;&gt;&gt; dd = d.groupby(level=1).sum().groupby(level=1, axis=1).mean()
-&gt;&gt;&gt; print(dd)
-      mean  min   sum
-key2                 
-X      4.0  4.0   4.0
-Y     10.0  9.5  14.0
-Z      5.5  5.5   5.5
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div>
 </body>
 

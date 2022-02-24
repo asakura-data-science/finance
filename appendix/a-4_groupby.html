@@ -14277,44 +14277,31 @@ a.anchor-link {
 <hr>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <hr>
 <h1 id="1.&#38598;&#32004;&#12289;&#22793;&#25563;&#12289;&#36984;&#25246;&#12398;&#20195;&#34920;&#20363;">1.&#38598;&#32004;&#12289;&#22793;&#25563;&#12289;&#36984;&#25246;&#12398;&#20195;&#34920;&#20363;<a class="anchor-link" href="#1.&#38598;&#32004;&#12289;&#22793;&#25563;&#12289;&#36984;&#25246;&#12398;&#20195;&#34920;&#20363;">&#182;</a></h1><hr>
-<h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><p><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
+<h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 df = pd.DataFrame(
     {"key":["a", "a", "a", "b", "b"],
      "v1":[1, 4, 5, 2, 1],
      "v2":[1, None, 2, None, 6]}
 )
-</pre>&lt;/td&gt;
-  <table border="1" style="table-layout:fixed;width:100%;">
+</pre><table border="1" style="table-layout:fixed;width:100%;">
     <colgroup>
       <col style="width:3%;">
       <col style="width:30%;">
       <col style="width:25%;">  
       <col style="width:25%;">
       <col style="width:17%;">
-    </colgroup></p>
+    </colgroup>
+
 <tbody>
 
-<tr><th align="left">no.</th><th align="left">実行コード</th><th align="left">入力</th><th align="left">出力</th><th>備考</th></tr><tr><td colspan=5 bgcolor="#8fbc8f"><b>集約(aggregatioon)</b></td></tr>
+<tr><th align="left">no.</th><th align="left">実行コード</th><th align="left">入力</th><th align="left">出力</th><th>備考</th></tr>
+
+<tr><td colspan=5 bgcolor="#8fbc8f"><b>集約(aggregatioon)</b></td></tr>
 <tr style="background:#fff; border:1px solid #cc0000;">  
 <td>1-1</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
@@ -14325,7 +14312,11 @@ print(df.groupby('key').sum())
 <td>
 key列をグループとして、v1,v2を合計する。
 </td>
-</tr><tr><td colspan=5 bgcolor="#8fbc8f"><b>変換(transformation)</b></td></tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr><td colspan=5 bgcolor="#8fbc8f"><b>変換(transformation)</b></td></tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>1-2</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 dd = df.copy()
@@ -14337,7 +14328,11 @@ print(dd)
 <td>
 key列をグループとして、v2の累計を計算し、trans列として追加する。集約と異なり、出力の行数は入力の行数に等しくなる。
 </td>
-</tr><tr><td colspan=5 bgcolor="#8fbc8f"><b>選択(filteration)</b></td></tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr><td colspan=5 bgcolor="#8fbc8f"><b>選択(filteration)</b></td></tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>1-3</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(df.groupby('key').filter(lambda x:x['v1'].sum()>5))
@@ -14347,131 +14342,11 @@ print(df.groupby('key').filter(lambda x:x['v1'].sum()>5))
 <td>
 key列をグループとして、v1の合計が5より大きいグループを選択する。
 </td>
-</tr><p>&lt;/tbody&gt;
-&lt;/table&gt;</p>
-<p>&lt;/div&gt;</p>
+</tr>
 
+</tbody>
+</table>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># スクリプト</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># 入力データ</span>
-<span class="s1">&gt;&gt;&gt; df = pd.DataFrame(</span>
-<span class="s1">        {&quot;key&quot;:[&quot;a&quot;, &quot;a&quot;, &quot;a&quot;, &quot;b&quot;, &quot;b&quot;],</span>
-<span class="s1">         &quot;v1&quot;:[1, 4, 5, 2, 1],</span>
-<span class="s1">         &quot;v2&quot;:[1, None, 2, None, 6]}</span>
-<span class="s1">    )</span>
-<span class="s1">&gt;&gt;&gt; print(df)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-    <span class="p">{</span><span class="s2">&quot;key&quot;</span><span class="p">:[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">],</span>
-     <span class="s2">&quot;v1&quot;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-     <span class="s2">&quot;v2&quot;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">6</span><span class="p">]}</span>
-<span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">## 集約(aggregatioon)</span>
-<span class="s1"># no.1-1 </span>
-<span class="s1"># key列をグループとして、v1,v2を合計する。</span>
-<span class="s1">&gt;&gt;&gt; print(df.groupby(&#39;key&#39;).sum())&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">## 変換(transformation)</span>
-<span class="s1"># no.1-2 </span>
-<span class="s1"># key列をグループとして、v1の累計を計算し、trans列として追加する。</span>
-<span class="s1"># 集約と異なり、出力の行数は入力の行数に等しくなる。</span>
-<span class="s1">&gt;&gt;&gt; dd = df.copy()</span>
-<span class="s1">&gt;&gt;&gt; dd[&#39;trans&#39;] = dd.groupby(&#39;key&#39;)[&#39;v1&#39;].transform(&#39;cumsum&#39;)</span>
-<span class="s1">&gt;&gt;&gt; print(dd)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dd</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">dd</span><span class="p">[</span><span class="s1">&#39;trans&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">)[</span><span class="s1">&#39;v1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">&#39;cumsum&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">## 選択(filteration)</span>
-<span class="s1"># no.1-3 </span>
-<span class="s1"># key列をグループとして、v1の合計が5より大きいグループを選択する。</span>
-<span class="s1">&gt;&gt;&gt; print(df.groupby(&#39;key&#39;).filter(lambda x:x[&#39;v1&#39;].sum()&gt;5))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;v1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">&gt;</span><span class="mi">5</span><span class="p">))</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>
-# 入力データ
-&gt;&gt;&gt; df = pd.DataFrame(
-        {&#34;key&#34;:[&#34;a&#34;, &#34;a&#34;, &#34;a&#34;, &#34;b&#34;, &#34;b&#34;],
-         &#34;v1&#34;:[1, 4, 5, 2, 1],
-         &#34;v2&#34;:[1, None, 2, None, 6]}
-    )
-&gt;&gt;&gt; print(df)
-  key  v1   v2
-0   a   1  1.0
-1   a   4  NaN
-2   a   5  2.0
-3   b   2  NaN
-4   b   1  6.0
-
-## 集約(aggregatioon)
-# no.1-1 
-# key列をグループとして、v1,v2を合計する。
-&gt;&gt;&gt; print(df.groupby(&#39;key&#39;).sum())
-     v1   v2
-key         
-a    10  3.0
-b     3  6.0
-
-## 変換(transformation)
-# no.1-2 
-# key列をグループとして、v1の累計を計算し、trans列として追加する。
-# 集約と異なり、出力の行数は入力の行数に等しくなる。
-&gt;&gt;&gt; dd = df.copy()
-&gt;&gt;&gt; dd[&#39;trans&#39;] = dd.groupby(&#39;key&#39;)[&#39;v1&#39;].transform(&#39;cumsum&#39;)
-&gt;&gt;&gt; print(dd)
-  key  v1   v2  trans
-0   a   1  1.0      1
-1   a   4  NaN      5
-2   a   5  2.0     10
-3   b   2  NaN      2
-4   b   1  6.0      3
-
-## 選択(filteration)
-# no.1-3 
-# key列をグループとして、v1の合計が5より大きいグループを選択する。
-&gt;&gt;&gt; print(df.groupby(&#39;key&#39;).filter(lambda x:x[&#39;v1&#39;].sum()&gt;5))
-  key  v1   v2
-0   a   1  1.0
-1   a   4  NaN
-2   a   5  2.0
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
@@ -14501,30 +14376,32 @@ aggregation処理として指定できる関数一覧は以下に示すとおり
 <li>var() : 分散</li>
 </ul>
 <hr>
-<h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><p><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
+<h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 df = pd.DataFrame(
     {"key":["a", "a", "a", "b", "b"],
      "v1":[1, 4, 5, 2, 1],
      "v2":[1, None, 2, None, 6]}
-)</p>
-<p>df2 = pd.DataFrame(
+)
+
+df2 = pd.DataFrame(
     {"k1":["a", "a", "a", "b", "b"],
      "k2":["x", "y", "x", "y", "y"],
      "v1":[0.1, -0.2, 0.3, -0.5, 0.3],
      "v2":[1, None, 2, None, 6]}
 )
-&lt;/pre&gt;&lt;/td&gt;
-  <table border="1" style="table-layout:fixed;width:100%;">
+</pre><table border="1" style="table-layout:fixed;width:100%;">
     <colgroup>
       <col style="width:3%;">
       <col style="width:30%;">
       <col style="width:25%;">  
       <col style="width:25%;">
       <col style="width:17%;">    
-    </colgroup></p>
+    </colgroup>
 <tbody>
 
-<tr><th align="left">no.</th><th align="left">実行コード</th><th align="left">入力</th><th align="left">出力</th><th>備考</th></tr><tr style="background:#fff; border:1px solid #cc0000;">
+<tr><th align="left">no.</th><th align="left">実行コード</th><th align="left">入力</th><th align="left">出力</th><th>備考</th></tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>2-1</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(df.groupby('key').agg(lambda x:x.max() - x.min()))
@@ -14534,7 +14411,9 @@ print(df.groupby('key').agg(lambda x:x.max() - x.min()))
 <td>
 グループごとに範囲(最大値-最小値)を求める。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>2-2</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(df.groupby('key').agg(v1_min=('v1', 'min'), v1_max=('v1', 'max'), size=('v1', 'size')))
@@ -14544,7 +14423,9 @@ print(df.groupby('key').agg(v1_min=('v1', 'min'), v1_max=('v1', 'max'), size=('v
 <td>
 名前付きaggregationを使うと、対象列/計算方法/新しい列名を複数個一度に指定できる。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>2-3</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(df.groupby('key').mean())
@@ -14554,7 +14435,9 @@ print(df.groupby('key').mean())
 <td>
 グループごとに平均を求める。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>2-4</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(df.groupby('key').size())
@@ -14564,7 +14447,9 @@ print(df.groupby('key').size())
 <td>
 各グループのサイズを求める(出力はSeries)。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>2-5</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(df['key'].value_counts())
@@ -14574,7 +14459,9 @@ print(df['key'].value_counts())
 <td>
 同様のことは集計キーをSeriesとして切り出してvalue_counts()でも可能。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>2-6</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(df.groupby('key').count())
@@ -14584,7 +14471,9 @@ print(df.groupby('key').count())
 <td>
 グループごとに各列のnull以外の件数を求める。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>2-7</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(df.groupby('key').describe())
@@ -14594,7 +14483,9 @@ print(df.groupby('key').describe())
 <td>
 グループごとに各種統計量を求める。列がマルチインデックスになる。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>2-8</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(df2.groupby(['k1','k2']).sum())
@@ -14604,219 +14495,11 @@ print(df2.groupby(['k1','k2']).sum())
 <td>
 複数列をグループとして扱う。k1,k2列をグループとする。行がマルチインデックスになる。
 </td>
-</tr><p>&lt;/tbody&gt;
-&lt;/table&gt;</p>
+</tr>
 
+</tbody>
+</table>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># 入力データ</span>
-<span class="s1">&gt;&gt;&gt; df = pd.DataFrame(</span>
-<span class="s1">        {&quot;key&quot;:[&quot;a&quot;, &quot;a&quot;, &quot;a&quot;, &quot;b&quot;, &quot;b&quot;],</span>
-<span class="s1">         &quot;v1&quot;:[1, 4, 5, 2, 1],</span>
-<span class="s1">         &quot;v2&quot;:[1, None, 2, None, 6]}</span>
-<span class="s1">    )</span>
-<span class="s1">&gt;&gt;&gt; print(df)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-    <span class="p">{</span><span class="s2">&quot;key&quot;</span><span class="p">:[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">],</span>
-     <span class="s2">&quot;v1&quot;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-     <span class="s2">&quot;v2&quot;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">6</span><span class="p">]}</span>
-<span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">&gt;&gt;&gt; df2 = pd.DataFrame(</span>
-<span class="s1">        {&quot;k1&quot;:[&quot;a&quot;, &quot;a&quot;, &quot;a&quot;, &quot;b&quot;, &quot;b&quot;],</span>
-<span class="s1">         &quot;k2&quot;:[&quot;x&quot;, &quot;y&quot;, &quot;x&quot;, &quot;y&quot;, &quot;y&quot;],</span>
-<span class="s1">         &quot;v1&quot;:[0.1, -0.2, 0.3, -0.5, 0.3],</span>
-<span class="s1">         &quot;v2&quot;:[1, None, 2, None, 6]}</span>
-<span class="s1">    )</span>
-<span class="s1">&gt;&gt;&gt; print(df2)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-    <span class="p">{</span><span class="s2">&quot;k1&quot;</span><span class="p">:[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">],</span>
-     <span class="s2">&quot;k2&quot;</span><span class="p">:[</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">],</span>
-     <span class="s2">&quot;v1&quot;</span><span class="p">:[</span><span class="mf">0.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">],</span>
-     <span class="s2">&quot;v2&quot;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">6</span><span class="p">]}</span>
-<span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df2</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-1 </span>
-<span class="s1"># グループごとに範囲(最大値-最小値)を求める</span>
-<span class="s1">&gt;&gt;&gt; print(df.groupby(&#39;key&#39;).agg(lambda x:x.max() - x.min()))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">()))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-2</span>
-<span class="s1"># 名前付きaggregationを使うと、対象列/計算方法/新しい列名を複数個一度に指定できる</span>
-<span class="s1">&gt;&gt;&gt; print(df.groupby(&#39;key&#39;).agg(v1_min=(&#39;v1&#39;, &#39;min&#39;), v1_max=(&#39;v1&#39;, &#39;max&#39;), size=(&#39;v1&#39;, &#39;size&#39;)))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">v1_min</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;v1&#39;</span><span class="p">,</span> <span class="s1">&#39;min&#39;</span><span class="p">),</span> <span class="n">v1_max</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;v1&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;v1&#39;</span><span class="p">,</span> <span class="s1">&#39;size&#39;</span><span class="p">)))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-3 </span>
-<span class="s1"># グループごとに平均を求める</span>
-<span class="s1">&gt;&gt;&gt; print(df.groupby(&#39;key&#39;).mean())&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-4 </span>
-<span class="s1"># 各グループのサイズを求める(出力はSeries)</span>
-<span class="s1">&gt;&gt;&gt; print(df.groupby(&#39;key&#39;).size())&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">())</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-5 </span>
-<span class="s1"># 同様のことは集計キーをSeriesとして切り出してvalue_counts()でも可能</span>
-<span class="s1">&gt;&gt;&gt; print(df[&#39;key&#39;].value_counts())&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-6 </span>
-<span class="s1"># グループごとに各列のnull以外の件数を求める</span>
-<span class="s1">&gt;&gt;&gt; print(df.groupby(&#39;key&#39;).count())&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">())</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-7 </span>
-<span class="s1"># グループごとに各種統計量を求める。列がマルチインデックスとなる。</span>
-<span class="s1">&gt;&gt;&gt; print(df.groupby(&#39;key&#39;).describe())&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-8 </span>
-<span class="s1"># 複数列をグループとして扱う。k1,k2列をグループとする。列がマルチインデックスとなる。</span>
-<span class="s1">&gt;&gt;&gt; print(df2.groupby([&#39;k1&#39;,&#39;k2&#39;]).sum())&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df2</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;k1&#39;</span><span class="p">,</span><span class="s1">&#39;k2&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>
-# 入力データ
-&gt;&gt;&gt; df = pd.DataFrame(
-        {&#34;key&#34;:[&#34;a&#34;, &#34;a&#34;, &#34;a&#34;, &#34;b&#34;, &#34;b&#34;],
-         &#34;v1&#34;:[1, 4, 5, 2, 1],
-         &#34;v2&#34;:[1, None, 2, None, 6]}
-    )
-&gt;&gt;&gt; print(df)
-  key  v1   v2
-0   a   1  1.0
-1   a   4  NaN
-2   a   5  2.0
-3   b   2  NaN
-4   b   1  6.0
-
-&gt;&gt;&gt; df2 = pd.DataFrame(
-        {&#34;k1&#34;:[&#34;a&#34;, &#34;a&#34;, &#34;a&#34;, &#34;b&#34;, &#34;b&#34;],
-         &#34;k2&#34;:[&#34;x&#34;, &#34;y&#34;, &#34;x&#34;, &#34;y&#34;, &#34;y&#34;],
-         &#34;v1&#34;:[0.1, -0.2, 0.3, -0.5, 0.3],
-         &#34;v2&#34;:[1, None, 2, None, 6]}
-    )
-&gt;&gt;&gt; print(df2)
-  k1 k2   v1   v2
-0  a  x  0.1  1.0
-1  a  y -0.2  NaN
-2  a  x  0.3  2.0
-3  b  y -0.5  NaN
-4  b  y  0.3  6.0
-
-# no.2-1 
-# グループごとに範囲(最大値-最小値)を求める
-&gt;&gt;&gt; print(df.groupby(&#39;key&#39;).agg(lambda x:x.max() - x.min()))
-     v1   v2
-key         
-a     4  1.0
-b     1  0.0
-
-# no.2-2
-# 名前付きaggregationを使うと、対象列/計算方法/新しい列名を複数個一度に指定できる
-&gt;&gt;&gt; print(df.groupby(&#39;key&#39;).agg(v1_min=(&#39;v1&#39;, &#39;min&#39;), v1_max=(&#39;v1&#39;, &#39;max&#39;), size=(&#39;v1&#39;, &#39;size&#39;)))
-     v1_min  v1_max  size
-key                      
-a         1       5     3
-b         1       2     2
-
-# no.2-3 
-# グループごとに平均を求める
-&gt;&gt;&gt; print(df.groupby(&#39;key&#39;).mean())
-           v1   v2
-key               
-a    3.333333  1.5
-b    1.500000  6.0
-
-# no.2-4 
-# 各グループのサイズを求める(出力はSeries)
-&gt;&gt;&gt; print(df.groupby(&#39;key&#39;).size())
-key
-a    3
-b    2
-dtype: int64
-
-# no.2-5 
-# 同様のことは集計キーをSeriesとして切り出してvalue_counts()でも可能
-&gt;&gt;&gt; print(df[&#39;key&#39;].value_counts())
-a    3
-b    2
-Name: key, dtype: int64
-
-# no.2-6 
-# グループごとに各列のnull以外の件数を求める
-&gt;&gt;&gt; print(df.groupby(&#39;key&#39;).count())
-     v1  v2
-key        
-a     3   2
-b     2   1
-
-# no.2-7 
-# グループごとに各種統計量を求める。列がマルチインデックスとなる。
-&gt;&gt;&gt; print(df.groupby(&#39;key&#39;).describe())
-       v1                                                   v2                 \
-    count      mean       std  min   25%  50%   75%  max count mean       std   
-key                                                                             
-a     3.0  3.333333  2.081666  1.0  2.50  4.0  4.50  5.0   2.0  1.5  0.707107   
-b     2.0  1.500000  0.707107  1.0  1.25  1.5  1.75  2.0   1.0  6.0       NaN   
-
-                                
-     min   25%  50%   75%  max  
-key                             
-a    1.0  1.25  1.5  1.75  2.0  
-b    6.0  6.00  6.0  6.00  6.0  
-
-# no.2-8 
-# 複数列をグループとして扱う。k1,k2列をグループとする。列がマルチインデックスとなる。
-&gt;&gt;&gt; print(df2.groupby([&#39;k1&#39;,&#39;k2&#39;]).sum())
-        v1   v2
-k1 k2          
-a  x   0.4  3.0
-   y  -0.2  0.0
-b  y  -0.2  6.0
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
@@ -14837,25 +14520,26 @@ transform()メソッドに処理したい内容の関数を与えることで実
 <li>transform(): 汎用的なtransformation関数で、処理する関数名を指定する(numpyの関数もしくはユーザ関数)</li>
 </ul>
 <hr>
-<h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><p><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
+<h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 df = pd.DataFrame(
     {"key":["a", "a", "a", "b", "b"],
      "v1":[0.1, -0.2, 0.3, -0.5, 0.3],
      "v2":[1, 4, 5, 8, 2],
      "v3":[1, None, 2, None, 6]}
 )
-</pre>&lt;/td&gt;
-  <table border="1" style="table-layout:fixed;width:100%;">
+</pre><table border="1" style="table-layout:fixed;width:100%;">
     <colgroup>
       <col style="width:3%;">
       <col style="width:30%;">
       <col style="width:25%;">  
       <col style="width:25%;">
       <col style="width:17%;">
-    </colgroup></p>
+    </colgroup>
 <tbody>
 
-<tr><th align="left">no.</th><th align="left">実行コード</th><th align="left">入力</th><th align="left">出力</th><th>備考</th></tr><tr style="background:#fff; border:1px solid #cc0000;">
+<tr><th align="left">no.</th><th align="left">実行コード</th><th align="left">入力</th><th align="left">出力</th><th>備考</th></tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-1</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 dd = df.copy()
@@ -14869,7 +14553,9 @@ transform()メソッドは、関数を与えることで汎用的にtransformati
 ここでは、グループ(key)ごとに、v1列にnp.cumsum()メソッド(累計)を適用している。
 ただし、累計であれば、transoform()を使わなくても、専用のcumusum()メソッドが用意されている(後述)。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-2</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 dd = df.groupby('key').transform(np.cumsum)
@@ -14882,7 +14568,9 @@ print(df.join(dd, rsuffix='_cumsum'))
 数値列(v1,v2,v3)に対してnp.cumsum()メソッドを適用する。
 入力データdfとddをindexで結合する。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-3</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 dd = df.copy()
@@ -14895,7 +14583,9 @@ dd
 グループ毎にv1列の平均を計算し、その値をグループ内の全行に展開(ブロードキャスト)する
 'mean'はnp.meanのアリアス
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-4</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 dd = df.copy()
@@ -14907,7 +14597,9 @@ dd
 <td>
 グループ毎にv1列の各行のz-scoreを計算する
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-5</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 dd = df.copy()
@@ -14919,7 +14611,9 @@ dd
 <td>
 グループ毎にv3列のnull値をグループの平均値で置き換える
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-6</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 dd = df.copy()
@@ -14931,7 +14625,9 @@ dd
 <td>
 グループ毎にv1列の構成比を計算する
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-7</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 dd = df.copy()
@@ -14943,7 +14639,9 @@ dd
 <td>
 グループ内で行番号を振る
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-8</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 dd = df.copy()
@@ -14955,7 +14653,9 @@ dd
 <td>
 グループごとにv1列を累計する
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-9</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 dd = df.copy()
@@ -14967,7 +14667,9 @@ dd
 <td>
 グループごとにv1列の累計最大値を計算する
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-10</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 dd = df.copy()
@@ -14979,7 +14681,9 @@ dd
 <td>
 グループごとにv3列のnullを前行の値で補完する
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-11</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 dd = df.copy()
@@ -14991,336 +14695,11 @@ dd
 <td>
 グループごとにv2列の値を一行ずらす
 </td>
-</tr><p>&lt;/tbody&gt;
-&lt;/table&gt;</p>
-<p>&lt;/div&gt;</p>
+</tr>
 
+</tbody>
+</table>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># 入力データ</span>
-<span class="s1">&gt;&gt;&gt; df = pd.DataFrame(</span>
-<span class="s1">        {&quot;key&quot;:[&quot;a&quot;, &quot;a&quot;, &quot;a&quot;, &quot;b&quot;, &quot;b&quot;],</span>
-<span class="s1">         &quot;v1&quot;:[0.1, -0.2, 0.3, -0.5, 0.3],</span>
-<span class="s1">         &quot;v2&quot;:[1, 4, 5, 8, 2],</span>
-<span class="s1">         &quot;v3&quot;:[1, None, 2, None, 6]}</span>
-<span class="s1">    )</span>
-<span class="s1">&gt;&gt;&gt; print(df)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-    <span class="p">{</span><span class="s2">&quot;key&quot;</span><span class="p">:[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">],</span>
-     <span class="s2">&quot;v1&quot;</span><span class="p">:[</span><span class="mf">0.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">],</span>
-     <span class="s2">&quot;v2&quot;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
-     <span class="s2">&quot;v3&quot;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">6</span><span class="p">]}</span>
-<span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">## no.3-1 </span>
-<span class="s1"># transform()メソッドは、関数を与えることで汎用的にtransformationを実現する</span>
-<span class="s1"># ここでは、グループ(key)ごとに、v1列にnp.cumsum()メソッド(累計)を適用している。</span>
-<span class="s1"># ただし、累計であれば、transoform()を使わなくても、専用のcumusum()メソッドが用意されている(後述)。</span>
-<span class="s1">&gt;&gt;&gt; dd = df.copy()</span>
-<span class="s1">&gt;&gt;&gt; dd[&#39;cumsum&#39;] = dd.groupby(&#39;key&#39;)[&#39;v1&#39;].transform(np.cumsum)</span>
-<span class="s1">&gt;&gt;&gt; print(dd)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dd</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">dd</span><span class="p">[</span><span class="s1">&#39;cumsum&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">)[</span><span class="s1">&#39;v1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># DataFrameに適用した結果を入力データに反映させたければjoin()を使う。</span>
-<span class="s1">## no.3-2</span>
-<span class="s1"># 数値列(v1,v2,v3)に対してnp.cumsum()メソッドを適用する。</span>
-<span class="s1">&gt;&gt;&gt; dd = df.groupby(&#39;key&#39;).transform(np.cumsum)</span>
-<span class="s1">&gt;&gt;&gt; print(dd)</span>
-<span class="s1"># 入力データdfとddをindexで結合する。</span>
-<span class="s1">&gt;&gt;&gt; print(df.join(dd, rsuffix=&#39;_cumsum&#39;))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dd</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dd</span><span class="p">,</span> <span class="n">rsuffix</span><span class="o">=</span><span class="s1">&#39;_cumsum&#39;</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">## no.3-3</span>
-<span class="s1"># グループ毎にv1列の平均を計算し、その値をグループ内の全行に展開(ブロードキャスト)する</span>
-<span class="s1"># &#39;mean&#39;はnp.meanのアリアス</span>
-<span class="s1">&gt;&gt;&gt; dd = df.copy()</span>
-<span class="s1">&gt;&gt;&gt; dd[&#39;mean&#39;] = dd.groupby(&#39;key&#39;)[&#39;v1&#39;].transform(&#39;mean&#39;)</span>
-<span class="s1">&gt;&gt;&gt; print(dd)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dd</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">dd</span><span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">)[</span><span class="s1">&#39;v1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">&#39;mean&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">## no.3-4</span>
-<span class="s1"># グループ毎にv1列の各行のz-scoreを計算する</span>
-<span class="s1">&gt;&gt;&gt; dd = df.copy()</span>
-<span class="s1">&gt;&gt;&gt; dd[&#39;zscore&#39;] = dd.groupby(&#39;key&#39;)[&#39;v1&#39;].transform(lambda x:(x - x.mean()) / x.std())</span>
-<span class="s1">&gt;&gt;&gt; print(dd)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dd</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">dd</span><span class="p">[</span><span class="s1">&#39;zscore&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">)[</span><span class="s1">&#39;v1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:(</span><span class="n">x</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="o">/</span> <span class="n">x</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">## no.3-5</span>
-<span class="s1"># グループ毎にv3列のnull値をグループの平均値で置き換える</span>
-<span class="s1">&gt;&gt;&gt; dd = df.copy()</span>
-<span class="s1">&gt;&gt;&gt; dd[&#39;surrogate&#39;] = dd.groupby(&#39;key&#39;)[&#39;v3&#39;].transform(lambda x:x.fillna(x.mean()))</span>
-<span class="s1">&gt;&gt;&gt; print(dd)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dd</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">dd</span><span class="p">[</span><span class="s1">&#39;surrogate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">)[</span><span class="s1">&#39;v3&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
- 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">## no.3-6</span>
-<span class="s1"># グループ毎にv1列の構成比を計算する</span>
-<span class="s1">&gt;&gt;&gt; dd = df.copy()</span>
-<span class="s1">&gt;&gt;&gt; dd[&#39;share&#39;] = dd.groupby(&#39;key&#39;)[&#39;v1&#39;].transform(lambda x:x / x.sum())</span>
-<span class="s1">&gt;&gt;&gt; print(dd)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dd</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">dd</span><span class="p">[</span><span class="s1">&#39;share&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">)[</span><span class="s1">&#39;v1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span> <span class="o">/</span> <span class="n">x</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.3-7</span>
-<span class="s1"># グループ内で行番号を振る</span>
-<span class="s1">&gt;&gt;&gt; dd = df.copy()</span>
-<span class="s1">&gt;&gt;&gt; dd[&#39;cumcount&#39;] = dd.groupby(&#39;key&#39;).cumcount()</span>
-<span class="s1">&gt;&gt;&gt; print(dd)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dd</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">dd</span><span class="p">[</span><span class="s1">&#39;cumcount&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">cumcount</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="se">\n</span><span class="s1"># no.3-8 </span>
-<span class="s1"># グループごとにv1列を累計する</span>
-<span class="s1">&gt;&gt;&gt; dd = df.copy()</span>
-<span class="s1">&gt;&gt;&gt; dd[&#39;cumsum&#39;] = dd.groupby(&#39;key&#39;)[&#39;v1&#39;].cumsum()</span>
-<span class="s1">&gt;&gt;&gt; print(dd)</span>
-<span class="s1">&gt;&gt;&gt; g.cumsum()&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dd</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">dd</span><span class="p">[</span><span class="s1">&#39;cumsum&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">)[</span><span class="s1">&#39;v1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.3-9</span>
-<span class="s1"># グループごとにv1列の累計最大値を計算する</span>
-<span class="s1">&gt;&gt;&gt; dd = df.copy()</span>
-<span class="s1">&gt;&gt;&gt; dd[&#39;cummax&#39;] = dd.groupby(&#39;key&#39;)[&#39;v1&#39;].cummax()</span>
-<span class="s1">&gt;&gt;&gt; print(dd)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dd</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">dd</span><span class="p">[</span><span class="s1">&#39;cummax&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">)[</span><span class="s1">&#39;v1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">cummax</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.3-10 </span>
-<span class="s1"># グループごとにv3列のnullを前行の値で補完する</span>
-<span class="s1">&gt;&gt;&gt; dd = df.copy()</span>
-<span class="s1">&gt;&gt;&gt; dd[&#39;ffill&#39;] = dd.groupby(&#39;key&#39;)[&#39;v3&#39;].ffill()</span>
-<span class="s1">&gt;&gt;&gt; print(dd)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dd</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">dd</span><span class="p">[</span><span class="s1">&#39;ffill&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">)[</span><span class="s1">&#39;v3&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">ffill</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.3-11</span>
-<span class="s1"># グループごとにv2列の値を一行ずらす</span>
-<span class="s1">&gt;&gt;&gt; dd = df.copy()</span>
-<span class="s1">&gt;&gt;&gt; dd[&#39;shift&#39;] = dd.groupby(&#39;key&#39;)[&#39;v2&#39;].shift()</span>
-<span class="s1">&gt;&gt;&gt; print(dd)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dd</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">dd</span><span class="p">[</span><span class="s1">&#39;shift&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">)[</span><span class="s1">&#39;v2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>
-# 入力データ
-&gt;&gt;&gt; df = pd.DataFrame(
-        {&#34;key&#34;:[&#34;a&#34;, &#34;a&#34;, &#34;a&#34;, &#34;b&#34;, &#34;b&#34;],
-         &#34;v1&#34;:[0.1, -0.2, 0.3, -0.5, 0.3],
-         &#34;v2&#34;:[1, 4, 5, 8, 2],
-         &#34;v3&#34;:[1, None, 2, None, 6]}
-    )
-&gt;&gt;&gt; print(df)
-  key   v1  v2   v3
-0   a  0.1   1  1.0
-1   a -0.2   4  NaN
-2   a  0.3   5  2.0
-3   b -0.5   8  NaN
-4   b  0.3   2  6.0
-
-## no.3-1 
-# transform()メソッドは、関数を与えることで汎用的にtransformationを実現する
-# ここでは、グループ(key)ごとに、v1列にnp.cumsum()メソッド(累計)を適用している。
-# ただし、累計であれば、transoform()を使わなくても、専用のcumusum()メソッドが用意されている(後述)。
-&gt;&gt;&gt; dd = df.copy()
-&gt;&gt;&gt; dd[&#39;cumsum&#39;] = dd.groupby(&#39;key&#39;)[&#39;v1&#39;].transform(np.cumsum)
-&gt;&gt;&gt; print(dd)
-  key   v1  v2   v3  cumsum
-0   a  0.1   1  1.0     0.1
-1   a -0.2   4  NaN    -0.1
-2   a  0.3   5  2.0     0.2
-3   b -0.5   8  NaN    -0.5
-4   b  0.3   2  6.0    -0.2
-
-# DataFrameに適用した結果を入力データに反映させたければjoin()を使う。
-## no.3-2
-# 数値列(v1,v2,v3)に対してnp.cumsum()メソッドを適用する。
-&gt;&gt;&gt; dd = df.groupby(&#39;key&#39;).transform(np.cumsum)
-&gt;&gt;&gt; print(dd)
-# 入力データdfとddをindexで結合する。
-&gt;&gt;&gt; print(df.join(dd, rsuffix=&#39;_cumsum&#39;))
-    v1  v2   v3
-0  0.1   1  1.0
-1 -0.1   5  NaN
-2  0.2  10  3.0
-3 -0.5   8  NaN
-4 -0.2  10  6.0
-  key   v1  v2   v3  v1_cumsum  v2_cumsum  v3_cumsum
-0   a  0.1   1  1.0        0.1          1        1.0
-1   a -0.2   4  NaN       -0.1          5        NaN
-2   a  0.3   5  2.0        0.2         10        3.0
-3   b -0.5   8  NaN       -0.5          8        NaN
-4   b  0.3   2  6.0       -0.2         10        6.0
-
-## no.3-3
-# グループ毎にv1列の平均を計算し、その値をグループ内の全行に展開(ブロードキャスト)する
-# &#39;mean&#39;はnp.meanのアリアス
-&gt;&gt;&gt; dd = df.copy()
-&gt;&gt;&gt; dd[&#39;mean&#39;] = dd.groupby(&#39;key&#39;)[&#39;v1&#39;].transform(&#39;mean&#39;)
-&gt;&gt;&gt; print(dd)
-  key   v1  v2   v3      mean
-0   a  0.1   1  1.0  0.066667
-1   a -0.2   4  NaN  0.066667
-2   a  0.3   5  2.0  0.066667
-3   b -0.5   8  NaN -0.100000
-4   b  0.3   2  6.0 -0.100000
-
-## no.3-4
-# グループ毎にv1列の各行のz-scoreを計算する
-&gt;&gt;&gt; dd = df.copy()
-&gt;&gt;&gt; dd[&#39;zscore&#39;] = dd.groupby(&#39;key&#39;)[&#39;v1&#39;].transform(lambda x:(x - x.mean()) / x.std())
-&gt;&gt;&gt; print(dd)
-  key   v1  v2   v3    zscore
-0   a  0.1   1  1.0  0.132453
-1   a -0.2   4  NaN -1.059626
-2   a  0.3   5  2.0  0.927173
-3   b -0.5   8  NaN -0.707107
-4   b  0.3   2  6.0  0.707107
-
-## no.3-5
-# グループ毎にv3列のnull値をグループの平均値で置き換える
-&gt;&gt;&gt; dd = df.copy()
-&gt;&gt;&gt; dd[&#39;surrogate&#39;] = dd.groupby(&#39;key&#39;)[&#39;v3&#39;].transform(lambda x:x.fillna(x.mean()))
-&gt;&gt;&gt; print(dd)
-  key   v1  v2   v3  surrogate
-0   a  0.1   1  1.0        1.0
-1   a -0.2   4  NaN        1.5
-2   a  0.3   5  2.0        2.0
-3   b -0.5   8  NaN        6.0
-4   b  0.3   2  6.0        6.0
-
-## no.3-6
-# グループ毎にv1列の構成比を計算する
-&gt;&gt;&gt; dd = df.copy()
-&gt;&gt;&gt; dd[&#39;share&#39;] = dd.groupby(&#39;key&#39;)[&#39;v1&#39;].transform(lambda x:x / x.sum())
-&gt;&gt;&gt; print(dd)
-  key   v1  v2   v3  share
-0   a  0.1   1  1.0    0.5
-1   a -0.2   4  NaN   -1.0
-2   a  0.3   5  2.0    1.5
-3   b -0.5   8  NaN    2.5
-4   b  0.3   2  6.0   -1.5
-
-# no.3-7
-# グループ内で行番号を振る
-&gt;&gt;&gt; dd = df.copy()
-&gt;&gt;&gt; dd[&#39;cumcount&#39;] = dd.groupby(&#39;key&#39;).cumcount()
-&gt;&gt;&gt; print(dd)
-  key   v1  v2   v3  cumcount
-0   a  0.1   1  1.0         0
-1   a -0.2   4  NaN         1
-2   a  0.3   5  2.0         2
-3   b -0.5   8  NaN         0
-4   b  0.3   2  6.0         1
-
-
-# no.3-8 
-# グループごとにv1列を累計する
-&gt;&gt;&gt; dd = df.copy()
-&gt;&gt;&gt; dd[&#39;cumsum&#39;] = dd.groupby(&#39;key&#39;)[&#39;v1&#39;].cumsum()
-&gt;&gt;&gt; print(dd)
-&gt;&gt;&gt; g.cumsum()
-  key   v1  v2   v3  cumsum
-0   a  0.1   1  1.0     0.1
-1   a -0.2   4  NaN    -0.1
-2   a  0.3   5  2.0     0.2
-3   b -0.5   8  NaN    -0.5
-4   b  0.3   2  6.0    -0.2
-
-# no.3-9
-# グループごとにv1列の累計最大値を計算する
-&gt;&gt;&gt; dd = df.copy()
-&gt;&gt;&gt; dd[&#39;cummax&#39;] = dd.groupby(&#39;key&#39;)[&#39;v1&#39;].cummax()
-&gt;&gt;&gt; print(dd)
-  key   v1  v2   v3  cummax
-0   a  0.1   1  1.0     0.1
-1   a -0.2   4  NaN     0.1
-2   a  0.3   5  2.0     0.3
-3   b -0.5   8  NaN    -0.5
-4   b  0.3   2  6.0     0.3
-
-# no.3-10 
-# グループごとにv3列のnullを前行の値で補完する
-&gt;&gt;&gt; dd = df.copy()
-&gt;&gt;&gt; dd[&#39;ffill&#39;] = dd.groupby(&#39;key&#39;)[&#39;v3&#39;].ffill()
-&gt;&gt;&gt; print(dd)
-  key   v1  v2   v3  ffill
-0   a  0.1   1  1.0    1.0
-1   a -0.2   4  NaN    1.0
-2   a  0.3   5  2.0    2.0
-3   b -0.5   8  NaN    NaN
-4   b  0.3   2  6.0    6.0
-
-# no.3-11
-# グループごとにv2列の値を一行ずらす
-&gt;&gt;&gt; dd = df.copy()
-&gt;&gt;&gt; dd[&#39;shift&#39;] = dd.groupby(&#39;key&#39;)[&#39;v2&#39;].shift()
-&gt;&gt;&gt; print(dd)
-  key   v1  v2   v3  shift
-0   a  0.1   1  1.0    NaN
-1   a -0.2   4  NaN    1.0
-2   a  0.3   5  2.0    4.0
-3   b -0.5   8  NaN    NaN
-4   b  0.3   2  6.0    8.0
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
@@ -15331,24 +14710,25 @@ dd
 <li>get_group() : 特定のグループの選択</li>
 </ul>
 <hr>
-<h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><p><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
+<h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 df = pd.DataFrame(
     {"key":["a", "a", "a", "b", "b"],
      "v1":[1, 4, 5, 2, 1],
      "v2":[1, None, 2, None, 6]}
 )
-</pre>&lt;/td&gt;
-  <table border="1" style="table-layout:fixed;width:100%;">
+</pre><table border="1" style="table-layout:fixed;width:100%;">
     <colgroup>
       <col style="width:3%;">
       <col style="width:30%;">
       <col style="width:25%;">  
       <col style="width:25%;">
       <col style="width:17%;">
-    </colgroup></p>
+    </colgroup>
 <tbody>
 
-<tr><th align="left">no.</th><th align="left">実行コード</th><th align="left">入力</th><th align="left">出力</th><th>備考</th></tr><tr style="background:#fff; border:1px solid #cc0000;">
+<tr><th align="left">no.</th><th align="left">実行コード</th><th align="left">入力</th><th align="left">出力</th><th>備考</th></tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>4-1</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(df.groupby('key').filter(lambda x:len(x) >= 3))
@@ -15358,7 +14738,9 @@ print(df.groupby('key').filter(lambda x:len(x) >= 3))
 <td>
 行数が3以上のグループを選択する
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>4-2</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(df.groupby('key').filter(lambda x:x['v2'].max() > 5))
@@ -15368,7 +14750,9 @@ print(df.groupby('key').filter(lambda x:x['v2'].max() > 5))
 <td>
 v2の最大値が5より大きいグループを選択する
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>4-3</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(df.groupby('key').get_group('a'))
@@ -15378,114 +14762,11 @@ print(df.groupby('key').get_group('a'))
 <td>
 一つの指定したグループを選択する(このメソッドで複数のグループは選択できない
 </td>
-</tr><p>&lt;/tbody&gt;
-&lt;/table&gt;</p>
-<p>&lt;/div&gt;</p>
+</tr>
 
+</tbody>
+</table>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># スクリプト</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># 入力データ</span>
-<span class="s1">&gt;&gt;&gt; df = pd.DataFrame(</span>
-<span class="s1">        {&quot;key&quot;:[&quot;a&quot;, &quot;a&quot;, &quot;a&quot;, &quot;b&quot;, &quot;b&quot;],</span>
-<span class="s1">         &quot;v1&quot;:[1, 4, 5, 2, 1],</span>
-<span class="s1">         &quot;v2&quot;:[1, None, 2, None, 6]}</span>
-<span class="s1">    )</span>
-<span class="s1">&gt;&gt;&gt; print(df)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-    <span class="p">{</span><span class="s2">&quot;key&quot;</span><span class="p">:[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">],</span>
-     <span class="s2">&quot;v1&quot;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-     <span class="s2">&quot;v2&quot;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">6</span><span class="p">]}</span>
-<span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.4-1 </span>
-<span class="s1"># 行数が3以上のグループを選択する</span>
-<span class="s1">&gt;&gt;&gt; print(df.groupby(&#39;key&#39;).filter(lambda x:len(x) &gt;= 3))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.4-2 </span>
-<span class="s1"># v2の最大値が5より大きいグループを選択する</span>
-<span class="s1">&gt;&gt;&gt; print(df.groupby(&#39;key&#39;).filter(lambda x:x[&#39;v2&#39;].max() &gt; 5))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;v2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.4-3 </span>
-<span class="s1"># 一つの指定したグループを選択する(このメソッドで複数のグループは選択できない)</span>
-<span class="s1">&gt;&gt;&gt; print(df.groupby(&#39;key&#39;).get_group(&#39;a&#39;))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get_group</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">))</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>
-# 入力データ
-&gt;&gt;&gt; df = pd.DataFrame(
-        {&#34;key&#34;:[&#34;a&#34;, &#34;a&#34;, &#34;a&#34;, &#34;b&#34;, &#34;b&#34;],
-         &#34;v1&#34;:[1, 4, 5, 2, 1],
-         &#34;v2&#34;:[1, None, 2, None, 6]}
-    )
-&gt;&gt;&gt; print(df)
-  key  v1   v2
-0   a   1  1.0
-1   a   4  NaN
-2   a   5  2.0
-3   b   2  NaN
-4   b   1  6.0
-
-# no.4-1 
-# 行数が3以上のグループを選択する
-&gt;&gt;&gt; print(df.groupby(&#39;key&#39;).filter(lambda x:len(x) &gt;= 3))
-  key  v1   v2
-0   a   1  1.0
-1   a   4  NaN
-2   a   5  2.0
-
-# no.4-2 
-# v2の最大値が5より大きいグループを選択する
-&gt;&gt;&gt; print(df.groupby(&#39;key&#39;).filter(lambda x:x[&#39;v2&#39;].max() &gt; 5))
-  key  v1   v2
-3   b   2  NaN
-4   b   1  6.0
-
-# no.4-3 
-# 一つの指定したグループを選択する(このメソッドで複数のグループは選択できない)
-&gt;&gt;&gt; print(df.groupby(&#39;key&#39;).get_group(&#39;a&#39;))
-  key  v1   v2
-0   a   1  1.0
-1   a   4  NaN
-2   a   5  2.0
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
@@ -15499,14 +14780,13 @@ print(df.groupby('key').get_group('a'))
 <li>cov() : 分散共分散行列</li>
 </ul>
 <hr>
-<h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><p><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
+<h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 df = pd.DataFrame(
     {"key":["a", "a", "a", "b", "b"],
      "v1":[0.1, -0.2, 0.3, -0.5, 0.3],
      "v2":[1, 4, 5, 8, 2]}
 )
-</pre>&lt;/td&gt;</p>
-<table border="1" style="table-layout:fixed;width:100%;">
+</pre><table border="1" style="table-layout:fixed;width:100%;">
     <colgroup>
       <col style="width:3%;">
       <col style="width:30%;">
@@ -15559,132 +14839,17 @@ print(df.groupby('key').corrwith(df2))
 </tbody>
 </table>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># 入力データ</span>
-<span class="s1">&gt;&gt;&gt; df = pd.DataFrame(</span>
-<span class="s1">        {&quot;key&quot;:[&quot;a&quot;, &quot;a&quot;, &quot;a&quot;, &quot;b&quot;, &quot;b&quot;],</span>
-<span class="s1">         &quot;v1&quot;:[0.1, -0.2, 0.3, -0.5, 0.3],</span>
-<span class="s1">         &quot;v2&quot;:[1, 4, 5, 8, 2]}</span>
-<span class="s1">    )</span>
-<span class="s1">&gt;&gt;&gt; print(df)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-    <span class="p">{</span><span class="s2">&quot;key&quot;</span><span class="p">:[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">],</span>
-     <span class="s2">&quot;v1&quot;</span><span class="p">:[</span><span class="mf">0.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">],</span>
-     <span class="s2">&quot;v2&quot;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">]}</span>
-<span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.5-1</span>
-<span class="s1"># head()はグループを選択するのではなく、グループ毎に先頭行を選択する</span>
-<span class="s1">&gt;&gt;&gt; print(df.groupby(&#39;key&#39;).head(1))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.5-2</span>
-<span class="s1"># 相関行列を計算する。グループごとに集計対象の数値列の全組み合わせについて相関係数を計算する。</span>
-<span class="s1">&gt;&gt;&gt; print(df.groupby(&#39;key&#39;).corr())&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">corr</span><span class="p">())</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="se">\n</span><span class="s1"># no.5-3</span>
-<span class="s1"># ２つDataFrameについて、同一の列ラベル同士をペアの相関係数を求める。ここでは、dfとv1,v2を入れ替えたデータdf2との相関を求めている。</span>
-<span class="s1"># 同じ列ラベルのない列についてはNAとして出力される。</span>
-<span class="s1"># dfとdf2の行の対応関係は行ラベル(index)で行われる。</span>
-<span class="s1">&gt;&gt;&gt; df2 = df[[&#39;v2&#39;, &#39;v1&#39;]].rename(columns={&#39;v1&#39;:&#39;v2&#39;, &#39;v2&#39;:&#39;v1&#39;})</span>
-<span class="s1">&gt;&gt;&gt; print(df.groupby(&#39;key&#39;).corrwith(df2))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;v2&#39;</span><span class="p">,</span> <span class="s1">&#39;v1&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;v1&#39;</span><span class="p">:</span><span class="s1">&#39;v2&#39;</span><span class="p">,</span> <span class="s1">&#39;v2&#39;</span><span class="p">:</span><span class="s1">&#39;v1&#39;</span><span class="p">})</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">corrwith</span><span class="p">(</span><span class="n">df2</span><span class="p">))</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>
-# 入力データ
-&gt;&gt;&gt; df = pd.DataFrame(
-        {
-            &#34;key&#34;:[&#34;a&#34;, &#34;a&#34;, &#34;a&#34;, &#34;b&#34;, &#34;b&#34;],
-            &#34;v1&#34;:[0.1, -0.2, 0.3, -0.5, 0.3],
-            &#34;v2&#34;:[1, 4, 5, 8, 2]
-        }
-    )
-&gt;&gt;&gt; print(df)
-  key   v1  v2
-0   a  0.1   1
-1   a -0.2   4
-2   a  0.3   5
-3   b -0.5   8
-4   b  0.3   2
-
-# no.5-1
-# head()はグループを選択するのではなく、グループ毎に先頭行を選択する
-&gt;&gt;&gt; print(df.groupby(&#39;key&#39;).head(1))
-  key   v1  v2
-0   a  0.1   1
-3   b -0.5   8
-
-# no.5-2
-# 相関行列を計算する。グループごとに集計対象の数値列の全組み合わせについて相関係数を計算する。
-&gt;&gt;&gt; print(df.groupby(&#39;key&#39;).corr())
-              v1        v2
-key                       
-a   v1  1.000000  0.127257
-    v2  0.127257  1.000000
-b   v1  1.000000 -1.000000
-    v2 -1.000000  1.000000
-
-
-# no.5-3
-# ２つDataFrameについて、同一の列ラベル同士をペアの相関係数を求める。ここでは、dfとv1,v2を入れ替えたデータdf2との相関を求めている。
-# 同じ列ラベルのない列についてはNAとして出力される。
-# dfとdf2の行の対応関係は行ラベル(index)で行われる。
-&gt;&gt;&gt; df2 = df[[&#39;v2&#39;, &#39;v1&#39;]].rename(columns={&#39;v1&#39;:&#39;v2&#39;, &#39;v2&#39;:&#39;v1&#39;})
-&gt;&gt;&gt; print(df.groupby(&#39;key&#39;).corrwith(df2))
-           v1        v2
-key                    
-a    0.127257  0.127257
-b   -1.000000 -1.000000
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <hr>
-<h1 id="6.&#12464;&#12523;&#12540;&#12503;&#12458;&#12502;&#12472;&#12455;&#12463;&#12488;&#12398;&#21205;&#20316;">6.&#12464;&#12523;&#12540;&#12503;&#12458;&#12502;&#12472;&#12455;&#12463;&#12488;&#12398;&#21205;&#20316;<a class="anchor-link" href="#6.&#12464;&#12523;&#12540;&#12503;&#12458;&#12502;&#12472;&#12455;&#12463;&#12488;&#12398;&#21205;&#20316;">&#182;</a></h1><h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><p><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
+<h1 id="6.&#12464;&#12523;&#12540;&#12503;&#12458;&#12502;&#12472;&#12455;&#12463;&#12488;&#12398;&#21205;&#20316;">6.&#12464;&#12523;&#12540;&#12503;&#12458;&#12502;&#12472;&#12455;&#12463;&#12488;&#12398;&#21205;&#20316;<a class="anchor-link" href="#6.&#12464;&#12523;&#12540;&#12503;&#12458;&#12502;&#12472;&#12455;&#12463;&#12488;&#12398;&#21205;&#20316;">&#182;</a></h1><h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 df = pd.DataFrame(
     {"key":["a", "a", "a", "b", "b"],
      "v1":[1, 4, 5, 2, 1],
      "v2":[1, None, 2, None, 6]}
 )
-</pre>&lt;/td&gt;</p>
-<table border="1" style="table-layout:fixed;width:100%;">
+</pre><table border="1" style="table-layout:fixed;width:100%;">
     <colgroup>
       <col style="width:3%;">
       <col style="width:30%;">
@@ -15750,144 +14915,8 @@ nameにグループ名、groupに各グループのDataFrameがセットされ�
 </tr>
 
 </tbody>
-</table><p>&lt;/div&gt;</p>
-
+</table>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># スクリプト</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># 入力データ</span>
-<span class="s1">&gt;&gt;&gt; df = pd.DataFrame(</span>
-<span class="s1">        {&quot;key&quot;:[&quot;a&quot;, &quot;a&quot;, &quot;a&quot;, &quot;b&quot;, &quot;b&quot;],</span>
-<span class="s1">         &quot;v1&quot;:[1, 4, 5, 2, 1],</span>
-<span class="s1">         &quot;v2&quot;:[1, None, 2, None, 6]}</span>
-<span class="s1">    )</span>
-<span class="s1">&gt;&gt;&gt; print(df)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-    <span class="p">{</span><span class="s2">&quot;key&quot;</span><span class="p">:[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">],</span>
-     <span class="s2">&quot;v1&quot;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-     <span class="s2">&quot;v2&quot;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">6</span><span class="p">]}</span>
-<span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span><span class="s1"># no.6-1</span>
-<span class="s1"># グループ名をkeyとし、値をindexラベルとした辞書</span>
-<span class="s1">&gt;&gt;&gt; print(df.groupby(&#39;key&#39;).groups)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">groups</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span><span class="s1"># no.6-2</span>
-<span class="s1"># その辞書の長さを計算することで、グループの数が得られる</span>
-<span class="s1">&gt;&gt;&gt; print(len(df.groupby(&#39;key&#39;).groups))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">groups</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span><span class="s1"># no.6-3</span>
-<span class="s1"># 同様のことは、集計キーをSeriesとして切り出してnunique()でも可能</span>
-<span class="s1">&gt;&gt;&gt; print(df[&#39;key&#39;].nunique())&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">())</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span><span class="s1"># no.6-4</span>
-<span class="s1"># グループごとに繰り返し処理</span>
-<span class="s1">&gt;&gt;&gt; for name, group in df.groupby(&#39;key&#39;):  # nameにグループ名、groupに各グループのDataFrameがセットされる</span>
-<span class="s1">&gt;&gt;&gt;     print(&#39;name:&#39;, name)</span>
-<span class="s1">&gt;&gt;&gt;     print(&#39;type(group):&#39;, type(group))</span>
-<span class="s1">&gt;&gt;&gt;     print(group)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;name:&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;type(group):&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">group</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>
-# 入力データ
-&gt;&gt;&gt; df = pd.DataFrame(
-        {&#34;key&#34;:[&#34;a&#34;, &#34;a&#34;, &#34;a&#34;, &#34;b&#34;, &#34;b&#34;],
-         &#34;v1&#34;:[1, 4, 5, 2, 1],
-         &#34;v2&#34;:[1, None, 2, None, 6]}
-    )
-&gt;&gt;&gt; print(df)
-  key  v1   v2
-0   a   1  1.0
-1   a   4  NaN
-2   a   5  2.0
-3   b   2  NaN
-4   b   1  6.0
-
-# no.6-1
-# グループ名をkeyとし、値をindexラベルとした辞書
-&gt;&gt;&gt; print(df.groupby(&#39;key&#39;).groups)
-{&#39;a&#39;: [0, 1, 2], &#39;b&#39;: [3, 4]}
-
-# no.6-2
-# その辞書の長さを計算することで、グループの数が得られる
-&gt;&gt;&gt; print(len(df.groupby(&#39;key&#39;).groups))
-2
-
-# no.6-3
-# 同様のことは、集計キーをSeriesとして切り出してnunique()でも可能
-&gt;&gt;&gt; print(df[&#39;key&#39;].nunique())
-2
-
-# no.6-4
-# グループごとに繰り返し処理
-&gt;&gt;&gt; for name, group in df.groupby(&#39;key&#39;):  # nameにグループ名、groupに各グループのDataFrameがセットされる
-&gt;&gt;&gt;     print(&#39;name:&#39;, name)
-&gt;&gt;&gt;     print(&#39;type(group):&#39;, type(group))
-&gt;&gt;&gt;     print(group)
-name: a
-type(group): &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-  key  v1   v2
-0   a   1  1.0
-1   a   4  NaN
-2   a   5  2.0
-name: b
-type(group): &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-  key  v1   v2
-3   b   2  NaN
-4   b   1  6.0
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div>
 </body>
 

@@ -14348,39 +14348,25 @@ DataFrameもしくはSeriesのデータに対して、<b>「df.rollling().処理
 <hr>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <hr>
-<h1 id="1.&#22522;&#26412;&#20363;">1.&#22522;&#26412;&#20363;<a class="anchor-link" href="#1.&#22522;&#26412;&#20363;">&#182;</a></h1><h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><p><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
+<h1 id="1.&#22522;&#26412;&#20363;">1.&#22522;&#26412;&#20363;<a class="anchor-link" href="#1.&#22522;&#26412;&#20363;">&#182;</a></h1><h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 sr = pd.Series([2, 1, 3, 0, 1])
 df = pd.DataFrame({"v1":[2, 1, 3, 0, 1], "v2":[1, 3, 2, 0, 2]})
-</pre>&lt;/td&gt;
-  <table border="1" style="table-layout:fixed;width:100%;">
+</pre><table border="1" style="table-layout:fixed;width:100%;">
     <colgroup>
       <col style="width:3%;">
       <col style="width:35%;">
       <col style="width:45%;">  
       <col style="width:17%;">
-    </colgroup></p>
+    </colgroup>
 <tbody>
 
-<tr><th align="left">no.</th><th align="left">実行コード</th><th align="left">入力/出力</th><th>備考</th></tr><tr style="background:#fff; border:1px solid #cc0000;">
+<tr><th align="left">no.</th><th align="left">実行コード</th><th align="left">入力/出力</th><th>備考</th></tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>1-1</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(df.rolling(3).sum())
@@ -14390,7 +14376,9 @@ print(df.rolling(3).sum())
 3行の窓を1行ずつずらしながら、それぞれの列(v2,v2)を合計する。<br>
 窓の最終行に合計された値は出力される。<br>1,2行目は3行そろわないためにNaNが出力されている。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>1-2</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(sr.rolling(3).sum())
@@ -14399,7 +14387,9 @@ print(sr.rolling(3).sum())
 <td>
 seriesに適用した例。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>1-3</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(df.rolling(3, min_periods=2).sum())
@@ -14408,7 +14398,9 @@ print(df.rolling(3, min_periods=2).sum())
 <td>
 窓の行数(ここでは3行)が揃わない窓でもmin_periods=によって最低必要な行数を指定できる。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>1-4</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(df.rolling(3, center=True).sum())
@@ -14417,7 +14409,9 @@ print(df.rolling(3, center=True).sum())
 <td>
 出力行を窓の最終行でなく中央にすることも可能。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>1-5</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(df.rolling(3).aggregate(['sum', 'mean']))
@@ -14426,161 +14420,11 @@ print(df.rolling(3).aggregate(['sum', 'mean']))
 <td>
 aggregate()のような複数の処理が可能な関数は列がマルチラベルで出力される。
 </td>
-</tr><p>&lt;/tbody&gt;
-&lt;/table&gt;</p>
-<p>&lt;/div&gt;</p>
+</tr>
 
+</tbody>
+</table>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># 入力データ</span>
-<span class="s1">&gt;&gt;&gt; sr = pd.Series([2, 1, 3, 0, 1])</span>
-<span class="s1">&gt;&gt;&gt; print(sr)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">sr</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">sr</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">&gt;&gt;&gt; df = pd.DataFrame({&quot;v1&quot;: [2, 1, 3, 0, 1], &quot;v2&quot;: [1, 3, 2, 0, 2]})</span>
-<span class="s1">&gt;&gt;&gt; print(df)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;v1&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;v2&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]})</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.1-1</span>
-<span class="s1"># 3行の窓を1行ずつずらしながら、それぞれの列(v2,v2)を合計する。</span>
-<span class="s1"># 窓の最終行に合計された値は出力される。</span>
-<span class="s1"># 1,2行目は3行そろわないためにNaNが出力されている。</span>
-<span class="s1">&gt;&gt;&gt; print(df.rolling(3))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.1-2</span>
-<span class="s1"># seriesに適用した例</span>
-<span class="s1">&gt;&gt;&gt; print(sr.rolling(3).sum())&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">sr</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.1-3</span>
-<span class="s1"># 窓の行数(ここでは3行)が揃わない窓でもmin_periods=によって最低必要な行数を指定できる。</span>
-<span class="s1">&gt;&gt;&gt; print(df.rolling(3, min_periods=2).sum())&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">min_periods</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.1-4</span>
-<span class="s1"># 出力行を窓の最終行でなく中央にすることも可能</span>
-<span class="s1">&gt;&gt;&gt; print(df.rolling(3, center=True).sum())&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.1-5</span>
-<span class="s1"># aggregate()のような複数の処理が可能な関数は列がマルチラベルで出力される。</span>
-<span class="s1">&gt;&gt;&gt; print(df.rolling(3).aggregate([&#39;sum&#39;, &#39;mean&#39;]))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">aggregate</span><span class="p">([</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">]))</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>
-# 入力データ
-&gt;&gt;&gt; sr = pd.Series([2, 1, 3, 0, 1])
-&gt;&gt;&gt; print(sr)
-0    2
-1    1
-2    3
-3    0
-4    1
-dtype: int64
-
-&gt;&gt;&gt; df = pd.DataFrame({&#34;v1&#34;: [2, 1, 3, 0, 1], &#34;v2&#34;: [1, 3, 2, 0, 2]})
-&gt;&gt;&gt; print(df)
-   v1  v2
-0   2   1
-1   1   3
-2   3   2
-3   0   0
-4   1   2
-
-# no.1-1
-# 3行の窓を1行ずつずらしながら、それぞれの列(v2,v2)を合計する。
-# 窓の最終行に合計された値は出力される。
-# 1,2行目は3行そろわないためにNaNが出力されている。
-&gt;&gt;&gt; print(df.rolling(3))
-    v1   v2
-0  NaN  NaN
-1  NaN  NaN
-2  6.0  6.0
-3  4.0  5.0
-4  4.0  4.0
-
-# no.1-2
-# seriesに適用した例
-&gt;&gt;&gt; print(sr.rolling(3).sum())
-0    NaN
-1    NaN
-2    6.0
-3    4.0
-4    4.0
-dtype: float64
-
-# no.1-3
-# 窓の行数(ここでは3行)が揃わない窓でもmin_periods=によって最低必要な行数を指定できる。
-&gt;&gt;&gt; print(df.rolling(3, min_periods=2).sum())
-    v1   v2
-0  NaN  NaN
-1  3.0  4.0
-2  6.0  6.0
-3  4.0  5.0
-4  4.0  4.0
-
-# no.1-4
-# 出力行を窓の最終行でなく中央にすることも可能
-&gt;&gt;&gt; print(df.rolling(3, center=True).sum())
-    v1   v2
-0  NaN  NaN
-1  6.0  6.0
-2  4.0  5.0
-3  4.0  4.0
-4  NaN  NaN
-
-# no.1-5
-# aggregate()のような複数の処理が可能な関数は列がマルチラベルで出力される。
-&gt;&gt;&gt; print(df.rolling(3).aggregate([&#39;sum&#39;, &#39;mean&#39;]))
-    v1             v2          
-   sum      mean  sum      mean
-0  NaN       NaN  NaN       NaN
-1  NaN       NaN  NaN       NaN
-2  6.0  2.000000  6.0  2.000000
-3  4.0  1.333333  5.0  1.666667
-4  4.0  1.333333  4.0  1.333333
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
@@ -14588,15 +14432,16 @@ dtype: float64
 <h1 id="2.-&#21015;&#12506;&#12450;&#12391;&#12398;&#35336;&#31639;(corr(),-cov())">2. &#21015;&#12506;&#12450;&#12391;&#12398;&#35336;&#31639;(corr(), cov())<a class="anchor-link" href="#2.-&#21015;&#12506;&#12450;&#12391;&#12398;&#35336;&#31639;(corr(),-cov())">&#182;</a></h1><p>data1.rolling().corr(data2)の書式で、data1とdata2の相関を計算する。
 data1,data2にはDataFrameとSeriesを指定でき、data1とdata2の組み合わせ方で多様なペアで相関係数を計算できる。
 corr()をcov()に変えれば共分散の計算ができる。</p>
-<h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><p><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
+<h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 df = pd.DataFrame(
     {
         "A": [1, 2, 3, 4, 5],
         "B": [5, 4, 3, 2, 1],
         "C": [2, 1, 3, 2, 7]
     }
-)</p>
-<p>df2 = pd.DataFrame(
+)
+
+df2 = pd.DataFrame(
     {
         "A": [8, 3, 2, 0, 2],
         "B": [2, 1, 3, 2, 7],
@@ -14604,8 +14449,7 @@ df = pd.DataFrame(
         "D": [1, 2, 3, 4, 5]
     }
 )
-&lt;/pre&gt;&lt;/td&gt;</p>
-<table border="1" style="table-layout:fixed;width:100%;">
+</pre><table border="1" style="table-layout:fixed;width:100%;">
     <colgroup>
       <col style="width:3%;">
       <col style="width:30%;">
@@ -14690,241 +14534,8 @@ corr()に指定したDataFrameに異なる名前の列がある場合、全てNa
 </tr>
 
 </tbody>
-</table><p>&lt;/div&gt;</p>
-
+</table>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># 入力データ</span>
-<span class="s1">&gt;&gt;&gt; df = pd.DataFrame(</span>
-<span class="s1">        {</span>
-<span class="s1">            &quot;A&quot;: [1, 2, 3, 4, 5],</span>
-<span class="s1">            &quot;B&quot;: [5, 4, 3, 2, 1],</span>
-<span class="s1">            &quot;C&quot;: [2, 1, 3, 2, 7]</span>
-<span class="s1">        }</span>
-<span class="s1">    )</span>
-<span class="s1">&gt;&gt;&gt; print(df)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-    <span class="p">{</span>
-        <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
-        <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-        <span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
-    <span class="p">}</span>
-<span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">&gt;&gt;&gt; df2 = pd.DataFrame(</span>
-<span class="s1">        {</span>
-<span class="s1">            &quot;A&quot;: [8, 3, 2, 0, 2],</span>
-<span class="s1">            &quot;B&quot;: [2, 1, 3, 2, 7],</span>
-<span class="s1">            &quot;C&quot;: [5, 4, 3, 2, 1],</span>
-<span class="s1">            &quot;D&quot;: [1, 2, 3, 4, 5]</span>
-<span class="s1">        }</span>
-<span class="s1">    )</span>
-<span class="s1">&gt;&gt;&gt; print(df2)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-    <span class="p">{</span>
-        <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
-        <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span>
-        <span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-        <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-    <span class="p">}</span>
-<span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df2</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-1</span>
-<span class="s1"># dfの3つの列A,B,Cの全ペア(3×3=9)の相関行列をwindow=3で計算する。</span>
-<span class="s1"># 相関行列計算する時はpairwie=Trueとする。pairwiseを指定しない例は後述。</span>
-<span class="s1"># 行がマルチインデックスになる。</span>
-<span class="s1">&gt;&gt;&gt; print(df.rolling(window=3).corr(df, pairwise=True))</span>
-<span class="se">\n</span><span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">pairwise</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-2</span>
-<span class="s1"># A,B,CのそれぞれとAとのペアで相関係数を計算する。</span>
-<span class="s1"># すなわち、(A,A), (B,A), (C,A)の3つのペアの相関係数を求める。</span>
-<span class="s1"># corr()関数にAをSeriesとして渡してやる(df[&#39;A&#39;]はSeriesとなる)。</span>
-<span class="s1">&gt;&gt;&gt; print(df.rolling(window=3).corr(df[&#39;A&#39;], pairwise=True))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">],</span> <span class="n">pairwise</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-3</span>
-<span class="s1"># 上の例は、SeriesとDataFrameを入れ替えても同じ結果。</span>
-<span class="s1">&gt;&gt;&gt; print(df[&#39;A&#39;].rolling(window=3).corr(df, pairwise=True))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">pairwise</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-4</span>
-<span class="s1"># 異なるDataFrame同士の相関行列を計算する。</span>
-<span class="s1"># A,BとB,Cの全ペア、すなわち(A,B), (A,C), (B,B), (B,C)の相関係数を計算する。</span>
-<span class="s1"># corr()に指定した列が、結果の行になることがわかる。</span>
-<span class="s1">&gt;&gt;&gt; print(df[[&#39;A&#39;,&#39;B&#39;]].rolling(window=3).corr(df[[&#39;B&#39;,&#39;C&#39;]], pairwise=True))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">]],</span> <span class="n">pairwise</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-5</span>
-<span class="s1"># corr()にpairwise=を指定しない例。</span>
-<span class="s1"># 相関行列ではなく、同じ列名同士の相関係数を計算することになる。</span>
-<span class="s1"># この例ではcorr()で指定したDataFrameには列Bがないので結果のB列にはNaNが出力される。</span>
-<span class="s1">&gt;&gt;&gt; print(df.rolling(window=3).corr(df[[&#39;A&#39;,&#39;C&#39;]]))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">]]))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-6</span>
-<span class="s1"># corr()に指定したDataFrameに異なる名前の列がある場合、全てNaNで新しい列として出力される。</span>
-<span class="s1">&gt;&gt;&gt; print(df.rolling(window=3).corr(df2))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">df2</span><span class="p">))</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>
-# 入力データ
-&gt;&gt;&gt; df = pd.DataFrame(
-        {
-            &#34;A&#34;: [1, 2, 3, 4, 5],
-            &#34;B&#34;: [5, 4, 3, 2, 1],
-            &#34;C&#34;: [2, 1, 3, 2, 7]
-        }
-    )
-&gt;&gt;&gt; print(df)
-   A  B  C
-0  1  5  2
-1  2  4  1
-2  3  3  3
-3  4  2  2
-4  5  1  7
-
-&gt;&gt;&gt; df2 = pd.DataFrame(
-        {
-            &#34;A&#34;: [8, 3, 2, 0, 2],
-            &#34;B&#34;: [2, 1, 3, 2, 7],
-            &#34;C&#34;: [5, 4, 3, 2, 1],
-            &#34;D&#34;: [1, 2, 3, 4, 5]
-        }
-    )
-&gt;&gt;&gt; print(df2)
-   A  B  C  D
-0  8  2  5  1
-1  3  1  4  2
-2  2  3  3  3
-3  0  2  2  4
-4  2  7  1  5
-
-# no.2-1
-# dfの3つの列A,B,Cの全ペア(3×3=9)の相関行列をwindow=3で計算する。
-# 相関行列計算する時はpairwie=Trueとする。pairwiseを指定しない例は後述。
-# 行がマルチインデックスになる。
-&gt;&gt;&gt; print(df.rolling(window=3).corr(df, pairwise=True))
-
-
-            A         B         C
-0 A       NaN       NaN       NaN
-  B       NaN       NaN       NaN
-  C       NaN       NaN       NaN
-1 A       NaN       NaN       NaN
-  B       NaN       NaN       NaN
-  C       NaN       NaN       NaN
-2 A  1.000000 -1.000000  0.500000
-  B -1.000000  1.000000 -0.500000
-  C  0.500000 -0.500000  1.000000
-3 A  1.000000 -1.000000  0.500000
-  B -1.000000  1.000000 -0.500000
-  C  0.500000 -0.500000  1.000000
-4 A  1.000000 -1.000000  0.755929
-  B -1.000000  1.000000 -0.755929
-  C  0.755929 -0.755929  1.000000
-
-# no.2-2
-# A,B,CのそれぞれとAとのペアで相関係数を計算する。
-# すなわち、(A,A), (B,A), (C,A)の3つのペアの相関係数を求める。
-# corr()関数にAをSeriesとして渡してやる(df[&#39;A&#39;]はSeriesとなる)。
-&gt;&gt;&gt; print(df.rolling(window=3).corr(df[&#39;A&#39;], pairwise=True))
-     A    B         C
-0  NaN  NaN       NaN
-1  NaN  NaN       NaN
-2  1.0 -1.0  0.500000
-3  1.0 -1.0  0.500000
-4  1.0 -1.0  0.755929
-
-# no.2-3
-# 上の例は、SeriesとDataFrameを入れ替えても同じ結果。
-&gt;&gt;&gt; print(df[&#39;A&#39;].rolling(window=3).corr(df, pairwise=True))
-     A    B         C
-0  NaN  NaN       NaN
-1  NaN  NaN       NaN
-2  1.0 -1.0  0.500000
-3  1.0 -1.0  0.500000
-4  1.0 -1.0  0.755929
-
-# no.2-4
-# 異なるDataFrame同士の相関行列を計算する。
-# A,BとB,Cの全ペア、すなわち(A,B), (A,C), (B,B), (B,C)の相関係数を計算する。
-# corr()に指定した列が、結果の行になることがわかる。
-&gt;&gt;&gt; print(df[[&#39;A&#39;,&#39;B&#39;]].rolling(window=3).corr(df[[&#39;B&#39;,&#39;C&#39;]], pairwise=True))
-            A         B
-0 B       NaN       NaN
-  C       NaN       NaN
-1 B       NaN       NaN
-  C       NaN       NaN
-2 B -1.000000  1.000000
-  C  0.500000 -0.500000
-3 B -1.000000  1.000000
-  C  0.500000 -0.500000
-4 B -1.000000  1.000000
-  C  0.755929 -0.755929
-
-# no.2-5
-# corr()にpairwise=を指定しない例。
-# 相関行列ではなく、同じ列名同士の相関係数を計算することになる。
-# この例ではcorr()で指定したDataFrameには列Bがないので結果のB列にはNaNが出力される。
-&gt;&gt;&gt; print(df.rolling(window=3).corr(df[[&#39;A&#39;,&#39;C&#39;]]))
-     A   B    C
-0  NaN NaN  NaN
-1  NaN NaN  NaN
-2  1.0 NaN  1.0
-3  1.0 NaN  1.0
-4  1.0 NaN  1.0
-
-# no.2-6
-# corr()に指定したDataFrameに異なる名前の列がある場合、全てNaNで新しい列として出力される。
-&gt;&gt;&gt; print(df.rolling(window=3).corr(df2))
-          A         B         C   D
-0       NaN       NaN       NaN NaN
-1       NaN       NaN       NaN NaN
-2 -0.933257 -0.500000 -0.500000 NaN
-3 -0.981981 -0.500000 -0.500000 NaN
-4  0.000000 -0.755929 -0.755929 NaN
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
@@ -14932,19 +14543,20 @@ corr()に指定したDataFrameに異なる名前の列がある場合、全てNa
 <h1 id="3.-apply()&#12513;&#12477;&#12483;&#12489;">3. apply()&#12513;&#12477;&#12483;&#12489;<a class="anchor-link" href="#3.-apply()&#12513;&#12477;&#12483;&#12489;">&#182;</a></h1><p>rolling()にapply()メソッドを指定することで、窓のデータに対する処理を自由に関数として記述できる。
 apply(func, args=[]) の書式で指定し、funcにユーザが作成した関数名を指定し、argsには、その関数に渡すパラメータを指定できる。
 ユーザ関数は、rolling()からある列のある窓のデータをSeriesとして受け取り、そのデータを加工して1つの値として返さなければならない。</p>
-<h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><p><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
+<h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 df = pd.DataFrame({"v1": [1, 2, 3, 4, 5], "v2": [5, 4, 3, 2, 1]})
-</pre>&lt;/td&gt;</p>
-<p><table border="1" style="table-layout:fixed;width:100%;">
+</pre><table border="1" style="table-layout:fixed;width:100%;">
     <colgroup>
       <col style="width:3%;">
       <col style="width:30%;">
       <col style="width:50%;">  
       <col style="width:17%;">
-    </colgroup></p>
+    </colgroup>
 <tbody>
 
-<tr><th align="left">no.</th><th align="left">実行コード</th><th align="left">入力/出力</th><th>備考</th></tr><tr style="background:#fff; border:1px solid #cc0000;">
+<tr><th align="left">no.</th><th align="left">実行コード</th><th align="left">入力/出力</th><th>備考</th></tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-1</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 def func1(sr):
@@ -14962,7 +14574,9 @@ func1へは窓幅のDataFrameが入力されるのではなく、Seriesである
 func1からの出力は、1つの数値(スカラ)で、Series, numpy.float64, pythonのfloatやintなどが扱える。<br>
 そして、rolling()メソッドは、func1からのある列のある窓の数値出力を入力のDataFrameと同じ形式のDataFrameに再構成する。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-2</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 def func2(sr, dat, r):
@@ -14975,202 +14589,11 @@ print(df.rolling(3).apply(func2, args=(df, 0.5)))
 <td>
 args=を指定することで、ユーザ関数(func2)に自由にパラメータを渡せる。
 </td>
-</tr><p>&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/div&gt;</p>
+</tr>
 
+</tbody>
+</table>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># 入力データ</span>
-<span class="s1">&gt;&gt;&gt; df = pd.DataFrame({&quot;v1&quot;: [1, 2, 3, 4, 5], &quot;v2&quot;: [5, 4, 3, 2, 1]})</span>
-<span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;v1&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="s2">&quot;v2&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]})</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.3-1</span>
-<span class="s1"># apply()で指定した関数func1の入出力を確認する。</span>
-<span class="s1"># func1への入力は、rolling()から、ある列のある窓のSeriesデータである。</span>
-<span class="s1"># func1へは窓幅のDataFrameが入力されるのではなく、Seriesであることに注意する</span>
-<span class="s1"># func1からの出力は、1つの数値(スカラ)で、Series, numpy.float64, pythonのfloatやintなどが扱える。</span>
-<span class="s1"># そして、rolling()メソッドは、func1からのある列のある窓の数値出力を入力のDataFrameと同じ形式のDataFrameに再構成する。</span>
-
-<span class="s1">&gt;&gt;&gt; def func1(sr):</span>
-<span class="s1">&gt;&gt;&gt;     res = sr.sum()</span>
-<span class="s1">&gt;&gt;&gt;     print(sr)</span>
-<span class="s1">&gt;&gt;&gt;     print(&#39;res:&#39;, res, type(res),&#39;</span><span class="se">\\</span><span class="s1">n&#39; )</span>
-<span class="s1">&gt;&gt;&gt;     return res</span>
-<span class="s1">&gt;&gt;&gt; df.rolling(3).apply(func1)</span>
-<span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">func1</span><span class="p">(</span><span class="n">sr</span><span class="p">):</span>
-    <span class="n">res</span> <span class="o">=</span> <span class="n">sr</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">sr</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;res:&#39;</span><span class="p">,</span> <span class="n">res</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">res</span><span class="p">),</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">res</span>
-<span class="n">df</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">func1</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.3-2</span>
-<span class="s1"># args=を指定することで、ユーザ関数(func2)に自由にパラメータを渡せる。</span>
-<span class="s1"># 複数の値を与えることが前提なのでtupleで指定しなければならないことに注意する。</span>
-<span class="s1">&gt;&gt;&gt; def func2(sr, dat, r):</span>
-<span class="s1">&gt;&gt;&gt;     res = (sr.sum() / len(dat)) * r  # 計算内容に意味はない</span>
-<span class="s1">&gt;&gt;&gt;     return res</span>
-<span class="s1">&gt;&gt;&gt; print(df.rolling(3).apply(func2, args=(df, 0.5)))</span>
-<span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">func2</span><span class="p">(</span><span class="n">sr</span><span class="p">,</span> <span class="n">dat</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">sr</span><span class="p">)</span>
-    <span class="n">res</span> <span class="o">=</span> <span class="p">(</span><span class="n">sr</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">dat</span><span class="p">))</span> <span class="o">*</span> <span class="n">r</span>
-    <span class="k">return</span> <span class="n">res</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">func2</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)))</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>
-# 入力データ
-&gt;&gt;&gt; df = pd.DataFrame({&#34;v1&#34;: [1, 2, 3, 4, 5], &#34;v2&#34;: [5, 4, 3, 2, 1]})
-
-   v1  v2
-0   1   5
-1   2   4
-2   3   3
-3   4   2
-4   5   1
-
-# no.3-1
-# apply()で指定した関数func1の入出力を確認する。
-# func1への入力は、rolling()から、ある列のある窓のSeriesデータである。
-# func1へは窓幅のDataFrameが入力されるのではなく、Seriesであることに注意する
-# func1からの出力は、1つの数値(スカラ)で、Series, numpy.float64, pythonのfloatやintなどが扱える。
-# そして、rolling()メソッドは、func1からのある列のある窓の数値出力を入力のDataFrameと同じ形式のDataFrameに再構成する。
-
-&gt;&gt;&gt; def func1(sr):
-&gt;&gt;&gt;     res = sr.sum()
-&gt;&gt;&gt;     print(sr)
-&gt;&gt;&gt;     print(&#39;res:&#39;, res, type(res),&#39;\n&#39; )
-&gt;&gt;&gt;     return res
-&gt;&gt;&gt; df.rolling(3).apply(func1)
-
-0    1.0
-1    2.0
-2    3.0
-dtype: float64
-res: 6.0 &lt;class &#39;numpy.float64&#39;&gt; 
-
-1    2.0
-2    3.0
-3    4.0
-dtype: float64
-res: 9.0 &lt;class &#39;numpy.float64&#39;&gt; 
-
-2    3.0
-3    4.0
-4    5.0
-dtype: float64
-res: 12.0 &lt;class &#39;numpy.float64&#39;&gt; 
-
-0    5.0
-1    4.0
-2    3.0
-dtype: float64
-res: 12.0 &lt;class &#39;numpy.float64&#39;&gt; 
-
-1    4.0
-2    3.0
-3    2.0
-dtype: float64
-res: 9.0 &lt;class &#39;numpy.float64&#39;&gt; 
-
-2    3.0
-3    2.0
-4    1.0
-dtype: float64
-res: 6.0 &lt;class &#39;numpy.float64&#39;&gt; 
-
-
-# no.3-2
-# args=を指定することで、ユーザ関数(func2)に自由にパラメータを渡せる。
-# 複数の値を与えることが前提なのでtupleで指定しなければならないことに注意する。
-&gt;&gt;&gt; def func2(sr, dat, r):
-&gt;&gt;&gt;     res = (sr.sum() / len(dat)) * r  # 計算内容に意味はない
-&gt;&gt;&gt;     return res
-&gt;&gt;&gt; print(df.rolling(3).apply(func2, args=(df, 0.5)))
-
-0    1.0
-1    2.0
-2    3.0
-dtype: float64
-1    2.0
-2    3.0
-3    4.0
-dtype: float64
-2    3.0
-3    4.0
-4    5.0
-dtype: float64
-0    5.0
-1    4.0
-2    3.0
-dtype: float64
-1    4.0
-2    3.0
-3    2.0
-dtype: float64
-2    3.0
-3    2.0
-4    1.0
-dtype: float64
-    v1   v2
-0  NaN  NaN
-1  NaN  NaN
-2  0.6  1.2
-3  0.9  0.9
-4  1.2  0.6
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div>
 </body>
 

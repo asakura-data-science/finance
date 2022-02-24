@@ -14281,41 +14281,28 @@ join()の典型的な利用シーンは、1-2の図に示されるように、�
 <hr>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="1.-&#32080;&#21512;&#12398;&#20195;&#34920;&#20363;(merge,-join,-concat)">1. &#32080;&#21512;&#12398;&#20195;&#34920;&#20363;(merge, join, concat)<a class="anchor-link" href="#1.-&#32080;&#21512;&#12398;&#20195;&#34920;&#20363;(merge,-join,-concat)">&#182;</a></h1><h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><p><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
+<h1 id="1.-&#32080;&#21512;&#12398;&#20195;&#34920;&#20363;(merge,-join,-concat)">1. &#32080;&#21512;&#12398;&#20195;&#34920;&#20363;(merge, join, concat)<a class="anchor-link" href="#1.-&#32080;&#21512;&#12398;&#20195;&#34920;&#20363;(merge,-join,-concat)">&#182;</a></h1><h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 tra = pd.DataFrame(
     {'customer':['A', 'A', 'A', 'B', 'C', 'C', 'C'],
      'item':['coffee', 'bread', 'milk', 'juice', 'tea', 'milk', 'bread']}
-)</p>
-<p>cmaster = pd.DataFrame(
+)
+
+cmaster = pd.DataFrame(
     {'customer':['A', 'C'],
      'age':[40, 25],
      'gender':['female', 'male']}
-)</p>
-<p>imaster = pd.DataFrame(
+)
+
+imaster = pd.DataFrame(
     {'item':['coffee', 'bread', 'milk', 'tea'],
      'price':[100, 120, 110, 80]}
-)</p>
-<p>imaster = imaster.set_index('item')
-&lt;/pre&gt;</p>
-<table border="1" style="table-layout:fixed;width:100%;">
+)
+
+imaster = imaster.set_index('item')
+</pre><table border="1" style="table-layout:fixed;width:100%;">
     <colgroup>
       <col style="width:3%;">
       <col style="width:30%;">
@@ -14377,205 +14364,6 @@ print(pd.concat([cmaster, cmaster]))
 </tbody>
 </table>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># 入力データ</span>
-<span class="s1"># traは顧客がどの商品を購入したかに関するトランザクションデータである。</span>
-<span class="s1"># custは顧客の年齢と性別を示した顧客マスターデータである。</span>
-<span class="s1"># 一方でitemは商品の値段を示した商品マスターでcustomer列は行indexとしてセットしている。</span>
-<span class="s1">&gt;&gt;&gt; tra = pd.DataFrame(</span>
-<span class="s1">        {&#39;customer&#39;:[&#39;A&#39;, &#39;A&#39;, &#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;],</span>
-<span class="s1">         &#39;item&#39;:[&#39;coffee&#39;, &#39;bread&#39;, &#39;milk&#39;, &#39;juice&#39;, &#39;tea&#39;, &#39;milk&#39;, &#39;bread&#39;]}</span>
-<span class="s1">    )</span>
-<span class="s1">&gt;&gt;&gt; print(tra)&#39;&#39;&#39;</span><span class="p">)</span>
-
-<span class="n">tra</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-    <span class="p">{</span><span class="s1">&#39;customer&#39;</span><span class="p">:[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">],</span>
-     <span class="s1">&#39;item&#39;</span><span class="p">:[</span><span class="s1">&#39;coffee&#39;</span><span class="p">,</span> <span class="s1">&#39;bread&#39;</span><span class="p">,</span> <span class="s1">&#39;milk&#39;</span><span class="p">,</span> <span class="s1">&#39;juice&#39;</span><span class="p">,</span> <span class="s1">&#39;tea&#39;</span><span class="p">,</span> <span class="s1">&#39;milk&#39;</span><span class="p">,</span> <span class="s1">&#39;bread&#39;</span><span class="p">]}</span>
-<span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">tra</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">&gt;&gt;&gt; cmaster = pd.DataFrame(</span>
-<span class="s1">        {&#39;customer&#39;:[&#39;A&#39;, &#39;C&#39;],</span>
-<span class="s1">         &#39;age&#39;:[40, 25],</span>
-<span class="s1">         &#39;gender&#39;:[&#39;female&#39;, &#39;male&#39;]}</span>
-<span class="s1">    )</span>
-<span class="s1">&gt;&gt;&gt; print(cmaster)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">cmaster</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-    <span class="p">{</span><span class="s1">&#39;customer&#39;</span><span class="p">:[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">],</span>
-     <span class="s1">&#39;age&#39;</span><span class="p">:[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">25</span><span class="p">],</span>
-     <span class="s1">&#39;gender&#39;</span><span class="p">:[</span><span class="s1">&#39;female&#39;</span><span class="p">,</span> <span class="s1">&#39;male&#39;</span><span class="p">]}</span>
-<span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">cmaster</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">&gt;&gt;&gt; imaster = pd.DataFrame(</span>
-<span class="s1">        {&#39;item&#39;:[&#39;coffee&#39;, &#39;bread&#39;, &#39;milk&#39;, &#39;tea&#39;],</span>
-<span class="s1">         &#39;price&#39;:[100, 120, 110, 80]}</span>
-<span class="s1">     )</span>
-<span class="s1">&gt;&gt;&gt; imaster = imaster.set_index(&#39;item&#39;)</span>
-<span class="s1">&gt;&gt;&gt; print(imaster)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">imaster</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-    <span class="p">{</span><span class="s1">&#39;item&#39;</span><span class="p">:[</span><span class="s1">&#39;coffee&#39;</span><span class="p">,</span> <span class="s1">&#39;bread&#39;</span><span class="p">,</span> <span class="s1">&#39;milk&#39;</span><span class="p">,</span> <span class="s1">&#39;tea&#39;</span><span class="p">],</span>
-     <span class="s1">&#39;price&#39;</span><span class="p">:[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="mi">80</span><span class="p">]}</span>
-<span class="p">)</span>
-<span class="n">imaster</span> <span class="o">=</span> <span class="n">imaster</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;item&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">imaster</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">## merge</span>
-<span class="s1"># no.1-1</span>
-<span class="s1"># 商品購入データのcustomer列と顧客マスター(cmaster)のcustomer列を結合キーにして、年齢(age)と性別(gender)列をを結合する。</span>
-<span class="s1"># merge()は、このように結合される側(leftと呼ぶ)も、結合する側(rightと呼ぶ)も、結合キーに列名を指定することが多い。</span>
-<span class="s1"># ただし、merge()は多様な結合を実現できるように設計されており、結合キーがleft/right問わずにindexであっても結合可能である(次の例を参照)。</span>
-<span class="s1">&gt;&gt;&gt; print(tra.merge(cmaster, on=&#39;customer&#39;))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">tra</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">cmaster</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;customer&#39;</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">## join</span>
-<span class="s1"># no.1-2</span>
-<span class="s1"># 商品購入データのitem列を結合キーにして、imasterのindexを突き合わせて商品(item)列を結合する。</span>
-<span class="s1"># join()は、このように結合される側(leftと呼ぶ)の結合キーは列で、結合する側(rightと呼ぶ)がindexであるような結合となる場合が多い。</span>
-<span class="s1"># また、２つめの実行例のように、join()で実現できることはmergeでも実現可能であるが、パラメータの指定方法が少し複雑になる。</span>
-<span class="s1"># mergeで指定したパラメータについては後述している。</span>
-<span class="s1">&gt;&gt;&gt; print(tra.join(imaster, on=&#39;item&#39;))</span>
-<span class="s1">&gt;&gt;&gt; print(tra.merge(imaster, left_on=&#39;item&#39;, right_index=True, how=&#39;left&#39;))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">tra</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">imaster</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;item&#39;</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">tra</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">imaster</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;item&#39;</span><span class="p">,</span> <span class="n">right_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">## concat</span>
-<span class="s1"># no.1-3</span>
-<span class="s1"># 顧客マスターを縦に連結する例。</span>
-<span class="s1"># このように同じ列で構成される複数のDataFrameを縦に連結するケースが多いが、より複雑な連結も実現できる。詳細は後述する。</span>
-<span class="s1"># 連結された行indexは元のindexがそのまま採用されるため、indexが重複していることに注意する。</span>
-<span class="s1">&gt;&gt;&gt; print(pd.concat([cmaster, cmaster]))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">cmaster</span><span class="p">,</span> <span class="n">cmaster</span><span class="p">]))</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>
-# 入力データ
-# traは顧客がどの商品を購入したかに関するトランザクションデータである。
-# custは顧客の年齢と性別を示した顧客マスターデータである。
-# 一方でitemは商品の値段を示した商品マスターでcustomer列は行indexとしてセットしている。
-&gt;&gt;&gt; tra = pd.DataFrame(
-        {&#39;customer&#39;:[&#39;A&#39;, &#39;A&#39;, &#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;C&#39;, &#39;C&#39;],
-         &#39;item&#39;:[&#39;coffee&#39;, &#39;bread&#39;, &#39;milk&#39;, &#39;juice&#39;, &#39;tea&#39;, &#39;milk&#39;, &#39;bread&#39;]}
-    )
-&gt;&gt;&gt; print(tra)
-  customer    item
-0        A  coffee
-1        A   bread
-2        A    milk
-3        B   juice
-4        C     tea
-5        C    milk
-6        C   bread
-
-&gt;&gt;&gt; cmaster = pd.DataFrame(
-        {&#39;customer&#39;:[&#39;A&#39;, &#39;C&#39;],
-         &#39;age&#39;:[40, 25],
-         &#39;gender&#39;:[&#39;female&#39;, &#39;male&#39;]}
-    )
-&gt;&gt;&gt; print(cmaster)
-  customer  age  gender
-0        A   40  female
-1        C   25    male
-
-&gt;&gt;&gt; imaster = pd.DataFrame(
-        {&#39;item&#39;:[&#39;coffee&#39;, &#39;bread&#39;, &#39;milk&#39;, &#39;tea&#39;],
-         &#39;price&#39;:[100, 120, 110, 80]}
-     )
-&gt;&gt;&gt; imaster = imaster.set_index(&#39;item&#39;)
-&gt;&gt;&gt; print(imaster)
-        price
-item         
-coffee    100
-bread     120
-milk      110
-tea        80
-
-## merge
-# no.1-1
-# 商品購入データのcustomer列と顧客マスター(cmaster)のcustomer列を結合キーにして、年齢(age)と性別(gender)列をを結合する。
-# merge()は、このように結合される側(leftと呼ぶ)も、結合する側(rightと呼ぶ)も、結合キーに列名を指定することが多い。
-# ただし、merge()は多様な結合を実現できるように設計されており、結合キーがleft/right問わずにindexであっても結合可能である(次の例を参照)。
-&gt;&gt;&gt; print(tra.merge(cmaster, on=&#39;customer&#39;))
-  customer    item  age  gender
-0        A  coffee   40  female
-1        A   bread   40  female
-2        A    milk   40  female
-3        C     tea   25    male
-4        C    milk   25    male
-5        C   bread   25    male
-
-## join
-# no.1-2
-# 商品購入データのitem列を結合キーにして、imasterのindexを突き合わせて商品(item)列を結合する。
-# join()は、このように結合される側(leftと呼ぶ)の結合キーは列で、結合する側(rightと呼ぶ)がindexであるような結合となる場合が多い。
-# また、２つめの実行例のように、join()で実現できることはmergeでも実現可能であるが、パラメータの指定方法が少し複雑になる。
-# mergeで指定したパラメータについては後述している。
-&gt;&gt;&gt; print(tra.join(imaster, on=&#39;item&#39;))
-&gt;&gt;&gt; print(tra.merge(imaster, left_on=&#39;item&#39;, right_index=True, how=&#39;left&#39;))
-  customer    item  price
-0        A  coffee  100.0
-1        A   bread  120.0
-2        A    milk  110.0
-3        B   juice    NaN
-4        C     tea   80.0
-5        C    milk  110.0
-6        C   bread  120.0
-  customer    item  price
-0        A  coffee  100.0
-1        A   bread  120.0
-2        A    milk  110.0
-3        B   juice    NaN
-4        C     tea   80.0
-5        C    milk  110.0
-6        C   bread  120.0
-
-## concat
-# no.1-3
-# 顧客マスターを縦に連結する例。
-# このように同じ列で構成される複数のDataFrameを縦に連結するケースが多いが、より複雑な連結も実現できる。詳細は後述する。
-# 連結された行indexは元のindexがそのまま採用されるため、indexが重複していることに注意する。
-&gt;&gt;&gt; print(pd.concat([cmaster, cmaster]))
-  customer  age  gender
-0        A   40  female
-1        C   25    male
-0        A   40  female
-1        C   25    male
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
@@ -14685,180 +14473,6 @@ left/right両方とも結合キーがindexの場合、join()のon=は省略で�
 </td>
 </tr>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">#　leftとrightの型について結合キーの1:1(one to one)結合</span>
-<span class="s1"># 入力データ</span>
-<span class="s1">&gt;&gt;&gt; l = pd.DataFrame({&#39;k&#39;:[&#39;A&#39;, &#39;B&#39;, &#39;C&#39;], &#39;lv&#39;:[1, 2, 3]})</span>
-<span class="s1">&gt;&gt;&gt; print(l)</span>
-<span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">l</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;k&#39;</span><span class="p">:[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">],</span> <span class="s1">&#39;lv&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]})</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">&gt;&gt;&gt; r = pd.DataFrame({&#39;k&#39;:[&#39;A&#39;, &#39;B&#39;, &#39;C&#39;], &#39;rv&#39;:[10, 20, 30]})</span>
-<span class="s1">&gt;&gt;&gt; print(r)</span>
-<span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;k&#39;</span><span class="p">:[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">],</span> <span class="s1">&#39;rv&#39;</span><span class="p">:[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]})</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
-
-
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-1-1</span>
-<span class="s1"># column to columnの結合。</span>
-<span class="s1"># leftの結合キーが列(column)、rightの結合キーも列の例(column)。</span>
-<span class="s1"># rightが列の場合はjoin()は利用できない。</span>
-<span class="s1">&gt;&gt;&gt; print(l.merge(r, on=&#39;k&#39;))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-1-2</span>
-<span class="s1"># column to indexの結合。</span>
-<span class="s1"># leftの結合キーが列(column)、rightの結合キーがindexの例。</span>
-<span class="s1"># mergeについて、riはindexに名前がついているので、l.merge(ri, on=&#39;k&#39;) でも可能。</span>
-<span class="s1">&gt;&gt;&gt; ri = r.set_index(&#39;k&#39;)</span>
-<span class="s1">&gt;&gt;&gt; print(l.merge(ri, left_on=&#39;k&#39;, right_index=True))</span>
-<span class="s1">&gt;&gt;&gt; print(l.join(ri, on=&#39;k&#39;))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">ri</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">ri</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">right_index</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ri</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-1-3</span>
-<span class="s1"># index to columnの結合。</span>
-<span class="s1"># leftの結合キーがindex、rightの結合キーが列(column)の例。</span>
-<span class="s1"># rightが列の場合はjoin()は利用できない。</span>
-<span class="s1"># mergeについて、riはindexに名前がついているので、li.merge(r, on=&#39;k&#39;) でも可能。</span>
-<span class="s1"># leftの結合キーがindexだが、結合結果のindexはrightのindexとなる。</span>
-<span class="s1">&gt;&gt;&gt; li = l.set_index(&#39;k&#39;)</span>
-<span class="s1">&gt;&gt;&gt; print(li.merge(r, left_index=True, right_on=&#39;k&#39;))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">li</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">li</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">left_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-1-4</span>
-<span class="s1"># index to indexの結合。</span>
-<span class="s1"># left/rightの両方とも結合キーがindexの例。</span>
-<span class="s1"># mergeについて、li/riともにindexに名前がついているので、li.merge(ri, on=&#39;k&#39;) でも可能。</span>
-<span class="s1"># left/right両方とも結合キーがindexの場合、join()のon=は省略できる。</span>
-<span class="s1">&gt;&gt;&gt; li = l.set_index(&#39;k&#39;)</span>
-<span class="s1">&gt;&gt;&gt; ri = r.set_index(&#39;k&#39;)</span>
-<span class="s1">&gt;&gt;&gt; print(li.merge(ri, left_index=True, right_index=True))</span>
-<span class="s1">&gt;&gt;&gt; print(li.join(ri))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">li</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
-<span class="n">ri</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">li</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">ri</span><span class="p">,</span> <span class="n">left_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">right_index</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">li</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ri</span><span class="p">))</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>
-#　leftとrightの型について結合キーの1:1(one to one)結合
-# 入力データ
-&gt;&gt;&gt; l = pd.DataFrame({&#39;k&#39;:[&#39;A&#39;, &#39;B&#39;, &#39;C&#39;], &#39;lv&#39;:[1, 2, 3]})
-&gt;&gt;&gt; print(l)
-
-   k  lv
-0  A   1
-1  B   2
-2  C   3
-
-&gt;&gt;&gt; r = pd.DataFrame({&#39;k&#39;:[&#39;A&#39;, &#39;B&#39;, &#39;C&#39;], &#39;rv&#39;:[10, 20, 30]})
-&gt;&gt;&gt; print(r)
-
-   k  rv
-0  A  10
-1  B  20
-2  C  30
-
-# no.2-1-1
-# column to columnの結合。
-# leftの結合キーが列(column)、rightの結合キーも列の例(column)。
-# rightが列の場合はjoin()は利用できない。
-&gt;&gt;&gt; print(l.merge(r, on=&#39;k&#39;))
-   k  lv  rv
-0  A   1  10
-1  B   2  20
-2  C   3  30
-
-# no.2-1-2
-# column to indexの結合。
-# leftの結合キーが列(column)、rightの結合キーがindexの例。
-# mergeについて、riはindexに名前がついているので、l.merge(ri, on=&#39;k&#39;) でも可能。
-&gt;&gt;&gt; ri = r.set_index(&#39;k&#39;)
-&gt;&gt;&gt; print(l.merge(ri, left_on=&#39;k&#39;, right_index=True))
-&gt;&gt;&gt; print(l.join(ri, on=&#39;k&#39;))
-   k  lv  rv
-0  A   1  10
-1  B   2  20
-2  C   3  30
-   k  lv  rv
-0  A   1  10
-1  B   2  20
-2  C   3  30
-
-# no.2-1-3
-# index to columnの結合。
-# leftの結合キーがindex、rightの結合キーが列(column)の例。
-# rightが列の場合はjoin()は利用できない。
-# mergeについて、riはindexに名前がついているので、li.merge(r, on=&#39;k&#39;) でも可能。
-# leftの結合キーがindexだが、結合結果のindexはrightのindexとなる。
-&gt;&gt;&gt; li = l.set_index(&#39;k&#39;)
-&gt;&gt;&gt; print(li.merge(r, left_index=True, right_on=&#39;k&#39;))
-   lv  k  rv
-0   1  A  10
-1   2  B  20
-2   3  C  30
-
-# no.2-1-4
-# index to indexの結合。
-# left/rightの両方とも結合キーがindexの例。
-# mergeについて、li/riともにindexに名前がついているので、li.merge(ri, on=&#39;k&#39;) でも可能。
-# left/right両方とも結合キーがindexの場合、join()のon=は省略できる。
-&gt;&gt;&gt; li = l.set_index(&#39;k&#39;)
-&gt;&gt;&gt; ri = r.set_index(&#39;k&#39;)
-&gt;&gt;&gt; print(li.merge(ri, left_index=True, right_index=True))
-&gt;&gt;&gt; print(li.join(ri))
-   lv  rv
-k        
-A   1  10
-B   2  20
-C   3  30
-   lv  rv
-k        
-A   1  10
-B   2  20
-C   3  30
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
@@ -15020,281 +14634,6 @@ print(li.join(ri))
 </tbody>
 </table>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">#　1:1(one to one)結合</span>
-<span class="s1"># 入力データ</span>
-<span class="s1">&gt;&gt;&gt; l = pd.DataFrame({&#39;k&#39;:[&#39;A&#39;, &#39;B&#39;, &#39;C&#39;], &#39;lv&#39;:[1, 2, 3]})</span>
-<span class="s1">&gt;&gt;&gt; r = pd.DataFrame({&#39;k&#39;:[&#39;A&#39;, &#39;B&#39;, &#39;C&#39;], &#39;rv&#39;:[10, 20, 30]})</span>
-<span class="s1">&gt;&gt;&gt; print(l)</span>
-<span class="s1">&gt;&gt;&gt; print(r)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">l</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;k&#39;</span><span class="p">:[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">],</span> <span class="s1">&#39;lv&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]})</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;k&#39;</span><span class="p">:[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">],</span> <span class="s1">&#39;rv&#39;</span><span class="p">:[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]})</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-2-1 </span>
-<span class="s1"># mergeの1:1結合。l,rともに結合キーに重複はなく、結合キーkの値A,B,Cで1:1で結合する。</span>
-<span class="s1">&gt;&gt;&gt; print(pd.merge(l, r, on=&#39;k&#39;))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-2-2</span>
-<span class="s1"># no.2-2-1のアリアス。</span>
-<span class="s1">&gt;&gt;&gt; print(l.merge(r,on=&#39;k&#39;))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">on</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-2-3 </span>
-<span class="s1"># join()による&#39;k&#39;をindexにした同士のDataFrameの結合。</span>
-<span class="s1">&gt;&gt;&gt; li = l.set_index(&#39;k&#39;)</span>
-<span class="s1">&gt;&gt;&gt; ri = r.set_index(&#39;k&#39;)</span>
-<span class="s1">&gt;&gt;&gt; print(li.join(ri))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">li</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
-<span class="n">ri</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">li</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ri</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-2-4</span>
-<span class="s1"># join()による複数のDataFrameの結合。&#39;k&#39;をindexに指定してlとrとxを結合。 </span>
-<span class="s1"># pd.join([li, ri, xi)のようには書けない。</span>
-
-<span class="s1"># 入力データ</span>
-<span class="s1">&gt;&gt;&gt; x = pd.DataFrame({&#39;k&#39;:[&#39;A&#39;, &#39;B&#39;, &#39;C&#39;], &#39;xv&#39;:[100, 200, 300]})</span>
-<span class="s1">&gt;&gt;&gt; print(x)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;k&#39;</span><span class="p">:[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">],</span> <span class="s1">&#39;xv&#39;</span><span class="p">:[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">]})</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">&gt;&gt;&gt; li = l.set_index(&#39;k&#39;)</span>
-<span class="s1">&gt;&gt;&gt; ri = r.set_index(&#39;k&#39;)</span>
-<span class="s1">&gt;&gt;&gt; xi = x.set_index(&#39;k&#39;)</span>
-<span class="s1">&gt;&gt;&gt; print(li.join([ri, xi]))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">li</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
-<span class="n">ri</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
-<span class="n">xi</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">li</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">ri</span><span class="p">,</span> <span class="n">xi</span><span class="p">]))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">#　m:1(many to one)結合</span>
-<span class="s1"># 入力データ</span>
-<span class="s1">&gt;&gt;&gt; l = pd.DataFrame({&#39;k&#39;:[&#39;A&#39;, &#39;A&#39;, &#39;B&#39;], &#39;lv&#39;:[1, 2, 3]})</span>
-<span class="s1">&gt;&gt;&gt; r = pd.DataFrame({&#39;k&#39;:[&#39;A&#39;, &#39;B&#39;], &#39;rv&#39;:[10, 20]})</span>
-<span class="s1">&gt;&gt;&gt; print(l)</span>
-<span class="s1">&gt;&gt;&gt; print(r)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">l</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;k&#39;</span><span class="p">:[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">],</span> <span class="s1">&#39;lv&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]})</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;k&#39;</span><span class="p">:[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">],</span> <span class="s1">&#39;rv&#39;</span><span class="p">:[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">]})</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
-
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-2-5</span>
-<span class="s1"># leftの結合キーはAが2行に存在する(重複がある)。このような場合、それぞれのAについてrightのAを結合する。</span>
-<span class="s1">&gt;&gt;&gt; l.merge(r, on=&#39;k&#39;)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-2-6</span>
-<span class="s1"># joinも考え方は同じ。</span>
-<span class="s1">&gt;&gt;&gt; li = l.set_index(&#39;k&#39;)</span>
-<span class="s1">&gt;&gt;&gt; ri = r.set_index(&#39;k&#39;)</span>
-<span class="s1">&gt;&gt;&gt; print(li.join(ri))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">li</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
-<span class="n">ri</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">li</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ri</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># m:m(many to many)結合</span>
-<span class="s1"># 入力データ</span>
-<span class="s1">&gt;&gt;&gt; l = pd.DataFrame({&#39;k&#39;:[&#39;A&#39;, &#39;A&#39;, &#39;B&#39;], &#39;lv&#39;:[1, 2, 3]})</span>
-<span class="s1">&gt;&gt;&gt; r = pd.DataFrame({&#39;k&#39;:[&#39;A&#39;, &#39;A&#39;, &#39;B&#39;], &#39;rv&#39;:[10, 20, 30]})</span>
-<span class="s1">print(l)</span>
-<span class="s1">print(r)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">l</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;k&#39;</span><span class="p">:[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">],</span> <span class="s1">&#39;lv&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]})</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;k&#39;</span><span class="p">:[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">],</span> <span class="s1">&#39;rv&#39;</span><span class="p">:[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]})</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
-
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-2-7</span>
-<span class="s1"># l,rともに結合キーにAが2つある。このような場合、全ての組み合わせ(2×2=4通り)の全ての結合(全結合)となる。</span>
-<span class="s1">&gt;&gt;&gt; print(l.merge(r, on=&#39;k&#39;))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-2-8</span>
-<span class="s1"># joinも考え方は同じ。</span>
-<span class="s1">&gt;&gt;&gt; print(li.join(ri))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">li</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
-<span class="n">ri</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">li</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ri</span><span class="p">))</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>
-#　1:1(one to one)結合
-# 入力データ
-&gt;&gt;&gt; l = pd.DataFrame({&#39;k&#39;:[&#39;A&#39;, &#39;B&#39;, &#39;C&#39;], &#39;lv&#39;:[1, 2, 3]})
-&gt;&gt;&gt; r = pd.DataFrame({&#39;k&#39;:[&#39;A&#39;, &#39;B&#39;, &#39;C&#39;], &#39;rv&#39;:[10, 20, 30]})
-&gt;&gt;&gt; print(l)
-&gt;&gt;&gt; print(r)
-   k  lv
-0  A   1
-1  B   2
-2  C   3
-   k  rv
-0  A  10
-1  B  20
-2  C  30
-
-# no.2-2-1 
-# mergeの1:1結合。l,rともに結合キーに重複はなく、結合キーkの値A,B,Cで1:1で結合する。
-&gt;&gt;&gt; print(pd.merge(l, r, on=&#39;k&#39;))
-   k  lv  rv
-0  A   1  10
-1  B   2  20
-2  C   3  30
-
-# no.2-2-2
-# no.2-2-1のアリアス。
-&gt;&gt;&gt; print(l.merge(r,on=&#39;k&#39;))
-   k  lv  rv
-0  A   1  10
-1  B   2  20
-2  C   3  30
-
-# no.2-2-3 
-# join()による&#39;k&#39;をindexにした同士のDataFrameの結合。
-&gt;&gt;&gt; li = l.set_index(&#39;k&#39;)
-&gt;&gt;&gt; ri = r.set_index(&#39;k&#39;)
-&gt;&gt;&gt; print(li.join(ri))
-   lv  rv
-k        
-A   1  10
-B   2  20
-C   3  30
-
-# no.2-2-4
-# join()による複数のDataFrameの結合。&#39;k&#39;をindexに指定してlとrとxを結合。 
-# pd.join([li, ri, xi)のようには書けない。
-
-# 入力データ
-&gt;&gt;&gt; x = pd.DataFrame({&#39;k&#39;:[&#39;A&#39;, &#39;B&#39;, &#39;C&#39;], &#39;xv&#39;:[100, 200, 300]})
-&gt;&gt;&gt; print(x)
-   k   xv
-0  A  100
-1  B  200
-2  C  300
-
-&gt;&gt;&gt; li = l.set_index(&#39;k&#39;)
-&gt;&gt;&gt; ri = r.set_index(&#39;k&#39;)
-&gt;&gt;&gt; xi = x.set_index(&#39;k&#39;)
-&gt;&gt;&gt; print(li.join([ri, xi]))
-   lv  rv   xv
-k             
-A   1  10  100
-B   2  20  200
-C   3  30  300
-
-#　m:1(many to one)結合
-# 入力データ
-&gt;&gt;&gt; l = pd.DataFrame({&#39;k&#39;:[&#39;A&#39;, &#39;A&#39;, &#39;B&#39;], &#39;lv&#39;:[1, 2, 3]})
-&gt;&gt;&gt; r = pd.DataFrame({&#39;k&#39;:[&#39;A&#39;, &#39;B&#39;], &#39;rv&#39;:[10, 20]})
-&gt;&gt;&gt; print(l)
-&gt;&gt;&gt; print(r)
-   k  lv
-0  A   1
-1  A   2
-2  B   3
-   k  rv
-0  A  10
-1  B  20
-
-# no.2-2-5
-# leftの結合キーはAが2行に存在する(重複がある)。このような場合、それぞれのAについてrightのAを結合する。
-&gt;&gt;&gt; l.merge(r, on=&#39;k&#39;)
-   k  lv  rv
-0  A   1  10
-1  A   2  10
-2  B   3  20
-
-# no.2-2-6
-# joinも考え方は同じ。
-&gt;&gt;&gt; li = l.set_index(&#39;k&#39;)
-&gt;&gt;&gt; ri = r.set_index(&#39;k&#39;)
-&gt;&gt;&gt; print(li.join(ri))
-   lv  rv
-k        
-A   1  10
-A   2  10
-B   3  20
-
-# m:m(many to many)結合
-# 入力データ
-&gt;&gt;&gt; l = pd.DataFrame({&#39;k&#39;:[&#39;A&#39;, &#39;A&#39;, &#39;B&#39;], &#39;lv&#39;:[1, 2, 3]})
-&gt;&gt;&gt; r = pd.DataFrame({&#39;k&#39;:[&#39;A&#39;, &#39;A&#39;, &#39;B&#39;], &#39;rv&#39;:[10, 20, 30]})
-print(l)
-print(r)
-   k  lv
-0  A   1
-1  A   2
-2  B   3
-   k  rv
-0  A  10
-1  A  20
-2  B  30
-
-# no.2-2-7
-# l,rともに結合キーにAが2つある。このような場合、全ての組み合わせ(2×2=4通り)の全ての結合(全結合)となる。
-&gt;&gt;&gt; print(l.merge(r, on=&#39;k&#39;))
-   k  lv  rv
-0  A   1  10
-1  A   1  20
-2  A   2  10
-3  A   2  20
-4  B   3  30
-
-# no.2-2-8
-# joinも考え方は同じ。
-&gt;&gt;&gt; print(li.join(ri))
-   lv  rv
-k        
-A   1  10
-A   1  20
-A   2  10
-A   2  20
-B   3  30
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
@@ -15361,210 +14700,9 @@ print(dfLi.join(dfRi, how='outer'))
 <td><img width="90%" src="./figures/join/join2-3-4j.png"></td>
 <td>how='outer'を指定すれば、left/right両方の結合キーが全て出力される。お互いに存在しない行にはNAが出力される。rightにあってleftにない行にはNAが出力される。</td></tr>    
 
+</tbody>
 </table>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[59]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># 入力データ</span>
-<span class="s1">&gt;&gt;&gt; dfL = pd.DataFrame({&#39;k&#39;:[&#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;], &#39;lv&#39;:[1, 2, 3, 4]})</span>
-<span class="s1">&gt;&gt;&gt; dfR = pd.DataFrame({&#39;k&#39;:[&#39;B&#39;, &#39;D&#39;, &#39;D&#39;, &#39;E&#39;], &#39;rv&#39;:[10, 20, 30, 40]})</span>
-<span class="s1">&gt;&gt;&gt; dfLi = dfL.set_index(&#39;k&#39;)</span>
-<span class="s1">&gt;&gt;&gt; dfRi = dfR.set_index(&#39;k&#39;)</span>
-<span class="s1">&gt;&gt;&gt; print(dfL)</span>
-<span class="s1">&gt;&gt;&gt; print(dfR)</span>
-<span class="s1">&gt;&gt;&gt; print(dfLi)</span>
-<span class="s1">&gt;&gt;&gt; print(dfRi)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dfL</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;k&#39;</span><span class="p">:[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">],</span> <span class="s1">&#39;lv&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]})</span>
-<span class="n">dfR</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;k&#39;</span><span class="p">:[</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">],</span> <span class="s1">&#39;rv&#39;</span><span class="p">:[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">]})</span>
-<span class="n">dfLi</span> <span class="o">=</span> <span class="n">dfL</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
-<span class="n">dfRi</span> <span class="o">=</span> <span class="n">dfR</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dfL</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dfR</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dfLi</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dfRi</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-3-1 </span>
-<span class="s1"># INNER JOIN</span>
-<span class="s1"># how=&#39;inner&#39;を指定すれば、結合キーがleft/rightに共通の行のみが出力される。</span>
-<span class="s1"># merge()はinnerがデフォルトのため指定する必要はないが、join()はLEFT OUTER JOINがデフォルトのため、how=&#39;inner&#39;を指定する必要がある。</span>
-<span class="s1">print(dfL.merge(dfR, on=&#39;k&#39;))</span>
-<span class="s1">print(dfLi.join(dfRi, how=&#39;inner&#39;)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dfL</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">dfR</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dfLi</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dfRi</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-3-2</span>
-<span class="s1"># LEFT OUTER JOIN</span>
-<span class="s1"># how=&#39;left&#39;を指定すれば、leftの結合キーは全て出力されるが、rightにのみ存在する結合キーは出力されない。</span>
-<span class="s1"># leftにあってrightにない行にはNAが出力される。</span>
-<span class="s1"># join()はhow=&#39;left&#39;がデフォルトのため省略できる。</span>
-<span class="s1">print(dfL.merge(dfR, on=&#39;k&#39;, how=&#39;left&#39;))</span>
-<span class="s1">print(dfLi.join(dfRi)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dfL</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">dfR</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dfLi</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dfRi</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-3-3</span>
-<span class="s1"># RIGHT OUTER JOIN</span>
-<span class="s1"># how=&#39;right&#39;を指定すれば、how=&#39;left&#39;とは逆に、rightの結合キーは全て出力されるが、leftにのみ存在する結合キーは出力されない。</span>
-<span class="s1"># rightにあってleftにない行にはNAが出力される。</span>
-<span class="s1">print(dfL.merge(dfR, on=&#39;k&#39;, how=&#39;right&#39;))</span>
-<span class="s1">print(dfLi.join(dfRi, how=&#39;right&#39;)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dfL</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">dfR</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dfLi</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dfRi</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-3-4 </span>
-<span class="s1"># FULL OUTER JOIN</span>
-<span class="s1"># how=&#39;outer&#39;を指定すれば、left/right両方の結合キーが全て出力される。お互いに存在しない行にはNAが出力される。</span>
-<span class="s1"># rightにあってleftにない行にはNAが出力される。</span>
-<span class="s1">&gt;&gt;&gt; print(dfL.merge(dfR, on=&#39;k&#39;, how=&#39;outer&#39;))</span>
-<span class="s1">&gt;&gt;&gt; print(dfLi.join(dfRi, how=&#39;outer&#39;))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dfL</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">dfR</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dfLi</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dfRi</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">))</span>
-      
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>
-# 入力データ
-&gt;&gt;&gt; dfL = pd.DataFrame({&#39;k&#39;:[&#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;], &#39;lv&#39;:[1, 2, 3, 4]})
-&gt;&gt;&gt; dfR = pd.DataFrame({&#39;k&#39;:[&#39;B&#39;, &#39;D&#39;, &#39;D&#39;, &#39;E&#39;], &#39;rv&#39;:[10, 20, 30, 40]})
-&gt;&gt;&gt; dfLi = dfL.set_index(&#39;k&#39;)
-&gt;&gt;&gt; dfRi = dfR.set_index(&#39;k&#39;)
-&gt;&gt;&gt; print(dfL)
-&gt;&gt;&gt; print(dfR)
-&gt;&gt;&gt; print(dfLi)
-&gt;&gt;&gt; print(dfRi)
-   k  lv
-0  A   1
-1  B   2
-2  C   3
-3  D   4
-   k  rv
-0  B  10
-1  D  20
-2  D  30
-3  E  40
-   lv
-k    
-A   1
-B   2
-C   3
-D   4
-   rv
-k    
-B  10
-D  20
-D  30
-E  40
-
-# no.2-3-1 
-# INNER JOIN
-# how=&#39;inner&#39;を指定すれば、結合キーがleft/rightに共通の行のみが出力される。
-# merge()はinnerがデフォルトのため指定する必要はないが、join()はLEFT OUTER JOINがデフォルトのため、how=&#39;inner&#39;を指定する必要がある。
-print(dfL.merge(dfR, on=&#39;k&#39;))
-print(dfLi.join(dfRi, how=&#39;inner&#39;)
-   k  lv  rv
-0  B   2  10
-1  D   4  20
-2  D   4  30
-   lv  rv
-k        
-B   2  10
-D   4  20
-D   4  30
-
-# no.2-3-2
-# LEFT OUTER JOIN
-# how=&#39;left&#39;を指定すれば、leftの結合キーは全て出力されるが、rightにのみ存在する結合キーは出力されない。
-# leftにあってrightにない行にはNAが出力される。
-# join()はhow=&#39;left&#39;がデフォルトのため省略できる。
-print(dfL.merge(dfR, on=&#39;k&#39;, how=&#39;left&#39;))
-print(dfLi.join(dfRi)
-   k  lv    rv
-0  A   1   NaN
-1  B   2  10.0
-2  C   3   NaN
-3  D   4  20.0
-4  D   4  30.0
-   lv    rv
-k          
-A   1   NaN
-B   2  10.0
-C   3   NaN
-D   4  20.0
-D   4  30.0
-
-# no.2-3-3
-# RIGHT OUTER JOIN
-# how=&#39;right&#39;を指定すれば、how=&#39;left&#39;とは逆に、rightの結合キーは全て出力されるが、leftにのみ存在する結合キーは出力されない。
-# rightにあってleftにない行にはNAが出力される。
-print(dfL.merge(dfR, on=&#39;k&#39;, how=&#39;right&#39;))
-print(dfLi.join(dfRi, how=&#39;right&#39;)
-   k   lv  rv
-0  B  2.0  10
-1  D  4.0  20
-2  D  4.0  30
-3  E  NaN  40
-    lv  rv
-k         
-B  2.0  10
-D  4.0  20
-D  4.0  30
-E  NaN  40
-
-# no.2-3-4 
-# FULL OUTER JOIN
-# how=&#39;outer&#39;を指定すれば、left/right両方の結合キーが全て出力される。お互いに存在しない行にはNAが出力される。
-# rightにあってleftにない行にはNAが出力される。
-&gt;&gt;&gt; print(dfL.merge(dfR, on=&#39;k&#39;, how=&#39;outer&#39;))
-&gt;&gt;&gt; print(dfLi.join(dfRi, how=&#39;outer&#39;))
-   k   lv    rv
-0  A  1.0   NaN
-1  B  2.0  10.0
-2  C  3.0   NaN
-3  D  4.0  20.0
-4  D  4.0  30.0
-5  E  NaN  40.0
-    lv    rv
-k           
-A  1.0   NaN
-B  2.0  10.0
-C  3.0   NaN
-D  4.0  20.0
-D  4.0  30.0
-E  NaN  40.0
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
@@ -15615,129 +14753,6 @@ print(dfLi.join(sr))
 </tbody>
 </table>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[60]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### Seriesの結合</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># 入力データ</span>
-<span class="s1">DataFrameにSeriesを結合する場合、</span>
-<span class="s1">Seriesに結合キーをindexとして設定し、かつnameをつけなければならない。そのnameが結合後のDataFrame上の列名となる</span>
-<span class="s1">&gt;&gt;&gt; dfL = pd.DataFrame({&#39;k&#39;:[&#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;], &#39;lv&#39;:[1, 2, 3, 4]})</span>
-<span class="s1">&gt;&gt;&gt; dfLi = dfL.set_index(&#39;k&#39;)</span>
-<span class="s1">&gt;&gt;&gt; sr = pd.Series([10, 20, 30, 40], index=[&#39;B&#39;, &#39;D&#39;, &#39;D&#39;, &#39;E&#39;], name=&#39;sv&#39;)</span>
-<span class="s1">&gt;&gt;&gt; print(dfL)</span>
-<span class="s1">&gt;&gt;&gt; print(dfLi)</span>
-<span class="s1">&gt;&gt;&gt; print(sr)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dfL</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;k&#39;</span><span class="p">:[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">],</span> <span class="s1">&#39;lv&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]})</span>
-<span class="n">dfLi</span> <span class="o">=</span> <span class="n">dfL</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
-<span class="n">sr</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;sv&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dfL</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dfLi</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">sr</span><span class="p">)</span>
-
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-4-1</span>
-<span class="s1"># merge()でSeriesを結合する。重複の結合キーと結合キーの不一致については、DataFrameの結合と同様である。</span>
-<span class="s1">&gt;&gt;&gt; print(dfL.merge(sr, left_on=&#39;k&#39;, right_index=True))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dfL</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">sr</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">right_index</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-4-2</span>
-<span class="s1"># joinも同様であるが、merge()と違いhow=のデフォルトはhow=&#39;left&#39;である。</span>
-<span class="s1">print(dfL.join(sr, on=&#39;k&#39;))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dfL</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sr</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-4-3</span>
-<span class="s1"># index to indexのjoin()であればon=を省略可能なのはDataFrameと同様。</span>
-<span class="s1">&gt;&gt;&gt; print(dfLi.join(sr))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dfLi</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sr</span><span class="p">))</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>
-# 入力データ
-DataFrameにSeriesを結合する場合、
-Seriesに結合キーをindexとして設定し、かつnameをつけなければならない。そのnameが結合後のDataFrame上の列名となる
-&gt;&gt;&gt; dfL = pd.DataFrame({&#39;k&#39;:[&#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;], &#39;lv&#39;:[1, 2, 3, 4]})
-&gt;&gt;&gt; dfLi = dfL.set_index(&#39;k&#39;)
-&gt;&gt;&gt; sr = pd.Series([10, 20, 30, 40], index=[&#39;B&#39;, &#39;D&#39;, &#39;D&#39;, &#39;E&#39;], name=&#39;sv&#39;)
-&gt;&gt;&gt; print(dfL)
-&gt;&gt;&gt; print(dfLi)
-&gt;&gt;&gt; print(sr)
-   k  lv
-0  A   1
-1  B   2
-2  C   3
-3  D   4
-   lv
-k    
-A   1
-B   2
-C   3
-D   4
-B    10
-D    20
-D    30
-E    40
-Name: sv, dtype: int64
-
-# no.2-4-1
-# merge()でSeriesを結合する。重複の結合キーと結合キーの不一致については、DataFrameの結合と同様である。
-&gt;&gt;&gt; print(dfL.merge(sr, left_on=&#39;k&#39;, right_index=True))
-   k  lv  sv
-1  B   2  10
-3  D   4  20
-3  D   4  30
-
-# no.2-4-2
-# joinも同様であるが、merge()と違いhow=のデフォルトはhow=&#39;left&#39;である。
-print(dfL.join(sr, on=&#39;k&#39;))
-   k  lv    sv
-0  A   1   NaN
-1  B   2  10.0
-2  C   3   NaN
-3  D   4  20.0
-3  D   4  30.0
-
-# no.2-4-3
-# index to indexのjoin()であればon=を省略可能なのはDataFrameと同様。
-&gt;&gt;&gt; print(dfLi.join(sr))
-   lv    sv
-A   1   NaN
-B   2  10.0
-C   3   NaN
-D   4  20.0
-D   4  30.0
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
@@ -15769,52 +14784,65 @@ D   4  30.0
 dt0 = pd.DataFrame({'a':[1, 2], 'b':[1, 2], 'c':[1, 2]})
 dt1 = pd.DataFrame({'a':[3, 4], 'b':[3, 4], 'c':[3, 4]})
 dt2 = pd.DataFrame({'b':[3, 4], 'c':[3, 4], 'd':[3, 4]})
-</pre><p><table border="1" style="table-layout:fixed;width:100%;">
+</pre><table border="1" style="table-layout:fixed;width:100%;">
     <colgroup>
       <col style="width:5%;">
       <col style="width:35%;">
       <col style="width:40%;">  
       <col style="width:20%;">
-    </colgroup></p>
+    </colgroup>
+
 <tbody>
 
 <tr><th align="left">no</th><th align="left">実行コード</th><th align="left">入力 / 出力</th><th  align="left">備考</th></tr>   
-<tr><td colspan=4 bgcolor="#a9a9a9"><font color="#ffffff"><TT><b>縦連結 (concat axis=0)</b></TT></font></td></tr><tr style="background:#fff; border:1px solid #cc0000;">
+<tr><td colspan=4 bgcolor="#a9a9a9"><font color="#ffffff"><TT><b>縦連結 (concat axis=0)</b></TT></font></td></tr>  
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-1</td>
 <td>
 <pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(pd.concat([dt0, dt1]))
 </pre></td>
 <td><img width="80%" src="./figures/join/join3-1.png"></td>
-<td>axis=を省略すると縦連結</td></tr><tr style="background:#fff; border:1px solid #cc0000;">
+<td>axis=を省略すると縦連結</td></tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-2</td>
 <td>
 <pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(dt0.append(dt1))
 </pre></td>
 <td><img width="80%" src="./figures/join/join3-2.png"></td>
-<td>一つずつ連結するならappendを使っても同じ</td></tr><tr style="background:#fff; border:1px solid #cc0000;">
+<td>一つずつ連結するならappendを使っても同じ</td></tr>    
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-3</td>
 <td>
 <pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(pd.concat([dt0, dt1], ignore_index=True))
 </pre></td>
 <td><img width="85%" src="./figures/join/join3-3.png"></td>
-<td>ignore_index=Trueとすればindexはリセットされる。</td></tr><tr style="background:#fff; border:1px solid #cc0000;">
+<td>ignore_index=Trueとすればindexはリセットされる。</td></tr>    
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-4</td>
 <td>
 <pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(pd.concat([dt0, dt2]))
 </pre></td>
 <td><img width="100%" src="./figures/join/join3-4.png"></td>
-<td>列名が一部異なるDataFrameの連結。join='outer'がデフォルトで、お互いに存在しない列にはNAが出力される。</td></tr><tr style="background:#fff; border:1px solid #cc0000;">
+<td>列名が一部異なるDataFrameの連結。join='outer'がデフォルトで、お互いに存在しない列にはNAが出力される。</td></tr>    
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-5</td>
 <td>
 <pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(dt0.append(dt2))
 </pre></td>
 <td><img width="100%" src="./figures/join/join3-5.png"></td>
-<td>appendはouterのみで動作する。</td></tr><tr style="background:#fff; border:1px solid #cc0000;">
+<td>appendはouterのみで動作する。</td></tr>  
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-6</td>
 <td>
 <pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
@@ -15823,19 +14851,11 @@ print(pd.concat([dt0, dt2], join='inner'))
 <td><img width="90%" src="./figures/join/join3-6.png"></td>
 <td>join='inner'を指定した場合、共通の列名のみ連結される。</td></tr>  
 </tbody>
-</table>
-</div>
-
-### 横連結の入力データ
-
-<pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
+</table><h3 id="&#27178;&#36899;&#32080;&#12398;&#20837;&#21147;&#12487;&#12540;&#12479;">&#27178;&#36899;&#32080;&#12398;&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#27178;&#36899;&#32080;&#12398;&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 dc0 = pd.DataFrame({'a':['a', 'a', 'a'], 'b':['b', 'b', 'b']}, index=[1, 2, 3])
 dc1 = pd.DataFrame({'c':['c', 'c', 'c'], 'd':['d', 'd', 'd']}, index=[1, 2, 3])
 dc2 = pd.DataFrame({'c':['c', 'c', 'c'], 'd':['d', 'd', 'd']}, index=[2, 3, 4])
-</pre>
-
-
-<table border="1" style="table-layout:fixed;width:100%;">
+</pre><table border="1" style="table-layout:fixed;width:100%;">
     <colgroup>
       <col style="width:5%;">
       <col style="width:35%;">
@@ -15846,44 +14866,53 @@ dc2 = pd.DataFrame({'c':['c', 'c', 'c'], 'd':['d', 'd', 'd']}, index=[2, 3, 4])
 <tbody>
 
 <tr><th align="left">no</th><th align="left">実行コード</th><th align="left">入力 / 出力</th><th  align="left">備考</th></tr>   
-<tr><td colspan=4 bgcolor="#a9a9a9"><font color="#ffffff"><TT><b>横連結(concat axis=1)</b></TT></font></td></tr><tr style="background:#fff; border:1px solid #cc0000;">
+<tr><td colspan=4 bgcolor="#a9a9a9"><font color="#ffffff"><TT><b>横連結(concat axis=1)</b></TT></font></td></tr>  
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-7</td>
 <td>
 <pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(pd.concat([dc0, dc1], axis=1))
 </pre></td>
 <td><img width="100%" src="./figures/join/join3-7.png"></td>
-<td>axis=1で横連結</td></tr><tr style="background:#fff; border:1px solid #cc0000;">
+<td>axis=1で横連結</td></tr>  
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-8</td>
 <td>
 <pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(pd.concat([dc0, dc2], axis=1))
 </pre></td>
 <td><img width="100%" src="./figures/join/join3-8.png"></td>
-<td>行ラベルが一部異なるDataFrameの連結。join='outer'がデフォルトで、お互いに存在しない行にはNAが出力される。</td></tr><tr style="background:#fff; border:1px solid #cc0000;">
+<td>行ラベルが一部異なるDataFrameの連結。join='outer'がデフォルトで、お互いに存在しない行にはNAが出力される。</td></tr>  
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-9</td>
 <td>
 <pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(pd.concat([dc0, dc2], axis=1, join='inner'))
 </pre></td>
 <td><img width="100%" src="./figures/join/join3-9.png"></td>
-<td>join='inner'を指定した場合、共通の行ラベルのみ連結される。</td></tr><p>&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/div&gt;</p>
-<h3 id="&#27178;&#36899;&#32080;&#12398;&#20837;&#21147;&#12487;&#12540;&#12479;(series&#12398;&#36899;&#32080;)">&#27178;&#36899;&#32080;&#12398;&#20837;&#21147;&#12487;&#12540;&#12479;(series&#12398;&#36899;&#32080;)<a class="anchor-link" href="#&#27178;&#36899;&#32080;&#12398;&#20837;&#21147;&#12487;&#12540;&#12479;(series&#12398;&#36899;&#32080;)">&#182;</a></h3><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
+<td>join='inner'を指定した場合、共通の行ラベルのみ連結される。</td></tr> 
+
+</tbody>
+</table><h3 id="&#27178;&#36899;&#32080;&#12398;&#20837;&#21147;&#12487;&#12540;&#12479;(series&#12398;&#36899;&#32080;)">&#27178;&#36899;&#32080;&#12398;&#20837;&#21147;&#12487;&#12540;&#12479;(series&#12398;&#36899;&#32080;)<a class="anchor-link" href="#&#27178;&#36899;&#32080;&#12398;&#20837;&#21147;&#12487;&#12540;&#12479;(series&#12398;&#36899;&#32080;)">&#182;</a></h3><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 s1 = pd.Series([1, 2, 3, 4], index=[0, 1, 2, 3], name='s1')
 s2 = pd.Series([1, 2, 3, 4], index=[3, 1, 0, 4], name='s2')
-</pre><p><table border="1" style="table-layout:fixed;width:100%;">
+</pre><table border="1" style="table-layout:fixed;width:100%;">
     <colgroup>
       <col style="width:5%;">
       <col style="width:35%;">
       <col style="width:25%;">  
       <col style="width:35%;">
-    </colgroup></p>
+    </colgroup>
+
 <tbody>
 
 <tr><th align="left">no</th><th align="left">実行コード</th><th align="left">入力 / 出力</th><th  align="left">備考</th></tr> 
-<tr><td colspan=6 bgcolor="#a9a9a9"><font color="#ffffff"><TT><b>横連結(concat axis=1) Seriesの連結</b></TT></font></td></tr><tr style="background:#fff; border:1px solid #cc0000;">
+<tr><td colspan=6 bgcolor="#a9a9a9"><font color="#ffffff"><TT><b>横連結(concat axis=1) Seriesの連結</b></TT></font></td></tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-10</td>
 <td>
 <pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
@@ -15894,409 +14923,38 @@ print(pd.concat([s1, s2]))
 Seriesの縦連結。
 nameが異なるとNoneにセットされ、同じであれば受け継がれる。
 結果もSeriesとなる。
-</td></tr><tr style="background:#fff; border:1px solid #cc0000;">
+</td></tr>        
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-11</td>
 <td>
 <pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(pd.concat([s1, s2], axis=1))
 </pre></td>
 <td><img width="90%" src="./figures/join/join3-11.png"></td>
-<td>axis=1で横連結すると結果はDataFrameになる。</td></tr><tr style="background:#fff; border:1px solid #cc0000;">
+<td>axis=1で横連結すると結果はDataFrameになる。</td></tr>     
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-12</td>
 <td>
 <pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(pd.concat({'a':s1, 'b':s2}))
 </pre></td>
 <td><img width="90%" src="./figures/join/join3-12.png"></td>
-<td>辞書で与えると、辞書のkeyがインデックスとして採用されマルチインデックスとなる。</td></tr><tr style="background:#fff; border:1px solid #cc0000;">
+<td>辞書で与えると、辞書のkeyがインデックスとして採用されマルチインデックスとなる。</td></tr>    
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-13</td>
 <td>
 <pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(pd.concat([s1, s2], keys=['a', 'b']))
 </pre></td>
 <td><img width="90%" src="./figures/join/join3-12.png"></td>
-<td>keys=を用いても同じことができる。</td></tr><p>&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/div&gt;</p>
+<td>keys=を用いても同じことができる。</td></tr>    
 
+</tbody>
+</table>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">### 縦連結(concat axis=0)</span>
-<span class="s1"># 入力データ　</span>
-<span class="s1">&gt;&gt;&gt; dt0 = pd.DataFrame({&#39;a&#39;:[1, 2], &#39;b&#39;:[1, 2], &#39;c&#39;:[1, 2]})</span>
-<span class="s1">&gt;&gt;&gt; print(dt0)</span>
-<span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dt0</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:[</span><span class="mi">1</span> <span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;b&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;c&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]})</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dt0</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">&gt;&gt;&gt; dt1 = pd.DataFrame({&#39;a&#39;:[3, 4], &#39;b&#39;:[3, 4], &#39;c&#39;:[3, 4]})</span>
-<span class="s1">&gt;&gt;&gt; print(dt1)</span>
-<span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dt1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="s1">&#39;b&#39;</span><span class="p">:[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="s1">&#39;c&#39;</span><span class="p">:[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]})</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dt1</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">&gt;&gt;&gt; dt2 = pd.DataFrame({&#39;b&#39;:[3, 4], &#39;c&#39;:[3, 4], &#39;d&#39;:[3, 4]})</span>
-<span class="s1">&gt;&gt;&gt; print(dt2)</span>
-<span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dt2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;b&#39;</span><span class="p">:[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="s1">&#39;c&#39;</span><span class="p">:[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="s1">&#39;d&#39;</span><span class="p">:[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]})</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dt2</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.3-1</span>
-<span class="s1"># axis=0を省略すると縦連結</span>
-<span class="s1">&gt;&gt;&gt; print(pd.concat([dt0, dt1]))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">dt0</span><span class="p">,</span> <span class="n">dt1</span><span class="p">]))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.3-2</span>
-<span class="s1"># 一つずつ連結するならappendを使っても同じ</span>
-<span class="s1">&gt;&gt;&gt; print(dt0.append(dt1))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dt0</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dt1</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.3-3</span>
-<span class="s1"># ignore_index=Trueとすればindexはリセットされる</span>
-<span class="s1">&gt;&gt;&gt; print(pd.concat([dt0, dt1], ignore_index=True))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">dt0</span><span class="p">,</span> <span class="n">dt1</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no. 3-4</span>
-<span class="s1"># 列名が一部異なるDataFrameの連結</span>
-<span class="s1"># join=&#39;outer&#39;がデフォルト</span>
-<span class="s1">&gt;&gt;&gt; print(pd.concat([dt0, dt2]))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">dt0</span><span class="p">,</span> <span class="n">dt2</span><span class="p">]))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.3-5 </span>
-<span class="s1"># appendはouterのみで動作する。</span>
-<span class="s1">&gt;&gt;&gt; print(dt0.append(dt2))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dt0</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dt2</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.3-6 </span>
-<span class="s1"># inner連結</span>
-<span class="s1">&gt;&gt;&gt; pd.concat([dt0, dt2], join=&#39;inner&#39;)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">dt0</span><span class="p">,</span> <span class="n">dt2</span><span class="p">],</span> <span class="n">join</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">### 横連結(concat axis=1)</span>
-<span class="s1"># 入力データ　</span>
-<span class="s1">&gt;&gt;&gt; dc0 = pd.DataFrame({&#39;a&#39;:[&#39;a&#39;, &#39;a&#39;, &#39;a&#39;], &#39;b&#39;:[&#39;b&#39;, &#39;b&#39;, &#39;b&#39;]}, index=[1, 2, 3])</span>
-<span class="s1">&gt;&gt;&gt; print(dc0)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dc0</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">],</span> <span class="s1">&#39;b&#39;</span><span class="p">:[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">]},</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dc0</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">&gt;&gt;&gt; dc1 = pd.DataFrame({&#39;c&#39;:[&#39;c&#39;, &#39;c&#39;, &#39;c&#39;], &#39;d&#39;:[&#39;d&#39;, &#39;d&#39;, &#39;d&#39;]}, index=[1, 2, 3])</span>
-<span class="s1">&gt;&gt;&gt; print(dc1)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dc1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;c&#39;</span><span class="p">:[</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">],</span> <span class="s1">&#39;d&#39;</span><span class="p">:[</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">]},</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dc1</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">&gt;&gt;&gt; dc2 = pd.DataFrame({&#39;c&#39;:[&#39;c&#39;, &#39;c&#39;, &#39;c&#39;], &#39;d&#39;:[&#39;d&#39;, &#39;d&#39;, &#39;d&#39;]}, index=[2, 3, 4])</span>
-<span class="s1">&gt;&gt;&gt; print(dc2)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dc2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;c&#39;</span><span class="p">:[</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">],</span> <span class="s1">&#39;d&#39;</span><span class="p">:[</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">]},</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dc2</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.3-7</span>
-<span class="s1">&gt;&gt;&gt; print(pd.concat([dc0, dc1], axis=1))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">dc0</span><span class="p">,</span> <span class="n">dc1</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.3-8</span>
-<span class="s1"># join=&#39;outer&#39;がデフォルト</span>
-<span class="s1">&gt;&gt;&gt; print(pd.concat([dc0, dc2], axis=1))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">dc0</span><span class="p">,</span> <span class="n">dc2</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.3-9</span>
-<span class="s1"># inner連結</span>
-<span class="s1">&gt;&gt;&gt; print(pd.concat([dc0, dc2], axis=1, join=&#39;inner&#39;))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">dc0</span><span class="p">,</span> <span class="n">dc2</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">join</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">))</span>
-
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">### Seriesの連結</span>
-<span class="s1"># 入力データ</span>
-<span class="s1">&gt;&gt;&gt; s1 = pd.Series([1, 2, 3, 4], index=[0, 1, 2, 3], name=&#39;s1&#39;)</span>
-<span class="s1">&gt;&gt;&gt; print(s1)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">s1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;s1&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">&gt;&gt;&gt; s2 = pd.Series([1, 2, 3, 4], index=[3, 1, 0, 4], name=&#39;s2&#39;)</span>
-<span class="s1">&gt;&gt;&gt; print(s2)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">s2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;s2&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># Seriesの縦連結。</span>
-<span class="s1"># nameが異なるとNoneにセットされ、同じであれば受け継がれる。</span>
-<span class="s1"># 結果もSeriesとなる。</span>
-<span class="s1"># no.3-10</span>
-<span class="s1">&gt;&gt;&gt; print(pd.concat([s1, s2]))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">]))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.3-11</span>
-<span class="s1"># axis=1で横連結すると結果はDataFrameになる。</span>
-<span class="s1">&gt;&gt;&gt; print(pd.concat([s1, s2], axis=1))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.3-12</span>
-<span class="s1"># 辞書で与えると、辞書のkeyがインデックスとして採用されマルチインデックスとなる。</span>
-<span class="s1">&gt;&gt;&gt; print(pd.concat({&#39;a&#39;:s1, &#39;b&#39;:s2}))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="n">s1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="n">s2</span><span class="p">}))</span>
- 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.3-13</span>
-<span class="s1"># keys=を用いても同じことができる。</span>
-<span class="s1">&gt;&gt;&gt; print(pd.concat([s1, s2], keys=[&#39;a&#39;, &#39;b&#39;]))&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">],</span> <span class="n">keys</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">]))</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>
-### 縦連結(concat axis=0)
-# 入力データ　
-&gt;&gt;&gt; dt0 = pd.DataFrame({&#39;a&#39;:[1, 2], &#39;b&#39;:[1, 2], &#39;c&#39;:[1, 2]})
-&gt;&gt;&gt; print(dt0)
-
-   a  b  c
-0  1  1  1
-1  2  2  2
-
-&gt;&gt;&gt; dt1 = pd.DataFrame({&#39;a&#39;:[3, 4], &#39;b&#39;:[3, 4], &#39;c&#39;:[3, 4]})
-&gt;&gt;&gt; print(dt1)
-
-   a  b  c
-0  3  3  3
-1  4  4  4
-
-&gt;&gt;&gt; dt2 = pd.DataFrame({&#39;b&#39;:[3, 4], &#39;c&#39;:[3, 4], &#39;d&#39;:[3, 4]})
-&gt;&gt;&gt; print(dt2)
-
-   b  c  d
-0  3  3  3
-1  4  4  4
-
-# no.3-1
-# axis=0を省略すると縦連結
-&gt;&gt;&gt; print(pd.concat([dt0, dt1]))
-   a  b  c
-0  1  1  1
-1  2  2  2
-0  3  3  3
-1  4  4  4
-
-# no.3-2
-# 一つずつ連結するならappendを使っても同じ
-&gt;&gt;&gt; print(dt0.append(dt1))
-   a  b  c
-0  1  1  1
-1  2  2  2
-0  3  3  3
-1  4  4  4
-
-# no.3-3
-# ignore_index=Trueとすればindexはリセットされる
-&gt;&gt;&gt; print(pd.concat([dt0, dt1], ignore_index=True))
-   a  b  c
-0  1  1  1
-1  2  2  2
-2  3  3  3
-3  4  4  4
-
-# no. 3-4
-# 列名が一部異なるDataFrameの連結
-# join=&#39;outer&#39;がデフォルト
-&gt;&gt;&gt; print(pd.concat([dt0, dt2]))
-     a  b  c    d
-0  1.0  1  1  NaN
-1  2.0  2  2  NaN
-0  NaN  3  3  3.0
-1  NaN  4  4  4.0
-
-# no.3-5 
-# appendはouterのみで動作する。
-&gt;&gt;&gt; print(dt0.append(dt2))
-     a  b  c    d
-0  1.0  1  1  NaN
-1  2.0  2  2  NaN
-0  NaN  3  3  3.0
-1  NaN  4  4  4.0
-
-# no.3-6 
-# inner連結
-&gt;&gt;&gt; pd.concat([dt0, dt2], join=&#39;inner&#39;)
-   b  c
-0  1  1
-1  2  2
-0  3  3
-1  4  4
-
-### 横連結(concat axis=1)
-# 入力データ　
-&gt;&gt;&gt; dc0 = pd.DataFrame({&#39;a&#39;:[&#39;a&#39;, &#39;a&#39;, &#39;a&#39;], &#39;b&#39;:[&#39;b&#39;, &#39;b&#39;, &#39;b&#39;]}, index=[1, 2, 3])
-&gt;&gt;&gt; print(dc0)
-   a  b
-1  a  b
-2  a  b
-3  a  b
-
-&gt;&gt;&gt; dc1 = pd.DataFrame({&#39;c&#39;:[&#39;c&#39;, &#39;c&#39;, &#39;c&#39;], &#39;d&#39;:[&#39;d&#39;, &#39;d&#39;, &#39;d&#39;]}, index=[1, 2, 3])
-&gt;&gt;&gt; print(dc1)
-   c  d
-1  c  d
-2  c  d
-3  c  d
-
-&gt;&gt;&gt; dc2 = pd.DataFrame({&#39;c&#39;:[&#39;c&#39;, &#39;c&#39;, &#39;c&#39;], &#39;d&#39;:[&#39;d&#39;, &#39;d&#39;, &#39;d&#39;]}, index=[2, 3, 4])
-&gt;&gt;&gt; print(dc2)
-   c  d
-2  c  d
-3  c  d
-4  c  d
-
-# no.3-7
-&gt;&gt;&gt; print(pd.concat([dc0, dc1], axis=1))
-   a  b  c  d
-1  a  b  c  d
-2  a  b  c  d
-3  a  b  c  d
-
-# no.3-8
-# join=&#39;outer&#39;がデフォルト
-&gt;&gt;&gt; print(pd.concat([dc0, dc2], axis=1))
-     a    b    c    d
-1    a    b  NaN  NaN
-2    a    b    c    d
-3    a    b    c    d
-4  NaN  NaN    c    d
-
-# no.3-9
-# inner連結
-&gt;&gt;&gt; print(pd.concat([dc0, dc2], axis=1, join=&#39;inner&#39;))
-   a  b  c  d
-2  a  b  c  d
-3  a  b  c  d
-
-### Seriesの連結
-# 入力データ
-&gt;&gt;&gt; s1 = pd.Series([1, 2, 3, 4], index=[0, 1, 2, 3], name=&#39;s1&#39;)
-&gt;&gt;&gt; print(s1)
-0    1
-1    2
-2    3
-3    4
-Name: s1, dtype: int64
-
-&gt;&gt;&gt; s2 = pd.Series([1, 2, 3, 4], index=[3, 1, 0, 4], name=&#39;s2&#39;)
-&gt;&gt;&gt; print(s2)
-3    1
-1    2
-0    3
-4    4
-Name: s2, dtype: int64
-
-# Seriesの縦連結。
-# nameが異なるとNoneにセットされ、同じであれば受け継がれる。
-# 結果もSeriesとなる。
-# no.3-10
-&gt;&gt;&gt; print(pd.concat([s1, s2]))
-0    1
-1    2
-2    3
-3    4
-3    1
-1    2
-0    3
-4    4
-dtype: int64
-
-# no.3-11
-# axis=1で横連結すると結果はDataFrameになる。
-&gt;&gt;&gt; print(pd.concat([s1, s2], axis=1))
-    s1   s2
-0  1.0  3.0
-1  2.0  2.0
-2  3.0  NaN
-3  4.0  1.0
-4  NaN  4.0
-
-# no.3-12
-# 辞書で与えると、辞書のkeyがインデックスとして採用されマルチインデックスとなる。
-&gt;&gt;&gt; print(pd.concat({&#39;a&#39;:s1, &#39;b&#39;:s2}))
-a  0    1
-   1    2
-   2    3
-   3    4
-b  3    1
-   1    2
-   0    3
-   4    4
-dtype: int64
-
-# no.3-13
-# keys=を用いても同じことができる。
-&gt;&gt;&gt; print(pd.concat([s1, s2], keys=[&#39;a&#39;, &#39;b&#39;]))
-a  0    1
-   1    2
-   2    3
-   3    4
-b  3    1
-   1    2
-   0    3
-   4    4
-dtype: int64
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div>
 </body>
 

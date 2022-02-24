@@ -14266,21 +14266,6 @@ a.anchor-link {
 <hr>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
@@ -14293,12 +14278,12 @@ a.anchor-link {
 <h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><p><code>s</code>は整数indexで、<code>t</code>は日付のindexである。整数indexとそれ以外のindexでは少し違った動きをするので2つのindexを対比のため用意した。
 <code>s</code>,<code>t</code>いずれも、値の位置番号は上から0, 1, 2, 3である。
 また、sの整数indexは、位置番号と混同しないように、あえて1から始める連番とした。</p>
-<p><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
-s = pd.Series([9, 5, 7, 6], index=[1, 2, 3, 4], name='x')</p>
-<p>dates　= pd.date_range('2021/1/1', periods=4)
+<pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
+s = pd.Series([9, 5, 7, 6], index=[1, 2, 3, 4], name='x')
+
+dates　= pd.date_range('2021/1/1', periods=4)
 t = pd.Series([9, 5, 7, 6], index=dates, name='x')
-&lt;/pre&gt;&lt;/td&gt;</p>
-<p><table border="1" style="table-layout:fixed;width:100%;">
+</pre><table border="1" style="table-layout:fixed;width:100%;">
     <colgroup>
       <col style="width:3%;">
       <col style="width:25%;">
@@ -14306,10 +14291,14 @@ t = pd.Series([9, 5, 7, 6], index=dates, name='x')
       <col style="width:20%;">
       <col style="width:17%;">
       <col style="width:15%;">
-    </colgroup></p>
+    </colgroup>
 <tbody>
 
-<tr><th align="left">no.</th><th align="left">実行コード</th><th>入力</th><th>出力</th><th align="left">備考</th><th align="left">[]の内容 / 出力タイプ</th></tr><tr><td colspan=6 bgcolor="#a9a9a9"><b>単一のラベル、単一の整数</b></td></tr><tr style="background:#fff; border:1px solid #cc0000;">
+<tr><th align="left">no.</th><th align="left">実行コード</th><th>入力</th><th>出力</th><th align="left">備考</th><th align="left">[]の内容 / 出力タイプ</th></tr>
+
+<tr><td colspan=6 bgcolor="#a9a9a9"><b>単一のラベル、単一の整数</b></td></tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>1-1</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(s[2])
@@ -14322,7 +14311,9 @@ print(t['2021-01-02'])
 ただし、存在しないラベルを与えるとエラーとなる。
 </td>
 <td>ラベル / numpyスカラ</td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>1-2</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(s[2])
@@ -14338,7 +14329,11 @@ sの2行目の値も7であるが、整数indexなので、ラベルが2の値�
 存在しない行数を与えるとエラーとなる。
 </td>
 <td>整数 / numpyスカラ</td>
-</tr><tr><td colspan=7 bgcolor="#a9a9a9"><b>ラベルのリスト、整数のリスト</b></td></tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr><td colspan=7 bgcolor="#a9a9a9"><b>ラベルのリスト、整数のリスト</b></td></tr>    
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>1-3</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(s[[2, 1]])
@@ -14351,7 +14346,9 @@ print(t[['2021-01-02', '2021-01-01']])
 リスト以外にもndarrayやSeriesによる指定も可能。
 </td>
 <td>ラベルリスト / Series</td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>1-4</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(s[[2,　1]])
@@ -14365,7 +14362,11 @@ print(t[[2,　1]])
 リスト以外にもndarrayやSeriesによる指定も可能。
 </td>
 <td>整数リスト / Series</td>
-</tr><tr><td colspan=7 bgcolor="#a9a9a9"><b>ラベルスライサと範囲スライサ</b></td></tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr><td colspan=7 bgcolor="#a9a9a9"><b>ラベルスライサと範囲スライサ</b></td></tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>1-5</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(s[1:4])
@@ -14381,7 +14382,9 @@ print(t['2021-01-01':'2021-01-03'])
 tは日付ラベルのスライサであり、2011-01-01から2021-01-03までの3つの値が選択される。
 </td>
 <td>範囲スライサ / Series</td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>1-6</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(s[1:3])
@@ -14398,7 +14401,11 @@ print(t[1:3])
 
 </td>
 <td>ラベルスライサ / Series</td>
-</tr><tr><td colspan=7 bgcolor="#a9a9a9"><b>boolのリスト</b></td></tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr><td colspan=7 bgcolor="#a9a9a9"><b>boolのリスト</b></td></tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>1-7</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(s[[True, False, False, True]])
@@ -14410,7 +14417,11 @@ print(t[[True, False, False, True]])
 Seriesと同じサイズのboolリストを与えると、Trueに対応する値を選択する。Seriesとboolリストのサイズは同じでなければならない。boolリストを直接与えることは稀で、各行に対する比較演算の結果を利用することが多い(no.1-8を参照のこと)。
 </td>
 <td>boolリスト / Series</td>
-</tr><tr><td colspan=7 bgcolor="#a9a9a9"><b>比較演算結果のリスト</b></td></tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr><td colspan=7 bgcolor="#a9a9a9"><b>比較演算結果のリスト</b></td></tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>1-8</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(s[s > 6])
@@ -14421,7 +14432,9 @@ print(s[s > 6])
 各行に対する比較演算の結果(条件）を指定してデータを取得する。内部的な詳細な動作は「5-1.比較演算子によるデータの選択」を参照されたい。
 </td>
 <td>比較演算結果のリスト / Series</td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>1-9</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 print(t[t > 6])
@@ -14432,276 +14445,11 @@ print(t[t > 6])
 各行に対する比較演算の結果(条件）を指定してデータを取得する。内部的な詳細な動作は「5-1.比較演算子によるデータの選択」を参照されたい。
 </td>
 <td>比較演算結果のリスト / Series</td>
-</tr><p>&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/div&gt;</p>
+</tr>        
 
+</tbody>
+</table>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># 入力データ（再掲）s</span>
-<span class="s1">&gt;&gt;&gt; s = pd.Series([9, 5, 7, 6], index=[1, 2, 3, 4], name=&#39;x&#39;)</span>
-<span class="s1">&gt;&gt;&gt; print(s)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># 入力データ（再掲）t</span>
-<span class="s1">&gt;&gt;&gt; dates = pd.date_range(&#39;2021/1/1&#39;, periods=4)</span>
-<span class="s1">&gt;&gt;&gt; t = pd.Series([9, 5, 7, 6], index=dates, name=&#39;x&#39;)</span>
-<span class="s1">&gt;&gt;&gt; print(t)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;2021/1/1&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="n">dates</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.1-1 </span>
-<span class="s1"># 単一のindexのラベルを指定すると、そのindexの値が選択される。</span>
-<span class="s1"># ただし、存在しないラベルを与えるとエラーとなる。</span>
-<span class="s1">&gt;&gt;&gt; print(s[2])</span>
-<span class="s1">&gt;&gt;&gt; print(t[&#39;2021-01-02&#39;])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="s1">&#39;2021-01-02&#39;</span><span class="p">])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.1-2</span>
-<span class="s1"># 単一の整数を指定すると、何行目か(先頭行は0行目)として解釈される。</span>
-<span class="s1"># tの2行目の値は7である。</span>
-<span class="s1"># ただし、整数indexをもつsについては、indexのラベルとして扱われることに注意する。</span>
-<span class="s1"># sの2行目の値も7であるが、整数indexなので、ラベルが2の値である5が選ばれている。</span>
-<span class="s1"># 存在しない行数を与えるとエラーとなる。</span>
-<span class="s1">&gt;&gt;&gt;  print(s[2])</span>
-<span class="s1">&gt;&gt;&gt;  print(t[2])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.1-3</span>
-<span class="s1"># ラベルのリストを与えると、そのリストで指定されたラベルの値が全てその順番で選択される。</span>
-<span class="s1"># リスト以外にもndarrayやSeriesによる指定も可能。</span>
-<span class="s1">&gt;&gt;&gt;  print(s[[2, 1]])</span>
-<span class="s1">&gt;&gt;&gt;  print(t[[&#39;2021-01-02&#39;, &#39;2021-01-01&#39;]])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">[[</span><span class="s1">&#39;2021-01-02&#39;</span><span class="p">,</span> <span class="s1">&#39;2021-01-01&#39;</span><span class="p">]])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.1-4</span>
-<span class="s1"># 整数をリストで与えると、no.1-2で見たように、整数indexにおいてはラベルとして、</span>
-<span class="s1"># それ以外のindexにおいては行番号として解釈される。</span>
-<span class="s1"># リスト以外にもndarrayやSeriesによる指定も可能。</span>
-<span class="s1">&gt;&gt;&gt;  print(s[[2, 1]])</span>
-<span class="s1">&gt;&gt;&gt;  print(t[[2, 1]])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">[[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
-
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.1-5</span>
-<span class="s1"># [from:to]のように:で２つのラベルを指定すれば、ラベルの範囲で選択できる(ラベルスライサ)。</span>
-<span class="s1"># ただし、整数ラベルは指定できない。なぜなら、整数を指定すればno.1-5のように範囲スライサとして認識されるからである。</span>
-<span class="s1"># 範囲スライサとは違い、ラベルスライサでは、末尾の条件が「未満」ではなく「以下」となることに注意する。</span>
-<span class="s1"># 以下、s[1:4] は、sが整数indexなので、範囲スライサとして認識され、1行目から3行目までが選択される。</span>
-<span class="s1"># tは日付ラベルのスライサであり、2011-01-01から2021-01-03までの3つの値が選択される。</span>
-<span class="s1">&gt;&gt;&gt; print(s[1:4])</span>
-<span class="s1">&gt;&gt;&gt; print(t[&#39;2021-01-01&#39;:&#39;2021-01-03&#39;])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="s1">&#39;2021-01-01&#39;</span><span class="p">:</span><span class="s1">&#39;2021-01-03&#39;</span><span class="p">])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.1-6</span>
-<span class="s1"># [from:to]のように:で２つの整数を指定すれば、行番号の範囲で選択できる(範囲スライサ)。</span>
-<span class="s1"># これは整数indexであっても同様なので、s,tの結果は同じとなる。</span>
-<span class="s1"># 範囲スライサ a:b はa以上b未満と解釈され、ここでの例では、1,2行目が選ばれることになる。</span>
-<span class="s1"># また、どちらの数字も省略することができ、省略した場合は先頭もしくは末尾が指定されたことになる。</span>
-<span class="s1"># 例えば、s[1:] は1行目から最後の行までが選ばれ、s[:3] は先頭行から2行目までが選ばれる。</span>
-<span class="s1">&gt;&gt;&gt;  print(s[1:3])</span>
-<span class="s1">&gt;&gt;&gt;  print(t[1:3])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.1-7</span>
-<span class="s1"># Seriesと同じサイズのboolリストを与えると、Trueに対応する値を選択する。</span>
-<span class="s1"># Seriesとboolリストのサイズは同じでなければならない。</span>
-<span class="s1"># boolリストを直接与えることは稀で、各行に対する比較演算の結果を利用することが多い(no.1-8を参照のこと)。</span>
-<span class="s1">&gt;&gt;&gt; print(s[[True, False, False, True]])</span>
-<span class="s1">&gt;&gt;&gt; print(t[[True, False, False, True]])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">]])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">[[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">]])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.1-8</span>
-<span class="s1"># 各行に対する比較演算の結果(条件）を指定してデータを取得する。</span>
-<span class="s1"># 内部的な詳細な動作は「5-1.比較演算子によるデータの選択」を参照されたい。</span>
-<span class="s1">&gt;&gt;&gt; print(s[s &gt; 6])</span>
-<span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">s</span> <span class="o">&gt;</span> <span class="mi">6</span><span class="p">])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.1-9</span>
-<span class="s1"># 各行に対する比較演算の結果(条件）を指定してデータを取得する。</span>
-<span class="s1"># 内部的な詳細な動作は「5-1.比較演算子によるデータの選択」を参照されたい。</span>
-<span class="s1">&gt;&gt;&gt; print(t[t &gt; 6])</span>
-<span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">t</span> <span class="o">&gt;</span> <span class="mi">6</span><span class="p">])</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>
-# 入力データ（再掲）s
-&gt;&gt;&gt; s = pd.Series([9, 5, 7, 6], index=[1, 2, 3, 4], name=&#39;x&#39;)
-&gt;&gt;&gt; print(s)
-1    9
-2    5
-3    7
-4    6
-Name: x, dtype: int64
-
-# 入力データ（再掲）t
-&gt;&gt;&gt; dates = pd.date_range(&#39;2021/1/1&#39;, periods=4)
-&gt;&gt;&gt; t = pd.Series([9, 5, 7, 6], index=dates, name=&#39;x&#39;)
-&gt;&gt;&gt; print(t)
-2021-01-01    9
-2021-01-02    5
-2021-01-03    7
-2021-01-04    6
-Freq: D, Name: x, dtype: int64
-
-# no.1-1 
-# 単一のindexのラベルを指定すると、そのindexの値が選択される。
-# ただし、存在しないラベルを与えるとエラーとなる。
-&gt;&gt;&gt; print(s[2])
-&gt;&gt;&gt; print(t[&#39;2021-01-02&#39;])
-5
-5
-
-# no.1-2
-# 単一の整数を指定すると、何行目か(先頭行は0行目)として解釈される。
-# tの2行目の値は7である。
-# ただし、整数indexをもつsについては、indexのラベルとして扱われることに注意する。
-# sの2行目の値も7であるが、整数indexなので、ラベルが2の値である5が選ばれている。
-# 存在しない行数を与えるとエラーとなる。
-&gt;&gt;&gt;  print(s[2])
-&gt;&gt;&gt;  print(t[2])
-5
-7
-
-# no.1-3
-# ラベルのリストを与えると、そのリストで指定されたラベルの値が全てその順番で選択される。
-# リスト以外にもndarrayやSeriesによる指定も可能。
-&gt;&gt;&gt;  print(s[[2, 1]])
-&gt;&gt;&gt;  print(t[[&#39;2021-01-02&#39;, &#39;2021-01-01&#39;]])
-2    5
-1    9
-Name: x, dtype: int64
-2021-01-02    5
-2021-01-01    9
-Name: x, dtype: int64
-
-# no.1-4
-# 整数をリストで与えると、no.1-2で見たように、整数indexにおいてはラベルとして、
-# それ以外のindexにおいては行番号として解釈される。
-# リスト以外にもndarrayやSeriesによる指定も可能。
-&gt;&gt;&gt;  print(s[[2, 1]])
-&gt;&gt;&gt;  print(t[[2, 1]])
-2    5
-1    9
-Name: x, dtype: int64
-2021-01-03    7
-2021-01-02    5
-Freq: -1D, Name: x, dtype: int64
-
-# no.1-5
-# [from:to]のように:で２つのラベルを指定すれば、ラベルの範囲で選択できる(ラベルスライサ)。
-# ただし、整数ラベルは指定できない。なぜなら、整数を指定すればno.1-5のように範囲スライサとして認識されるからである。
-# 範囲スライサとは違い、ラベルスライサでは、末尾の条件が「未満」ではなく「以下」となることに注意する。
-# 以下、s[1:4] は、sが整数indexなので、範囲スライサとして認識され、1行目から3行目までが選択される。
-# tは日付ラベルのスライサであり、2011-01-01から2021-01-03までの3つの値が選択される。
-&gt;&gt;&gt; print(s[1:4])
-&gt;&gt;&gt; print(t[&#39;2021-01-01&#39;:&#39;2021-01-03&#39;])
-2    5
-3    7
-4    6
-Name: x, dtype: int64
-2021-01-01    9
-2021-01-02    5
-2021-01-03    7
-Freq: D, Name: x, dtype: int64
-
-# no.1-6
-# [from:to]のように:で２つの整数を指定すれば、行番号の範囲で選択できる(範囲スライサ)。
-# これは整数indexであっても同様なので、s,tの結果は同じとなる。
-# 範囲スライサ a:b はa以上b未満と解釈され、ここでの例では、1,2行目が選ばれることになる。
-# また、どちらの数字も省略することができ、省略した場合は先頭もしくは末尾が指定されたことになる。
-# 例えば、s[1:] は1行目から最後の行までが選ばれ、s[:3] は先頭行から2行目までが選ばれる。
-&gt;&gt;&gt;  print(s[1:3])
-&gt;&gt;&gt;  print(t[1:3])
-2    5
-3    7
-Name: x, dtype: int64
-2021-01-02    5
-2021-01-03    7
-Freq: D, Name: x, dtype: int64
-
-# no.1-7
-# Seriesと同じサイズのboolリストを与えると、Trueに対応する値を選択する。
-# Seriesとboolリストのサイズは同じでなければならない。
-# boolリストを直接与えることは稀で、各行に対する比較演算の結果を利用することが多い(no.1-8を参照のこと)。
-&gt;&gt;&gt; print(s[[True, False, False, True]])
-&gt;&gt;&gt; print(t[[True, False, False, True]])
-1    9
-4    6
-Name: x, dtype: int64
-2021-01-01    9
-2021-01-04    6
-Name: x, dtype: int64
-
-# no.1-8
-# 各行に対する比較演算の結果(条件）を指定してデータを取得する。
-# 内部的な詳細な動作は「5-1.比較演算子によるデータの選択」を参照されたい。
-&gt;&gt;&gt; print(s[s &gt; 6])
-
-1    9
-3    7
-Name: x, dtype: int64
-
-# no.1-9
-# 各行に対する比較演算の結果(条件）を指定してデータを取得する。
-# 内部的な詳細な動作は「5-1.比較演算子によるデータの選択」を参照されたい。
-&gt;&gt;&gt; print(t[t &gt; 6])
-
-2021-01-01    9
-2021-01-03    7
-Name: x, dtype: int64
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
@@ -14714,22 +14462,22 @@ Name: x, dtype: int64
 <h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><p><code>d</code>は整数indexで、<code>e</code>は日付のindexである。整数indexとそれ以外のindexでは少し違った動きをするので2つのindexを対比のため用意した。
 <code>d</code>,<code>e</code>いずれも、値の位置番号は上から0, 1, 2, 3である。
 また、dの整数indexは、位置番号と混同しないように、あえて1から始める連番とした。</p>
-<p><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
+<pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 d = pd.DataFrame(
     {'x':[9, 5, 7, 6],
      'y':[1.5, 2.0, 0.4, 1.0],
      'z':['abc', 'ace', 'cce', 'dfa']},
     index = ['1', '2', '3', '4']
-)</p>
-<p>dates = pd.date_range('2021/1/1', periods=4)
+)
+
+dates = pd.date_range('2021/1/1', periods=4)
 e = pd.DataFrame(
     {'x':[9, 5, 7, 6],
      'y':[1.5, 2.0, 0.4, 1.0],
      'z':['abc', 'ace', 'cce', 'dfa']},
     index=dates
-)<br>
-&lt;/pre&gt;&lt;/td&gt;</p>
-<table border="1" style="table-layout:fixed;width:100%;">
+)  
+</pre><table border="1" style="table-layout:fixed;width:100%;">
     <colgroup>
       <col style="width:3%;">
       <col style="width:25%;">
@@ -14861,279 +14609,8 @@ print(e[e['x'] > 6])
 </tr> 
 
 </tbody>
-</table><p>&lt;/div&gt;</p>
-
+</table>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># 入力データ（再掲）d</span>
-<span class="s1">&gt;&gt;&gt; d = pd.DataFrame(</span>
-<span class="s1">        {&#39;x&#39;:[9, 5, 7, 6],</span>
-<span class="s1">         &#39;y&#39;:[1.5, 2.0, 0.4, 1.0],</span>
-<span class="s1">         &#39;z&#39;:[&#39;abc&#39;, &#39;ace&#39;, &#39;cce&#39;, &#39;dfa&#39;]},</span>
-<span class="s1">        index = [&#39;1&#39;, &#39;2&#39;, &#39;3&#39;, &#39;4&#39;]</span>
-<span class="s1">    )</span>
-<span class="s1">&gt;&gt;&gt; print(d)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">d</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-    <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
-     <span class="s1">&#39;y&#39;</span><span class="p">:[</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
-     <span class="s1">&#39;z&#39;</span><span class="p">:[</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;ace&#39;</span><span class="p">,</span> <span class="s1">&#39;cce&#39;</span><span class="p">,</span> <span class="s1">&#39;dfa&#39;</span><span class="p">]},</span>
-    <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="s1">&#39;4&#39;</span><span class="p">]</span>
-<span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
-      
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">#  入力データ（再掲）e</span>
-<span class="s1">&gt;&gt;&gt; dates = pd.date_range(&#39;2021/1/1&#39;, periods=4)</span>
-<span class="s1">&gt;&gt;&gt; e = pd.DataFrame(</span>
-<span class="s1">        {&#39;x&#39;:[9, 5, 7, 6],</span>
-<span class="s1">         &#39;y&#39;:[1.5, 2.0, 0.4, 1.0],</span>
-<span class="s1">         &#39;z&#39;:[&#39;abc&#39;, &#39;ace&#39;, &#39;cce&#39;, &#39;dfa&#39;]},</span>
-<span class="s1">        index=dates</span>
-<span class="s1">    ) </span>
-<span class="s1">&gt;&gt;&gt; print(e)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;2021/1/1&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">e</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-    <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
-     <span class="s1">&#39;y&#39;</span><span class="p">:[</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
-     <span class="s1">&#39;z&#39;</span><span class="p">:[</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;ace&#39;</span><span class="p">,</span> <span class="s1">&#39;cce&#39;</span><span class="p">,</span> <span class="s1">&#39;dfa&#39;</span><span class="p">]},</span>
-    <span class="n">index</span><span class="o">=</span><span class="n">dates</span>
-<span class="p">)</span>     
-<span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-1</span>
-<span class="s1"># DataFrameでは単独のラベルを与えると列選択となる。</span>
-<span class="s1"># Seriesとは違い、整数値を与えてもそれはラベルとして扱われる。</span>
-<span class="s1"># 列名はDataFrameの属性でもあるので、ドットに続けて列名を指定してもよい(ex. d.y)。</span>
-<span class="s1"># ただし、&#39;y-1&#39;のように列名に演算子が含まれる場合、&#39;e.y-1&#39;のように指定すると、</span>
-<span class="s1"># y列から1を引くと解釈されるため、そのような列名は属性として利用できないことに注意されたい。 </span>
-<span class="s1">&gt;&gt;&gt; print(d[&#39;y&#39;])</span>
-<span class="s1">&gt;&gt;&gt; print(e[&#39;y&#39;])</span>
-<span class="s1">&gt;&gt;&gt; print(e.y)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-2</span>
-<span class="s1"># ラベルのリストを指定すると列選択となる。リストに指定された順番で列を出力する。 </span>
-<span class="s1">&gt;&gt;&gt; print(d[[&#39;y&#39;, &#39;x&#39;]])</span>
-<span class="s1">&gt;&gt;&gt; print(e[[&#39;y&#39;, &#39;x&#39;]])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">[[</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">]])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">[[</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">]])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-3</span>
-<span class="s1"># [from:to]のように:で２つのラベルを指定すれば、ラベルの範囲で選択できる(ラベルスライサ)。</span>
-<span class="s1"># ただし、整数ラベルは指定できない。なぜなら、整数を指定すればno.2-4のように範囲スライサとして認識されるからである。</span>
-<span class="s1"># 範囲スライサとは違い、ラベルスライサでは、末尾の条件が「未満」ではなく「以下」となることに注意する。</span>
-<span class="s1"># 以下、d[1:4] は、dが整数indexなので、範囲スライサとして認識され、1行目から3行目までが選択される。</span>
-<span class="s1"># tは日付ラベルのスライサであり、2011-01-01から2021-01-03までの3つの値が選択される。</span>
-<span class="s1">&gt;&gt;&gt; print(d[1:4])</span>
-<span class="s1">&gt;&gt;&gt; print(e[&#39;2021-01-01&#39;:&#39;2021-01-03&#39;])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="s1">&#39;2021-01-01&#39;</span><span class="p">:</span><span class="s1">&#39;2021-01-03&#39;</span><span class="p">])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">#　no.2-4</span>
-<span class="s1"># [from:to]のように:で２つの整数を指定すれば、行番号の範囲で選択できる(範囲スライサ)。</span>
-<span class="s1"># これは整数indexであっても同様なので、d,eの結果は同じとなる。</span>
-<span class="s1"># 範囲スライサ a:b はa以上b未満と解釈され、ここでの例では、1,2行目が選ばれることになる。</span>
-<span class="s1"># また、どちらの数字も省略することができ、省略した場合は先頭もしくは末尾が指定されたことになる。</span>
-<span class="s1"># 例えば、d[1:] は1行目から最後の行までが選ばれ、d[:3] は先頭行から2行目までが選ばれる。</span>
-<span class="s1">&gt;&gt;&gt; print(d[1:3])</span>
-<span class="s1">&gt;&gt;&gt; print(e[1:3])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">#　no.2-5</span>
-<span class="s1"># DataFrameと同じ行数のboolリストを与えると、Trueに対応する値を選択する。</span>
-<span class="s1"># DataFrameとboolリストのサイズは同じでなければならない。</span>
-<span class="s1"># boolリストを与えると行選択となる。boolリストを直接与えることは稀で、各行に対する比較演算の結果を利用することが多い(no.2-6を参照のこと)。</span>
-<span class="s1">&gt;&gt;&gt; print(d[[True, False, False, True]])</span>
-<span class="s1">&gt;&gt;&gt; print(e[[True, False, False, True]])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">[[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">]])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">[[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">]])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">#　no.2-6</span>
-<span class="s1"># 各行に対する比較演算の結果(条件）を指定してデータを取得する。</span>
-<span class="s1">#　　内部的な詳細な動作は「5-1.比較演算子によるデータの選択」を参照されたい。 </span>
-<span class="s1">&gt;&gt;&gt; print(d[d[&#39;x&#39;] &gt; 6])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">6</span><span class="p">])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">#　no.2-7</span>
-<span class="s1"># 各行に対する比較演算の結果(条件）を指定してデータを取得する。</span>
-<span class="s1"># 内部的な詳細な動作は「5-1.比較演算子によるデータの選択」を参照されたい。</span>
-<span class="s1">&gt;&gt;&gt; print(e[e[&#39;x&#39;] &gt; 6])</span>
-<span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="n">e</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">6</span><span class="p">])</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>
-# 入力データ（再掲）d
-&gt;&gt;&gt; d = pd.DataFrame(
-        {&#39;x&#39;:[9, 5, 7, 6],
-         &#39;y&#39;:[1.5, 2.0, 0.4, 1.0],
-         &#39;z&#39;:[&#39;abc&#39;, &#39;ace&#39;, &#39;cce&#39;, &#39;dfa&#39;]},
-        index = [&#39;1&#39;, &#39;2&#39;, &#39;3&#39;, &#39;4&#39;]
-    )
-&gt;&gt;&gt; print(d)
-   x    y    z
-1  9  1.5  abc
-2  5  2.0  ace
-3  7  0.4  cce
-4  6  1.0  dfa
-
-#  入力データ（再掲）e
-&gt;&gt;&gt; dates = pd.date_range(&#39;2021/1/1&#39;, periods=4)
-&gt;&gt;&gt; e = pd.DataFrame(
-        {&#39;x&#39;:[9, 5, 7, 6],
-         &#39;y&#39;:[1.5, 2.0, 0.4, 1.0],
-         &#39;z&#39;:[&#39;abc&#39;, &#39;ace&#39;, &#39;cce&#39;, &#39;dfa&#39;]},
-        index=dates
-    ) 
-&gt;&gt;&gt; print(e)
-            x    y    z
-2021-01-01  9  1.5  abc
-2021-01-02  5  2.0  ace
-2021-01-03  7  0.4  cce
-2021-01-04  6  1.0  dfa
-
-# no.2-1
-# DataFrameでは単独のラベルを与えると列選択となる。
-# Seriesとは違い、整数値を与えてもそれはラベルとして扱われる。
-# 列名はDataFrameの属性でもあるので、ドットに続けて列名を指定してもよい(ex. d.y)。
-# ただし、&#39;y-1&#39;のように列名に演算子が含まれる場合、&#39;e.y-1&#39;のように指定すると、
-# y列から1を引くと解釈されるため、そのような列名は属性として利用できないことに注意されたい。 
-&gt;&gt;&gt; print(d[&#39;y&#39;])
-&gt;&gt;&gt; print(e[&#39;y&#39;])
-&gt;&gt;&gt; print(e.y)
-1    1.5
-2    2.0
-3    0.4
-4    1.0
-Name: y, dtype: float64
-2021-01-01    1.5
-2021-01-02    2.0
-2021-01-03    0.4
-2021-01-04    1.0
-Freq: D, Name: y, dtype: float64
-2021-01-01    1.5
-2021-01-02    2.0
-2021-01-03    0.4
-2021-01-04    1.0
-Freq: D, Name: y, dtype: float64
-
-# no.2-2
-# ラベルのリストを指定すると列選択となる。リストに指定された順番で列を出力する。 
-&gt;&gt;&gt; print(d[[&#39;y&#39;, &#39;x&#39;]])
-&gt;&gt;&gt; print(e[[&#39;y&#39;, &#39;x&#39;]])
-     y  x
-1  1.5  9
-2  2.0  5
-3  0.4  7
-4  1.0  6
-              y  x
-2021-01-01  1.5  9
-2021-01-02  2.0  5
-2021-01-03  0.4  7
-2021-01-04  1.0  6
-
-# no.2-3
-# [from:to]のように:で２つのラベルを指定すれば、ラベルの範囲で選択できる(ラベルスライサ)。
-# ただし、整数ラベルは指定できない。なぜなら、整数を指定すればno.2-4のように範囲スライサとして認識されるからである。
-# 範囲スライサとは違い、ラベルスライサでは、末尾の条件が「未満」ではなく「以下」となることに注意する。
-# 以下、d[1:4] は、dが整数indexなので、範囲スライサとして認識され、1行目から3行目までが選択される。
-# tは日付ラベルのスライサであり、2011-01-01から2021-01-03までの3つの値が選択される。
-&gt;&gt;&gt; print(d[1:4])
-&gt;&gt;&gt; print(e[&#39;2021-01-01&#39;:&#39;2021-01-03&#39;])
-   x    y    z
-2  5  2.0  ace
-3  7  0.4  cce
-4  6  1.0  dfa
-            x    y    z
-2021-01-01  9  1.5  abc
-2021-01-02  5  2.0  ace
-2021-01-03  7  0.4  cce
-
-#　no.2-4
-# [from:to]のように:で２つの整数を指定すれば、行番号の範囲で選択できる(範囲スライサ)。
-# これは整数indexであっても同様なので、d,eの結果は同じとなる。
-# 範囲スライサ a:b はa以上b未満と解釈され、ここでの例では、1,2行目が選ばれることになる。
-# また、どちらの数字も省略することができ、省略した場合は先頭もしくは末尾が指定されたことになる。
-# 例えば、d[1:] は1行目から最後の行までが選ばれ、d[:3] は先頭行から2行目までが選ばれる。
-&gt;&gt;&gt; print(d[1:3])
-&gt;&gt;&gt; print(e[1:3])
-   x    y    z
-2  5  2.0  ace
-3  7  0.4  cce
-            x    y    z
-2021-01-02  5  2.0  ace
-2021-01-03  7  0.4  cce
-
-#　no.2-5
-# DataFrameと同じ行数のboolリストを与えると、Trueに対応する値を選択する。
-# DataFrameとboolリストのサイズは同じでなければならない。
-# boolリストを与えると行選択となる。boolリストを直接与えることは稀で、各行に対する比較演算の結果を利用することが多い(no.2-6を参照のこと)。
-&gt;&gt;&gt; print(d[[True, False, False, True]])
-&gt;&gt;&gt; print(e[[True, False, False, True]])
-   x    y    z
-1  9  1.5  abc
-4  6  1.0  dfa
-            x    y    z
-2021-01-01  9  1.5  abc
-2021-01-04  6  1.0  dfa
-
-#　no.2-6
-# 各行に対する比較演算の結果(条件）を指定してデータを取得する。
-#　　内部的な詳細な動作は「5-1.比較演算子によるデータの選択」を参照されたい。 
-&gt;&gt;&gt; print(d[d[&#39;x&#39;] &gt; 6])
-   x    y    z
-1  9  1.5  abc
-3  7  0.4  cce
-
-#　no.2-7
-# 各行に対する比較演算の結果(条件）を指定してデータを取得する。
-# 内部的な詳細な動作は「5-1.比較演算子によるデータの選択」を参照されたい。
-&gt;&gt;&gt; print(e[e[&#39;x&#39;] &gt; 6])
-
-            x    y    z
-2021-01-01  9  1.5  abc
-2021-01-03  7  0.4  cce
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
@@ -15147,12 +14624,12 @@ Freq: D, Name: y, dtype: float64
 <code>iloc[]</code>と<code>loc[]</code>の指定を混同しやすくなるので注意されたい。
 <code>loc[]</code>は、あくまでも<code>index</code>の値とのマッチングにより位置が評価され、<code>iloc[]</code>は、何番目かによって位置が評価される。
 そこで、sには整数indexとして1から始まる連番を振って違いをわかりやすくしている。</p>
-<p><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
-s = pd.Series([9, 5, 7, 6], index=[1, 2, 3, 4], name='x')</p>
-<p>dates = pd.date_range('2021/1/1', periods=4)
+<pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
+s = pd.Series([9, 5, 7, 6], index=[1, 2, 3, 4], name='x')
+
+dates = pd.date_range('2021/1/1', periods=4)
 t = pd.Series([9, 5, 7, 6], index=dates, name='x')
-&lt;/pre&gt;&lt;/td&gt;</p>
-<table border="1" style="table-layout:fixed;width:100%;">
+</pre><table border="1" style="table-layout:fixed;width:100%;">
     <colgroup>
       <col style="width:3%;">
       <col style="width:25%;">
@@ -15343,290 +14820,8 @@ print(t.loc[t > 5])
 </tr>
 
 </tbody>
-</table><p>&lt;/div&gt;</p>
-
+</table>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># 入力データ（再掲） s</span>
-<span class="s1">&gt;&gt;&gt; s = pd.Series([9, 5, 7, 6], index=[1, 2, 3, 4], name=&#39;x&#39;)</span>
-<span class="s1">&gt;&gt;&gt; print(s)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># 入力データ（再掲）t</span>
-<span class="s1">&gt;&gt;&gt; dates = pd.date_range(&#39;2021/1/1&#39;, periods=4)</span>
-<span class="s1">&gt;&gt;&gt; t = pd.Series([9, 5, 7, 6], index=dates, name=&#39;x&#39;)</span>
-<span class="s1">&gt;&gt;&gt; print(t)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;2021/1/1&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="n">dates</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.3-1</span>
-<span class="s1"># Seriesの[]演算子とは違いloc[]に与えた値は必ずラベルとして解釈される。</span>
-<span class="s1">&gt;&gt;&gt; print(s.loc[2])</span>
-<span class="s1">&gt;&gt;&gt; print(t.loc[&#39;2021-01-02&#39;])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2021-01-02&#39;</span><span class="p">])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.3-2</span>
-<span class="s1"># Seriesの[]演算子とは違いiloc[]に与えた値は位置(何番目か)として解釈される。 </span>
-<span class="s1">&gt;&gt;&gt; print(s.iloc[2])</span>
-<span class="s1">&gt;&gt;&gt; print(t.iloc[2])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.3-3</span>
-<span class="s1"># loc[]にラベルのリストを指定すると、リストに指定されたindexの順番で行を出力する。 </span>
-<span class="s1">&gt;&gt;&gt; print(s.loc[[3, 1]])</span>
-<span class="s1">&gt;&gt;&gt; print(t.loc[[&#39;2021-01-03&#39;, &#39;2021-01-01&#39;]])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s1">&#39;2021-01-03&#39;</span><span class="p">,</span> <span class="s1">&#39;2021-01-01&#39;</span><span class="p">]])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.3-4</span>
-<span class="s1"># iloc[]に整数のリストを指定すると、リストに指定された行番号の順番で行を出力する。 </span>
-<span class="s1">&gt;&gt;&gt; print(s.iloc[[3, 1]])</span>
-<span class="s1">&gt;&gt;&gt; print(t.iloc[[3, 1]])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.3-5</span>
-<span class="s1"># locでのスライサ[from:to]について、ラベルスライサはtoを含むが、</span>
-<span class="s1"># 範囲スライサではtoを含まず未満となることに注意する。</span>
-<span class="s1"># []演算子でのスライサ指定のように、整数indexかどうかで挙動が変わることはなく、あくまでもindexの範囲として解釈される。 </span>
-<span class="s1">&gt;&gt;&gt; print(s.loc[1:2])]</span>
-<span class="s1">&gt;&gt;&gt; print(t.loc[&#39;2021-01-01&#39;:&#39;2021-01-02&#39;])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2021-01-01&#39;</span><span class="p">:</span><span class="s1">&#39;2021-01-02&#39;</span><span class="p">])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.3-6</span>
-<span class="s1"># ilocでの範囲スライサ[from:to]は、行番号として解釈される。</span>
-<span class="s1"># 範囲スライサではfromは含むが、toを含まず未満となることに注意する。 </span>
-<span class="s1">&gt;&gt;&gt; print(s.iloc[1:3])</span>
-<span class="s1">&gt;&gt;&gt; print(t.iloc[1:3])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.3-7</span>
-<span class="s1"># いずれの例もlocのラベルスライサで評価された位置がfrom&gt;toであったために空のSeriesが出力される。 </span>
-<span class="s1">&gt;&gt;&gt; print(s.loc[3:1])</span>
-<span class="s1">&gt;&gt;&gt; print(t.loc[&#39;2021-01-03&#39;:&#39;2021-01-01&#39;])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">1</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2021-01-03&#39;</span><span class="p">:</span><span class="s1">&#39;2021-01-01&#39;</span><span class="p">])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.3-8</span>
-<span class="s1"># いずれの例もilocの範囲スライサで評価された位置がfrom&gt;toであったために空のSeriesが出力される。 </span>
-<span class="s1">&gt;&gt;&gt; print(s.iloc[3:1])</span>
-<span class="s1">&gt;&gt;&gt; print(t.iloc[3:1])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">1</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">1</span><span class="p">])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.3-9</span>
-<span class="s1"># locでSeriesと同じサイズのboolリストを与えると、Trueに対応する値を選択する。</span>
-<span class="s1"># 但しboolリストを直接与えることは稀で、各行に対する比較演算の結果を利用することが多い(no.3-11を参照のこと)。 </span>
-<span class="s1">&gt;&gt;&gt; print(s.loc[[True, False, False, True]])</span>
-<span class="s1">&gt;&gt;&gt; print(t.loc[[True, False, False, True]])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">]])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">]])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.3-10</span>
-<span class="s1"># ilocも同様で、Seriesと同じサイズのboolリストを与えると、Trueに対応する値を選択する。</span>
-<span class="s1"># 但しboolリストを直接与えることは稀で、各行に対する比較演算の結果を利用することが多い。 </span>
-<span class="s1">&gt;&gt;&gt; print(s.iloc[[True, False, False, True]])</span>
-<span class="s1">&gt;&gt;&gt; print(t.iloc[[True, False, False, True]])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">]])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">]])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.3-11</span>
-<span class="s1"># 各行に対する比較演算の結果(条件）を指定してデータを取得する。内部的な詳細な動作は「5-1.比較演算子によるデータの選択」を参照されたい。 </span>
-<span class="s1">&gt;&gt;&gt; print(s.loc[s &gt; 6])</span>
-<span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">s</span> <span class="o">&gt;</span> <span class="mi">6</span><span class="p">])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.3-12</span>
-<span class="s1"># 各行に対する比較演算の結果(条件）を指定してデータを取得する。内部的な詳細な動作は「5-1.比較演算子によるデータの選択」を参照されたい。 </span>
-<span class="s1">&gt;&gt;&gt; print(t.loc[t &gt; 6])</span>
-<span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">t</span> <span class="o">&gt;</span> <span class="mi">6</span><span class="p">])</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>
-# 入力データ（再掲） s
-&gt;&gt;&gt; s = pd.Series([9, 5, 7, 6], index=[1, 2, 3, 4], name=&#39;x&#39;)
-&gt;&gt;&gt; print(s)
-1    9
-2    5
-3    7
-4    6
-Name: x, dtype: int64
-
-# 入力データ（再掲）t
-&gt;&gt;&gt; dates = pd.date_range(&#39;2021/1/1&#39;, periods=4)
-&gt;&gt;&gt; t = pd.Series([9, 5, 7, 6], index=dates, name=&#39;x&#39;)
-&gt;&gt;&gt; print(t)
-2021-01-01    9
-2021-01-02    5
-2021-01-03    7
-2021-01-04    6
-Freq: D, Name: x, dtype: int64
-
-# no.3-1
-# Seriesの[]演算子とは違いloc[]に与えた値は必ずラベルとして解釈される。
-&gt;&gt;&gt; print(s.loc[2])
-&gt;&gt;&gt; print(t.loc[&#39;2021-01-02&#39;])
-5
-5
-
-# no.3-2
-# Seriesの[]演算子とは違いiloc[]に与えた値は位置(何番目か)として解釈される。 
-&gt;&gt;&gt; print(s.iloc[2])
-&gt;&gt;&gt; print(t.iloc[2])
-7
-7
-
-# no.3-3
-# loc[]にラベルのリストを指定すると、リストに指定されたindexの順番で行を出力する。 
-&gt;&gt;&gt; print(s.loc[[3, 1]])
-&gt;&gt;&gt; print(t.loc[[&#39;2021-01-03&#39;, &#39;2021-01-01&#39;]])
-3    7
-1    9
-Name: x, dtype: int64
-2021-01-03    7
-2021-01-01    9
-Name: x, dtype: int64
-
-# no.3-4
-# iloc[]に整数のリストを指定すると、リストに指定された行番号の順番で行を出力する。 
-&gt;&gt;&gt; print(s.iloc[[3, 1]])
-&gt;&gt;&gt; print(t.iloc[[3, 1]])
-4    6
-2    5
-Name: x, dtype: int64
-2021-01-04    6
-2021-01-02    5
-Freq: -2D, Name: x, dtype: int64
-
-# no.3-5
-# locでのスライサ[from:to]について、ラベルスライサはtoを含むが、
-# 範囲スライサではtoを含まず未満となることに注意する。
-# []演算子でのスライサ指定のように、整数indexかどうかで挙動が変わることはなく、あくまでもindexの範囲として解釈される。 
-&gt;&gt;&gt; print(s.loc[1:2])]
-&gt;&gt;&gt; print(t.loc[&#39;2021-01-01&#39;:&#39;2021-01-02&#39;])
-1    9
-2    5
-Name: x, dtype: int64
-2021-01-01    9
-2021-01-02    5
-Freq: D, Name: x, dtype: int64
-
-# no.3-6
-# ilocでの範囲スライサ[from:to]は、行番号として解釈される。
-# 範囲スライサではfromは含むが、toを含まず未満となることに注意する。 
-&gt;&gt;&gt; print(s.iloc[1:3])
-&gt;&gt;&gt; print(t.iloc[1:3])
-2    5
-3    7
-Name: x, dtype: int64
-2021-01-02    5
-2021-01-03    7
-Freq: D, Name: x, dtype: int64
-
-# no.3-7
-# いずれの例もlocのラベルスライサで評価された位置がfrom&gt;toであったために空のSeriesが出力される。 
-&gt;&gt;&gt; print(s.loc[3:1])
-&gt;&gt;&gt; print(t.loc[&#39;2021-01-03&#39;:&#39;2021-01-01&#39;])
-Series([], Name: x, dtype: int64)
-Series([], Freq: D, Name: x, dtype: int64)
-
-# no.3-8
-# いずれの例もilocの範囲スライサで評価された位置がfrom&gt;toであったために空のSeriesが出力される。 
-&gt;&gt;&gt; print(s.iloc[3:1])
-&gt;&gt;&gt; print(t.iloc[3:1])
-Series([], Name: x, dtype: int64)
-Series([], Freq: D, Name: x, dtype: int64)
-
-# no.3-9
-# locでSeriesと同じサイズのboolリストを与えると、Trueに対応する値を選択する。
-# 但しboolリストを直接与えることは稀で、各行に対する比較演算の結果を利用することが多い(no.3-11を参照のこと)。 
-&gt;&gt;&gt; print(s.loc[[True, False, False, True]])
-&gt;&gt;&gt; print(t.loc[[True, False, False, True]])
-1    9
-4    6
-Name: x, dtype: int64
-2021-01-01    9
-2021-01-04    6
-Freq: 3D, Name: x, dtype: int64
-
-# no.3-10
-# ilocも同様で、Seriesと同じサイズのboolリストを与えると、Trueに対応する値を選択する。
-# 但しboolリストを直接与えることは稀で、各行に対する比較演算の結果を利用することが多い。 
-&gt;&gt;&gt; print(s.iloc[[True, False, False, True]])
-&gt;&gt;&gt; print(t.iloc[[True, False, False, True]])
-1    9
-4    6
-Name: x, dtype: int64
-2021-01-01    9
-2021-01-04    6
-Freq: 3D, Name: x, dtype: int64
-
-# no.3-11
-# 各行に対する比較演算の結果(条件）を指定してデータを取得する。内部的な詳細な動作は「5-1.比較演算子によるデータの選択」を参照されたい。 
-&gt;&gt;&gt; print(s.loc[s &gt; 6])
-
-1    9
-3    7
-Name: x, dtype: int64
-
-# no.3-12
-# 各行に対する比較演算の結果(条件）を指定してデータを取得する。内部的な詳細な動作は「5-1.比較演算子によるデータの選択」を参照されたい。 
-&gt;&gt;&gt; print(t.loc[t &gt; 6])
-
-2021-01-01    9
-2021-01-03    7
-Freq: 2D, Name: x, dtype: int64
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
@@ -15642,22 +14837,22 @@ Freq: 2D, Name: x, dtype: int64
 <p>以下の例のように index を文字列として与えるとわかりやすいが、<code>index=</code>を省くと整数の<code>index</code>が振られるため、
 <code>iloc[]</code>と<code>loc[]</code>の指定を混同しやすくなるので注意されたい。
 <code>loc[]</code>は、あくまでも<code>index</code>の値とのマッチングにより位置が評価され、<code>iloc[]</code>は、何番目かによって位置が評価される。</p>
-<h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><p><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
+<h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 d = pd.DataFrame(
     {'x':[9, 5, 7, 6],
      'y':[1.5, 2.0, 0.4, 1.0],
      'z':['abc', 'ace', 'cce', 'dfa']},
      index=[1, 2, 3, 4]
-)</p>
-<p>dates = pd.date_range('2021/1/1', periods=4)
+)
+
+dates = pd.date_range('2021/1/1', periods=4)
 e = pd.DataFrame(
     {'x':[9, 5, 7, 6],
      'y':[1.5, 2.0, 0.4, 1.0],
      'z':['abc', 'ace', 'cce', 'dfa']},
      index=dates
 ) 
-&lt;/pre&gt;&lt;/td&gt;</p>
-<table border="1" style="table-layout:fixed;width:100%;">
+</pre><table border="1" style="table-layout:fixed;width:100%;">
     <colgroup>
       <col style="width:3%;">
       <col style="width:25%;">
@@ -15995,550 +15190,8 @@ print(e.loc[e['x'] > 6])
 
 
 </tbody>
-</table><p>&lt;/div&gt;</p>
-
+</table>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># 入力データ（再掲） d</span>
-<span class="s1">&gt;&gt;&gt; d = pd.DataFrame(</span>
-<span class="s1">        {&#39;x&#39;:[9, 5, 7, 6],</span>
-<span class="s1">         &#39;y&#39;:[1.5, 2.0, 0.4, 1.0],</span>
-<span class="s1">         &#39;z&#39;:[&#39;abc&#39;, &#39;ace&#39;, &#39;cce&#39;, &#39;dfa&#39;]},</span>
-<span class="s1">         index=[1, 2, 3, 4]</span>
-<span class="s1">    )</span>
-<span class="s1">&gt;&gt;&gt; print(d)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">d</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-    <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
-     <span class="s1">&#39;y&#39;</span><span class="p">:[</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
-     <span class="s1">&#39;z&#39;</span><span class="p">:[</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;ace&#39;</span><span class="p">,</span> <span class="s1">&#39;cce&#39;</span><span class="p">,</span> <span class="s1">&#39;dfa&#39;</span><span class="p">]},</span>
-     <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
-<span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">#  入力データ（再掲）e</span>
-<span class="s1">&gt;&gt;&gt; dates = pd.date_range(&#39;2021/1/1&#39;, periods=4)</span>
-<span class="s1">&gt;&gt;&gt; e = pd.DataFrame(</span>
-<span class="s1">        {&#39;x&#39;:[9, 5, 7, 6],</span>
-<span class="s1">         &#39;y&#39;:[1.5, 2.0, 0.4, 1.0],</span>
-<span class="s1">         &#39;z&#39;:[&#39;abc&#39;, &#39;ace&#39;, &#39;cce&#39;, &#39;dfa&#39;]},</span>
-<span class="s1">         index=dates</span>
-<span class="s1">    ) </span>
-<span class="s1">&gt;&gt;&gt; print(e)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;2021/1/1&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">e</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-    <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
-     <span class="s1">&#39;y&#39;</span><span class="p">:[</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
-     <span class="s1">&#39;z&#39;</span><span class="p">:[</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;ace&#39;</span><span class="p">,</span> <span class="s1">&#39;cce&#39;</span><span class="p">,</span> <span class="s1">&#39;dfa&#39;</span><span class="p">]},</span>
-     <span class="n">index</span><span class="o">=</span><span class="n">dates</span>
-<span class="p">)</span>     
-<span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.4-1</span>
-<span class="s1"># locに単独のラベルを与えると一行をSeriesとして選択する。</span>
-<span class="s1"># この例のように、複数列の型が異なる場合の型はdtype=objectとなる。 </span>
-<span class="s1">&gt;&gt;&gt; print(d.loc[2])</span>
-<span class="s1">&gt;&gt;&gt; print(e.loc[&#39;2021-01-02&#39;])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2021-01-02&#39;</span><span class="p">])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.4-2</span>
-<span class="s1"># ilocに単独の整数を与えると一行をSeriesとして選択する。</span>
-<span class="s1"># この例のように、複数列の型が異なる場合の型はdtype=objectとなる。</span>
-<span class="s1">&gt;&gt;&gt; print(d.iloc[2])</span>
-<span class="s1">&gt;&gt;&gt; print(e.iloc[2])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.4-3</span>
-<span class="s1"># locにラベル/整数のリストを指定すると、リストに指定された位置の行を、その順番で出力する。</span>
-<span class="s1"># 一つの列しか指定しなくてもDataFrameが出力される。</span>
-<span class="s1">&gt;&gt;&gt; print(d.loc[[3, 1]])</span>
-<span class="s1">&gt;&gt;&gt; print(e.loc[[&#39;2021-01-03&#39;, &#39;2021-01-01&#39;]])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s1">&#39;2021-01-03&#39;</span><span class="p">,</span> <span class="s1">&#39;2021-01-01&#39;</span><span class="p">]])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.4-4</span>
-<span class="s1"># ilocにラベル/整数のリストを指定すると、リストに指定されたラベルの行を、その順番で出力する。</span>
-<span class="s1"># 一つの列しか指定しなくてもDataFrameが出力される。 </span>
-<span class="s1">&gt;&gt;&gt; print(d.iloc[[3, 1]])</span>
-<span class="s1">&gt;&gt;&gt; print(e.iloc[[3, 1]])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">#　no.4-5</span>
-<span class="s1"># locにラベルスライサを指定すると行ラベルの範囲で行を選択する。</span>
-<span class="s1"># スライサ[from:to]について、ラベルスライサはtoを含むが、範囲スライサではtoを含まず未満となることに注意する。 </span>
-<span class="s1">&gt;&gt;&gt; print(d.loc[1:2])</span>
-<span class="s1">&gt;&gt;&gt; print(e.loc[&#39;2021-01-01&#39;:&#39;2021-01-02&#39;])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2021-01-01&#39;</span><span class="p">:</span><span class="s1">&#39;2021-01-02&#39;</span><span class="p">])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.4-6</span>
-<span class="s1"># ilocに範囲スライサを指定すると行を位置の範囲で選択する。</span>
-<span class="s1"># スライサ[from:to]について、ラベルスライサはtoを含むが、範囲スライサではtoを含まず未満となることに注意する。 </span>
-<span class="s1">&gt;&gt;&gt; print(d.iloc[1:3])</span>
-<span class="s1">&gt;&gt;&gt;print(e.iloc[1:3])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.4-7</span>
-<span class="s1"># いずれの例もラベルスライサで評価された位置がfrom &gt; toであったために空のDataFrameが出力される。 </span>
-<span class="s1">&gt;&gt;&gt; print(d.loc[1:0])]</span>
-<span class="s1">&gt;&gt;&gt; print(e.loc[&#39;2021-01-02&#39;:&#39;2021-01-01&#39;])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">0</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2021-01-02&#39;</span><span class="p">:</span><span class="s1">&#39;2021-01-01&#39;</span><span class="p">])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.4-8</span>
-<span class="s1"># いずれの例も範囲スライサで評価された位置がfrom &gt; toであったために空のDataFrameが出力される。 </span>
-<span class="s1">&gt;&gt;&gt; print(d.iloc[1:0])</span>
-<span class="s1">&gt;&gt;&gt; print(e.iloc[1:0])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">0</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">0</span><span class="p">])</span>
-
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.4-9</span>
-<span class="s1"># locにboolリストを与えるとTrueに対応する行のみ選択される。</span>
-<span class="s1"># boolリストを直接与えることは稀で、各行に対する比較演算の結果を利用することが多い(4-21を参照のこと)。 </span>
-<span class="s1">&gt;&gt;&gt; print(d.loc[[True, False, False, True]])</span>
-<span class="s1">&gt;&gt;&gt; print(e.loc[[True, False, False, True]])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">]])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">]])</span>
-
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.4-10</span>
-<span class="s1"># ilocにboolリストを与えるとTrueに対応する行のみ選択される。</span>
-<span class="s1"># boolリストを直接与えることは稀で、各行に対する比較演算の結果を利用することが多い。</span>
-<span class="s1">&gt;&gt;&gt; print(d.iloc[[True, False, False, True]])</span>
-<span class="s1">&gt;&gt;&gt; print(e.iloc[[True, False, False, True]])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">]])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">]])</span>
-
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.4-11</span>
-<span class="s1"># locに行/列の条件をともに指定する例で、ともにラベルスライサで指定している。</span>
-<span class="s1">&gt;&gt;&gt; print(d.loc[1:2, &#39;y&#39;:&#39;z&#39;])</span>
-<span class="s1">&gt;&gt;&gt; print(e.loc[&#39;2021-01-01&#39;:&#39;2021-01-02&#39;, &#39;y&#39;:&#39;z&#39;])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span><span class="s1">&#39;z&#39;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2021-01-01&#39;</span><span class="p">:</span><span class="s1">&#39;2021-01-02&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span><span class="s1">&#39;z&#39;</span><span class="p">])</span>
-
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.4-12</span>
-<span class="s1"># ilocに行/列の条件をともに指定する例で、ともに範囲スライサで指定している。</span>
-<span class="s1">&gt;&gt;&gt; print(d.iloc[1:3, 1:3])</span>
-<span class="s1">&gt;&gt;&gt; print(e.iloc[1:3, 1:3])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
-
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.4-13</span>
-<span class="s1"># locで列条件のみ指定する時は、行条件には空のスライサを指定する。</span>
-<span class="s1">&gt;&gt;&gt; print(d.loc[:, [&#39;x&#39;, &#39;z&#39;]])</span>
-<span class="s1">&gt;&gt;&gt; print(e.loc[:, [&#39;x&#39;, &#39;z&#39;]])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">]])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">]])</span>
-
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.4-14</span>
-<span class="s1"># ilocで列条件のみ指定する時は、行条件には空のスライサを指定する。 </span>
-<span class="s1">&gt;&gt;&gt; print(d.iloc[:, [0, 2]])</span>
-<span class="s1">&gt;&gt;&gt; print(e.iloc[:, [0, 2]])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
-
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.4-15</span>
-<span class="s1"># locで列条件として単一のラベル/整数を指定すると、その列のSeriesを出力する。</span>
-<span class="s1">&gt;&gt;&gt; print(d.loc[:, &#39;y&#39;])</span>
-<span class="s1">&gt;&gt;&gt; print(e.loc[:, &#39;y&#39;])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;y&#39;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;y&#39;</span><span class="p">])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.4-16</span>
-<span class="s1"># ilocで列条件として単一のラベル/整数を指定すると、その列のSeriesを出力する。 </span>
-<span class="s1">&gt;&gt;&gt; print(d.iloc[:, 1])</span>
-<span class="s1">&gt;&gt;&gt; print(e.iloc[:, 1])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.4-17</span>
-<span class="s1"># locで行/列ともに単一のラベルを指定すると、対応する行/列ラベルの一つの値のみがnumpyスカラとして選択される。</span>
-<span class="s1">&gt;&gt;&gt; print(d.loc[1, &#39;y&#39;])</span>
-<span class="s1">&gt;&gt;&gt; print(e.loc[&#39;2021-01-01&#39;, &#39;y&#39;])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2021-01-01&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.4-18</span>
-<span class="s1"># ilocで行/列ともに単一の整数を指定すると、対応する行/列の位置の一つの値のみがnumpyスカラとして選択される。</span>
-<span class="s1">&gt;&gt;&gt; print(d.iloc[1, 2])</span>
-<span class="s1">&gt;&gt;&gt; print(e.iloc[1, 2])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
-
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.4-19</span>
-<span class="s1"># locで行/列ともにboolリストを指定することも可能。与えるboolリストのサイズは行/列のサイズと同じでなければならない。</span>
-<span class="s1"># boolリストを直接与えることは稀で、各行に対する比較演算の結果を利用することが多い(no.4-21参照)。 </span>
-<span class="s1">&gt;&gt;&gt; print(d.loc[[True, False, True, False], [True, False, True]])</span>
-<span class="s1">&gt;&gt;&gt; print(e.loc[[True, False, True, False], [True, False, True]])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">],</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">]])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">],</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">]])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.4-20</span>
-<span class="s1"># ilocで行/列ともにboolリストを指定することも可能。与えるboolリストのサイズは行/列のサイズと同じでなければならない。</span>
-<span class="s1"># boolリストを直接与えることは稀で、各行に対する比較演算の結果を利用することが多い。 </span>
-<span class="s1">&gt;&gt;&gt; print(d.iloc[[True, False, True, False], [True, False, True]])</span>
-<span class="s1">&gt;&gt;&gt; print(e.iloc[[True, False, True, False], [True, False, True]])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">],</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">]])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">],</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">]])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.4-21</span>
-<span class="s1"># 各行に対する比較演算の結果(条件）を指定してデータを取得する。内部的な詳細な動作は「5-1.比較演算子によるデータの選択」を参照されたい。</span>
-<span class="s1">&gt;&gt;&gt; print(d.loc[d[&#39;x&#39;] &gt; 6])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">6</span><span class="p">])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.4-22</span>
-<span class="s1"># eでも同様。</span>
-<span class="s1">&gt;&gt;&gt; print(e.loc[e[&#39;x&#39;] &gt; 6])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">e</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">6</span><span class="p">])</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>
-# 入力データ（再掲） d
-&gt;&gt;&gt; d = pd.DataFrame({
-        &#39;x&#39;:[9, 5, 7, 6],
-        &#39;y&#39;:[1.5, 2.0, 0.4, 1.0],
-        &#39;z&#39;:[&#39;abc&#39;, &#39;ace&#39;, &#39;cce&#39;, &#39;dfa&#39;]},
-        index=[1, 2, 3, 4])
-&gt;&gt;&gt; print(d)
-   x    y    z
-1  9  1.5  abc
-2  5  2.0  ace
-3  7  0.4  cce
-4  6  1.0  dfa
-
-#  入力データ（再掲）e
-&gt;&gt;&gt; dates = pd.date_range(&#39;2021/1/1&#39;, periods=4)
-&gt;&gt;&gt; e = pd.DataFrame({
-        &#39;x&#39;:[9, 5, 7, 6],
-        &#39;y&#39;:[1.5, 2.0, 0.4, 1.0],
-        &#39;z&#39;:[&#39;abc&#39;, &#39;ace&#39;, &#39;cce&#39;, &#39;dfa&#39;]},
-        index=dates) 
-&gt;&gt;&gt; print(e)
-            x    y    z
-2021-01-01  9  1.5  abc
-2021-01-02  5  2.0  ace
-2021-01-03  7  0.4  cce
-2021-01-04  6  1.0  dfa
-
-# no.4-1
-# locに単独のラベルを与えると一行をSeriesとして選択する。
-# この例のように、複数列の型が異なる場合の型はdtype=objectとなる。 
-&gt;&gt;&gt; print(d.loc[2])
-&gt;&gt;&gt; print(e.loc[&#39;2021-01-02&#39;])
-x      5
-y    2.0
-z    ace
-Name: 2, dtype: object
-x      5
-y    2.0
-z    ace
-Name: 2021-01-02 00:00:00, dtype: object
-
-# no.4-2
-# ilocに単独の整数を与えると一行をSeriesとして選択する。
-# この例のように、複数列の型が異なる場合の型はdtype=objectとなる。
-&gt;&gt;&gt; print(d.iloc[2])
-&gt;&gt;&gt; print(e.iloc[2])
-x      7
-y    0.4
-z    cce
-Name: 3, dtype: object
-x      7
-y    0.4
-z    cce
-Name: 2021-01-03 00:00:00, dtype: object
-
-# no.4-3
-# locにラベル/整数のリストを指定すると、リストに指定された位置の行を、その順番で出力する。
-# 一つの列しか指定しなくてもDataFrameが出力される。
-&gt;&gt;&gt; print(d.loc[[3, 1]])
-&gt;&gt;&gt; print(e.loc[[&#39;2021-01-03&#39;, &#39;2021-01-01&#39;]])
-   x    y    z
-3  7  0.4  cce
-1  9  1.5  abc
-            x    y    z
-2021-01-03  7  0.4  cce
-2021-01-01  9  1.5  abc
-
-# no.4-4
-# ilocにラベル/整数のリストを指定すると、リストに指定されたラベルの行を、その順番で出力する。
-# 一つの列しか指定しなくてもDataFrameが出力される。 
-&gt;&gt;&gt; print(d.iloc[[3, 1]])
-&gt;&gt;&gt; print(e.iloc[[3, 1]])
-   x    y    z
-4  6  1.0  dfa
-2  5  2.0  ace
-            x    y    z
-2021-01-04  6  1.0  dfa
-2021-01-02  5  2.0  ace
-
-#　no.4-5
-# locにラベルスライサを指定すると行ラベルの範囲で行を選択する。
-# スライサ[from:to]について、ラベルスライサはtoを含むが、範囲スライサではtoを含まず未満となることに注意する。 
-&gt;&gt;&gt; print(d.loc[1:2])
-&gt;&gt;&gt; print(e.loc[&#39;2021-01-01&#39;:&#39;2021-01-02&#39;])
-   x    y    z
-1  9  1.5  abc
-2  5  2.0  ace
-            x    y    z
-2021-01-01  9  1.5  abc
-2021-01-02  5  2.0  ace
-
-# no.4-6
-# ilocに範囲スライサを指定すると行を位置の範囲で選択する。
-# スライサ[from:to]について、ラベルスライサはtoを含むが、範囲スライサではtoを含まず未満となることに注意する。 
-&gt;&gt;&gt; print(d.iloc[1:3])
-&gt;&gt;&gt;print(e.iloc[1:3])
-   x    y    z
-2  5  2.0  ace
-3  7  0.4  cce
-            x    y    z
-2021-01-02  5  2.0  ace
-2021-01-03  7  0.4  cce
-
-# no.4-7
-# いずれの例もラベルスライサで評価された位置がfrom &gt; toであったために空のDataFrameが出力される。 
-&gt;&gt;&gt; print(d.loc[1:0])]
-&gt;&gt;&gt; print(e.loc[&#39;2021-01-02&#39;:&#39;2021-01-01&#39;])
-Empty DataFrame
-Columns: [x, y, z]
-Index: []
-Empty DataFrame
-Columns: [x, y, z]
-Index: []
-
-# no.4-8
-# いずれの例も範囲スライサで評価された位置がfrom &gt; toであったために空のDataFrameが出力される。 
-&gt;&gt;&gt; print(d.iloc[1:0])
-&gt;&gt;&gt; print(e.iloc[1:0])
-Empty DataFrame
-Columns: [x, y, z]
-Index: []
-Empty DataFrame
-Columns: [x, y, z]
-Index: []
-
-# no.4-9
-# locにboolリストを与えるとTrueに対応する行のみ選択される。
-# boolリストを直接与えることは稀で、各行に対する比較演算の結果を利用することが多い(4-21を参照のこと)。 
-&gt;&gt;&gt; print(d.loc[[True, False, False, True]])
-&gt;&gt;&gt; print(e.loc[[True, False, False, True]])
-   x    y    z
-1  9  1.5  abc
-4  6  1.0  dfa
-            x    y    z
-2021-01-01  9  1.5  abc
-2021-01-04  6  1.0  dfa
-
-# no.4-10
-# ilocにboolリストを与えるとTrueに対応する行のみ選択される。
-# boolリストを直接与えることは稀で、各行に対する比較演算の結果を利用することが多い。
-&gt;&gt;&gt; print(d.iloc[[True, False, False, True]])
-&gt;&gt;&gt; print(e.iloc[[True, False, False, True]])
-   x    y    z
-1  9  1.5  abc
-4  6  1.0  dfa
-            x    y    z
-2021-01-01  9  1.5  abc
-2021-01-04  6  1.0  dfa
-
-# no.4-11
-# locに行/列の条件をともに指定する例で、ともにラベルスライサで指定している。
-&gt;&gt;&gt; print(d.loc[1:2, &#39;y&#39;:&#39;z&#39;])
-&gt;&gt;&gt; print(e.loc[&#39;2021-01-01&#39;:&#39;2021-01-02&#39;, &#39;y&#39;:&#39;z&#39;])
-     y    z
-1  1.5  abc
-2  2.0  ace
-              y    z
-2021-01-01  1.5  abc
-2021-01-02  2.0  ace
-
-# no.4-12
-# ilocに行/列の条件をともに指定する例で、ともに範囲スライサで指定している。
-&gt;&gt;&gt; print(d.iloc[1:3, 1:3])
-&gt;&gt;&gt; print(e.iloc[1:3, 1:3])
-     y    z
-2  2.0  ace
-3  0.4  cce
-              y    z
-2021-01-02  2.0  ace
-2021-01-03  0.4  cce
-
-# no.4-13
-# locで列条件のみ指定する時は、行条件には空のスライサを指定する。
-&gt;&gt;&gt; print(d.loc[:, [&#39;x&#39;, &#39;z&#39;]])
-&gt;&gt;&gt; print(e.loc[:, [&#39;x&#39;, &#39;z&#39;]])
-   x    z
-1  9  abc
-2  5  ace
-3  7  cce
-4  6  dfa
-            x    z
-2021-01-01  9  abc
-2021-01-02  5  ace
-2021-01-03  7  cce
-2021-01-04  6  dfa
-
-# no.4-14
-# ilocで列条件のみ指定する時は、行条件には空のスライサを指定する。 
-&gt;&gt;&gt; print(d.iloc[:, [0, 2]])
-&gt;&gt;&gt; print(e.iloc[:, [0, 2]])
-   x    z
-1  9  abc
-2  5  ace
-3  7  cce
-4  6  dfa
-            x    z
-2021-01-01  9  abc
-2021-01-02  5  ace
-2021-01-03  7  cce
-2021-01-04  6  dfa
-
-# no.4-15
-# locで列条件として単一のラベル/整数を指定すると、その列のSeriesを出力する。
-&gt;&gt;&gt; print(d.loc[:, &#39;y&#39;])
-&gt;&gt;&gt; print(e.loc[:, &#39;y&#39;])
-1    1.5
-2    2.0
-3    0.4
-4    1.0
-Name: y, dtype: float64
-2021-01-01    1.5
-2021-01-02    2.0
-2021-01-03    0.4
-2021-01-04    1.0
-Freq: D, Name: y, dtype: float64
-
-# no.4-16
-# ilocで列条件として単一のラベル/整数を指定すると、その列のSeriesを出力する。 
-&gt;&gt;&gt; print(d.iloc[:, 1])
-&gt;&gt;&gt; print(e.iloc[:, 1])
-1    1.5
-2    2.0
-3    0.4
-4    1.0
-Name: y, dtype: float64
-2021-01-01    1.5
-2021-01-02    2.0
-2021-01-03    0.4
-2021-01-04    1.0
-Freq: D, Name: y, dtype: float64
-
-# no.4-17
-# locで行/列ともに単一のラベルを指定すると、対応する行/列ラベルの一つの値のみがnumpyスカラとして選択される。
-&gt;&gt;&gt; print(d.loc[1, &#39;y&#39;])
-&gt;&gt;&gt; print(e.loc[&#39;2021-01-01&#39;, &#39;y&#39;])
-1.5
-1.5
-
-# no.4-18
-# ilocで行/列ともに単一の整数を指定すると、対応する行/列の位置の一つの値のみがnumpyスカラとして選択される。
-&gt;&gt;&gt; print(d.iloc[1, 2])
-&gt;&gt;&gt; print(e.iloc[1, 2])
-ace
-ace
-
-# no.4-19
-# locで行/列ともにboolリストを指定することも可能。与えるboolリストのサイズは行/列のサイズと同じでなければならない。
-# boolリストを直接与えることは稀で、各行に対する比較演算の結果を利用することが多い(no.4-21参照)。 
-&gt;&gt;&gt; print(d.loc[[True, False, True, False], [True, False, True]])
-&gt;&gt;&gt; print(e.loc[[True, False, True, False], [True, False, True]])
-   x    z
-1  9  abc
-3  7  cce
-            x    z
-2021-01-01  9  abc
-2021-01-03  7  cce
-
-# no.4-20
-# ilocで行/列ともにboolリストを指定することも可能。与えるboolリストのサイズは行/列のサイズと同じでなければならない。
-# boolリストを直接与えることは稀で、各行に対する比較演算の結果を利用することが多い。 
-&gt;&gt;&gt; print(d.iloc[[True, False, True, False], [True, False, True]])
-&gt;&gt;&gt; print(e.iloc[[True, False, True, False], [True, False, True]])
-   x    z
-1  9  abc
-3  7  cce
-            x    z
-2021-01-01  9  abc
-2021-01-03  7  cce
-
-# no.4-21
-# 各行に対する比較演算の結果(条件）を指定してデータを取得する。内部的な詳細な動作は「5-1.比較演算子によるデータの選択」を参照されたい。
-&gt;&gt;&gt; print(d.loc[d[&#39;x&#39;] &gt; 6])
-   x    y    z
-1  9  1.5  abc
-3  7  0.4  cce
-
-# no.4-22
-# eでも同様。
-&gt;&gt;&gt; print(e.loc[e[&#39;x&#39;] &gt; 6])
-            x    y    z
-2021-01-01  9  1.5  abc
-2021-01-03  7  0.4  cce
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
@@ -16585,150 +15238,6 @@ print(sel)
     </table><center><img width="60%" src="./figures/select/select5-1.png"></center><hr>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="se">\n</span><span class="s1"># no.5-1</span>
-<span class="s1"># 比較演算子によるデータの選択（行選択 d[d[&#39;x&#39;] &gt;= 4]の分解）</span>
-<span class="se">\n</span><span class="s1">#入力データ(再掲)</span>
-<span class="s1">&gt;&gt;&gt; d = pd.DataFrame(</span>
-<span class="s1">        {&#39;x&#39;:[4, 2, 3, 6],</span>
-<span class="s1">         &#39;y&#39;:[1.5, 2.0, 0.4, 1.0],</span>
-<span class="s1">         &#39;z&#39;:[&#39;abc&#39;, &#39;ace&#39;, &#39;cce&#39;, &#39;dfa&#39;]},</span>
-<span class="s1">         index=[0, 1, 2, 3]</span>
-<span class="s1">    )</span>
-<span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">d</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-    <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
-     <span class="s1">&#39;y&#39;</span><span class="p">:[</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
-     <span class="s1">&#39;z&#39;</span><span class="p">:[</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;ace&#39;</span><span class="p">,</span> <span class="s1">&#39;cce&#39;</span><span class="p">,</span> <span class="s1">&#39;dfa&#39;</span><span class="p">]},</span>
-     <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
-<span class="c1">#    x    y    z</span>
-<span class="c1"># 0  4  1.5  abc</span>
-<span class="c1"># 1  2  2.0  ace</span>
-<span class="c1"># 2  3  0.4  cce</span>
-<span class="c1"># 3  6  1.0  dfa</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\n</span><span class="s1">&gt;&gt;&gt; sel = d[d[&#39;x&#39;]&gt;=4]&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">sel</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="mi">4</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">sel</span><span class="p">)</span>
-<span class="c1">#    x    y    z</span>
-<span class="c1"># 0  4  1.5  abc</span>
-<span class="c1"># 3  6  1.0  dfa</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="se">\n</span><span class="s1"># 上の行選択の式は以下の３つに分解して考えれば分かりやすい</span>
-<span class="s1"># x列の選択(no.2-1参照)</span>
-<span class="s1">&gt;&gt;&gt; s = d[&#39;x&#39;]&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">s</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> 
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-<span class="c1"># 0    4</span>
-<span class="c1"># 1    2</span>
-<span class="c1"># 2    3</span>
-<span class="c1"># 3    6</span>
-<span class="c1"># Name: x, dtype: int64</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="se">\n</span><span class="s1"># 比較演算(no.2-6参照)</span>
-<span class="s1">&gt;&gt;&gt; c = s&gt;=4&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">c</span> <span class="o">=</span> <span class="n">s</span><span class="o">&gt;=</span><span class="mi">4</span> 
-<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
-<span class="c1"># 0     True</span>
-<span class="c1"># 1    False</span>
-<span class="c1"># 2    False</span>
-<span class="c1"># 3     True</span>
-<span class="c1"># Name: x, dtype: bool</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="se">\n</span><span class="s1"># boolリスト(Series)によるDataFrameの選択(no.2-6参照)</span>
-<span class="s1">&gt;&gt;&gt; sel = d[c]&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">sel</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> 
-<span class="nb">print</span><span class="p">(</span><span class="n">sel</span><span class="p">)</span>
-<span class="c1">#    x    y    z</span>
-<span class="c1"># 0  4  1.5  abc</span>
-<span class="c1"># 3  6  1.0  dfa</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>
-
-# no.5-1
-# 比較演算子によるデータの選択（行選択 d[d[&#39;x&#39;] &gt;= 4]の分解）
-
-#入力データ(再掲)
-&gt;&gt;&gt; d = pd.DataFrame(
-        {&#39;x&#39;:[4, 2, 3, 6],
-         &#39;y&#39;:[1.5, 2.0, 0.4, 1.0],
-         &#39;z&#39;:[&#39;abc&#39;, &#39;ace&#39;, &#39;cce&#39;, &#39;dfa&#39;]},
-         index=[0, 1, 2, 3]
-    )
-
-   x    y    z
-0  4  1.5  abc
-1  2  2.0  ace
-2  3  0.4  cce
-3  6  1.0  dfa
-
-&gt;&gt;&gt; sel = d[d[&#39;x&#39;]&gt;=4]
-   x    y    z
-0  4  1.5  abc
-3  6  1.0  dfa
-
-
-# 上の行選択の式は以下の３つに分解して考えれば分かりやすい
-# x列の選択(no.2-1参照)
-&gt;&gt;&gt; s = d[&#39;x&#39;]
-0    4
-1    2
-2    3
-3    6
-Name: x, dtype: int64
-
-
-# 比較演算(no.2-6参照)
-&gt;&gt;&gt; c = s&gt;=4
-0     True
-1    False
-2    False
-3     True
-Name: x, dtype: bool
-
-
-# boolリスト(Series)によるDataFrameの選択(no.2-6参照)
-&gt;&gt;&gt; sel = d[c]
-   x    y    z
-0  4  1.5  abc
-3  6  1.0  dfa
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
@@ -16751,15 +15260,14 @@ Name: x, dtype: bool
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><p><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
+<h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 d = pd.DataFrame(
     {'x':[4, 2, 3, 6],
      'y':[1.5, 2.0, 0.4, 1.0],
      'z':['abc', 'ace', 'cce', 'dfa']},
      index=[0, 1, 2, 3]
 )
-</pre>&lt;/td&gt;</p>
-<table border="1" style="table-layout:fixed;width:100%;">
+</pre><table border="1" style="table-layout:fixed;width:100%;">
     <colgroup>
       <col style="width:5%;">
       <col style="width:30%;">
@@ -16814,135 +15322,22 @@ print(d[~((d['x']>=5) | (d['y']>=2.0))])
 </tr>
 
 </tbody>
-</table><p>&lt;/div&gt;</p>
-
+</table>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># 複数条件による選択</span>
-<span class="s1"># 入力データ(再掲)</span>
-<span class="s1">&gt;&gt;&gt; d = pd.DataFrame(</span>
-<span class="s1">        {&#39;x&#39;:[4, 2, 3, 6],</span>
-<span class="s1">         &#39;y&#39;:[1.5, 2.0, 0.4, 1.0],</span>
-<span class="s1">         &#39;z&#39;:[&#39;abc&#39;, &#39;ace&#39;, &#39;cce&#39;, &#39;dfa&#39;]},</span>
-<span class="s1">         index=[0, 1, 2, 3]</span>
-<span class="s1">    )</span>
-<span class="s1">&gt;&gt;&gt; print(d)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">d</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-    <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
-     <span class="s1">&#39;y&#39;</span><span class="p">:[</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
-     <span class="s1">&#39;z&#39;</span><span class="p">:[</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;ace&#39;</span><span class="p">,</span> <span class="s1">&#39;cce&#39;</span><span class="p">,</span> <span class="s1">&#39;dfa&#39;</span><span class="p">]},</span>
-     <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
-<span class="c1"># x y z</span>
-<span class="c1"># 0 4 1.5 abc</span>
-<span class="c1"># 1 2 2.0 ace</span>
-<span class="c1"># 2 3 0.4 cce</span>
-<span class="c1"># 3 6 1.0 dfa</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.5-2-1</span>
-<span class="s1"># 「x列が3以上」かつ「y列が1.0以上の行を選択する。</span>
-<span class="s1">&gt;&gt;&gt; print(d[(d[&#39;x&#39;]&gt;=3) &amp; (d[&#39;y&#39;]&gt;=1.0)])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">[(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="mi">3</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="mf">1.0</span><span class="p">)])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.5-2-2</span>
-<span class="s1"># 「x列が5以上」もしくは「y列が2.0以上の行を選択する。</span>
-<span class="s1">&gt;&gt;&gt; print(d[(d[&#39;x&#39;]&gt;=5) | (d[&#39;y&#39;]&gt;=2.0)])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">[(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="mi">5</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="mf">2.0</span><span class="p">)])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.5-2-3</span>
-<span class="s1"># 前例の否定(「x列が5以上」もしくは「y列が2.0以上」でない)の行を選択する。</span>
-<span class="s1">&gt;&gt;&gt; print(d[~((d[&#39;x&#39;]&gt;=5) | (d[&#39;y&#39;]&gt;=2.0))])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="o">~</span><span class="p">((</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="mi">5</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="mf">2.0</span><span class="p">))])</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>
-# 複数条件による選択
-# 入力データ(再掲)
-&gt;&gt;&gt; d = pd.DataFrame(
-        {&#39;x&#39;:[4, 2, 3, 6],
-         &#39;y&#39;:[1.5, 2.0, 0.4, 1.0],
-         &#39;z&#39;:[&#39;abc&#39;, &#39;ace&#39;, &#39;cce&#39;, &#39;dfa&#39;]},
-         index=[0, 1, 2, 3]
-    )
-&gt;&gt;&gt; print(d)
-   x    y    z
-0  4  1.5  abc
-1  2  2.0  ace
-2  3  0.4  cce
-3  6  1.0  dfa
-
-# no.5-2-1
-# 「x列が3以上」かつ「y列が1.0以上の行を選択する。
-&gt;&gt;&gt; print(d[(d[&#39;x&#39;]&gt;=3) &amp; (d[&#39;y&#39;]&gt;=1.0)])
-   x    y    z
-0  4  1.5  abc
-3  6  1.0  dfa
-
-# no.5-2-2
-# 「x列が5以上」もしくは「y列が2.0以上の行を選択する。
-&gt;&gt;&gt; print(d[(d[&#39;x&#39;]&gt;=5) | (d[&#39;y&#39;]&gt;=2.0)])
-   x    y    z
-1  2  2.0  ace
-3  6  1.0  dfa
-
-# no.5-2-3
-# 前例の否定(「x列が5以上」もしくは「y列が2.0以上」でない)の行を選択する。
-&gt;&gt;&gt; print(d[~((d[&#39;x&#39;]&gt;=5) | (d[&#39;y&#39;]&gt;=2.0))])
-   x    y    z
-0  4  1.5  abc
-2  3  0.4  cce
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <hr>
 <h2 id="5-3.&#20182;&#12398;DataFrame(Series)&#12395;&#12424;&#12427;&#12487;&#12540;&#12479;&#12398;&#36984;&#25246;">5-3.&#20182;&#12398;DataFrame(Series)&#12395;&#12424;&#12427;&#12487;&#12540;&#12479;&#12398;&#36984;&#25246;<a class="anchor-link" href="#5-3.&#20182;&#12398;DataFrame(Series)&#12395;&#12424;&#12427;&#12487;&#12540;&#12479;&#12398;&#36984;&#25246;">&#182;</a></h2><p>あるDataFrameを他のDetaFrameやSeriesの値で選択したいケースは多くある。a-5で解説されているmergeやjoinでinner結合のように行を選択したいが、列は結合する必要はないといったケースである。
 そのような場合、<b>isin</b>演算子を使うことで実現できる。</p>
-<h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><p><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
+<h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 df = pd.DataFrame(
     {'k1':[1, 2, 2, 3, 5],
      'k2':[0, 0, 1, 0, 1],
      'v':[1.1, 1.2, 1.3, 1.4, 1.5]}
 )
 mf = pd.DataFrame({'key1':[2, 5], 'key2':[1, 1]})
-</pre>&lt;/td&gt;</p>
-<table border="1" style="table-layout:fixed;width:100%;">
+</pre><table border="1" style="table-layout:fixed;width:100%;">
     <colgroup>
       <col style="width:5%;">
       <col style="width:30%;">
@@ -16981,109 +15376,9 @@ print(df[df['k1'].isin(mf['key1']) & df['k2'].isin(mf['key2'])])
 </tr>
 
 </tbody>
-</table><h2 id="&lt;/div&gt;">&lt;/div&gt;<a class="anchor-link" href="#&lt;/div&gt;">&#182;</a></h2>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.5-3</span>
-<span class="s1"># 他のDataFrame(Series)によるデータの選択</span>
-<span class="s1">&gt;&gt;&gt; df = pd.DataFrame(</span>
-<span class="s1">        {&#39;k1&#39;:[1, 2, 2, 3, 5],</span>
-<span class="s1">         &#39;k2&#39;:[0, 0, 1, 0, 1],</span>
-<span class="s1">         &#39;v&#39;:[1.1, 1.2, 1.3, 1.4, 1.5]}</span>
-<span class="s1">    )</span>
-<span class="s1">&gt;&gt;&gt; mf = pd.DataFrame({&#39;key1&#39;:[2, 5], &#39;key2&#39;:[1, 1]})&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-    <span class="p">{</span><span class="s1">&#39;k1&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
-     <span class="s1">&#39;k2&#39;</span><span class="p">:[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-     <span class="s1">&#39;v&#39;</span><span class="p">:[</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">,</span> <span class="mf">1.4</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">]}</span>
-<span class="p">)</span>
-<span class="n">mf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;key1&#39;</span><span class="p">:[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="s1">&#39;key2&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]})</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">mf</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.5-3-1</span>
-<span class="s1"># dfの列k1をmfの列key1で選択する。</span>
-<span class="s1"># Series1.isin(Series2)によって、Series1の各値が、Series2に存在すればTrue、なければFalseを返す。</span>
-<span class="s1">&gt;&gt;&gt; print(df[df[&#39;k1&#39;].isin(mf[&#39;key1&#39;])])&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;k1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">mf</span><span class="p">[</span><span class="s1">&#39;key1&#39;</span><span class="p">])])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.5-3-2</span>
-<span class="s1"># 複数列で選択したければ&amp;(論理積)で2つの条件を書けばよい。</span>
-<span class="s1"># k1がkey1に、かつk2がkey2に存在する行を選択する。</span>
-<span class="s1">&gt;&gt;&gt; print(df[df[&#39;k1&#39;].isin(mf[&#39;key1&#39;]) &amp; df[&#39;k2&#39;].isin(mf[&#39;key2&#39;])])</span>
-<span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;k1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">mf</span><span class="p">[</span><span class="s1">&#39;key1&#39;</span><span class="p">])</span> <span class="o">&amp;</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;k2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">mf</span><span class="p">[</span><span class="s1">&#39;key2&#39;</span><span class="p">])])</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>
-# no.5-3
-# 他のDataFrame(Series)によるデータの選択
-&gt;&gt;&gt; df = pd.DataFrame(
-        {&#39;k1&#39;:[1, 2, 2, 3, 5],
-         &#39;k2&#39;:[0, 0, 1, 0, 1],
-         &#39;v&#39;:[1.1, 1.2, 1.3, 1.4, 1.5]}
-    )
-&gt;&gt;&gt; mf = pd.DataFrame({&#39;key1&#39;:[2, 5], &#39;key2&#39;:[1, 1]})
-   k1  k2    v
-0   1   0  1.1
-1   2   0  1.2
-2   2   1  1.3
-3   3   0  1.4
-4   5   1  1.5
-   key1  key2
-0     2     1
-1     5     1
-
-# no.5-3-1
-# dfの列k1をmfの列key1で選択する。
-# Series1.isin(Series2)によって、Series1の各値が、Series2に存在すればTrue、なければFalseを返す。
-&gt;&gt;&gt; print(df[df[&#39;k1&#39;].isin(mf[&#39;key1&#39;])])
-   k1  k2    v
-1   2   0  1.2
-2   2   1  1.3
-4   5   1  1.5
-
-# no.5-3-2
-# 複数列で選択したければ&amp;(論理積)で2つの条件を書けばよい。
-# k1がkey1に、かつk2がkey2に存在する行を選択する。
-&gt;&gt;&gt; print(df[df[&#39;k1&#39;].isin(mf[&#39;key1&#39;]) &amp; df[&#39;k2&#39;].isin(mf[&#39;key2&#39;])])
-
-   k1  k2    v
-2   2   1  1.3
-4   5   1  1.5
-</pre>
-</div>
-</div>
+</table><hr>
 
 </div>
-
-</div>
-
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">

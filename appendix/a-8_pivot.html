@@ -14283,44 +14283,30 @@ a.anchor-link {
 <hr>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <hr>
 <h1 id="1.-pivot,-stack,-unstack">1. pivot, stack, unstack<a class="anchor-link" href="#1.-pivot,-stack,-unstack">&#182;</a></h1><p>stack型とmatrix型の表構造を相互変換する。</p>
-<h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><p><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
+<h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 d = pd.DataFrame(
     {'r':['A', 'A', 'A', 'B', 'B', 'B'],
      'c':['x', 'y', 'z', 'x', 'y', 'z'], 
      'v':[40, 50, 60, 70, 80, 90]}
 )
-</pre>&lt;/td&gt;
-  <table border="1" style="table-layout:fixed;width:100%;">
+</pre><table border="1" style="table-layout:fixed;width:100%;">
     <colgroup>
       <col style="width:3%;">
       <col style="width:30%;">
       <col style="width:25%;">  
       <col style="width:25%;">
       <col style="width:17%;">
-    </colgroup></p>
+    </colgroup>
 <tbody>
 
-<tr><th align="left">no.</th><th align="left">実行コード</th><th align="left">入力</th><th align="left">出力</th><th align="left">備考</th></tr><tr style="background:#fff; border:1px solid #cc0000;">
+<tr><th align="left">no.</th><th align="left">実行コード</th><th align="left">入力</th><th align="left">出力</th><th align="left">備考</th></tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>1-1</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 dd = d.pivot(index='r', columns='c', values='v')
@@ -14332,7 +14318,9 @@ print(dd)
 <b>pivot()</b>は、stack形式のデータをmatrix形式のデータに変換する。indexで行ラベル、columnsで列ラベル、valuesで値となる列名を指定する。
 ただし、同じ行ラベル-列ラベルがあればエラーとなることに注意する。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>1-2</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 # 1-1を実行した後に実行できる。
@@ -14344,7 +14332,10 @@ print(sr)
 <td>
 <b>stack()</b>は、全ての列名を値としてstack形式に変換する。ちょうどpivot()の逆の動きをする。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>1-3</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 # 1-2を実行した後に実行できる。
@@ -14356,7 +14347,9 @@ print(sr.unstack())
 <b>unstack()</b>は、行のマルチインデックスの内側の列をpivot()のように列に展開する。
 multi-indexの場合はunstack()を使うことでpivot()が実現できると考えればよい。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>1-4</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 # 1-2を実行した後に実行できる。
@@ -14368,154 +14361,11 @@ print(sr.reset_index())
 <td>
 結果srは行ラベルがマルチインデクスのSeriesなので、名前を設定してインデックスをresetすれば、完全に元のデータdに戻る。
 </td>
-</tr><p>&lt;/tbody&gt;
-&lt;/table&gt;</p>
-<p>&lt;/div&gt;</p>
+</tr>
 
+</tbody>
+</table>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># 入力データ</span>
-<span class="s1">&gt;&gt;&gt; d = pd.DataFrame(</span>
-<span class="s1">        {&#39;r&#39;:[&#39;A&#39;, &#39;A&#39;, &#39;A&#39;, &#39;B&#39;, &#39;B&#39;, &#39;B&#39;],</span>
-<span class="s1">         &#39;c&#39;:[&#39;x&#39;, &#39;y&#39;, &#39;z&#39;, &#39;x&#39;, &#39;y&#39;, &#39;z&#39;], </span>
-<span class="s1">         &#39;v&#39;:[40, 50, 60, 70, 80, 90]}</span>
-<span class="s1">    )</span>
-<span class="s1">&gt;&gt;&gt; print(d)</span>
-<span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">d</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-    <span class="p">{</span><span class="s1">&#39;r&#39;</span><span class="p">:[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">],</span>
-     <span class="s1">&#39;c&#39;</span><span class="p">:[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">],</span> 
-     <span class="s1">&#39;v&#39;</span><span class="p">:[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">]}</span>
-<span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.1-1</span>
-<span class="s1"># pivot()は、stack形式のデータをmatrix形式のデータに変換する。</span>
-<span class="s1"># indexで行ラベル、columnsで列ラベル、valuesで値となる列名を指定する。</span>
-<span class="s1"># ただし、同じ行ラベル-列ラベルがあればエラーとなることに注意する。</span>
-<span class="s1">&gt;&gt;&gt; dd = d.pivot(index=&#39;r&#39;, columns=&#39;c&#39;, values=&#39;v&#39;)</span>
-<span class="s1">&gt;&gt;&gt; print(dd)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dd</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;v&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.1-2</span>
-<span class="s1"># stack()は、全ての列名を値としてstack形式に変換する。ちょうどpivot()の逆の動きをする。</span>
-<span class="s1">&gt;&gt;&gt; sr = dd.stack()</span>
-<span class="s1">&gt;&gt;&gt; print(sr)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">sr</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">sr</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.1-3</span>
-<span class="s1"># unstack()は、行のマルチインデックスの内側の列をpivot()のように列に展開する。</span>
-<span class="s1"># multi indexの場合はunstack()を使うことでpivot()が実現できると考えればよい。</span>
-<span class="s1">&gt;&gt;&gt; print(sr.unstack())&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">sr</span><span class="o">.</span><span class="n">unstack</span><span class="p">())</span>
-
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.1-4</span>
-<span class="s1"># 結果srは行ラベルがマルチインデクスのSeriesなので、名前を設定してインデックスをresetすれば、完全に元のデータdに戻る。</span>
-<span class="s1">&gt;&gt;&gt; sr.name = &#39;v&#39;</span>
-<span class="s1">&gt;&gt;&gt; print(sr.reset_index())&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">sr</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;v&#39;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">sr</span><span class="o">.</span><span class="n">reset_index</span><span class="p">())</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>
-# 入力データ
-&gt;&gt;&gt; d = pd.DataFrame(
-        {&#39;r&#39;:[&#39;A&#39;, &#39;A&#39;, &#39;A&#39;, &#39;B&#39;, &#39;B&#39;, &#39;B&#39;],
-         &#39;c&#39;:[&#39;x&#39;, &#39;y&#39;, &#39;z&#39;, &#39;x&#39;, &#39;y&#39;, &#39;z&#39;], 
-         &#39;v&#39;:[40, 50, 60, 70, 80, 90]}
-    )
-&gt;&gt;&gt; print(d)
-
-   r  c   v
-0  A  x  40
-1  A  y  50
-2  A  z  60
-3  B  x  70
-4  B  y  80
-5  B  z  90
-
-# no.1-1
-# pivot()は、stack形式のデータをmatrix形式のデータに変換する。
-# indexで行ラベル、columnsで列ラベル、valuesで値となる列名を指定する。
-# ただし、同じ行ラベル-列ラベルがあればエラーとなることに注意する。
-&gt;&gt;&gt; dd = d.pivot(index=&#39;r&#39;, columns=&#39;c&#39;, values=&#39;v&#39;)
-&gt;&gt;&gt; print(dd)
-c   x   y   z
-r            
-A  40  50  60
-B  70  80  90
-
-# no.1-2
-# stack()は、全ての列名を値としてstack形式に変換する。ちょうどpivot()の逆の動きをする。
-&gt;&gt;&gt; sr = dd.stack()
-&gt;&gt;&gt; print(sr)
-r  c
-A  x    40
-   y    50
-   z    60
-B  x    70
-   y    80
-   z    90
-dtype: int64
-
-# no.1-3
-# unstack()は、行のマルチインデックスの内側の列をpivot()のように列に展開する。
-# multi indexの場合はunstack()を使うことでpivot()が実現できると考えればよい。
-&gt;&gt;&gt; print(sr.unstack())
-c   x   y   z
-r            
-A  40  50  60
-B  70  80  90
-
-# no.1-4
-# 結果srは行ラベルがマルチインデクスのSeriesなので、名前を設定してインデックスをresetすれば、完全に元のデータdに戻る。
-&gt;&gt;&gt; sr.name = &#39;v&#39;
-&gt;&gt;&gt; print(sr.reset_index())
-   r  c   v
-0  A  x  40
-1  A  y  50
-2  A  z  60
-3  B  x  70
-4  B  y  80
-5  B  z  90
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
@@ -14523,24 +14373,25 @@ B  70  80  90
 <h1 id="2.-pivot_table">2. pivot_table<a class="anchor-link" href="#2.-pivot_table">&#182;</a></h1><p>pivot()は表の構造を変換するだけであるのに対して、pivot_tableは値の集計を伴うpivotと考えればよい。</p>
 <h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><p>pivot()で使った入力データとは、行(r)-列(r)の値に重複がある点が異なる。
 A-xとB-yは２件存在する。</p>
-<p><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
+<pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 d = pd.DataFrame(
     {'r':['A', 'A', 'A', 'B', 'B', 'B', 'C'],
      'c':['x', 'x', 'y', 'x', 'y', 'y', 'y'], 
      'v':[40, 50, 60, 70, 80, 90, 100]}
 )
-</pre>&lt;/td&gt;
-  <table border="1" style="table-layout:fixed;width:100%;">
+</pre><table border="1" style="table-layout:fixed;width:100%;">
     <colgroup>
       <col style="width:3%;">
       <col style="width:30%;">
       <col style="width:25%;">  
       <col style="width:25%;">
       <col style="width:17%;">
-    </colgroup></p>
+    </colgroup>
 <tbody>
 
-<tr><th align="left">no.</th><th align="left">実行コード</th><th align="left">入力</th><th align="left">出力</th><th align="left">備考</th></tr><tr style="background:#fff; border:1px solid #cc0000;">
+<tr><th align="left">no.</th><th align="left">実行コード</th><th align="left">入力</th><th align="left">出力</th><th align="left">備考</th></tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>2-1</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 dd = d.pivot_table(
@@ -14558,7 +14409,9 @@ pivot()と同様に、stack形式のデータをmatrix形式のデータに変�
 そして、同じ行ラベル-列ラベルの値をどのように集計するかを<b>aggfunc=</b>で指定する(デフォルトはnp.mean)。<br>
 ここではnp.sum(合計)関数で集計している。matrixにしたときに、行ラベル-列ラベルの値が存在しなければNAとなる。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>2-2</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 dd = d.pivot_table(
@@ -14574,7 +14427,9 @@ print(dd)
 <td>
 <b>fill_value=</b>を指定すれば、NAがその値で出力される。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>2-3</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 dd = d.pivot_table(
@@ -14591,7 +14446,9 @@ print(dd)
 <td>
 <b>margins=True</b>とすれば周辺の集約結果が追加される。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>2-4</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 dd = d.pivot_table(
@@ -14607,245 +14464,35 @@ print(dd)
 <td>
 複数の集約関数を指定すれば列がmulti-indexとなって全ての集約関数の結果が出力される。
 </td>
-</tr><p>&lt;/tbody&gt;
-&lt;/table&gt;</p>
-<p>&lt;/div&gt;</p>
+</tr>
 
+</tbody>
+</table>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># 入力データ</span>
-<span class="s1"># pivot()で使った入力データとは、行(r)-列(r)の値に重複がある点が異なる。</span>
-<span class="s1"># A-xとB-yは２件存在する。</span>
-<span class="s1">&gt;&gt;&gt; d = pd.DataFrame(</span>
-<span class="s1">        {&#39;r&#39;:[&#39;A&#39;, &#39;A&#39;, &#39;A&#39;, &#39;B&#39;, &#39;B&#39;, &#39;B&#39;, &#39;C&#39;],</span>
-<span class="s1">         &#39;c&#39;:[&#39;x&#39;, &#39;x&#39;, &#39;y&#39;, &#39;x&#39;, &#39;y&#39;, &#39;y&#39;, &#39;y&#39;], </span>
-<span class="s1">         &#39;v&#39;:[40, 50, 60, 70, 80, 90, 100]}</span>
-<span class="s1">    )</span>
-<span class="s1">&gt;&gt;&gt; print(d)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">d</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-    <span class="p">{</span><span class="s1">&#39;r&#39;</span><span class="p">:[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">],</span>
-     <span class="s1">&#39;c&#39;</span><span class="p">:[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">],</span> 
-     <span class="s1">&#39;v&#39;</span><span class="p">:[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">100</span><span class="p">]}</span>
-<span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-1</span>
-<span class="s1"># pivot()と同様に、stack形式のデータをmatrix形式のデータに変換し値を集計する。</span>
-<span class="s1"># indexで行ラベル、columnsで列ラベル、valuesで値となる列名を指定する。</span>
-<span class="s1"># そして同じ行ラベル-列ラベルの値をどのように集計するかをaggfunc=で指定する(デフォルトはnp.mean)。</span>
-<span class="s1"># 以下ではnp.sum(合計)関数で集計している。</span>
-<span class="s1"># matrixにしたときに、行ラベル-列ラベルの値が存在しなければNAとなる。</span>
-<span class="s1">&gt;&gt;&gt; dd = d.pivot_table(</span>
-<span class="s1">        index=&#39;r&#39;,</span>
-<span class="s1">        columns=&#39;c&#39;, </span>
-<span class="s1">        values=&#39;v&#39;,</span>
-<span class="s1">        aggfunc=np.sum)</span>
-<span class="s1">&gt;&gt;&gt; print(dd)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dd</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span>
-    <span class="n">index</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span>
-    <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> 
-    <span class="n">values</span><span class="o">=</span><span class="s1">&#39;v&#39;</span><span class="p">,</span>
-    <span class="n">aggfunc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-2</span>
-<span class="s1"># fill_value=を指定すれば、NAがその値で出力される。</span>
-<span class="s1">&gt;&gt;&gt; dd = d.pivot_table(</span>
-<span class="s1">        index=&#39;r&#39;,</span>
-<span class="s1">        columns=&#39;c&#39;, </span>
-<span class="s1">        values=&#39;v&#39;, </span>
-<span class="s1">        aggfunc=np.sum, </span>
-<span class="s1">        fill_value=0)</span>
-<span class="s1">&gt;&gt;&gt; print(dd)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dd</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span>
-    <span class="n">index</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span>
-    <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> 
-    <span class="n">values</span><span class="o">=</span><span class="s1">&#39;v&#39;</span><span class="p">,</span> 
-    <span class="n">aggfunc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">,</span> 
-    <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-3</span>
-<span class="s1"># margins=Trueとすれば周辺の集約結果が追加される。</span>
-<span class="s1">&gt;&gt;&gt; dd = d.pivot_table(</span>
-<span class="s1">        index=&#39;r&#39;, </span>
-<span class="s1">        columns=&#39;c&#39;,</span>
-<span class="s1">        values=&#39;v&#39;, </span>
-<span class="s1">        aggfunc=np.sum,</span>
-<span class="s1">        fill_value=0,</span>
-<span class="s1">        margins=True)</span>
-<span class="s1">print(dd)</span>
-<span class="s1">&gt;&gt;&gt; print(dd)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dd</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span>
-    <span class="n">index</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> 
-    <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">,</span>
-    <span class="n">values</span><span class="o">=</span><span class="s1">&#39;v&#39;</span><span class="p">,</span> 
-    <span class="n">aggfunc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">,</span>
-    <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-    <span class="n">margins</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.2-4</span>
-<span class="s1"># 複数の集約関数を指定すれば列がmulti-indexとなって全ての集約関数の結果が出力される。</span>
-<span class="s1">&gt;&gt;&gt; dd = d.pivot_table(</span>
-<span class="s1">        index=&#39;r&#39;, </span>
-<span class="s1">        columns=&#39;c&#39;,</span>
-<span class="s1">        values=&#39;v&#39;,</span>
-<span class="s1">        aggfunc=[&#39;count&#39;, &#39;sum&#39;, np.mean, np.median, np.min, np.argmax], </span>
-<span class="s1">        fill_value=0)</span>
-<span class="s1">&gt;&gt;&gt; print(dd)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dd</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span>
-    <span class="n">index</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> 
-    <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">,</span>
-    <span class="n">values</span><span class="o">=</span><span class="s1">&#39;v&#39;</span><span class="p">,</span>
-    <span class="n">aggfunc</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">],</span> 
-    <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>
-# 入力データ
-# pivot()で使った入力データとは、行(r)-列(r)の値に重複がある点が異なる。
-# A-xとB-yは２件存在する。
-&gt;&gt;&gt; d = pd.DataFrame(
-        {&#39;r&#39;:[&#39;A&#39;, &#39;A&#39;, &#39;A&#39;, &#39;B&#39;, &#39;B&#39;, &#39;B&#39;, &#39;C&#39;],
-         &#39;c&#39;:[&#39;x&#39;, &#39;x&#39;, &#39;y&#39;, &#39;x&#39;, &#39;y&#39;, &#39;y&#39;, &#39;y&#39;], 
-         &#39;v&#39;:[40, 50, 60, 70, 80, 90, 100]}
-    )
-&gt;&gt;&gt; print(d)
-   r  c    v
-0  A  x   40
-1  A  x   50
-2  A  y   60
-3  B  x   70
-4  B  y   80
-5  B  y   90
-6  C  y  100
-
-# no.2-1
-# pivot()と同様に、stack形式のデータをmatrix形式のデータに変換し値を集計する。
-# indexで行ラベル、columnsで列ラベル、valuesで値となる列名を指定する。
-# そして同じ行ラベル-列ラベルの値をどのように集計するかをaggfunc=で指定する(デフォルトはnp.mean)。
-# 以下ではnp.sum(合計)関数で集計している。
-# matrixにしたときに、行ラベル-列ラベルの値が存在しなければNAとなる。
-&gt;&gt;&gt; dd = d.pivot_table(
-        index=&#39;r&#39;,
-        columns=&#39;c&#39;, 
-        values=&#39;v&#39;,
-        aggfunc=np.sum)
-&gt;&gt;&gt; print(dd)
-c     x      y
-r             
-A  90.0   60.0
-B  70.0  170.0
-C   NaN  100.0
-
-# no.2-2
-# fill_value=を指定すれば、NAがその値で出力される。
-&gt;&gt;&gt; dd = d.pivot_table(
-        index=&#39;r&#39;,
-        columns=&#39;c&#39;, 
-        values=&#39;v&#39;, 
-        aggfunc=np.sum, 
-        fill_value=0)
-&gt;&gt;&gt; print(dd)
-c   x    y
-r         
-A  90   60
-B  70  170
-C   0  100
-
-# no.2-3
-# margins=Trueとすれば周辺の集約結果が追加される。
-&gt;&gt;&gt; dd = d.pivot_table(
-        index=&#39;r&#39;, 
-        columns=&#39;c&#39;,
-        values=&#39;v&#39;, 
-        aggfunc=np.sum,
-        fill_value=0,
-        margins=True)
-print(dd)
-&gt;&gt;&gt; print(dd)
-c      x    y  All
-r                 
-A     90   60  150
-B     70  170  240
-C      0  100  100
-All  160  330  490
-
-# no.2-4
-# 複数の集約関数を指定すれば列がmulti-indexとなって全ての集約関数の結果が出力される。
-&gt;&gt;&gt; dd = d.pivot_table(
-        index=&#39;r&#39;, 
-        columns=&#39;c&#39;,
-        values=&#39;v&#39;,
-        aggfunc=[&#39;count&#39;, &#39;sum&#39;, np.mean, np.median, np.min, np.argmax], 
-        fill_value=0)
-&gt;&gt;&gt; print(dd)
-  count    sum      mean      median      amin      argmax   
-c     x  y   x    y    x    y      x    y    x    y      x  y
-r                                                            
-A     2  1  90   60   45   60     45   60   40   60      1  0
-B     1  2  70  170   70   85     70   85   70   80      0  1
-C     0  1   0  100    0  100      0  100    0  100      0  0
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <hr>
 <h1 id="3.-cross_table">3. cross_table<a class="anchor-link" href="#3.-cross_table">&#182;</a></h1><p>クロス集計表を作成する。stack型のデータから行-列の値の組み合わせの件数をカウントする。pivot()やpivot_table()と違い、pandasメソッドでありパラメータとして、行と列となる２つのSeriesをパラメータとして与える。</p>
-<h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><p><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
+<h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 d = pd.DataFrame(
     {'r':['A', 'A', 'A', 'B', 'B', 'B', 'C'],
      'c':['x', 'x', 'y', 'x', 'y', 'y', 'y'],
      'v':[40, 50, 60, 70, 80, 90, 100]}
 )
-</pre>&lt;/td&gt;
-  <table border="1" style="table-layout:fixed;width:100%;">
+</pre><table border="1" style="table-layout:fixed;width:100%;">
     <colgroup>
       <col style="width:3%;">
       <col style="width:30%;">
       <col style="width:25%;">  
       <col style="width:25%;">
       <col style="width:17%;">
-    </colgroup></p>
+    </colgroup>
 <tbody>
 
-<tr><th align="left">no.</th><th align="left">実行コード</th><th align="left">入力</th><th align="left">出力</th><th align="left">備考</th></tr><tr style="background:#fff; border:1px solid #cc0000;">
+<tr><th align="left">no.</th><th align="left">実行コード</th><th align="left">入力</th><th align="left">出力</th><th align="left">備考</th></tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-1</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 dd = pd.crosstab(d['r'], d['c'])
@@ -14856,7 +14503,9 @@ print(dd)
 <td>
 行と列を表す２つのSeriesを与え、その件数をカウントする。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-2</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 dd = pd.crosstab(d['r'], d['c'], margins=True)
@@ -14867,7 +14516,9 @@ print(dd)
 <td>
 <b>margins=True</b>で行と列の件数合計を出力する。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-3</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 dd = pd.crosstab(d['r'], d['c'], normalize=True)
@@ -14878,7 +14529,9 @@ print(dd)
 <td>
 <b>normalize=True</b>にて全体に対する構成比を出力する。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-4</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 dd = pd.crosstab(d['r'], d['c'], normalize='index')
@@ -14889,7 +14542,9 @@ print(dd)
 <td>
 <b>normalize='index'</b>で行に対する構成比となる。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-5</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 dd = pd.crosstab(d['r'], d['c'], normalize='columns')
@@ -14900,7 +14555,9 @@ print(dd)
 <td>
 <b>normalize='columns'</b>にて列に対する構成比を出力する。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>3-6</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 dd = pd.crosstab(d['r'], d['c'], values=d['v'], aggfunc=np.sum)
@@ -14911,208 +14568,34 @@ print(dd)
 <td>
 <b>values=</b>と<b>aggfunc=</b>を指定することでpivot_table()と同様にvaluesの列を集約して出力する。
 </td>
-</tr><p>&lt;/tbody&gt;
-&lt;/table&gt;</p>
-<p>&lt;/div&gt;</p>
+</tr>
 
+</tbody>
+</table>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># 入力データ</span>
-<span class="s1"># pivot_table()で使った入力データと同じ。</span>
-<span class="s1">&gt;&gt;&gt; d = pd.DataFrame(</span>
-<span class="s1">        {&#39;r&#39;:[&#39;A&#39;, &#39;A&#39;, &#39;A&#39;, &#39;B&#39;, &#39;B&#39;, &#39;B&#39;, &#39;C&#39;],</span>
-<span class="s1">         &#39;c&#39;:[&#39;x&#39;, &#39;x&#39;, &#39;y&#39;, &#39;x&#39;, &#39;y&#39;, &#39;y&#39;, &#39;y&#39;],</span>
-<span class="s1">         &#39;v&#39;:[40, 50, 60, 70, 80, 90, 100]}</span>
-<span class="s1">    )</span>
-<span class="s1">&gt;&gt;&gt; print(d)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">d</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-    <span class="p">{</span><span class="s1">&#39;r&#39;</span><span class="p">:[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">],</span>
-     <span class="s1">&#39;c&#39;</span><span class="p">:[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">],</span>
-     <span class="s1">&#39;v&#39;</span><span class="p">:[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">100</span><span class="p">]}</span>
-<span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.3-1</span>
-<span class="s1"># 行と列を表す２つのSeriesを与え、その件数をカウントする。</span>
-<span class="s1">&gt;&gt;&gt; dd = pd.crosstab(d[&#39;r&#39;], d[&#39;c&#39;])</span>
-<span class="s1">&gt;&gt;&gt; print(dd)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dd</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">],</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.3-2</span>
-<span class="s1"># margins=Trueで行と列の件数合計を出力する。</span>
-<span class="s1">&gt;&gt;&gt; dd = pd.crosstab(d[&#39;r&#39;], d[&#39;c&#39;], margins=True)</span>
-<span class="s1">&gt;&gt;&gt; print(dd)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dd</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">],</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">],</span> <span class="n">margins</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.3-3</span>
-<span class="s1"># normalize=Trueにて全体に対する構成比を出力する。</span>
-<span class="s1">&gt;&gt;&gt; dd = pd.crosstab(d[&#39;r&#39;], d[&#39;c&#39;], normalize=True)</span>
-<span class="s1">&gt;&gt;&gt; print(dd)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dd</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">],</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">],</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
-
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.3-4</span>
-<span class="s1"># normalize=&#39;index&#39;で行に対する構成比となる。</span>
-<span class="s1">&gt;&gt;&gt; dd = pd.crosstab(d[&#39;r&#39;], d[&#39;c&#39;], normalize=&#39;index&#39;)</span>
-<span class="s1">&gt;&gt;&gt; print(dd)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dd</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">],</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">],</span> <span class="n">normalize</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.3-5</span>
-<span class="s1"># normalize=&#39;columns&#39;にて列に対する構成比を出力する。</span>
-<span class="s1">&gt;&gt;&gt; dd = pd.crosstab(d[&#39;r&#39;], d[&#39;c&#39;], normalize=&#39;columns&#39;)</span>
-<span class="s1">&gt;&gt;&gt; print(dd)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dd</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">],</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">],</span> <span class="n">normalize</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.3-6</span>
-<span class="s1"># values=とaggfunc=を指定することでpivot_table()と同様にvaluesの列を集約して出力する。</span>
-<span class="s1">&gt;&gt;&gt; dd = pd.crosstab(d[&#39;r&#39;], d[&#39;c&#39;], values=d[&#39;v&#39;], aggfunc=np.sum)</span>
-<span class="s1">&gt;&gt;&gt; print(dd)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dd</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">],</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">],</span> <span class="n">values</span><span class="o">=</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;v&#39;</span><span class="p">],</span> <span class="n">aggfunc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>
-# 入力データ
-# pivot_table()で使った入力データと同じ。
-&gt;&gt;&gt; d = pd.DataFrame(
-        {&#39;r&#39;:[&#39;A&#39;, &#39;A&#39;, &#39;A&#39;, &#39;B&#39;, &#39;B&#39;, &#39;B&#39;, &#39;C&#39;],
-         &#39;c&#39;:[&#39;x&#39;, &#39;x&#39;, &#39;y&#39;, &#39;x&#39;, &#39;y&#39;, &#39;y&#39;, &#39;y&#39;],
-         &#39;v&#39;:[40, 50, 60, 70, 80, 90, 100]}
-    )
-&gt;&gt;&gt; print(d)
-   r  c    v
-0  A  x   40
-1  A  x   50
-2  A  y   60
-3  B  x   70
-4  B  y   80
-5  B  y   90
-6  C  y  100
-
-# no.3-1
-# 行と列を表す２つのSeriesを与え、その件数をカウントする。
-&gt;&gt;&gt; dd = pd.crosstab(d[&#39;r&#39;], d[&#39;c&#39;])
-&gt;&gt;&gt; print(dd)
-c  x  y
-r      
-A  2  1
-B  1  2
-C  0  1
-
-# no.3-2
-# margins=Trueで行と列の件数合計を出力する。
-&gt;&gt;&gt; dd = pd.crosstab(d[&#39;r&#39;], d[&#39;c&#39;], margins=True)
-&gt;&gt;&gt; print(dd)
-c    x  y  All
-r             
-A    2  1    3
-B    1  2    3
-C    0  1    1
-All  3  4    7
-
-# no.3-3
-# normalize=Trueにて全体に対する構成比を出力する。
-&gt;&gt;&gt; dd = pd.crosstab(d[&#39;r&#39;], d[&#39;c&#39;], normalize=True)
-&gt;&gt;&gt; print(dd)
-c         x         y
-r                    
-A  0.285714  0.142857
-B  0.142857  0.285714
-C  0.000000  0.142857
-
-# no.3-4
-# normalize=&#39;index&#39;で行に対する構成比となる。
-&gt;&gt;&gt; dd = pd.crosstab(d[&#39;r&#39;], d[&#39;c&#39;], normalize=&#39;index&#39;)
-&gt;&gt;&gt; print(dd)
-c         x         y
-r                    
-A  0.666667  0.333333
-B  0.333333  0.666667
-C  0.000000  1.000000
-
-# no.3-5
-# normalize=&#39;columns&#39;にて列に対する構成比を出力する。
-&gt;&gt;&gt; dd = pd.crosstab(d[&#39;r&#39;], d[&#39;c&#39;], normalize=&#39;columns&#39;)
-&gt;&gt;&gt; print(dd)
-c         x     y
-r                
-A  0.666667  0.25
-B  0.333333  0.50
-C  0.000000  0.25
-
-# no.3-6
-# values=とaggfunc=を指定することでpivot_table()と同様にvaluesの列を集約して出力する。
-&gt;&gt;&gt; dd = pd.crosstab(d[&#39;r&#39;], d[&#39;c&#39;], values=d[&#39;v&#39;], aggfunc=np.sum)
-&gt;&gt;&gt; print(dd)
-c     x      y
-r             
-A  90.0   60.0
-B  70.0  170.0
-C   NaN  100.0
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <hr>
-<h1 id="4.-get_dummies">4. get_dummies<a class="anchor-link" href="#4.-get_dummies">&#182;</a></h1><h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><p><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
+<h1 id="4.-get_dummies">4. get_dummies<a class="anchor-link" href="#4.-get_dummies">&#182;</a></h1><h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 d = pd.DataFrame(
     {'r':['A', 'A', 'A', 'B', 'B', 'B', 'C'], 
      'c':['x', 'x', 'y', 'x', 'y', 'y', 'y'], 
      'v':[40, 50, 60, 70, 80, 90, 100]}
 )
-</pre>&lt;/td&gt;
-  <table border="1" style="table-layout:fixed;width:100%;">
+</pre><table border="1" style="table-layout:fixed;width:100%;">
     <colgroup>
       <col style="width:3%;">
       <col style="width:30%;">
       <col style="width:25%;">  
       <col style="width:25%;">
       <col style="width:17%;">
-    </colgroup></p>
+    </colgroup>
 <tbody>
 
-<tr><th align="left">no.</th><th align="left">実行コード</th><th align="left">入力</th><th align="left">出力</th><th>備考</th></tr><tr style="background:#fff; border:1px solid #cc0000;">
+<tr><th align="left">no.</th><th align="left">実行コード</th><th align="left">入力</th><th align="left">出力</th><th>備考</th></tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>4-1</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 dd = pd.get_dummies(d['r'])
@@ -15123,7 +14606,9 @@ print(dd)
 <td>
 r列の値A,B,Cをdummy化する。A,B,Cを列にして、それぞれの値の行は1に、それ以外は0を出力する。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>4-2</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 dd = pd.get_dummies(d['r'], prefix='r')
@@ -15134,7 +14619,9 @@ print(dd)
 <td>
 <b>prefix=</b>を指定することで、その文字列が列名の頭に追加される。
 </td>
-</tr><tr style="background:#fff; border:1px solid #cc0000;">
+</tr>
+
+<tr style="background:#fff; border:1px solid #cc0000;">
 <td>4-3</td>
 <td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 dd = pd.get_dummies(pd.cut(d['v'], [30, 60, 80]))
@@ -15145,153 +14632,11 @@ print(dd)
 <td>
 <b>pd.cut()</b>と組み合わせることで、数値変数をdummy化できる。
 </td>
-</tr><p>&lt;/tbody&gt;
-&lt;/table&gt;</p>
-<p>&lt;/div&gt;</p>
+</tr>
 
+</tbody>
+</table>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># 入力データ</span>
-<span class="s1">&gt;&gt;&gt; d = pd.DataFrame(</span>
-<span class="s1">    {&#39;r&#39;:[&#39;A&#39;, &#39;A&#39;, &#39;A&#39;, &#39;B&#39;, &#39;B&#39;, &#39;B&#39;, &#39;C&#39;], </span>
-<span class="s1">     &#39;c&#39;:[&#39;x&#39;, &#39;x&#39;, &#39;y&#39;, &#39;x&#39;, &#39;y&#39;, &#39;y&#39;, &#39;y&#39;], </span>
-<span class="s1">     &#39;v&#39;:[40, 50, 60, 70, 80, 90, 100]}</span>
-<span class="s1">)</span>
-<span class="s1">&gt;&gt;&gt; print(d)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">d</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-    <span class="p">{</span><span class="s1">&#39;r&#39;</span><span class="p">:[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">],</span> 
-     <span class="s1">&#39;c&#39;</span><span class="p">:[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">],</span> 
-     <span class="s1">&#39;v&#39;</span><span class="p">:[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">100</span><span class="p">]}</span>
-<span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.4-1</span>
-<span class="s1"># r列の値A,B,Cをdummy化する。</span>
-<span class="s1"># A,B,Cを列にして、それぞれの値の行は1に、それ以外は0を出力する。</span>
-<span class="s1">&gt;&gt;&gt; dd = pd.get_dummies(d[&#39;r&#39;])</span>
-<span class="s1">&gt;&gt;&gt; print(dd)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dd</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.4-2</span>
-<span class="s1"># prefix=を指定することで、その文字列が列名の頭に追加される。</span>
-<span class="s1">&gt;&gt;&gt; dd = pd.get_dummies(d[&#39;r&#39;], prefix=&#39;r&#39;)</span>
-<span class="s1">&gt;&gt;&gt; print(dd)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dd</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">],</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1"># no.4-3</span>
-<span class="s1"># pd.cut()と組み合わせることで、数値変数をdummy化できる。</span>
-<span class="s1">&gt;&gt;&gt; dd = pd.get_dummies(pd.cut(d[&#39;v&#39;], [30, 60, 80]))</span>
-<span class="s1">&gt;&gt;&gt; print(dd)&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="n">dd</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;v&#39;</span><span class="p">],</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">80</span><span class="p">]))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>
-# 入力データ
-&gt;&gt;&gt; d = pd.DataFrame(
-    {&#39;r&#39;:[&#39;A&#39;, &#39;A&#39;, &#39;A&#39;, &#39;B&#39;, &#39;B&#39;, &#39;B&#39;, &#39;C&#39;], 
-     &#39;c&#39;:[&#39;x&#39;, &#39;x&#39;, &#39;y&#39;, &#39;x&#39;, &#39;y&#39;, &#39;y&#39;, &#39;y&#39;], 
-     &#39;v&#39;:[40, 50, 60, 70, 80, 90, 100]}
-)
-&gt;&gt;&gt; print(d)
-   r  c    v
-0  A  x   40
-1  A  x   50
-2  A  y   60
-3  B  x   70
-4  B  y   80
-5  B  y   90
-6  C  y  100
-
-# no.4-1
-# r列の値A,B,Cをdummy化する。
-# A,B,Cを列にして、それぞれの値の行は1に、それ以外は0を出力する。
-&gt;&gt;&gt; dd = pd.get_dummies(d[&#39;r&#39;])
-&gt;&gt;&gt; print(dd)
-   A  B  C
-0  1  0  0
-1  1  0  0
-2  1  0  0
-3  0  1  0
-4  0  1  0
-5  0  1  0
-6  0  0  1
-
-# no.4-2
-# prefix=を指定することで、その文字列が列名の頭に追加される。
-&gt;&gt;&gt; dd = pd.get_dummies(d[&#39;r&#39;], prefix=&#39;r&#39;)
-&gt;&gt;&gt; print(dd)
-   r_A  r_B  r_C
-0    1    0    0
-1    1    0    0
-2    1    0    0
-3    0    1    0
-4    0    1    0
-5    0    1    0
-6    0    0    1
-
-# no.4-3
-# pd.cut()と組み合わせることで、数値変数をdummy化できる。
-&gt;&gt;&gt; dd = pd.get_dummies(pd.cut(d[&#39;v&#39;], [30, 60, 80]))
-&gt;&gt;&gt; print(dd)
-   (30, 60]  (60, 80]
-0         1         0
-1         1         0
-2         1         0
-3         0         1
-4         0         1
-5         0         0
-6         0         0
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div>
 </body>
 
