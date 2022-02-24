@@ -70,7 +70,7 @@ git clone https://github.com/asakura-data-science/preprocessing.git .
 ```
 ### 1.3 データのダウンロード
 本書で紹介されているデータは容量が大きいため(221.9MB)、朝倉書店のページにおいてあります。
-[ここから](https://app.box.com/s/8jibj2iqh3asjkgfdj3dg8fts9nluzyy) data.zipをダウンロードして解凍すると、stockDaily.csvなど6つのファイルが展開されます。これらのファイルを1.2で作成した作業用フォルダの下にdataフォルダとしてコピー(移動)してください。それぞれのファイルの内容は本書p.12の表2.1で説明しております。
+[ここから](https://app.box.com/s/8jibj2iqh3asjkgfdj3dg8fts9nluzyy) data.zipをダウンロードして解凍すると、dataフォルダの下にstockDaily.csvなど6つのファイルが展開されます。1.2で作成した作業用フォルダの下にdataフォルダをコピー(移動)してください。それぞれのファイルの内容は本書p.12の表2.1で説明しております。
 
 ## 2. 実行環境の構築
 サンプルプログラムを実行するにはPython、Jupyter、各種ライブラリのインストールが必要となります。構築方法がわからない方は、本シリーズの[前処理のサポートページ](https://github.com/asakura-data-science/preprocessing)をご参照ください。
