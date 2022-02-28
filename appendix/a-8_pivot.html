@@ -14265,9 +14265,13 @@ a.anchor-link {
 <p>ロング型の利点は、キー項目を列で持っているために、<code>groupby()</code>などのキー単位の処理を伴う処理がやりやすいことにある。
 一方でワイド型は、回帰モデルなどの入力データで利用されるフォーマットである(1行1サンプル)。
 前処理はロング型で行い、モデル構築やデータ内容の表示といった分析の最終工程でワイド型が利用されるのが典型的なパターンである。</p>
-<p><img width="60%" src="./figures/pivot/wide_long.png"></p>
+<p><img width="40%" src="./figures/pivot/wide_long.png"></p>
 <hr>
-<h2 id="1.-pivot,-stack,-unstack(&#12527;&#12452;&#12489;&#22411;-&#12525;&#12531;&#12464;&#22411;&#12398;&#22793;&#25563;)">1. pivot, stack, unstack(&#12527;&#12452;&#12489;&#22411;-&#12525;&#12531;&#12464;&#22411;&#12398;&#22793;&#25563;)<a class="anchor-link" href="#1.-pivot,-stack,-unstack(&#12527;&#12452;&#12489;&#22411;-&#12525;&#12531;&#12464;&#22411;&#12398;&#22793;&#25563;)">&#182;</a></h2><h2 id="2.-pivot_table(&#38598;&#35336;&#12434;&#20276;&#12358;pivot)">2. pivot_table(&#38598;&#35336;&#12434;&#20276;&#12358;pivot)<a class="anchor-link" href="#2.-pivot_table(&#38598;&#35336;&#12434;&#20276;&#12358;pivot)">&#182;</a></h2><h2 id="3.-cross_table(&#20214;&#25968;&#38598;&#35336;)">3. cross_table(&#20214;&#25968;&#38598;&#35336;)<a class="anchor-link" href="#3.-cross_table(&#20214;&#25968;&#38598;&#35336;)">&#182;</a></h2><h2 id="4.-get_dummies(&#12480;&#12511;&#12540;&#22793;&#25968;&#12398;&#29983;&#25104;)">4. get_dummies(&#12480;&#12511;&#12540;&#22793;&#25968;&#12398;&#29983;&#25104;)<a class="anchor-link" href="#4.-get_dummies(&#12480;&#12511;&#12540;&#22793;&#25968;&#12398;&#29983;&#25104;)">&#182;</a></h2><hr>
+<h3 id="&#30446;&#27425;">&#30446;&#27425;<a class="anchor-link" href="#&#30446;&#27425;">&#182;</a></h3><p><a href="#pivot">1. ワイド型-ロング型の変換(pivot, stack, unstack)</a><br>
+<a href="#pivot_table">2. 集計を伴うpivot(pivot_table)</a><br>
+<a href="#cross_table">3. 件数集計(cross_table)</a><br>
+<a href="#dummies">4. ダミー変数の生成(get_dummies)</a><br></p>
+<hr>
 <h3 id="&#38306;&#36899;&#12489;&#12461;&#12517;&#12513;&#12531;&#12488;">&#38306;&#36899;&#12489;&#12461;&#12517;&#12513;&#12531;&#12488;<a class="anchor-link" href="#&#38306;&#36899;&#12489;&#12461;&#12517;&#12513;&#12531;&#12488;">&#182;</a></h3><ul>
 <li><a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/reshaping.html">Reshaping and pivot tables</a></li>
 </ul>
@@ -14286,8 +14290,9 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a id='pivot'></a></p>
 <hr>
-<h1 id="1.-pivot,-stack,-unstack">1. pivot, stack, unstack<a class="anchor-link" href="#1.-pivot,-stack,-unstack">&#182;</a></h1><p>stack型とmatrix型の表構造を相互変換する。</p>
+<h1 id="1.-&#12527;&#12452;&#12489;&#22411;-&#12525;&#12531;&#12464;&#22411;&#12398;&#22793;&#25563;(pivot,-stack,-unstack)">1. &#12527;&#12452;&#12489;&#22411;-&#12525;&#12531;&#12464;&#22411;&#12398;&#22793;&#25563;(pivot, stack, unstack)<a class="anchor-link" href="#1.-&#12527;&#12452;&#12489;&#22411;-&#12525;&#12531;&#12464;&#22411;&#12398;&#22793;&#25563;(pivot,-stack,-unstack)">&#182;</a></h1><p>stack型とmatrix型の表構造を相互変換する。</p>
 <h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 d = pd.DataFrame(
     {'r':['A', 'A', 'A', 'B', 'B', 'B'],
@@ -14369,8 +14374,9 @@ print(sr.reset_index())
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a id='pivot_table'></a></p>
 <hr>
-<h1 id="2.-pivot_table">2. pivot_table<a class="anchor-link" href="#2.-pivot_table">&#182;</a></h1><p>pivot()は表の構造を変換するだけであるのに対して、pivot_tableは値の集計を伴うpivotと考えればよい。</p>
+<h1 id="2.-&#38598;&#35336;&#12434;&#20276;&#12358;pivot(pivot_table)">2. &#38598;&#35336;&#12434;&#20276;&#12358;pivot(pivot_table)<a class="anchor-link" href="#2.-&#38598;&#35336;&#12434;&#20276;&#12358;pivot(pivot_table)">&#182;</a></h1><p>pivot()は表の構造を変換するだけであるのに対して、pivot_tableは値の集計を伴うpivotと考えればよい。</p>
 <h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><p>pivot()で使った入力データとは、行(r)-列(r)の値に重複がある点が異なる。
 A-xとB-yは２件存在する。</p>
 <pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
@@ -14472,8 +14478,9 @@ print(dd)
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a id='cross_table'></a></p>
 <hr>
-<h1 id="3.-cross_table">3. cross_table<a class="anchor-link" href="#3.-cross_table">&#182;</a></h1><p>クロス集計表を作成する。stack型のデータから行-列の値の組み合わせの件数をカウントする。pivot()やpivot_table()と違い、pandasメソッドでありパラメータとして、行と列となる２つのSeriesをパラメータとして与える。</p>
+<h1 id="3.-&#20214;&#25968;&#38598;&#35336;(cross_table)">3. &#20214;&#25968;&#38598;&#35336;(cross_table)<a class="anchor-link" href="#3.-&#20214;&#25968;&#38598;&#35336;(cross_table)">&#182;</a></h1><p>クロス集計表を作成する。stack型のデータから行-列の値の組み合わせの件数をカウントする。pivot()やpivot_table()と違い、pandasメソッドであり、行と列となる２つのSeriesをパラメータとして与える。</p>
 <h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 d = pd.DataFrame(
     {'r':['A', 'A', 'A', 'B', 'B', 'B', 'C'],
@@ -14576,8 +14583,9 @@ print(dd)
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a id='dummies'></a></p>
 <hr>
-<h1 id="4.-get_dummies">4. get_dummies<a class="anchor-link" href="#4.-get_dummies">&#182;</a></h1><h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
+<h1 id="4.-&#12480;&#12511;&#12540;&#22793;&#25968;&#12398;&#29983;&#25104;(get_dummies)">4. &#12480;&#12511;&#12540;&#22793;&#25968;&#12398;&#29983;&#25104;(get_dummies)<a class="anchor-link" href="#4.-&#12480;&#12511;&#12540;&#22793;&#25968;&#12398;&#29983;&#25104;(get_dummies)">&#182;</a></h1><h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 d = pd.DataFrame(
     {'r':['A', 'A', 'A', 'B', 'B', 'B', 'C'], 
      'c':['x', 'x', 'y', 'x', 'y', 'y', 'y'], 

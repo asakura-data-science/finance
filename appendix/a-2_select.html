@@ -14260,15 +14260,21 @@ a.anchor-link {
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h1 id="a-2.-&#36984;&#25246;">a-2. &#36984;&#25246;<a class="anchor-link" href="#a-2.-&#36984;&#25246;">&#182;</a></h1><hr>
-<h1 id="1.-Series&#12398;[]&#28436;&#31639;&#23376;">1. Series&#12398;[]&#28436;&#31639;&#23376;<a class="anchor-link" href="#1.-Series&#12398;[]&#28436;&#31639;&#23376;">&#182;</a></h1><h1 id="2.-DataFrame&#12398;[]&#28436;&#31639;&#23376;">2. DataFrame&#12398;[]&#28436;&#31639;&#23376;<a class="anchor-link" href="#2.-DataFrame&#12398;[]&#28436;&#31639;&#23376;">&#182;</a></h1><h1 id="3.-Series&#12398;loc[]&#12392;iloc[]">3. Series&#12398;loc[]&#12392;iloc[]<a class="anchor-link" href="#3.-Series&#12398;loc[]&#12392;iloc[]">&#182;</a></h1><h1 id="4.-DataFrame&#12398;loc[]&#12392;iloc[]">4. DataFrame&#12398;loc[]&#12392;iloc[]<a class="anchor-link" href="#4.-DataFrame&#12398;loc[]&#12392;iloc[]">&#182;</a></h1><h1 id="5.-&#21033;&#29992;&#20363;">5. &#21033;&#29992;&#20363;<a class="anchor-link" href="#5.-&#21033;&#29992;&#20363;">&#182;</a></h1><h2>&nbsp; 5-1.比較演算子によるデータの選択</h2>
-<h2>&nbsp; 5-2. 複数条件による選択</h2>
-<h2>&nbsp; 5-3.他のDataFrame(Series)によるデータの選択</h2>
+<p><a href="#series">1. Seriesの[]演算子</a><br>
+<a href="#dataframe">2. DataFrameの[]演算子</a><br>
+<a href="#sloc">3. Seriesのloc[]とiloc[]</a><br>
+<a href="#dloc">4. DataFrameのloc[]とiloc[]</a><br>
+<a href="#examples">5. 利用例</a><br>
+&nbsp;&nbsp; <a href="#compare">5-1.比較演算子によるデータの選択</a><br>
+&nbsp;&nbsp; <a href="#multi">5-2. 複数条件による選択</a><br>
+&nbsp;&nbsp; <a href="#others">5-3.他のDataFrame(Series)によるデータの選択</a><br></p>
 <hr>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a id='series'></a></p>
 <hr>
 <h1 id="1.Series&#12398;[]&#28436;&#31639;&#23376;">1.Series&#12398;[]&#28436;&#31639;&#23376;<a class="anchor-link" href="#1.Series&#12398;[]&#28436;&#31639;&#23376;">&#182;</a></h1><p>一次元データであるSeriesの選択を直感的に指定/実行できる。
 <code>[]</code>内には、単一のラベル、ラベルのリスト、ラベルスライサ、整数、整数のリスト、範囲スライサ、
@@ -14453,6 +14459,7 @@ print(t[t > 6])
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a id='dataframe'></a></p>
 <hr>
 <h1 id="2.-DataFrame&#12398;[]&#28436;&#31639;&#23376;">2. DataFrame&#12398;[]&#28436;&#31639;&#23376;<a class="anchor-link" href="#2.-DataFrame&#12398;[]&#28436;&#31639;&#23376;">&#182;</a></h1><p>二次元データであるDataFrameの選択を直感的に指定/実行できる。
 <code>[]</code>内に、単一のラベルもしくはラベルのリストを指定すれば列選択に、
@@ -14614,6 +14621,7 @@ print(e[e['x'] > 6])
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a id='sloc'></a></p>
 <hr>
 <h1 id="3.-Series&#12398;loc[]&#12392;iloc[]">3. Series&#12398;loc[]&#12392;iloc[]<a class="anchor-link" href="#3.-Series&#12398;loc[]&#12392;iloc[]">&#182;</a></h1><p><code>loc[]</code>はSeriesをラベルで選択し、<code>iloc[]</code>は位置で選択する。
 <code>loc[]</code>内には、単一のラベル、ラベルのリスト、ラベルスライサが指定でき、
@@ -14825,6 +14833,7 @@ print(t.loc[t > 5])
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a id='dloc'></a></p>
 <hr>
 <h1 id="4.-DataFrame&#12398;loc[]&#12392;iloc[]">4. DataFrame&#12398;loc[]&#12392;iloc[]<a class="anchor-link" href="#4.-DataFrame&#12398;loc[]&#12392;iloc[]">&#182;</a></h1><p><code>loc[]</code>はDataFrameを行と列のラベルで選択し、<code>iloc[]</code>は位置で選択する。
 <code>loc[]</code>、<code>iloc[]</code>ともに、<code>[行条件, 列条件]</code> のように指定する。
@@ -15195,8 +15204,10 @@ print(e.loc[e['x'] > 6])
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a id='examples'></a></p>
 <hr>
-<h1 id="5.&#24540;&#29992;&#20363;">5.&#24540;&#29992;&#20363;<a class="anchor-link" href="#5.&#24540;&#29992;&#20363;">&#182;</a></h1><h2 id="5-1.&#27604;&#36611;&#28436;&#31639;&#23376;&#12395;&#12424;&#12427;&#12487;&#12540;&#12479;&#12398;&#36984;&#25246;">5-1.&#27604;&#36611;&#28436;&#31639;&#23376;&#12395;&#12424;&#12427;&#12487;&#12540;&#12479;&#12398;&#36984;&#25246;<a class="anchor-link" href="#5-1.&#27604;&#36611;&#28436;&#31639;&#23376;&#12395;&#12424;&#12427;&#12487;&#12540;&#12479;&#12398;&#36984;&#25246;">&#182;</a></h2><p>DataFrameの<code>[]</code>演算子による行選択でよく用いられるのは表題のようなboolリストによる方法である。
+<h1 id="5.&#24540;&#29992;&#20363;">5.&#24540;&#29992;&#20363;<a class="anchor-link" href="#5.&#24540;&#29992;&#20363;">&#182;</a></h1><p><a id='compare'></a></p>
+<h2 id="5-1.&#27604;&#36611;&#28436;&#31639;&#23376;&#12395;&#12424;&#12427;&#12487;&#12540;&#12479;&#12398;&#36984;&#25246;">5-1.&#27604;&#36611;&#28436;&#31639;&#23376;&#12395;&#12424;&#12427;&#12487;&#12540;&#12479;&#12398;&#36984;&#25246;<a class="anchor-link" href="#5-1.&#27604;&#36611;&#28436;&#31639;&#23376;&#12395;&#12424;&#12427;&#12487;&#12540;&#12479;&#12398;&#36984;&#25246;">&#182;</a></h2><p>DataFrameの<code>[]</code>演算子による行選択でよく用いられるのは表題のようなboolリストによる方法である。
 <code>[]</code>演算子の中に<code>[]</code>演算子が入っておりややこしく見えるが、以下のように分解して考えると分かりやすい。</p>
 <h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><p><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 d = pd.DataFrame(
@@ -15241,6 +15252,7 @@ print(sel)
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a id='multi'></a></p>
 <hr>
 <h2 id="5-2.-&#35079;&#25968;&#26465;&#20214;&#12395;&#12424;&#12427;&#36984;&#25246;">5-2. &#35079;&#25968;&#26465;&#20214;&#12395;&#12424;&#12427;&#36984;&#25246;<a class="anchor-link" href="#5-2.-&#35079;&#25968;&#26465;&#20214;&#12395;&#12424;&#12427;&#36984;&#25246;">&#182;</a></h2><p>前項のような条件を複数指定することも可能である。複数の条件を論理演算子で組み合わせればよい。
 論理演算子として、ブール変数<code>a</code>と<code>b</code>について、下表に示すような４種類の論理演算が利用可能である。
@@ -15327,6 +15339,7 @@ print(d[~((d['x']>=5) | (d['y']>=2.0))])
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a id='others'></a></p>
 <hr>
 <h2 id="5-3.&#20182;&#12398;DataFrame(Series)&#12395;&#12424;&#12427;&#12487;&#12540;&#12479;&#12398;&#36984;&#25246;">5-3.&#20182;&#12398;DataFrame(Series)&#12395;&#12424;&#12427;&#12487;&#12540;&#12479;&#12398;&#36984;&#25246;<a class="anchor-link" href="#5-3.&#20182;&#12398;DataFrame(Series)&#12395;&#12424;&#12427;&#12487;&#12540;&#12479;&#12398;&#36984;&#25246;">&#182;</a></h2><p>あるDataFrameを他のDetaFrameやSeriesの値で選択したいケースは多くある。a-5で解説されているmergeやjoinでinner結合のように行を選択したいが、列は結合する必要はないといったケースである。
 そのような場合、<b>isin</b>演算子を使うことで実現できる。</p>
@@ -15358,7 +15371,6 @@ print(df[df['k1'].isin(mf['key1'])])
 <td><img width="80%" src="./figures/select/select5-3-1.png"></td>
 <td>
 dfの列k1をmfの列key1で選択する。Series1.isin(Series2)によって、Series1の各値が、Series2に存在すればTrue、なければFalseを返す。
-
 </td>
 </tr>
 
@@ -15375,6 +15387,17 @@ print(df[df['k1'].isin(mf['key1']) & df['k2'].isin(mf['key2'])])
 </td>
 </tr>
 
+<tr style="background:#fff; border:1px solid #cc0000;">
+<td>5-3-3</td>
+<td><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
+print(df.loc[mf.index])
+</pre></td>
+<td><img width="70%" src="./figures/select/select5-3-3data.png"></td>
+<td><img width="80%" src="./figures/select/select5-3-3.png"></td>
+<td>
+indexが同じ行を選びたければloc[]にmfのindexを指定すればよい。
+</td>
+</tr>
 </tbody>
 </table><hr>
 

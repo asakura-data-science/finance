@@ -14260,12 +14260,17 @@ a.anchor-link {
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h1 id="a-3.-&#20516;&#12398;&#12475;&#12483;&#12488;">a-3. &#20516;&#12398;&#12475;&#12483;&#12488;<a class="anchor-link" href="#a-3.-&#20516;&#12398;&#12475;&#12483;&#12488;">&#182;</a></h1><hr>
-<h2 id="1.-[]&#12395;&#12424;&#12427;&#20516;&#12398;&#12475;&#12483;&#12488;">1. []&#12395;&#12424;&#12427;&#20516;&#12398;&#12475;&#12483;&#12488;<a class="anchor-link" href="#1.-[]&#12395;&#12424;&#12427;&#20516;&#12398;&#12475;&#12483;&#12488;">&#182;</a></h2><h2 id="2.-loc[],iloc[]&#12395;&#12424;&#12427;&#20516;&#12398;&#12475;&#12483;&#12488;">2. loc[],iloc[]&#12395;&#12424;&#12427;&#20516;&#12398;&#12475;&#12483;&#12488;<a class="anchor-link" href="#2.-loc[],iloc[]&#12395;&#12424;&#12427;&#20516;&#12398;&#12475;&#12483;&#12488;">&#182;</a></h2><h2 id="3.-assign(),-insert(),-append()">3. assign(), insert(), append()<a class="anchor-link" href="#3.-assign(),-insert(),-append()">&#182;</a></h2><h2 id="4.-&#26465;&#20214;&#12395;&#12424;&#12427;&#20516;&#12398;&#32622;&#25563;(where&#12392;mask)">4. &#26465;&#20214;&#12395;&#12424;&#12427;&#20516;&#12398;&#32622;&#25563;(where&#12392;mask)<a class="anchor-link" href="#4.-&#26465;&#20214;&#12395;&#12424;&#12427;&#20516;&#12398;&#32622;&#25563;(where&#12392;mask)">&#182;</a></h2><hr>
+<h3 id="&#30446;&#27425;">&#30446;&#27425;<a class="anchor-link" href="#&#30446;&#27425;">&#182;</a></h3><p><a href="#base">1. []による値のセット</a><br>
+<a href="#loc">2. loc[],iloc[]による値のセット</a><br>
+<a href="#assign">3. assign(), insert(), append()</a><br>
+<a href="#condition">4. 条件による値の置換(whereとmask)</a><br></p>
+<hr>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a id='base'></a></p>
 <hr>
 <h1 id="1.-[]&#12395;&#12424;&#12427;&#20516;&#12398;&#12475;&#12483;&#12488;">1. []&#12395;&#12424;&#12427;&#20516;&#12398;&#12475;&#12483;&#12488;<a class="anchor-link" href="#1.-[]&#12395;&#12424;&#12427;&#20516;&#12398;&#12475;&#12483;&#12488;">&#182;</a></h1><p>a-2_selectionの章では[]演算子を使ってデータを選択する方法を解説したが、同じ演算子を使って値をセットすることもできる。</p>
 <h3 id="&#38306;&#36899;&#12489;&#12461;&#12517;&#12513;&#12531;&#12488;">&#38306;&#36899;&#12489;&#12461;&#12517;&#12513;&#12531;&#12488;<a class="anchor-link" href="#&#38306;&#36899;&#12489;&#12461;&#12517;&#12513;&#12531;&#12488;">&#182;</a></h3><ul>
@@ -14380,6 +14385,7 @@ Seiesも同じ要領で、指定したラベルに値をセット可能。ラベ
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a id='loc'></a></p>
 <hr>
 <h1 id="2.-loc[],iloc[]&#12395;&#12424;&#12427;&#20516;&#12398;&#12475;&#12483;&#12488;">2. loc[],iloc[]&#12395;&#12424;&#12427;&#20516;&#12398;&#12475;&#12483;&#12488;<a class="anchor-link" href="#2.-loc[],iloc[]&#12395;&#12424;&#12427;&#20516;&#12398;&#12475;&#12483;&#12488;">&#182;</a></h1><p>loc[],iloc[]を使えば、より柔軟に値をセットすることもできる。</p>
 <h3 id="API&#12522;&#12501;&#12449;&#12524;&#12531;&#12473;">API&#12522;&#12501;&#12449;&#12524;&#12531;&#12473;<a class="anchor-link" href="#API&#12522;&#12501;&#12449;&#12524;&#12531;&#12473;">&#182;</a></h3><ul>
@@ -14484,6 +14490,7 @@ dd
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a id='assign'></a></p>
 <hr>
 <h1 id="3.-assign(),-insert(),-append()">3. assign(), insert(), append()<a class="anchor-link" href="#3.-assign(),-insert(),-append()">&#182;</a></h1><p>[],loc[],iloc[]以外にも行や列を追加する方法として、assign(), insert(), append()がある。
 細かな違いはあるが、[],loc[],iloc[]でも同様のことは可能である。</p>
@@ -14556,8 +14563,9 @@ append()は行を後ろに追加する。元のデータを更新せず、新し
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a id='condition'></a></p>
 <hr>
-<h1 id="4.-where()&#12392;mask()">4. where()&#12392;mask()<a class="anchor-link" href="#4.-where()&#12392;mask()">&#182;</a></h1><p>与えた条件によって値をNullもしくは指定した値に置換する。</p>
+<h1 id="4.-&#26465;&#20214;&#12395;&#12424;&#12427;&#20516;&#12398;&#32622;&#25563;(where&#12392;mask)">4. &#26465;&#20214;&#12395;&#12424;&#12427;&#20516;&#12398;&#32622;&#25563;(where&#12392;mask)<a class="anchor-link" href="#4.-&#26465;&#20214;&#12395;&#12424;&#12427;&#20516;&#12398;&#32622;&#25563;(where&#12392;mask)">&#182;</a></h1><p>与えた条件によって値をNullもしくは指定した値に置換する。</p>
 <h3 id="API&#12522;&#12501;&#12449;&#12524;&#12531;&#12473;">API&#12522;&#12501;&#12449;&#12524;&#12531;&#12473;<a class="anchor-link" href="#API&#12522;&#12501;&#12449;&#12524;&#12531;&#12473;">&#182;</a></h3><ul>
 <li><a href="https://pandas.pydata.org/docs/reference/api/pandas.Series.where.html">Series.where</a></li>
 <li><a href="https://pandas.pydata.org/docs/reference/api/pandas.Series.mask.html">Series.mask</a></li>

@@ -14264,7 +14264,12 @@ a.anchor-link {
 またNAを具体的にどのような値として表現するかは実装系によって異なる。
 PythonではNoneという値が使われ、Pandasのfloat型においてはnp.nanという値が使われ、Period型ではNaTが使われる。</p>
 <hr>
-<h2 id="1.-&#22522;&#26412;">1. &#22522;&#26412;<a class="anchor-link" href="#1.-&#22522;&#26412;">&#182;</a></h2><h2 id="2.-NA&#12434;&#21547;&#12416;&#34892;&#12398;&#21066;&#38500;(dropna)">2. NA&#12434;&#21547;&#12416;&#34892;&#12398;&#21066;&#38500;(dropna)<a class="anchor-link" href="#2.-NA&#12434;&#21547;&#12416;&#34892;&#12398;&#21066;&#38500;(dropna)">&#182;</a></h2><h2 id="3.-NA&#12398;&#32622;&#25563;(fillna,-combine_first)">3. NA&#12398;&#32622;&#25563;(fillna, combine_first)<a class="anchor-link" href="#3.-NA&#12398;&#32622;&#25563;(fillna,-combine_first)">&#182;</a></h2><h2 id="4.-NA&#12398;&#25968;&#20516;&#35036;&#23436;(interpolate)">4. NA&#12398;&#25968;&#20516;&#35036;&#23436;(interpolate)<a class="anchor-link" href="#4.-NA&#12398;&#25968;&#20516;&#35036;&#23436;(interpolate)">&#182;</a></h2><h2 id="5.-&#26465;&#20214;&#25351;&#23450;&#12395;&#12424;&#12427;NA&#12408;&#12398;&#32622;&#25563;">5. &#26465;&#20214;&#25351;&#23450;&#12395;&#12424;&#12427;NA&#12408;&#12398;&#32622;&#25563;<a class="anchor-link" href="#5.-&#26465;&#20214;&#25351;&#23450;&#12395;&#12424;&#12427;NA&#12408;&#12398;&#32622;&#25563;">&#182;</a></h2><h3 id="&#38306;&#36899;&#12489;&#12461;&#12517;&#12513;&#12531;&#12488;">&#38306;&#36899;&#12489;&#12461;&#12517;&#12513;&#12531;&#12488;<a class="anchor-link" href="#&#38306;&#36899;&#12489;&#12461;&#12517;&#12513;&#12531;&#12488;">&#182;</a></h3><ul>
+<h3 id="&#30446;&#27425;">&#30446;&#27425;<a class="anchor-link" href="#&#30446;&#27425;">&#182;</a></h3><p>&nbsp;&nbsp; <a href="#basic">1. 基本</a><br>
+&nbsp;&nbsp; <a href="#dropna">2. NAを含む行の削除(dropna)</a><br>
+&nbsp;&nbsp; <a href="#fillna">3. NAの置換(fillna, combine_first)</a><br>
+&nbsp;&nbsp; <a href="#interpolate">4. NAの数値補完(interpolate)</a><br>
+&nbsp;&nbsp; <a href="#condition">5. 条件指定によるNAへの置換</a><br></p>
+<h3 id="&#38306;&#36899;&#12489;&#12461;&#12517;&#12513;&#12531;&#12488;">&#38306;&#36899;&#12489;&#12461;&#12517;&#12513;&#12531;&#12488;<a class="anchor-link" href="#&#38306;&#36899;&#12489;&#12461;&#12517;&#12513;&#12531;&#12488;">&#182;</a></h3><ul>
 <li><a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/missing_data.html">Working with missing data</a></li>
 </ul>
 <hr>
@@ -14284,6 +14289,7 @@ PythonではNoneという値が使われ、Pandasのfloat型においてはnp.na
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a id='basic'></a></p>
 <hr>
 <h2 id="1.-&#22522;&#26412;">1. &#22522;&#26412;<a class="anchor-link" href="#1.-&#22522;&#26412;">&#182;</a></h2><h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 d = pd.DataFrame(
@@ -14423,8 +14429,9 @@ print(df/0)
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a id='dropna'></a></p>
 <hr>
-<h1 id="2.-null&#20516;&#12434;&#21547;&#12416;&#34892;&#12398;&#21066;&#38500;">2. null&#20516;&#12434;&#21547;&#12416;&#34892;&#12398;&#21066;&#38500;<a class="anchor-link" href="#2.-null&#20516;&#12434;&#21547;&#12416;&#34892;&#12398;&#21066;&#38500;">&#182;</a></h1><p>以下の例は、dropna(axis=1)のように、axisパラメータを付け加えることで列の削除にも適用できる。</p>
+<h1 id="2.-null&#20516;&#12434;&#21547;&#12416;&#34892;&#12398;&#21066;&#38500;(dropna)">2. null&#20516;&#12434;&#21547;&#12416;&#34892;&#12398;&#21066;&#38500;(dropna)<a class="anchor-link" href="#2.-null&#20516;&#12434;&#21547;&#12416;&#34892;&#12398;&#21066;&#38500;(dropna)">&#182;</a></h1><p>以下の例は、dropna(axis=1)のように、axisパラメータを付け加えることで列の削除にも適用できる。</p>
 <h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 d = pd.DataFrame(
     {'x':[1.0, None, 3.0, None],
@@ -14485,6 +14492,7 @@ print(d.dropna(subset=['x', 'y'], how='all'))
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a id='fillna'></a></p>
 <hr>
 <h1 id="3.-null&#20516;&#12398;&#32622;&#25563;(fillna,-combine_first)">3. null&#20516;&#12398;&#32622;&#25563;(fillna, combine_first)<a class="anchor-link" href="#3.-null&#20516;&#12398;&#32622;&#25563;(fillna,-combine_first)">&#182;</a></h1><h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 d = pd.DataFrame(
@@ -14587,6 +14595,7 @@ x列のNAをz列で置換する。
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a id='interpolate'></a></p>
 <hr>
 <h2 id="4.-NA&#12398;&#25968;&#20516;&#35036;&#23436;(interpolate)">4. NA&#12398;&#25968;&#20516;&#35036;&#23436;(interpolate)<a class="anchor-link" href="#4.-NA&#12398;&#25968;&#20516;&#35036;&#23436;(interpolate)">&#182;</a></h2><h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 a = pd.Series([4, 8, 2, None, None, 3])
@@ -14634,6 +14643,7 @@ methodに指定できるパラメータ: 'nearest', 'zero', 'slinear', 'quadrati
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a id='condition'></a></p>
 <hr>
 <h2 id="5.-&#26465;&#20214;&#25351;&#23450;&#12395;&#12424;&#12427;NA&#12408;&#12398;&#32622;&#25563;">5. &#26465;&#20214;&#25351;&#23450;&#12395;&#12424;&#12427;NA&#12408;&#12398;&#32622;&#25563;<a class="anchor-link" href="#5.-&#26465;&#20214;&#25351;&#23450;&#12395;&#12424;&#12427;NA&#12408;&#12398;&#32622;&#25563;">&#182;</a></h2><h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 d = pd.DataFrame({'x':[1., 2., 6., 4.],'y':[10., 3., 8., 4]})

@@ -14340,7 +14340,10 @@ DataFrameもしくはSeriesのデータに対して、<b>「df.rollling().処理
 </tbody>
 </table>
 <hr>
-<h2 id="1.-&#22522;&#26412;&#20363;">1. &#22522;&#26412;&#20363;<a class="anchor-link" href="#1.-&#22522;&#26412;&#20363;">&#182;</a></h2><h2 id="2.-&#21015;&#12506;&#12450;&#12391;&#12398;&#35336;&#31639;(corr(),-cov())">2. &#21015;&#12506;&#12450;&#12391;&#12398;&#35336;&#31639;(corr(), cov())<a class="anchor-link" href="#2.-&#21015;&#12506;&#12450;&#12391;&#12398;&#35336;&#31639;(corr(),-cov())">&#182;</a></h2><h2 id="3.-apply()&#12513;&#12477;&#12483;&#12489;">3. apply()&#12513;&#12477;&#12483;&#12489;<a class="anchor-link" href="#3.-apply()&#12513;&#12477;&#12483;&#12489;">&#182;</a></h2><hr>
+<h3 id="&#30446;&#27425;">&#30446;&#27425;<a class="anchor-link" href="#&#30446;&#27425;">&#182;</a></h3><p>&nbsp;&nbsp; <a href="#basic">1. 基本例</a><br>
+&nbsp;&nbsp; <a href="#corr">2. 列ペアでの計算(corr(), cov())</a><br>
+&nbsp;&nbsp; <a href="#apply">3. apply()メソッド</a><br></p>
+<hr>
 <h3 id="API&#12522;&#12501;&#12449;&#12524;&#12531;&#12473;">API&#12522;&#12501;&#12449;&#12524;&#12531;&#12473;<a class="anchor-link" href="#API&#12522;&#12501;&#12449;&#12524;&#12531;&#12473;">&#182;</a></h3><ul>
 <li><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.rolling.html">DataFrame.rolling</a></li>
 <li><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.rolling.html">Series.rolling</a></li>
@@ -14351,6 +14354,7 @@ DataFrameもしくはSeriesのデータに対して、<b>「df.rollling().処理
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a id='basic'></a></p>
 <hr>
 <h1 id="1.&#22522;&#26412;&#20363;">1.&#22522;&#26412;&#20363;<a class="anchor-link" href="#1.&#22522;&#26412;&#20363;">&#182;</a></h1><h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 sr = pd.Series([2, 1, 3, 0, 1])
@@ -14373,7 +14377,7 @@ print(df.rolling(3).sum())
 </pre></td>
 <td align="center"><img width="60%" src="./figures/rolling/rolling1-1.png"></td>
 <td>
-3行の窓を1行ずつずらしながら、それぞれの列(v2,v2)を合計する。<br>
+3行の窓を1行ずつずらしながら、それぞれの列(v1,v2)を合計する。<br>
 窓の最終行に合計された値は出力される。<br>1,2行目は3行そろわないためにNaNが出力されている。
 </td>
 </tr>
@@ -14428,6 +14432,7 @@ aggregate()のような複数の処理が可能な関数は列がマルチラベ
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a id='corr'></a></p>
 <hr>
 <h1 id="2.-&#21015;&#12506;&#12450;&#12391;&#12398;&#35336;&#31639;(corr(),-cov())">2. &#21015;&#12506;&#12450;&#12391;&#12398;&#35336;&#31639;(corr(), cov())<a class="anchor-link" href="#2.-&#21015;&#12506;&#12450;&#12391;&#12398;&#35336;&#31639;(corr(),-cov())">&#182;</a></h1><p>data1.rolling().corr(data2)の書式で、data1とdata2の相関を計算する。
 data1,data2にはDataFrameとSeriesを指定でき、data1とdata2の組み合わせ方で多様なペアで相関係数を計算できる。
@@ -14467,7 +14472,7 @@ print(df.rolling(window=3).corr(df, pairwise=True))
 </pre></td>
 <td><img width="90%" src="./figures/rolling/rolling2-1.png"></td>
 <td>
-dfの4つの列A,B,Cの全ペア(3×3=9)の相関行列を<b>window=3</b>で計算する。<br>
+dfの3つの列A,B,Cの全ペア(3×3=9)の相関行列を<b>window=3</b>で計算する。<br>
 相関行列を計算する時は<b>pairwie=True</b>とする。pairwiseを指定しない例は後述。<br>
 行がマルチインデックスになる。
 </td>
@@ -14539,6 +14544,7 @@ corr()に指定したDataFrameに異なる名前の列がある場合、全てNa
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a id='apply'></a></p>
 <hr>
 <h1 id="3.-apply()&#12513;&#12477;&#12483;&#12489;">3. apply()&#12513;&#12477;&#12483;&#12489;<a class="anchor-link" href="#3.-apply()&#12513;&#12477;&#12483;&#12489;">&#182;</a></h1><p>rolling()にapply()メソッドを指定することで、窓のデータに対する処理を自由に関数として記述できる。
 apply(func, args=[]) の書式で指定し、funcにユーザが作成した関数名を指定し、argsには、その関数に渡すパラメータを指定できる。

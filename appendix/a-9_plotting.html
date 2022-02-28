@@ -14265,10 +14265,13 @@ matplotlibをpythonから使う場合はpyplotモジュールが利用される�
 plot()メソッドの簡単な利用であればpltを意識する必要はないが、少し凝ったことをしようとするとpltの知識が必要となる。
 以下ではpltの解説は最小限にとどめているので、詳細を知りたい方はpltの解説書を参照してもらいたい。</p>
 <hr>
-<h2 id="1.-&#25240;&#12428;&#32218;&#12481;&#12515;&#12540;&#12488;&#12395;&#12415;&#12427;plot()&#12398;&#22522;&#26412;">1. &#25240;&#12428;&#32218;&#12481;&#12515;&#12540;&#12488;&#12395;&#12415;&#12427;plot()&#12398;&#22522;&#26412;<a class="anchor-link" href="#1.-&#25240;&#12428;&#32218;&#12481;&#12515;&#12540;&#12488;&#12395;&#12415;&#12427;plot()&#12398;&#22522;&#26412;">&#182;</a></h2><h3>&nbsp; 1-1. タイトルなどの設定</h3>
-<h3>&nbsp; 1-2. ２軸チャートの作成と軸の設定</h3>
-<h3>&nbsp; 1-3. 複数のチャートを描画する</h3>
-<h2 id="2.-&#25955;&#24067;&#22259;">2. &#25955;&#24067;&#22259;<a class="anchor-link" href="#2.-&#25955;&#24067;&#22259;">&#182;</a></h2><h2 id="3.-&#12498;&#12473;&#12488;&#12464;&#12521;&#12512;">3. &#12498;&#12473;&#12488;&#12464;&#12521;&#12512;<a class="anchor-link" href="#3.-&#12498;&#12473;&#12488;&#12464;&#12521;&#12512;">&#182;</a></h2><hr>
+<h3 id="&#30446;&#27425;">&#30446;&#27425;<a class="anchor-link" href="#&#30446;&#27425;">&#182;</a></h3><p><a href="#basic">1. 折れ線チャートにみるplot()の基本</a><br>
+&nbsp;&nbsp; <a href="#title">1-1. タイトルなどの設定</a><br>
+&nbsp;&nbsp; <a href="#axes">1-2. ２軸チャートの作成と軸の設定</a><br>
+&nbsp;&nbsp; <a href="#multi">1-3. 複数のチャートを描画する</a><br>
+<a href="#scatter">2. 散布図</a><br>
+<a href="#hist">3. ヒストグラム</a><br></p>
+<hr>
 <h2 id="plot()&#12398;&#12497;&#12521;&#12513;&#12540;&#12479;&#19968;&#35239;(&#25244;&#31883;&#65289;">plot()&#12398;&#12497;&#12521;&#12513;&#12540;&#12479;&#19968;&#35239;(&#25244;&#31883;&#65289;<a class="anchor-link" href="#plot()&#12398;&#12497;&#12521;&#12513;&#12540;&#12479;&#19968;&#35239;(&#25244;&#31883;&#65289;">&#182;</a></h2><table>
 <thead><tr>
 <th style="text-align:left">パラメータ</th>
@@ -14381,6 +14384,7 @@ plot()メソッドの簡単な利用であればpltを意識する必要はな�
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a id='basic'></a></p>
 <hr>
 <h1 id="1.-&#25240;&#12428;&#32218;&#12481;&#12515;&#12540;&#12488;&#12395;&#12415;&#12427;plot()&#12398;&#22522;&#26412;">1. &#25240;&#12428;&#32218;&#12481;&#12515;&#12540;&#12488;&#12395;&#12415;&#12427;plot()&#12398;&#22522;&#26412;<a class="anchor-link" href="#1.-&#25240;&#12428;&#32218;&#12481;&#12515;&#12540;&#12488;&#12395;&#12415;&#12427;plot()&#12398;&#22522;&#26412;">&#182;</a></h1><h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><p>A,B,C,Dの4列の長さ100の乱数系列</p>
 <pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
@@ -14434,6 +14438,7 @@ Seriesをplot()すれば、その系列の折れ線チャートとなる。
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a id='title'></a></p>
 <hr>
 <h2 id="1-1.-&#12479;&#12452;&#12488;&#12523;&#12394;&#12393;&#12398;&#35373;&#23450;">1-1. &#12479;&#12452;&#12488;&#12523;&#12394;&#12393;&#12398;&#35373;&#23450;<a class="anchor-link" href="#1-1.-&#12479;&#12452;&#12488;&#12523;&#12394;&#12393;&#12398;&#35373;&#23450;">&#182;</a></h2><table border="1" style="table-layout:fixed;width:100%;">
     <colgroup>
@@ -14477,6 +14482,7 @@ ax.text(x='2000-1-10', y=-8, s='sample text', fontsize=10)
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a id='axes'></a></p>
 <hr>
 <h2 id="1-2.-2&#36600;&#12481;&#12515;&#12540;&#12488;&#12398;&#20316;&#25104;&#12392;&#36600;&#12398;&#35373;&#23450;">1-2. 2&#36600;&#12481;&#12515;&#12540;&#12488;&#12398;&#20316;&#25104;&#12392;&#36600;&#12398;&#35373;&#23450;<a class="anchor-link" href="#1-2.-2&#36600;&#12481;&#12515;&#12540;&#12488;&#12398;&#20316;&#25104;&#12392;&#36600;&#12398;&#35373;&#23450;">&#182;</a></h2><table border="1" style="table-layout:fixed;width:100%;">
     <colgroup>
@@ -14515,6 +14521,7 @@ secondary_y=で第２軸の列名を指定すると２軸チャートとなる�
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a id='multi'></a></p>
 <hr>
 <h2 id="1-3.-&#35079;&#25968;&#12398;&#12481;&#12515;&#12540;&#12488;&#12434;&#25551;&#30011;&#12377;&#12427;">1-3. &#35079;&#25968;&#12398;&#12481;&#12515;&#12540;&#12488;&#12434;&#25551;&#30011;&#12377;&#12427;<a class="anchor-link" href="#1-3.-&#35079;&#25968;&#12398;&#12481;&#12515;&#12540;&#12488;&#12434;&#25551;&#30011;&#12377;&#12427;">&#182;</a></h2><table border="1" style="table-layout:fixed;width:100%;">
     <colgroup>
@@ -14554,6 +14561,7 @@ set_title()で、それぞれのsubplotにタイトルやテキストをセッ�
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a id='scatter'></a></p>
 <hr>
 <h1 id="2.&#12288;&#25955;&#24067;&#22259;">2.&#12288;&#25955;&#24067;&#22259;<a class="anchor-link" href="#2.&#12288;&#25955;&#24067;&#22259;">&#182;</a></h1><table border="1" style="table-layout:fixed;width:100%;">
     <colgroup>
@@ -14621,6 +14629,7 @@ ax2 = d.plot.scatter(x='C', y='D', c='blue', label='C,D', ax=ax1)
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a id='hist'></a></p>
 <hr>
 <h1 id="3.&#12288;&#12498;&#12473;&#12488;&#12464;&#12521;&#12512;">3.&#12288;&#12498;&#12473;&#12488;&#12464;&#12521;&#12512;<a class="anchor-link" href="#3.&#12288;&#12498;&#12473;&#12488;&#12464;&#12521;&#12512;">&#182;</a></h1><h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><p>乱数列A,Bとグループ列key(XとYの2グループ)を作成</p>
 <pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">

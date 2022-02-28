@@ -14261,12 +14261,16 @@ a.anchor-link {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h1 id="a.10-&#12510;&#12523;&#12481;&#12452;&#12531;&#12487;&#12483;&#12463;&#12473;">a.10 &#12510;&#12523;&#12481;&#12452;&#12531;&#12487;&#12483;&#12463;&#12473;<a class="anchor-link" href="#a.10-&#12510;&#12523;&#12481;&#12452;&#12531;&#12487;&#12483;&#12463;&#12473;">&#182;</a></h1><p>ここでは複数のレベルをもつインデックスについて扱う。</p>
 <hr>
-<h2 id="1.-&#22522;&#26412;">1. &#22522;&#26412;<a class="anchor-link" href="#1.-&#22522;&#26412;">&#182;</a></h2><h2 id="2.-&#36984;&#25246;">2. &#36984;&#25246;<a class="anchor-link" href="#2.-&#36984;&#25246;">&#182;</a></h2><h2 id="3.-&#12452;&#12531;&#12487;&#12483;&#12463;&#12473;&#12398;&#25805;&#20316;">3. &#12452;&#12531;&#12487;&#12483;&#12463;&#12473;&#12398;&#25805;&#20316;<a class="anchor-link" href="#3.-&#12452;&#12531;&#12487;&#12483;&#12463;&#12473;&#12398;&#25805;&#20316;">&#182;</a></h2><hr>
+<h3 id="&#30446;&#27425;">&#30446;&#27425;<a class="anchor-link" href="#&#30446;&#27425;">&#182;</a></h3><p><a href="#basic">1. 基本</a><br>
+<a href="#select">2. 選択</a><br>
+<a href="#operation">3. インデックスの操作</a><br></p>
+<hr>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a id='basic'></a></p>
 <hr>
 <h1 id="1.&#12288;&#22522;&#26412;">1.&#12288;&#22522;&#26412;<a class="anchor-link" href="#1.&#12288;&#22522;&#26412;">&#182;</a></h1><h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><p>groupbyした結果はグループに指定した2つの列(key1,key2)が行のmulti-indexとなり、
 agg()メソッドで数値列(v1,v2)と統計量(sum, mean, min)が列のmulti-indexを構成する。
@@ -14391,6 +14395,7 @@ indexの値を変更する。
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a id='select'></a></p>
 <hr>
 <h1 id="2.&#12288;&#36984;&#25246;">2.&#12288;&#36984;&#25246;<a class="anchor-link" href="#2.&#12288;&#36984;&#25246;">&#182;</a></h1><h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 d = pd.DataFrame(
@@ -14545,6 +14550,7 @@ slice(None)でなく単に : を書けば全選択となる。
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a id='operation'></a></p>
 <hr>
 <h1 id="3.-&#12452;&#12531;&#12487;&#12483;&#12463;&#12473;&#12398;&#25805;&#20316;">3. &#12452;&#12531;&#12487;&#12483;&#12463;&#12473;&#12398;&#25805;&#20316;<a class="anchor-link" href="#3.-&#12452;&#12531;&#12487;&#12483;&#12463;&#12473;&#12398;&#25805;&#20316;">&#182;</a></h1><h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 d = pd.DataFrame(

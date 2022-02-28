@@ -14266,7 +14266,13 @@ a.anchor-link {
 <b>集約(aggregation)</b>はグループ毎に平均値や合計値など一つの値に集約し、<b>変換(transformation)</b>はZ-scoreや構成比の算出などグループ内で各行を別の値に変換し、<b>選択(filteration)</b>は条件にマッチするグループを選択する、といったようにそれぞれでグループ内での処理方法と結果の結合方法が異なる。詳細は、以下の処理別の項を参照されたい。</p>
 <p><img width="50%" src="./figures/groupby/group1.png"></p>
 <hr>
-<h1 id="1.-&#38598;&#32004;&#12289;&#22793;&#25563;&#12289;&#36984;&#25246;&#12398;&#20195;&#34920;&#20363;">1. &#38598;&#32004;&#12289;&#22793;&#25563;&#12289;&#36984;&#25246;&#12398;&#20195;&#34920;&#20363;<a class="anchor-link" href="#1.-&#38598;&#32004;&#12289;&#22793;&#25563;&#12289;&#36984;&#25246;&#12398;&#20195;&#34920;&#20363;">&#182;</a></h1><h1 id="2.-&#38598;&#32004;(aggregation)">2. &#38598;&#32004;(aggregation)<a class="anchor-link" href="#2.-&#38598;&#32004;(aggregation)">&#182;</a></h1><h1 id="3.-&#22793;&#25563;(transformation)">3. &#22793;&#25563;(transformation)<a class="anchor-link" href="#3.-&#22793;&#25563;(transformation)">&#182;</a></h1><h1 id="4.-&#36984;&#25246;(filteration)">4. &#36984;&#25246;(filteration)<a class="anchor-link" href="#4.-&#36984;&#25246;(filteration)">&#182;</a></h1><h1 id="5.&#12381;&#12398;&#20182;">5.&#12381;&#12398;&#20182;<a class="anchor-link" href="#5.&#12381;&#12398;&#20182;">&#182;</a></h1><h1 id="6.&#12464;&#12523;&#12540;&#12503;&#12458;&#12502;&#12472;&#12455;&#12463;&#12488;&#12398;&#21205;&#20316;">6.&#12464;&#12523;&#12540;&#12503;&#12458;&#12502;&#12472;&#12455;&#12463;&#12488;&#12398;&#21205;&#20316;<a class="anchor-link" href="#6.&#12464;&#12523;&#12540;&#12503;&#12458;&#12502;&#12472;&#12455;&#12463;&#12488;&#12398;&#21205;&#20316;">&#182;</a></h1><h3 id="API&#12522;&#12501;&#12449;&#12524;&#12531;&#12473;">API&#12522;&#12501;&#12449;&#12524;&#12531;&#12473;<a class="anchor-link" href="#API&#12522;&#12501;&#12449;&#12524;&#12531;&#12473;">&#182;</a></h3><ul>
+<h3 id="&#30446;&#27425;">&#30446;&#27425;<a class="anchor-link" href="#&#30446;&#27425;">&#182;</a></h3><p><a href="#summary">1. 集約、変換、選択の代表例</a><br>
+<a href="#aggregation">2. 集約(aggregation)</a><br>
+<a href="#transformation">3. 変換(transformation)</a><br>
+<a href="#filteration">4. 選択(filteration)</a><br>
+<a href="#others">5.その他</a><br>
+<a href="#groupobj">6.グループオブジェクトの動作</a><br></p>
+<h3 id="API&#12522;&#12501;&#12449;&#12524;&#12531;&#12473;">API&#12522;&#12501;&#12449;&#12524;&#12531;&#12473;<a class="anchor-link" href="#API&#12522;&#12501;&#12449;&#12524;&#12531;&#12473;">&#182;</a></h3><ul>
 <li><a href="https://pandas.pydata.org/docs/reference/api/pandas.Series.groupby.html">Series.groupby</a></li>
 <li><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.groupby.html">DataFrame.groupby</a></li>
 </ul>
@@ -14280,6 +14286,7 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a id='summary'></a></p>
 <hr>
 <h1 id="1.&#38598;&#32004;&#12289;&#22793;&#25563;&#12289;&#36984;&#25246;&#12398;&#20195;&#34920;&#20363;">1.&#38598;&#32004;&#12289;&#22793;&#25563;&#12289;&#36984;&#25246;&#12398;&#20195;&#34920;&#20363;<a class="anchor-link" href="#1.&#38598;&#32004;&#12289;&#22793;&#25563;&#12289;&#36984;&#25246;&#12398;&#20195;&#34920;&#20363;">&#182;</a></h1><hr>
 <h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
@@ -14326,7 +14333,7 @@ print(dd)
 <td><img width="70%" src="./figures/groupby/group1-2data.png"></td>
 <td><img width="90%" src="./figures/groupby/group1-2.png"></td>
 <td>
-key列をグループとして、v2の累計を計算し、trans列として追加する。集約と異なり、出力の行数は入力の行数に等しくなる。
+key列をグループとして、v1の累計を計算し、trans列として追加する。集約と異なり、出力の行数は入力の行数に等しくなる。
 </td>
 </tr>
 
@@ -14350,6 +14357,7 @@ key列をグループとして、v1の合計が5より大きいグループを�
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a id='aggregation'></a></p>
 <hr>
 <h1 id="2.&#38598;&#32004;(aggregation)">2.&#38598;&#32004;(aggregation)<a class="anchor-link" href="#2.&#38598;&#32004;(aggregation)">&#182;</a></h1><p>aggregationは、グループ毎に一つの値に集約する処理(平均や最大値などの計算)をおこなう。
 出力はグループ数と同じ行数となる。
@@ -14503,6 +14511,7 @@ print(df2.groupby(['k1','k2']).sum())
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a id='transformation'></a></p>
 <hr>
 <h1 id="3.&#22793;&#25563;(transformation)">3.&#22793;&#25563;(transformation)<a class="anchor-link" href="#3.&#22793;&#25563;(transformation)">&#182;</a></h1><p>transformationは、グループ内で各行を変換する処理を行う(z-scoreや構成比の算出など)。入力と出力は同じサイズとなる。
 また、グループ内で集約(例えば平均)を計算した場合、その集約値をグループの各行にブロードキャストされる。
@@ -14703,6 +14712,7 @@ dd
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a id='filteration'></a></p>
 <hr>
 <h1 id="4.&#36984;&#25246;(filteration)">4.&#36984;&#25246;(filteration)<a class="anchor-link" href="#4.&#36984;&#25246;(filteration)">&#182;</a></h1><p>filter()メソッドにTrue/Falseを返す関数を指定し、その条件にマッチするグループのみを選択する。</p>
 <h3 id="filteration&#38306;&#25968;&#19968;&#35239;">filteration&#38306;&#25968;&#19968;&#35239;<a class="anchor-link" href="#filteration&#38306;&#25968;&#19968;&#35239;">&#182;</a></h3><ul>
@@ -14770,6 +14780,7 @@ print(df.groupby('key').get_group('a'))
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a id='others'></a></p>
 <hr>
 <h1 id="5.&#12381;&#12398;&#20182;">5.&#12381;&#12398;&#20182;<a class="anchor-link" href="#5.&#12381;&#12398;&#20182;">&#182;</a></h1><p>上述の３つ(集計、変換、選択)以外の処理。</p>
 <h3 id="&#38306;&#25968;&#19968;&#35239;">&#38306;&#25968;&#19968;&#35239;<a class="anchor-link" href="#&#38306;&#25968;&#19968;&#35239;">&#182;</a></h3><ul>
@@ -14842,6 +14853,7 @@ print(df.groupby('key').corrwith(df2))
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a id='groupobj'></a></p>
 <hr>
 <h1 id="6.&#12464;&#12523;&#12540;&#12503;&#12458;&#12502;&#12472;&#12455;&#12463;&#12488;&#12398;&#21205;&#20316;">6.&#12464;&#12523;&#12540;&#12503;&#12458;&#12502;&#12472;&#12455;&#12463;&#12488;&#12398;&#21205;&#20316;<a class="anchor-link" href="#6.&#12464;&#12523;&#12540;&#12503;&#12458;&#12502;&#12472;&#12455;&#12463;&#12488;&#12398;&#21205;&#20316;">&#182;</a></h1><h3 id="&#20837;&#21147;&#12487;&#12540;&#12479;">&#20837;&#21147;&#12487;&#12540;&#12479;<a class="anchor-link" href="#&#20837;&#21147;&#12487;&#12540;&#12479;">&#182;</a></h3><pre style="overflow-x:auto;white-space:pre;padding: 1em; border-radius: 5px; background: #eeeeee">
 df = pd.DataFrame(
